@@ -1,15 +1,15 @@
 import Head from 'next/head'
-import Link from 'next/link'
+import Index from '../components/Index'
 
-const Index = () => {
+const Home = () => {
     return (
         <>
             <Head>
                 <title>Homepage</title>
             </Head>
-            <Link href='community'>Community</Link>
+            <Index />
         </>
     )
 }
 
-export default Index
+export default Home
