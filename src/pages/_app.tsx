@@ -4,6 +4,7 @@ import { Reset } from 'styled-reset'
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import Head from 'next/head'
+import { GlobalStyle } from '../style/GlobalStyle'
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
     return (
@@ -14,6 +15,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
             <Reset />
             <ToastContainer />
             <Component {...pageProps} />
+            <GlobalStyle />
         </>
     )
 }
