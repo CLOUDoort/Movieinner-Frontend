@@ -5,6 +5,8 @@ import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import Head from 'next/head'
 import { GlobalStyle } from '../style/GlobalStyle'
+import Header from '../components/Header/Header'
+import Footer from '../components/Footer/Footer'
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
     return (
@@ -12,10 +14,12 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
             <Head>
                 <meta charSet='utf-8' />
             </Head>
+            <Header />
             <Reset />
             <ToastContainer />
             <Component {...pageProps} />
             <GlobalStyle />
+            <Footer />
         </>
     )
 }
