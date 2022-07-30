@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import Community from '../components/Community'
+import Community from '../components/Community/Community'
 
 const community = () => {
     return (
