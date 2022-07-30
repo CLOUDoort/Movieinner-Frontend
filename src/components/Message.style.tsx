@@ -1,5 +1,10 @@
 import styled from '@emotion/styled'
 
+export const Header = styled.head`
+    display: flex;
+    flex-direction: row;
+`
+
 export const DivContainer = styled.div`
     text-align: center;
     color: blue;

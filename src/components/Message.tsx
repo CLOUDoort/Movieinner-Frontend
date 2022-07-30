@@ -1,14 +1,23 @@
-import { DivContainer, FormContainer } from './Communityone.style'
+import Link from 'next/link'
+import { DivContainer, FormContainer } from './Message.style'
 
 const handleSubmit = (e) => {
     e.preventDefault()
 }
 
-const Communityone = () => {
+const Message = () => {
     return (
         <>
+            <header>
+                <div>
+                    <Link href='/'>MovieInner</Link>
+                </div>
+                <div>
+                    <Link href='/'>로그인</Link>
+                    <Link href='/'>회원가입</Link>
+                </div>
+            </header>
             <DivContainer>
-                <p>community</p>
                 <FormContainer onSubmit={handleSubmit}>
                     <div>
                         <input type='text' name='title' placeholder='제목을 입력하세요' />
@@ -24,4 +33,4 @@ const Communityone = () => {
     )
 }
 
-export default Communityone
+export default Message

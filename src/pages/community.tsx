@@ -1,15 +1,15 @@
 import Head from 'next/head'
-import Communityone from '../components/Communityone'
+import Message from '../components/Message'
 
-const Community = () => {
+const community = () => {
     return (
         <>
             <Head>
                 <title>Commutity</title>
             </Head>
-            <Communityone />
+            <Message />
         </>
     )
 }
 
-export default Community
+export default community
