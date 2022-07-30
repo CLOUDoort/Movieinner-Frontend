@@ -24,5 +24,6 @@ export const SecondHearderDiv = styled.div`
     }
     > p {
         font-weight: bold;
+        font-size: 50px;
     }
 `

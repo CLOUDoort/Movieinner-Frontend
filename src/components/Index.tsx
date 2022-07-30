@@ -1,11 +1,11 @@
-import { Divcontainer } from './Index.style'
+import { DivContainer } from './Index.style'
 
 const Index = () => {
     return (
         <>
-            <Divcontainer>
+            <DivContainer>
                 <p>Index</p>
-            </Divcontainer>
+            </DivContainer>
         </>
     )
 }

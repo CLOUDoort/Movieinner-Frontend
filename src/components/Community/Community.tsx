@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { DivContainer, FormContainer } from './Community.style'
+import { DivContainer } from './Community.style'
 
 const handleWrite = (e) => {
     e.preventDefault()

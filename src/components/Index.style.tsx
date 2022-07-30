@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
 
-export const Divcontainer = styled.div`
+export const DivContainer = styled.div`
     text-align: center;
     margin-top: 100px;
     height: 1100px;
