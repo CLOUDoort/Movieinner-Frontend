@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import Message from '../components/Message'
+import Community from '../components/Community'
 
 const community = () => {
     return (
@@ -7,7 +7,7 @@ const community = () => {
             <Head>
                 <title>Commutity</title>
             </Head>
-            <Message />
+            <Community />
         </>
     )
 }

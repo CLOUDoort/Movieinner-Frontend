@@ -1,22 +1,15 @@
-import Link from 'next/link'
-import { DivContainer, FormContainer } from './Message.style'
+import Footer from './Footer/Footer'
+import Header from './Header/Header'
+import { DivContainer, FormContainer } from './Community.style'
 
 const handleSubmit = (e) => {
     e.preventDefault()
 }
 
-const Message = () => {
+const Community = () => {
     return (
         <>
-            <header>
-                <div>
-                    <Link href='/'>MovieInner</Link>
-                </div>
-                <div>
-                    <Link href='/'>로그인</Link>
-                    <Link href='/'>회원가입</Link>
-                </div>
-            </header>
+            <Header />
             <DivContainer>
                 <FormContainer onSubmit={handleSubmit}>
                     <div>
@@ -29,8 +22,9 @@ const Message = () => {
                 </FormContainer>
                 <hr></hr>
             </DivContainer>
+            <Footer />
         </>
     )
 }
 
-export default Message
+export default Community

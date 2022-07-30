@@ -9,6 +9,7 @@ export const DivContainer = styled.div`
     text-align: center;
     color: blue;
     font-size: 30px;
+    height: 800px;
 `
 
 export const FormContainer = styled.form`
