@@ -9,7 +9,7 @@ export const GlobalStyle = () => {
                 }
                 body {
                     box-sizing: border-box;
-                    background-color: rgb(91, 91, 91);
+                    background-color: #faf4eb;
                 }
             `}
         />

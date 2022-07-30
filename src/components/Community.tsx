@@ -12,6 +12,7 @@ const Community = () => {
             <Header />
             <DivContainer>
                 <FormContainer onSubmit={handleSubmit}>
+                    <p>리뷰 / 커뮤니티</p>
                     <div>
                         <input type='text' name='title' placeholder='제목을 입력하세요' />
                     </div>

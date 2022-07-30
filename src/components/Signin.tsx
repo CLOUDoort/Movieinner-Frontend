@@ -1,5 +1,13 @@
+import Footer from './Footer/Footer'
+import Header from './Header/Header'
+
 const Signin = () => {
-    return <></>
+    return (
+        <>
+            <Header />
+            <Footer />
+        </>
+    )
 }
 
 export default Signin

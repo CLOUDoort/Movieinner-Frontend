@@ -17,6 +17,7 @@ const Header = () => {
                     <Link href='/theme'>테마</Link>
                     <p>Movie Inner</p>
                     <Link href='/community'>리뷰</Link>
+                    <Link href='/community'>커뮤니티</Link>
                     <Link href='/signIn'>로그인</Link>
                 </SecondHearderDiv>
             </HeaderContainer>
