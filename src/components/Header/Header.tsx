@@ -1,11 +1,11 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import search from '../../../public/search.png'
-import { FirstHeaderDiv, HeaderContainer, SecondHearderDiv, SecondHearderNavDiv, SecondHearderSearchDiv } from './Header.style'
+import { FirstHeaderDiv, SecondHearderDiv, SecondHearderNavDiv, SecondHearderSearchDiv } from './Header.style'
 
 const Header = () => {
     return (
-        <HeaderContainer>
+        <header>
             <FirstHeaderDiv>
                 <Link href='/signIn'>로그인</Link>
                 <Link href='/signUp'>회원가입</Link>
@@ -27,7 +27,7 @@ const Header = () => {
                     <input type='button' value='검색하기' />
                 </SecondHearderSearchDiv>
             </SecondHearderDiv>
-        </HeaderContainer>
+        </header>
     )
 }
 

@@ -1,8 +1,5 @@
 import styled from '@emotion/styled'
 
-export const HeaderContainer = styled.header`
-    height: 110px;
-`
 export const FirstHeaderDiv = styled.div`
     background-color: black;
     height: 30px;
@@ -25,10 +22,6 @@ export const SecondHearderDiv = styled.div`
     background-color: #4b4242;
     height: 70px;
     color: white;
-    > p {
-        font-weight: bold;
-        font-size: 50px;
-    }
 `
 export const SecondHearderNavDiv = styled.div`
     display: flex;
@@ -44,11 +37,13 @@ export const SecondHearderNavDiv = styled.div`
 `
 
 export const SecondHearderSearchDiv = styled.div`
+    display: flex;
+    flex-direction: row;
     > input {
         border: none;
         color: white;
         background-color: #4b4242;
-        margin-right: 20px;
+        margin-right: 50px;
         font-size: 20px;
     }
 `

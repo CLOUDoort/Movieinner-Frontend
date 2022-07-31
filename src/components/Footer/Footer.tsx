@@ -1,11 +1,19 @@
+import Link from 'next/link'
 import { FooterDiv } from './Footer.style'
 
 const Footer = () => {
     return (
         <>
             <FooterDiv>
-                <p>COPYRIGHT</p>
-                <p>Github</p>
+                <div>COPYRIGHT</div>
+                <div>
+                    <div>
+                        <Link href='/'>Frontend Github</Link>
+                    </div>
+                    <div>
+                        <Link href='/'>Backend Github</Link>
+                    </div>
+                </div>
             </FooterDiv>
         </>
     )
