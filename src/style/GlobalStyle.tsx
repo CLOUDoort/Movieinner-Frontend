@@ -9,7 +9,16 @@ export const GlobalStyle = () => {
                 }
                 body {
                     box-sizing: border-box;
-                    background-color: #faf4eb;
+                    background-color: #2e2e2e;
+                    color: white;
+                }
+                a {
+                    text-decoration-line: none;
+                    color: white;
+                    cursor: pointer;
+                }
+                a:hover {
+                    text-decoration-line: underline;
                 }
             `}
         />

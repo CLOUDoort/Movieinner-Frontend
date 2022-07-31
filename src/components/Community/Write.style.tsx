@@ -30,10 +30,7 @@ export const FormContainer = styled.form`
         border: none;
         border-radius: 10px;
         background-color: #b0aeae;
-        padding-top: 8px;
-        padding-bottom: 8px;
-        padding-left: 16px;
-        padding-right: 16px;
+        padding: 8px 16px;
     }
 `
 
