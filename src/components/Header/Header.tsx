@@ -23,7 +23,12 @@ const Header = () => {
                     </div>
                 </SecondHearderNavDiv>
                 <SecondHearderSearchDiv>
-                    <Image src={search} width={36} height={36} alt='This picture is search button' />
+                    <svg xmlns='http://www.w3.org/2000/svg' fill='none' stroke='currentColor' viewBox='0 0 24 24' className='humbleicons hi-search'>
+                        <g xmlns='http://www.w3.org/2000/svg' stroke='currentColor' strokeWidth='2'>
+                            <path strokeLinecap='round' d='M20 20l-6-6' />
+                            <path d='M15 9.5a5.5 5.5 0 11-11 0 5.5 5.5 0 0111 0z' />
+                        </g>
+                    </svg>
                     <input type='button' value='검색하기' />
                 </SecondHearderSearchDiv>
             </SecondHearderDiv>

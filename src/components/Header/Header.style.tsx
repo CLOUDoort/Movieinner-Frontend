@@ -39,6 +39,9 @@ export const SecondHearderNavDiv = styled.div`
 export const SecondHearderSearchDiv = styled.div`
     display: flex;
     flex-direction: row;
+    > svg {
+        width: 36px;
+    }
     > input {
         border: none;
         color: white;

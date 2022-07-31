@@ -5,7 +5,7 @@ const Home = () => {
     return (
         <>
             <Head>
-                <title>Homepage</title>
+                <title>Movie Inner</title>
             </Head>
             <Index />
         </>
