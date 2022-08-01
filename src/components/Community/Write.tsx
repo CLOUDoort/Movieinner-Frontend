@@ -1,5 +1,4 @@
-import { DivContainer, DivWriteBox, FormContainer, InputBody } from './Write.style'
-import Editor from './Editor'
+import TiptapEditor from './TiptapEditor'
 
 const Write = () => {
     const handleSubmit = (e) => {
@@ -10,7 +9,7 @@ const Write = () => {
 
     return (
         <>
-            <Editor />
+            <TiptapEditor />
         </>
     )
 }
