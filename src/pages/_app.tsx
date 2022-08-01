@@ -12,6 +12,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
     return (
         <>
             <Head>
+                <title>Movie Inner</title>
                 <meta charSet='utf-8' />
             </Head>
             <Header />

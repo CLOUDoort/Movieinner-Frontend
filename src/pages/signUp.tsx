@@ -1,15 +1,7 @@
-import Head from 'next/head'
 import Signup from '../components/Signup'
 
-const signUp = () => {
-    return (
-        <>
-            <Head>
-                <title>회원가입</title>
-            </Head>
-            <Signup />
-        </>
-    )
+const signup = () => {
+    return <Signup />
 }
 
-export default signUp
+export default signup

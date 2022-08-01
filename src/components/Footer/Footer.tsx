@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import { FooterDiv } from './Footer.style'
 
 const Footer = () => {
@@ -8,10 +7,14 @@ const Footer = () => {
                 <div>COPYRIGHT</div>
                 <div>
                     <div>
-                        <Link href='/'>Frontend Github</Link>
+                        <a target='_blank' rel='noreferrer' href='https://github.com/CLOUDoort/movieinner-project-frontend'>
+                            Frontend Github
+                        </a>
                     </div>
                     <div>
-                        <Link href='/'>Backend Github</Link>
+                        <a target='_blank' rel='noreferrer' href='https://github.com/HoonDongKang/movieinner-project-backend'>
+                            Backend Github
+                        </a>
                     </div>
                 </div>
             </FooterDiv>

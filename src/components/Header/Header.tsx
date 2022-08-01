@@ -1,14 +1,12 @@
-import Image from 'next/image'
 import Link from 'next/link'
-import search from '../../../public/search.png'
 import { FirstHeaderDiv, SecondHearderDiv, SecondHearderNavDiv, SecondHearderSearchDiv } from './Header.style'
 
 const Header = () => {
     return (
         <header>
             <FirstHeaderDiv>
-                <Link href='/signIn'>로그인</Link>
-                <Link href='/signUp'>회원가입</Link>
+                <Link href='/login'>로그인</Link>
+                <Link href='/signup'>회원가입</Link>
             </FirstHeaderDiv>
             <SecondHearderDiv>
                 <SecondHearderNavDiv>

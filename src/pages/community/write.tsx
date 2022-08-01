@@ -1,15 +1,7 @@
-import Head from 'next/head'
 import Write from '../../components/Community/Write'
 
-const signIn = () => {
-    return (
-        <>
-            <Head>
-                <title>글쓰기</title>
-            </Head>
-            <Write />
-        </>
-    )
+const write = () => {
+    return <Write />
 }
 
-export default signIn
+export default write
