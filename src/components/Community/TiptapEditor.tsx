@@ -14,8 +14,10 @@ const TiptapEditor = (props) => {
     })
     return (
         <>
-            <EditorContent editor={editor} />
-            <EditorMenu editor={editor} />
+            <div>
+                <EditorMenu editor={editor} />
+                <EditorContent editor={editor} />
+            </div>
         </>
     )
 }
