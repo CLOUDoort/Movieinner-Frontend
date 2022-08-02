@@ -1,9 +1,9 @@
 import Link from 'next/link'
-import { FirstHeaderDiv, SecondHearderDiv, SecondHearderNavDiv, SecondHearderSearchDiv } from './Header.style'
+import { FirstHeaderDiv, HeaderContainer, SecondHearderDiv, SecondHearderNavDiv, SecondHearderSearchDiv } from './Header.style'
 
 const Header = () => {
     return (
-        <header>
+        <HeaderContainer>
             <FirstHeaderDiv>
                 <Link href='/login'>로그인</Link>
                 <Link href='/signup'>회원가입</Link>
@@ -30,7 +30,7 @@ const Header = () => {
                     <input type='button' value='검색하기' />
                 </SecondHearderSearchDiv>
             </SecondHearderDiv>
-        </header>
+        </HeaderContainer>
     )
 }
 

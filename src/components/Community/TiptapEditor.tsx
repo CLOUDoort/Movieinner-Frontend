@@ -6,7 +6,7 @@ import Text from '@tiptap/extension-text'
 import StarterKit from '@tiptap/starter-kit'
 import EditorMenu from './EditorMenu'
 
-const TiptapEditor = (props) => {
+const TiptapEditor = (props: any) => {
     const editor = useEditor({
         extensions: [StarterKit, Document, Paragraph, Text],
         content: props.content,

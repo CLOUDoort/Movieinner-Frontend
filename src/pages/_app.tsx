@@ -1,6 +1,5 @@
 import type { AppProps } from 'next/app'
 import * as React from 'react'
-import { Reset } from 'styled-reset'
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import Head from 'next/head'
@@ -16,7 +15,6 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
                 <meta charSet='utf-8' />
             </Head>
             <Header />
-            <Reset />
             <ToastContainer />
             <Component {...pageProps} />
             <GlobalStyle />
