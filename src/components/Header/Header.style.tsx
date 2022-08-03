@@ -6,6 +6,8 @@ export const HeaderContainer = styled.header`
     left: 0;
     right: 0;
     height: 90px;
+    display: flex;
+    flex-direction: column;
 `
 
 export const FirstHeaderDiv = styled.div`
@@ -23,31 +25,39 @@ export const FirstHeaderDiv = styled.div`
 `
 
 export const SecondHearderDiv = styled.div`
+    flex: 1;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     background-color: #4b4242;
-    height: 60px;
     color: white;
 `
 export const SecondHearderNavDiv = styled.div`
-    max-width: 900px;
     display: flex;
     flex-direction: row;
     align-items: center;
     margin-left: 50px;
-    div {
-        margin-left: 50px;
-    }
     a {
         margin-right: 20px;
     }
 `
 
+export const TitleDiv = styled.div`
+    width: 150px;
+    margin-left: 50px;
+    flex-shrink: 0;
+`
+
+export const NavDiv = styled.div`
+    width: auto;
+`
+
 export const SecondHearderSearchDiv = styled.div`
+    justify-content: end;
     display: flex;
     flex-direction: row;
+    flex-shrink: 0;
     > svg {
         width: 36px;
     }

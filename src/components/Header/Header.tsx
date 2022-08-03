@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { FirstHeaderDiv, HeaderContainer, SecondHearderDiv, SecondHearderNavDiv, SecondHearderSearchDiv } from './Header.style'
+import { FirstHeaderDiv, HeaderContainer, NavDiv, SecondHearderDiv, SecondHearderNavDiv, SecondHearderSearchDiv, TitleDiv } from './Header.style'
 
 const Header = () => {
     return (
@@ -10,15 +10,15 @@ const Header = () => {
             </FirstHeaderDiv>
             <SecondHearderDiv>
                 <SecondHearderNavDiv>
-                    <div>Movie Inner</div>
-                    <div>
+                    <TitleDiv>Movie Inner</TitleDiv>
+                    <NavDiv>
                         <Link href='/'>홈</Link>
                         <Link href='/'>카테고리</Link>
                         <Link href='/community'>리뷰</Link>
                         <Link href='/community'>커뮤니티</Link>
                         <Link href='/theme'>테마</Link>
                         <Link href='/theme'>마이페이지</Link>
-                    </div>
+                    </NavDiv>
                 </SecondHearderNavDiv>
                 <SecondHearderSearchDiv>
                     <svg xmlns='http://www.w3.org/2000/svg' fill='none' stroke='currentColor' viewBox='0 0 24 24' className='humbleicons hi-search'>
