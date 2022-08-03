@@ -1,6 +1,7 @@
 import styled from '@emotion/styled'
 
 export const LoginContainerDiv = styled.div`
+    min-height: 1000px;
     height: 1000px;
     margin: 20px;
     text-align: center;
@@ -40,9 +41,82 @@ export const FormContainer = styled.form`
     }
 `
 
+export const LoginSustainDiv = styled.div`
+    display: flex;
+    align-items: center;
+`
+
 export const SubmitInput = styled.input`
     width: 200px;
     margin: auto;
     margin-top: 20px;
     cursor: pointer;
+`
+
+export const LoginSecondDiv = styled.div`
+    display: flex;
+    justify-content: center;
+    > button {
+        font-size: 18px;
+        background-color: #2e2e2e;
+        color: #b0aeae;
+        border: none;
+        border-radius: 5px;
+        padding: 8px 16px;
+        width: 213px;
+        cursor: pointer;
+    }
+`
+
+export const HorizontalRule = styled.hr`
+    width: 600px;
+    margin-top: 50px;
+`
+
+export const SocialLoginServiceDiv = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 600px;
+    margin-bottom: 30px;
+    > div {
+        width: 600px;
+        border: none;
+        border-radius: 5px;
+        padding: 16px 32px;
+        margin-bottom: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    > div > input {
+        cursor: pointer;
+        border: none;
+        font-size: 20px;
+    }
+    > input:hover {
+        text-decoration-line: underline;
+    }
+`
+
+export const GoogleLogin = styled.div`
+    background-color: white;
+    > input {
+        background-color: white;
+    }
+`
+export const NaverLogin = styled.div`
+    background-color: #07c907;
+    > input {
+        color: white;
+        background-color: #07c907;
+    }
+`
+export const KakaoLogin = styled.div`
+    background-color: #fceb02;
+    > input {
+        background-color: #fceb02;
+        color: black;
+    }
 `

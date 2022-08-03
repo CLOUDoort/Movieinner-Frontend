@@ -20,7 +20,8 @@ export const GlobalStyle = () => {
                         color: white;
                         cursor: pointer;
                     }
-                    a:hover {
+                    a:hover,
+                    button:hover {
                         text-decoration-line: underline;
                     }
                 `}

@@ -32,6 +32,7 @@ export const SecondHearderDiv = styled.div`
     color: white;
 `
 export const SecondHearderNavDiv = styled.div`
+    max-width: 900px;
     display: flex;
     flex-direction: row;
     align-items: center;
