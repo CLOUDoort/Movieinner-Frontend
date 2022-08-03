@@ -5,7 +5,7 @@ export const HeaderContainer = styled.header`
     top: 0;
     left: 0;
     right: 0;
-    height: 100px;
+    height: 90px;
 `
 
 export const FirstHeaderDiv = styled.div`
@@ -28,7 +28,7 @@ export const SecondHearderDiv = styled.div`
     justify-content: space-between;
     align-items: center;
     background-color: #4b4242;
-    height: 70px;
+    height: 60px;
     color: white;
 `
 export const SecondHearderNavDiv = styled.div`

@@ -1,7 +1,6 @@
 import styled from '@emotion/styled'
 
 export const LoginContainerDiv = styled.div`
-    min-height: 1000px;
     height: 1000px;
     margin: 20px;
     text-align: center;
