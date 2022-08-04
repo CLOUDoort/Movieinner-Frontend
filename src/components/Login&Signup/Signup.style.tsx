@@ -1,7 +1,7 @@
 import styled from '@emotion/styled'
 
 export const SignupContainerDiv = styled.div`
-    height: 490px;
+    height: 1000px;
     margin: 20px;
     text-align: center;
     box-shadow: 1px 2px 6px rgba(255, 255, 255, 0.5);
@@ -48,7 +48,7 @@ export const CurrentStatusDiv = styled.div`
     flex: 1;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-end;
     margin-top: 80px;
     position: relative;
 `
@@ -60,11 +60,13 @@ export const CurrentTextDiv = styled.div`
     justify-content: space-between;
     font-size: 15px;
     position: absolute;
-    margin-bottom: 100px;
+    z-index: 100;
+    bottom: 110px;
 `
 export const HorizontalRule = styled.div`
     width: 600px;
     position: relative;
+    margin-top: 500px;
 `
 
 export const CircleBox = styled.div`
@@ -74,6 +76,7 @@ export const CircleBox = styled.div`
     align-items: center;
     width: 600px;
     position: absolute;
+    top: 540px;
 `
 export const StatusCircleDiv = styled.div`
     background-color: #3434f2;
