@@ -34,8 +34,8 @@ const Login = () => {
                     <div>PW</div>
                     <input type='password' name='pw' placeholder='비밀번호를 입력하세요' />
                     <LoginSustainDiv>
-                        <div>로그인 유지하기</div>
                         <input type='checkbox' />
+                        <div>로그인 유지하기</div>
                     </LoginSustainDiv>
                     <SubmitInput type='submit' value='로그인' />
                 </FormContainer>
