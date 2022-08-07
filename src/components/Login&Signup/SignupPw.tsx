@@ -14,14 +14,16 @@ const handleSubmit = (e) => {
     e.preventDefault()
 }
 
-const Signup = () => {
+const Signuppw = () => {
     return (
         <>
             <SignupContainerDiv>
-                <div>회원가입</div>
+                <div>비밀번호 설정</div>
                 <EmailForm onSubmit={handleSubmit}>
-                    <input type='email' name='email' placeholder='비밀번호를 입력해주세요' />
-                    <button>인증 메일 발송!</button>
+                    <div>비밀번호</div>
+                    <input type='pw' name='password' placeholder='비밀번호를 입력해주세요' />
+                    <div>비밀번호 확인</div>
+                    <input type='pw' name='pwCheck' placeholder='비밀번호를 다시 입력해주세요' />
                 </EmailForm>
                 <CurrentStatusDiv>
                     <CurrentTextDiv>
@@ -34,7 +36,7 @@ const Signup = () => {
                     </HorizontalRule>
                     <CircleBox>
                         <StatusCircleDiv></StatusCircleDiv>
-                        <CircleDiv></CircleDiv>
+                        <StatusCircleDiv></StatusCircleDiv>
                         <CircleDiv></CircleDiv>
                     </CircleBox>
                 </CurrentStatusDiv>
@@ -46,4 +48,4 @@ const Signup = () => {
     )
 }
 
-export default Signup
+export default Signuppw

@@ -1,24 +1,59 @@
 import styled from '@emotion/styled'
 
-export const SignupContainerDiv = styled.div`
+export const SignupInfoContainer = styled.div`
     height: 1100px;
-    margin: 20px;
+    display: flex;
+    flex-direction: column;
     text-align: center;
     box-shadow: 1px 2px 6px rgba(255, 255, 255, 0.5);
+    margin: 20px;
+`
+
+export const TitleDiv = styled.div`
     display: flex;
-    flex-direction: column;
-    > div {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-size: 30px;
-        height: 70px;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    height: 70px;
+`
+
+export const UserProfile = styled.div`
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    > img {
+        background-color: white;
     }
 `
-export const EmailForm = styled.form`
+
+export const UserInfoDiv = styled.div`
     display: flex;
     flex-direction: column;
-    height: 150px;
+    align-items: baseline;
+    margin-left: 20px;
+    > label {
+        width: 200px;
+        display: inline-block;
+        padding: 8px;
+        background-color: #3b3939;
+        color: white;
+        cursor: pointer;
+        font-size: 20px;
+    }
+    > input {
+        width: 400px;
+        border: none;
+        font-size: 20px;
+        padding: 10px;
+        background-color: #3b3939;
+        margin-bottom: 20px;
+    }
+`
+
+export const UserInfo = styled.div`
+    display: flex;
+    flex-direction: column;
     margin: auto;
     > div {
         display: inline-block;
@@ -32,16 +67,20 @@ export const EmailForm = styled.form`
         border: none;
         margin-bottom: 10px;
         color: white;
+        margin: auto;
     }
+`
+export const UserSex = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
     > button {
-        width: 600px;
-        margin-top: 20px;
-        font-size: 20px;
-        padding: 8px 16px;
-        background-color: black;
         border: none;
-        margin-bottom: 10px;
         color: white;
+        background-color: black;
+        padding: 8px 12px;
+        font-size: 20px;
+        width: 300px;
     }
 `
 
@@ -49,7 +88,8 @@ export const CurrentStatusDiv = styled.div`
     flex: 1;
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
+    justify-content: center;
+    align-items: center;
     margin-top: 80px;
     position: relative;
 `
@@ -62,12 +102,11 @@ export const CurrentTextDiv = styled.div`
     font-size: 15px;
     position: absolute;
     z-index: 100;
-    bottom: 150px;
 `
 export const HorizontalRule = styled.div`
     width: 600px;
     position: relative;
-    margin-top: 520px;
+    margin-top: 420px;
 `
 
 export const CircleBox = styled.div`
@@ -77,7 +116,6 @@ export const CircleBox = styled.div`
     align-items: center;
     width: 600px;
     position: absolute;
-    top: 600px;
 `
 export const StatusCircleDiv = styled.div`
     background-color: #3434f2;

@@ -33,7 +33,7 @@ export const SecondHearderDiv = styled.div`
     background-color: #4b4242;
     color: white;
 `
-export const SecondHearderNavDiv = styled.div`
+export const SecondHearderNav = styled.nav`
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -51,6 +51,8 @@ export const TitleDiv = styled.div`
 
 export const NavDiv = styled.div`
     width: auto;
+    @media (max-width: 810px) {
+    }
 `
 
 export const SecondHearderSearchDiv = styled.div`
@@ -67,5 +69,6 @@ export const SecondHearderSearchDiv = styled.div`
         background-color: #4b4242;
         margin-right: 50px;
         font-size: 20px;
+        cursor: pointer;
     }
 `

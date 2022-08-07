@@ -18,8 +18,9 @@ const Signup = () => {
     return (
         <>
             <SignupContainerDiv>
-                <div>회원가입</div>
+                <div>회원 이메일 인증</div>
                 <EmailForm onSubmit={handleSubmit}>
+                    <div>Email</div>
                     <input type='email' name='email' placeholder='이메일을 입력해주세요' />
                     <button>인증 메일 발송!</button>
                 </EmailForm>

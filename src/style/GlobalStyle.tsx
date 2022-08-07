@@ -21,12 +21,12 @@ export const GlobalStyle = () => {
                         color: white;
                         cursor: pointer;
                     }
-                    a:hover,
-                    button:hover {
-                        text-decoration-line: underline;
-                    }
                     button {
                         cursor: pointer;
+                        border-radius: 5px;
+                    }
+                    input {
+                        border-radius: 5px;
                     }
                 `}
             />

@@ -42,7 +42,7 @@ export const FormContainer = styled.form`
 
 export const LoginSustainDiv = styled.div`
     display: flex;
-    align-items: center;
+    align-items: baseline;
 `
 
 export const SubmitInput = styled.input`
