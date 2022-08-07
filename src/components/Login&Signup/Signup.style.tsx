@@ -7,6 +7,8 @@ export const SignupContainerDiv = styled.div`
     box-shadow: 1px 2px 6px rgba(255, 255, 255, 0.5);
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     > div {
         display: flex;
         justify-content: center;
@@ -18,11 +20,9 @@ export const SignupContainerDiv = styled.div`
 export const EmailForm = styled.form`
     display: flex;
     flex-direction: column;
-    height: 150px;
-    margin: auto;
     > div {
-        display: inline-block;
         text-align: start;
+        margin-bottom: 10px;
     }
     > input {
         width: 600px;
@@ -36,7 +36,7 @@ export const EmailForm = styled.form`
     > button {
         width: 600px;
         margin-top: 20px;
-        font-size: 20px;
+        font-size: 18px;
         padding: 8px 16px;
         background-color: black;
         border: none;
@@ -49,7 +49,8 @@ export const CurrentStatusDiv = styled.div`
     flex: 1;
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
+    justify-content: end;
+    align-items: center;
     margin-top: 80px;
     position: relative;
 `
@@ -62,12 +63,11 @@ export const CurrentTextDiv = styled.div`
     font-size: 15px;
     position: absolute;
     z-index: 100;
-    bottom: 150px;
 `
 export const HorizontalRule = styled.div`
     width: 600px;
+    margin-bottom: 80px;
     position: relative;
-    margin-top: 520px;
 `
 
 export const CircleBox = styled.div`
@@ -77,7 +77,6 @@ export const CircleBox = styled.div`
     align-items: center;
     width: 600px;
     position: absolute;
-    top: 600px;
 `
 export const StatusCircleDiv = styled.div`
     background-color: #3434f2;

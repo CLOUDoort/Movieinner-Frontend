@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import {
     CircleBox,
     CircleDiv,
@@ -10,18 +11,24 @@ import {
     StatusCircleDiv,
 } from './Signup.style'
 
-const handleSubmit = (e) => {
-    e.preventDefault()
-}
-
 const Signup = () => {
+    const [email, setEmail] = useState('')
+
+    const handleChange = (e) => {
+        e.preventDefault()
+        const { value } = e.target
+        setEmail(value)
+    }
+    const handleSubmit = (e) => {
+        e.preventDefault()
+    }
     return (
         <>
             <SignupContainerDiv>
                 <div>회원 이메일 인증</div>
                 <EmailForm onSubmit={handleSubmit}>
                     <div>Email</div>
-                    <input type='email' name='email' placeholder='이메일을 입력해주세요' />
+                    <input type='email' name='email' value={email} placeholder='이메일을 입력해주세요' onChange={handleChange} />
                     <button>인증 메일 발송!</button>
                 </EmailForm>
                 <CurrentStatusDiv>

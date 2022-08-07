@@ -4,6 +4,8 @@ export const SignupInfoContainer = styled.div`
     height: 1100px;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     text-align: center;
     box-shadow: 1px 2px 6px rgba(255, 255, 255, 0.5);
     margin: 20px;
@@ -22,8 +24,9 @@ export const UserProfile = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    > img {
-        background-color: white;
+    > span {
+        z-index: -1;
+        border-radius: 50%;
     }
 `
 
@@ -48,16 +51,19 @@ export const UserInfoDiv = styled.div`
         padding: 10px;
         background-color: #3b3939;
         margin-bottom: 20px;
+        color: white;
     }
 `
 
 export const UserInfo = styled.div`
     display: flex;
     flex-direction: column;
-    margin: auto;
+    justify-content: center;
+    width: 600px;
+    margin-top: 50px;
     > div {
-        display: inline-block;
         text-align: start;
+        margin-bottom: 10px;
     }
     > input {
         width: 600px;
@@ -65,22 +71,22 @@ export const UserInfo = styled.div`
         padding: 8px 16px;
         background-color: black;
         border: none;
-        margin-bottom: 10px;
         color: white;
-        margin: auto;
+        margin-bottom: 20px;
     }
 `
 export const UserSex = styled.div`
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     > button {
         border: none;
         color: white;
         background-color: black;
         padding: 8px 12px;
         font-size: 20px;
-        width: 300px;
+        width: 250px;
+        margin-bottom: 20px;
     }
 `
 
@@ -88,7 +94,7 @@ export const CurrentStatusDiv = styled.div`
     flex: 1;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: end;
     align-items: center;
     margin-top: 80px;
     position: relative;
@@ -105,8 +111,8 @@ export const CurrentTextDiv = styled.div`
 `
 export const HorizontalRule = styled.div`
     width: 600px;
+    margin-bottom: 80px;
     position: relative;
-    margin-top: 420px;
 `
 
 export const CircleBox = styled.div`

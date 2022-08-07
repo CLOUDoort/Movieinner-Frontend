@@ -60,6 +60,16 @@ export const SecondHearderSearchDiv = styled.div`
     display: flex;
     flex-direction: row;
     flex-shrink: 0;
+    > button {
+        border: none;
+        background-color: white;
+        width: 36px;
+        margin-right: 10px;
+        transition: background-color, 0.2s;
+    }
+    > button:hover {
+        background-color: #a2a1a1;
+    }
     > svg {
         width: 36px;
     }

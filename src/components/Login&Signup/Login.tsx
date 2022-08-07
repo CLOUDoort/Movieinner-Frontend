@@ -16,12 +16,24 @@ import {
 import { FcGoogle } from 'react-icons/fc'
 import { SiNaver } from 'react-icons/si'
 import { RiKakaoTalkFill } from 'react-icons/ri'
-
-const handleSubmit = (e) => {
-    e.preventDefault()
-}
+import { useState } from 'react'
 
 const Login = () => {
+    const [values, setValues] = useState({
+        email: '',
+        pw: '',
+    })
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+    }
+
+    const handleChange = (e) => {
+        e.preventDefault()
+
+        const { name, value } = e.target
+        setValues({ ...values, [name]: value })
+    }
     return (
         <LoginContainerDiv>
             <LoginDiv>
@@ -29,10 +41,10 @@ const Login = () => {
             </LoginDiv>
             <FormDiv>
                 <FormContainer onSubmit={handleSubmit}>
-                    <div>EMAIL</div>
-                    <input type='email' name='email' placeholder='이메일을 입력하세요' />
-                    <div>PW</div>
-                    <input type='password' name='pw' placeholder='비밀번호를 입력하세요' />
+                    <div>Email</div>
+                    <input type='email' name='email' onChange={handleChange} placeholder='이메일을 입력하세요' />
+                    <div>Password</div>
+                    <input type='password' name='pw' onChange={handleChange} placeholder='비밀번호를 입력하세요' />
                     <LoginSustainDiv>
                         <input type='checkbox' />
                         <div>로그인 유지하기</div>

@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { MdNightlight } from 'react-icons/md'
 import { FirstHeaderDiv, HeaderContainer, NavDiv, SecondHearderDiv, SecondHearderNav, SecondHearderSearchDiv, TitleDiv } from './Header.style'
 
 const Header = () => {
@@ -21,6 +22,9 @@ const Header = () => {
                     </NavDiv>
                 </SecondHearderNav>
                 <SecondHearderSearchDiv>
+                    <button>
+                        <MdNightlight />
+                    </button>
                     <svg xmlns='http://www.w3.org/2000/svg' fill='none' stroke='currentColor' viewBox='0 0 24 24' className='humbleicons hi-search'>
                         <g xmlns='http://www.w3.org/2000/svg' stroke='currentColor' strokeWidth='2'>
                             <path strokeLinecap='round' d='M20 20l-6-6' />
