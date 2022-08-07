@@ -24,7 +24,7 @@ const Signupinfo = () => {
             <SignupInfoContainer>
                 <TitleDiv>회원 정보 입력</TitleDiv>
                 <UserProfile>
-                    <Image src={image} width={200} height={200} />
+                    <Image src={image} width={200} height={200} alt='이미지입니다.' />
                     <UserInfoDiv>
                         <input type='text' placeholder='닉네임을 입력하세요' />
                         <label htmlFor='input-file'>이미지 선택</label>
