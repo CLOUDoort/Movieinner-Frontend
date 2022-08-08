@@ -57,7 +57,7 @@ const Signupinfo = () => {
                 </CircleBox>
             </CurrentStatusDiv>
             <div>
-                <ProgressBtn onClick={() => confirm('')}>계속하기</ProgressBtn>
+                <ProgressBtn>완료</ProgressBtn>
             </div>
         </SignupInfoContainer>
     )
