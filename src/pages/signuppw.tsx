@@ -1,4 +1,4 @@
-import Signuppw from '../components/Login&Signup/Signuppw'
+import Signuppw from '../components/LoginSignup/Signuppw'
 
 const signuppw = () => {
     return <Signuppw />
