@@ -14,7 +14,6 @@ export const GlobalStyle = () => {
                         height: 100vh;
                         background-color: #2e2e2e;
                         color: white;
-                        padding-top: 100px !important;
                     }
                     a {
                         text-decoration-line: none;

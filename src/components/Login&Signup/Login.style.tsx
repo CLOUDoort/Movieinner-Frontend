@@ -4,7 +4,6 @@ export const LoginContainerDiv = styled.div`
     height: 1000px;
     margin: 20px;
     text-align: center;
-    box-shadow: 1px 2px 6px rgba(255, 255, 255, 0.5);
     display: flex;
     flex-direction: column;
 `

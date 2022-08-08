@@ -1,9 +1,8 @@
 import styled from '@emotion/styled'
 
 export const SignupContainerDiv = styled.div`
-    height: 1000px;
+    height: 100vh;
     margin: 20px;
-    box-shadow: 1px 2px 6px rgba(255, 255, 255, 0.5);
     display: flex;
     flex-direction: column;
     align-items: center;

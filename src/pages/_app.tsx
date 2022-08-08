@@ -6,6 +6,8 @@ import Head from 'next/head'
 import { GlobalStyle } from '../style/GlobalStyle'
 import Header from '../components/Header/Header'
 import Footer from '../components/Footer/Footer'
+import 'slick-carousel/slick/slick.css'
+import 'slick-carousel/slick/slick-theme.css'
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
     return (

@@ -1,13 +1,7 @@
-import { DivContainer } from './Index.style'
+import Slider from 'react-slick'
 
 const Index = () => {
-    return (
-        <>
-            <DivContainer>
-                <p>Index</p>
-            </DivContainer>
-        </>
-    )
+    return <></>
 }
 
 export default Index
