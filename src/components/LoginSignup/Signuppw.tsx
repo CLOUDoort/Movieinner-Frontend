@@ -28,9 +28,9 @@ const Signuppw = () => {
                 <div>비밀번호 설정</div>
                 <EmailForm onSubmit={handleSubmit}>
                     <div>비밀번호</div>
-                    <input type='pw' name='password' value={password} onChange={handleChange} placeholder='비밀번호를 입력해주세요' />
+                    <input type='password' name='password' value={password} onChange={handleChange} placeholder='비밀번호를 입력해주세요' />
                     <div>비밀번호 확인</div>
-                    <input type='pw' name='pwCheck' placeholder='비밀번호를 다시 입력해주세요' />
+                    <input type='password' name='pwCheck' placeholder='비밀번호를 다시 입력해주세요' />
                 </EmailForm>
                 <CurrentStatusDiv>
                     <CurrentTextDiv>
