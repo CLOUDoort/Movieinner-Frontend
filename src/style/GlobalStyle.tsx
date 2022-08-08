@@ -11,7 +11,7 @@ export const GlobalStyle = () => {
                         box-sizing: border-box;
                     }
                     body {
-                        height: 100vh;
+                        min-height: 100vh;
                         background-color: #2e2e2e;
                         color: white;
                     }
