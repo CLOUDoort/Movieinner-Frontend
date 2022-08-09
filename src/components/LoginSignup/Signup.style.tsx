@@ -29,6 +29,11 @@ export const EmailForm = styled.form`
         margin-bottom: 10px;
         color: white;
     }
+    > .submitBtn:hover {
+        background-color: #161616;
+        cursor: pointer;
+    }
+
     > button {
         width: 600px;
         margin-top: 20px;

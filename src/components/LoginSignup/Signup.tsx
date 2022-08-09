@@ -1,4 +1,6 @@
 import { useState } from 'react'
+import { toast } from 'react-toastify'
+import { apiInstance } from '../../apis/setting'
 import {
     CircleBox,
     CircleDiv,
@@ -19,8 +21,15 @@ const Signup = () => {
         const { value } = e.target
         setEmail(value)
     }
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
+        console.log(email)
+        await apiInstance
+            .post('/verify', { email: email })
+            .then(() => toast.success('post success'))
+            .catch(() => {
+                toast.error('post fail')
+            })
     }
     return (
         <>
@@ -28,8 +37,18 @@ const Signup = () => {
                 <div>회원 이메일 인증</div>
                 <EmailForm onSubmit={handleSubmit}>
                     <div>Email</div>
-                    <input type='email' name='email' value={email} placeholder='이메일을 입력해주세요' onChange={handleChange} />
-                    <button>인증 메일 발송!</button>
+                    <input
+                        type='email'
+                        name='email'
+                        value={email}
+                        placeholder='이메일을 입력해주세요'
+                        onChange={handleChange}
+                    />
+                    <input
+                        className='submitBtn'
+                        type='submit'
+                        value='인증메일 발송'
+                    />
                 </EmailForm>
                 <CurrentStatusDiv>
                     <CurrentTextDiv>
