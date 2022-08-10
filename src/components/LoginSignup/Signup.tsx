@@ -25,12 +25,6 @@ const Signup = () => {
     return (
         <>
             <SignupContainerDiv>
-                <div>회원 이메일 인증</div>
-                <EmailForm onSubmit={handleSubmit}>
-                    <div>Email</div>
-                    <input type='email' name='email' value={email} placeholder='이메일을 입력해주세요' onChange={handleChange} />
-                    <button>인증 메일 발송!</button>
-                </EmailForm>
                 <CurrentStatusDiv>
                     <CurrentTextDiv>
                         <div>이메일 인증</div>
@@ -46,6 +40,12 @@ const Signup = () => {
                         <CircleDiv></CircleDiv>
                     </CircleBox>
                 </CurrentStatusDiv>
+                <div>회원 이메일 인증</div>
+                <EmailForm onSubmit={handleSubmit}>
+                    <div>Email</div>
+                    <input type='email' name='email' value={email} placeholder='이메일을 입력해주세요' onChange={handleChange} />
+                    <button>인증 메일 발송!</button>
+                </EmailForm>
                 <div>
                     <ProgressBtn>계속하기</ProgressBtn>
                 </div>

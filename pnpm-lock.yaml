@@ -17,6 +17,7 @@ specifiers:
   eslint-config-next: 12.2.3
   html-react-parser: ^3.0.1
   humbleicons: ^1.8.0
+  keen-slider: ^6.7.0
   next: 12.2.3
   react: 18.2.0
   react-dom: 18.2.0
@@ -38,6 +39,7 @@ dependencies:
   axios: 0.27.2
   html-react-parser: 3.0.1_react@18.2.0
   humbleicons: 1.8.0
+  keen-slider: 6.7.0
   next: 12.2.3_qugu52izettqdqqm5qcjcltcia
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
@@ -2126,6 +2128,10 @@ packages:
       array-includes: 3.1.5
       object.assign: 4.1.2
     dev: true
+
+  /keen-slider/6.7.0:
+    resolution: {integrity: sha512-tsxUE2PXCRQZcZsLmFY5S4UK0yStQd9Dw/qnH57RyXDTUr3XMDhoAOkPbOQT68lGNSpghBcEftPfcgggYoHFTA==}
+    dev: false
 
   /language-subtag-registry/0.3.22:
     resolution: {integrity: sha512-tN0MCzyWnoz/4nHS6uxdlFWoUZT7ABptwKPQ52Ea7URk6vll88bWBVhodtnlfEuCcKWNGoc+uGbw1cwa9IKh/w==}

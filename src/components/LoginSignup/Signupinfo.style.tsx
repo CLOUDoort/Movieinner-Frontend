@@ -6,7 +6,6 @@ export const SignupInfoContainer = styled.div`
     flex-direction: column;
     align-items: center;
     text-align: center;
-    box-shadow: 1px 2px 6px rgba(255, 255, 255, 0.5);
     margin: 20px;
 `
 

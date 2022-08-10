@@ -1,7 +1,6 @@
 import styled from '@emotion/styled'
 
 export const LoginContainerDiv = styled.div`
-    height: 1000px;
     margin: 20px;
     text-align: center;
     display: flex;
@@ -15,7 +14,6 @@ export const LoginDiv = styled.div`
     height: 100px;
 `
 export const FormDiv = styled.div`
-    height: 300px;
     margin: auto;
     margin-top: 0;
     margin-bottom: 0;

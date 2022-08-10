@@ -1,4 +1,5 @@
 import { css } from '@emotion/react'
+import Header from '../components/Header/Header'
 
 const GlobalCss = css`
     html,
@@ -134,14 +135,15 @@ const GlobalCss = css`
         border-spacing: 0;
     }
     * {
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-            Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
         box-sizing: border-box;
     }
     body {
+        width: 100vw;
         min-height: 100vh;
         background-color: #2e2e2e;
         color: white;
+        height: 100%;
     }
     a {
         text-decoration-line: none;

@@ -9,6 +9,8 @@ import Footer from '../components/Footer/Footer'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 import { Global } from '@emotion/react'
+import 'keen-slider/keen-slider.min.css'
+import '../style/slider.css'
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
     return (
@@ -16,16 +18,13 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
             <Head>
                 <title>Movie Inner</title>
                 <meta charSet='utf-8' />
-                <meta
-                    name='viewport'
-                    content='width=device-width, initial-scale=1.0'
-                />
+                <meta name='viewport' content='width=device-width, initial-scale=1.0' />
             </Head>
             <Header />
-            <ToastContainer />
             <Component {...pageProps} />
-            <Global styles={GlobalCss} />
             <Footer />
+            <ToastContainer />
+            <Global styles={GlobalCss} />
         </>
     )
 }

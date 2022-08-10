@@ -29,6 +29,7 @@ export const SecondHearderDiv = styled.div`
     align-items: center;
     background-color: #4b4242;
     color: white;
+    padding: 10px;
 `
 export const SecondHearderNav = styled.nav`
     display: flex;
