@@ -33,6 +33,19 @@ export const EmailForm = styled.form`
         }
     }
 `
+
+export const ProgressBtn = styled.button`
+    width: 300px;
+    border: none;
+    background-color: gray;
+    font-size: 15px;
+    padding: 10px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    :hover {
+        background-color: white;
+    }
+`
 export const SuccessText = styled.p`
     color: #2ecf14;
     margin-top: 20px;
