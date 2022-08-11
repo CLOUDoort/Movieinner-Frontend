@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { apiInstance } from '../../apis/setting'
 import CurrentStatusFirst from './CurrentStatus/CurrentStatusFirst'
-import { EmailForm, ProgressBtn, SignupContainerDiv } from './Signup_pw.style'
+import { EmailForm, SignupContainerDiv } from './Signup_pw.style'
 
 const Signup = () => {
     const [email, setEmail] = useState('')
@@ -23,11 +23,8 @@ const Signup = () => {
                 <EmailForm onSubmit={handleSubmit}>
                     <div>Email</div>
                     <input type='email' name='email' value={email} placeholder='이메일을 입력해주세요' onChange={handleChange} />
-                    <button>인증 메일 발송!</button>
+                    <input type='submit' value='인증 메일 발송!' />
                 </EmailForm>
-                <div>
-                    <ProgressBtn>계속하기</ProgressBtn>
-                </div>
             </SignupContainerDiv>
         </>
     )

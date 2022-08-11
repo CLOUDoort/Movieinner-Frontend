@@ -19,7 +19,7 @@ export const CurrentTextDiv = styled.div`
 export const HorizontalRule = styled.div`
     > hr {
         width: 600px;
-        margin-bottom: 85px;
+        margin-bottom: 75px;
         position: relative;
     }
 `
@@ -35,14 +35,14 @@ export const CircleBox = styled.div`
 export const StatusCircleDiv = styled.div`
     background-color: #3434f2;
     border: none;
-    width: 50px;
-    height: 50px;
+    width: 30px;
+    height: 30px;
     border-radius: 25px;
 `
 export const CircleDiv = styled.div`
     background-color: white;
     border: 1px solid black;
-    width: 50px;
-    height: 50px;
+    width: 30px;
+    height: 30px;
     border-radius: 25px;
 `
