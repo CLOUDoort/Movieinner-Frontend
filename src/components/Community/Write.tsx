@@ -1,5 +1,3 @@
-import TiptapEditor from './TiptapEditor'
-
 const Write = () => {
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -7,11 +5,7 @@ const Write = () => {
         const body = e.target.body.value
     }
 
-    return (
-        <>
-            <TiptapEditor />
-        </>
-    )
+    return <></>
 }
 
 export default Write
