@@ -3,7 +3,6 @@ import {
     FormContainer,
     FormDiv,
     GoogleLogin,
-    HorizontalRule,
     KakaoLogin,
     LoginContainerDiv,
     LoginDiv,
@@ -66,7 +65,6 @@ const Login = () => {
                     <button>회원가입</button>
                 </Link>
             </LoginSecondDiv>
-            <HorizontalRule />
             <SocialLoginServiceDiv>
                 <GoogleLogin>
                     <FcGoogle size={20} />
