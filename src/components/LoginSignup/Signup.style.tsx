@@ -1,5 +1,11 @@
 import styled from '@emotion/styled'
 
+export const CurrentStatusDiv = styled.div`
+    display: flex;
+    flex-direction: column;
+    margin-top: 80px;
+    position: relative;
+`
 export const CurrentTextDiv = styled.div`
     width: 600px;
     display: flex;
@@ -79,13 +85,6 @@ export const EmailForm = styled.form`
         margin-bottom: 10px;
         color: white;
     }
-`
-
-export const CurrentStatusDiv = styled.div`
-    display: flex;
-    flex-direction: column;
-    margin-top: 80px;
-    position: relative;
 `
 
 export const ProgressBtn = styled.button`

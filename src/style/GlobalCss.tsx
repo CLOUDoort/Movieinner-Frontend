@@ -1,5 +1,6 @@
 import { css } from '@emotion/react'
 import Header from '../components/Header/Header'
+import Footer from '../components/Footer/Footer'
 
 const GlobalCss = css`
     html,
@@ -140,10 +141,21 @@ const GlobalCss = css`
     }
     body {
         width: 100vw;
-        min-height: 100vh;
         background-color: #2e2e2e;
         color: white;
-        height: 100%;
+    }
+    #__next {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        > main {
+            flex: 1;
+            height: 100vh - 90px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
     }
     a {
         text-decoration-line: none;

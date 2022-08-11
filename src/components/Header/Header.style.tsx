@@ -22,7 +22,7 @@ export const FirstHeaderDiv = styled.div`
 `
 
 export const SecondHearderDiv = styled.div`
-    flex: 1;
+    height: 60px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
