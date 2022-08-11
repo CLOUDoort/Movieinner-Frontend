@@ -29,4 +29,8 @@ export const EmailForm = styled.form`
         color: white;
         cursor: pointer;
     }
+    > p {
+        color: #2ecf14;
+        margin-top: 20px;
+    }
 `
