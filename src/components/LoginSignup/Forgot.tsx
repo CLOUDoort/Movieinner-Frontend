@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { EmailForm, SignupContainerDiv } from './Signup.style'
+import { EmailForm, SignupContainerDiv } from './Signup_pw.style'
 
 const Forgot = () => {
     const [email, setEmail] = useState('')

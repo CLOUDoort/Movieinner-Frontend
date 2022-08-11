@@ -19,7 +19,7 @@ export const CurrentTextDiv = styled.div`
 export const HorizontalRule = styled.div`
     > hr {
         width: 600px;
-        margin-bottom: 80px;
+        margin-bottom: 85px;
         position: relative;
     }
 `

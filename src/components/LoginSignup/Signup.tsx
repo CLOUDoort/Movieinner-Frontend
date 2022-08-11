@@ -1,15 +1,7 @@
 import { useState } from 'react'
-import {
-    CircleBox,
-    CircleDiv,
-    CurrentStatusDiv,
-    CurrentTextDiv,
-    EmailForm,
-    HorizontalRule,
-    ProgressBtn,
-    SignupContainerDiv,
-    StatusCircleDiv,
-} from './Signup.style'
+import { apiInstance } from '../../apis/setting'
+import CurrentStatus from './CurrentStatus'
+import { EmailForm, ProgressBtn, SignupContainerDiv } from './Signup_pw.style'
 
 const Signup = () => {
     const [email, setEmail] = useState('')
@@ -19,27 +11,14 @@ const Signup = () => {
         const { value } = e.target
         setEmail(value)
     }
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
+        await apiInstance.post('/signup', email)
     }
     return (
         <>
             <SignupContainerDiv>
-                <CurrentStatusDiv>
-                    <CurrentTextDiv>
-                        <div>이메일 인증</div>
-                        <div>비밀번호 설정</div>
-                        <div>유저 정보</div>
-                    </CurrentTextDiv>
-                    <HorizontalRule>
-                        <hr />
-                    </HorizontalRule>
-                    <CircleBox>
-                        <StatusCircleDiv></StatusCircleDiv>
-                        <CircleDiv></CircleDiv>
-                        <CircleDiv></CircleDiv>
-                    </CircleBox>
-                </CurrentStatusDiv>
+                <CurrentStatus />
                 <div>회원 이메일 인증</div>
                 <EmailForm onSubmit={handleSubmit}>
                     <div>Email</div>

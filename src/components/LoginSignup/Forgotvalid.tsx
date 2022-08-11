@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { EmailForm, ProgressBtn, SignupContainerDiv } from './Signup.style'
+import { EmailForm, ProgressBtn, SignupContainerDiv } from './Signup_pw.style'
 
 const Forgotvalid = () => {
     const [email, setEmail] = useState('')
