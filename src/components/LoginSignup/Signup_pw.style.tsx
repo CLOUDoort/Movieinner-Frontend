@@ -28,9 +28,19 @@ export const EmailForm = styled.form`
         margin-bottom: 10px;
         color: white;
         cursor: pointer;
+        :hover {
+            background-color: #161616;
+        }
     }
-    > p {
-        color: #2ecf14;
-        margin-top: 20px;
-    }
+`
+export const SuccessText = styled.p`
+    color: #2ecf14;
+    margin-top: 20px;
+    font-size: 20px;
+`
+
+export const FailText = styled.p`
+    color: red;
+    margin-top: 20px;
+    font-size: 20px;
 `
