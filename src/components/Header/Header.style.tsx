@@ -22,13 +22,14 @@ export const FirstHeaderDiv = styled.div`
 `
 
 export const SecondHearderDiv = styled.div`
-    flex: 1;
+    height: 60px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     background-color: #4b4242;
     color: white;
+    padding: 10px;
 `
 export const SecondHearderNav = styled.nav`
     display: flex;

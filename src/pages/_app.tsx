@@ -9,6 +9,8 @@ import Footer from '../components/Footer/Footer'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 import { Global } from '@emotion/react'
+import 'keen-slider/keen-slider.min.css'
+import '../style/slider.css'
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
     return (
@@ -20,16 +22,14 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
                     name='viewport'
                     content='width=device-width, initial-scale=1.0'
                 />
-                <script
-                    src='https://developers.kakao.com/sdk/js/kakao.js'
-                    defer
-                ></script>
             </Head>
             <Header />
+            <main>
+                <Component {...pageProps} />
+                <Footer />
+            </main>
             <ToastContainer />
-            <Component {...pageProps} />
             <Global styles={GlobalCss} />
-            <Footer />
         </>
     )
 }

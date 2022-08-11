@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 import { apiInstance } from '../../apis/setting'
@@ -12,6 +13,11 @@ import {
     SignupContainerDiv,
     StatusCircleDiv,
 } from './Signup.style'
+=======
+import { useState } from 'react'
+import CurrentStatusSecond from './CurrentStatus/CurrentStatusSecond'
+import { EmailForm, ProgressBtn, SignupContainerDiv } from './Signup_pw.style'
+>>>>>>> upstream/main
 
 const Signuppw = () => {
     const router = useRouter()
@@ -44,6 +50,7 @@ const Signuppw = () => {
     const handleSubmit = (e) => {
         e.preventDefault()
     }
+<<<<<<< HEAD
     if (isVerified) {
         return (
             <>
@@ -93,6 +100,27 @@ const Signuppw = () => {
             </div>
         )
     }
+=======
+
+    return (
+        <>
+            <SignupContainerDiv>
+                <CurrentStatusSecond />
+                <div>비밀번호 설정</div>
+                <EmailForm onSubmit={handleSubmit}>
+                    <div>비밀번호</div>
+                    <input type='password' name='password' value={password} onChange={handleChange} placeholder='비밀번호를 입력해주세요' />
+                    <div>비밀번호 확인</div>
+                    <input type='password' name='pwCheck' placeholder='비밀번호를 다시 입력해주세요' />
+                </EmailForm>
+
+                <div>
+                    <ProgressBtn>계속하기</ProgressBtn>
+                </div>
+            </SignupContainerDiv>
+        </>
+    )
+>>>>>>> upstream/main
 }
 
 export default Signuppw

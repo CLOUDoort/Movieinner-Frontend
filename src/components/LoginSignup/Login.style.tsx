@@ -1,7 +1,6 @@
 import styled from '@emotion/styled'
 
 export const LoginContainerDiv = styled.div`
-    height: 1000px;
     margin: 20px;
     text-align: center;
     display: flex;
@@ -15,7 +14,6 @@ export const LoginDiv = styled.div`
     height: 100px;
 `
 export const FormDiv = styled.div`
-    height: 300px;
     margin: auto;
     margin-top: 0;
     margin-bottom: 0;
@@ -54,6 +52,7 @@ export const SubmitInput = styled.input`
 export const LoginSecondDiv = styled.div`
     display: flex;
     justify-content: center;
+    margin: 50px;
     > button {
         font-size: 18px;
         background-color: #2e2e2e;
@@ -66,19 +65,15 @@ export const LoginSecondDiv = styled.div`
     }
 `
 
-export const HorizontalRule = styled.hr`
-    width: 600px;
-    margin-top: 50px;
-`
-
 export const SocialLoginServiceDiv = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 600px;
+    height: 400px;
     margin-bottom: 30px;
     > div {
+        cursor: pointer;
         width: 600px;
         border: none;
         border-radius: 5px;
@@ -89,7 +84,6 @@ export const SocialLoginServiceDiv = styled.div`
         align-items: center;
     }
     > div > input {
-        cursor: pointer;
         border: none;
         font-size: 20px;
     }
