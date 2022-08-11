@@ -1,6 +1,6 @@
 import { CircleBox, CircleDiv, CurrentStatusDiv, CurrentTextDiv, HorizontalRule, StatusCircleDiv } from './CurrentStatus.style'
 
-const CurrentStatus = () => {
+const CurrentStatusFirst = () => {
     return (
         <>
             <CurrentStatusDiv>
@@ -13,13 +13,13 @@ const CurrentStatus = () => {
                     <hr />
                 </HorizontalRule>
                 <CircleBox>
-                    <StatusCircleDiv></StatusCircleDiv>
-                    <StatusCircleDiv></StatusCircleDiv>
-                    <CircleDiv></CircleDiv>
+                    <StatusCircleDiv />
+                    <CircleDiv />
+                    <CircleDiv />
                 </CircleBox>
             </CurrentStatusDiv>
         </>
     )
 }
 
-export default CurrentStatus
+export default CurrentStatusFirst

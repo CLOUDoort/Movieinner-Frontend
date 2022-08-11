@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import CurrentStatus from './CurrentStatus'
+import CurrentStatusSecond from './CurrentStatus/CurrentStatusSecond'
 import { EmailForm, ProgressBtn, SignupContainerDiv } from './Signup_pw.style'
 
 const Signuppw = () => {
@@ -16,7 +16,7 @@ const Signuppw = () => {
     return (
         <>
             <SignupContainerDiv>
-                <CurrentStatus />
+                <CurrentStatusSecond />
                 <div>비밀번호 설정</div>
                 <EmailForm onSubmit={handleSubmit}>
                     <div>비밀번호</div>

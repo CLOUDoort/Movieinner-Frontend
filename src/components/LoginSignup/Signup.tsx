@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { apiInstance } from '../../apis/setting'
-import CurrentStatus from './CurrentStatus'
+import CurrentStatusFirst from './CurrentStatus/CurrentStatusFirst'
 import { EmailForm, ProgressBtn, SignupContainerDiv } from './Signup_pw.style'
 
 const Signup = () => {
@@ -18,7 +18,7 @@ const Signup = () => {
     return (
         <>
             <SignupContainerDiv>
-                <CurrentStatus />
+                <CurrentStatusFirst />
                 <div>회원 이메일 인증</div>
                 <EmailForm onSubmit={handleSubmit}>
                     <div>Email</div>

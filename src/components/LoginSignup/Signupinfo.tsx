@@ -1,31 +1,32 @@
-import { SignupInfoContainer, TitleDiv, UserInfoDiv, ProgressBtn, UserProfile, UserInfo, UserSex } from './Signupinfo.style'
+import { SignupInfoForm, TitleDiv, UserInfoDiv, ProgressBtn, UserProfile, UserInfo, UserSex } from './Signupinfo.style'
 import { useRef, useState } from 'react'
 import Image from 'next/image'
-import CurrentStatus from './CurrentStatus'
+import CurrentStatusThird from './CurrentStatus/CurrentStatusThird'
 
 const Signupinfo = () => {
     const [image, setImage] = useState('/blank.png')
     const fileInput = useRef(null)
 
-    const handleChange = (e) => {
-        if (e.target.files[0]) {
-            setImage(e.target.files[0])
+    const handleChange = (e: any) => {
+        const fileList = e.target.files
+        if (fileList[0]) {
+            setImage(fileList[0])
         } else {
             setImage(image)
             return
         }
         const reader = new FileReader()
-        reader.onload = () => {
+        reader.onload = (e: any) => {
             if (reader.readyState === 2) {
-                setImage(reader.result)
+                setImage(e.target.result)
             }
         }
-        reader.readAsDataURL(e.target.files[0])
+        reader.readAsDataURL(fileList[0])
     }
 
     return (
-        <SignupInfoContainer>
-            <CurrentStatus />
+        <SignupInfoForm>
+            <CurrentStatusThird />
             <TitleDiv>회원 정보 입력</TitleDiv>
             <UserProfile>
                 <a
@@ -64,7 +65,7 @@ const Signupinfo = () => {
             <div>
                 <ProgressBtn>완료</ProgressBtn>
             </div>
-        </SignupInfoContainer>
+        </SignupInfoForm>
     )
 }
 
