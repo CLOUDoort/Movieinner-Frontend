@@ -16,11 +16,10 @@ import { FcGoogle } from 'react-icons/fc'
 import { SiNaver } from 'react-icons/si'
 import { RiKakaoTalkFill } from 'react-icons/ri'
 import { useState } from 'react'
-<<<<<<< HEAD
+
 import { KaKao_login } from './Kakao_login'
-=======
+
 import { apiInstance } from '../../apis/setting'
->>>>>>> upstream/main
 
 const Login = () => {
     const [values, setValues] = useState({

@@ -1,23 +1,8 @@
 import { useState } from 'react'
-<<<<<<< HEAD
 import { toast } from 'react-toastify'
-import { apiInstance } from '../../apis/setting'
-import {
-    CircleBox,
-    CircleDiv,
-    CurrentStatusDiv,
-    CurrentTextDiv,
-    EmailForm,
-    HorizontalRule,
-    ProgressBtn,
-    SignupContainerDiv,
-    StatusCircleDiv,
-} from './Signup.style'
-=======
 import { apiInstance } from '../../apis/setting'
 import CurrentStatusFirst from './CurrentStatus/CurrentStatusFirst'
 import { EmailForm, ProgressBtn, SignupContainerDiv } from './Signup_pw.style'
->>>>>>> upstream/main
 
 const Signup = () => {
     const [email, setEmail] = useState('')
@@ -29,7 +14,7 @@ const Signup = () => {
     }
     const handleSubmit = async (e) => {
         e.preventDefault()
-<<<<<<< HEAD
+
         console.log(email)
         await apiInstance
             .post('/verify', { email: email })
@@ -37,9 +22,8 @@ const Signup = () => {
             .catch(() => {
                 toast.error('post fail')
             })
-=======
+
         await apiInstance.post('/signup', email)
->>>>>>> upstream/main
     }
     return (
         <>
