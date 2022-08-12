@@ -1,6 +1,8 @@
+import MypageTest from '../../components/LoginSignup/MypageTest'
+
 const mypage = () => {
     //kakao info
-    return <p>hello</p>
+    return <MypageTest />
 }
 
 export default mypage
