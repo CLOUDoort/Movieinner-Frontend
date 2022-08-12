@@ -16,6 +16,7 @@ import { FcGoogle } from 'react-icons/fc'
 import { SiNaver } from 'react-icons/si'
 import { RiKakaoTalkFill } from 'react-icons/ri'
 import { useState } from 'react'
+import { KaKao_login } from '../Kakao_login'
 import { apiInstance } from '../../../apis/setting'
 import Router from 'next/router'
 
@@ -48,9 +49,19 @@ const Login = () => {
             <FormDiv>
                 <FormContainer onSubmit={handleSubmit}>
                     <div>Email</div>
-                    <input type='email' name='email' onChange={handleChange} placeholder='이메일을 입력하세요' />
+                    <input
+                        type='email'
+                        name='email'
+                        onChange={handleChange}
+                        placeholder='이메일을 입력하세요'
+                    />
                     <div>Password</div>
-                    <input type='password' name='pw' onChange={handleChange} placeholder='비밀번호를 입력하세요' />
+                    <input
+                        type='password'
+                        name='pw'
+                        onChange={handleChange}
+                        placeholder='비밀번호를 입력하세요'
+                    />
                     <LoginSustainDiv>
                         <input type='checkbox' />
                         <div>로그인 유지하기</div>
@@ -75,10 +86,7 @@ const Login = () => {
                     <SiNaver size={20} />
                     <input type='button' value='네이버 계정 로그인' />
                 </NaverLogin>
-                <KakaoLogin>
-                    <RiKakaoTalkFill color='black' size={20} />
-                    <input type='button' value='카카오 계정 로그인' />
-                </KakaoLogin>
+                <KaKao_login />
             </SocialLoginServiceDiv>
         </LoginContainerDiv>
     )

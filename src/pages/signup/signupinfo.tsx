@@ -1,4 +1,4 @@
-import Signupinfo from '../components/LoginSignup/Signupinfo'
+import Signupinfo from '../../components/LoginSignup/Signupinfo'
 
 const signupinfo = () => {
     return <Signupinfo />

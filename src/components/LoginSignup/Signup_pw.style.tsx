@@ -27,10 +27,16 @@ export const EmailForm = styled.form`
         border: none;
         margin-bottom: 10px;
         color: white;
-        cursor: pointer;
-        :hover {
-            background-color: #161616;
-        }
+    }
+    > button {
+        width: 600px;
+        margin-top: 20px;
+        font-size: 18px;
+        padding: 8px 16px;
+        background-color: black;
+        border: none;
+        margin-bottom: 10px;
+        color: white;
     }
 `
 
