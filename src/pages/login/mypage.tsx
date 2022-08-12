@@ -1,7 +1,7 @@
 import MypageTest from '../../components/LoginSignup/MypageTest'
 
 const mypage = () => {
-    //kakao info
+    //kakao info test
     return <MypageTest />
 }
 
