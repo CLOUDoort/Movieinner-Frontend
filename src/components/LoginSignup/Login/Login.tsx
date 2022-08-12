@@ -16,7 +16,8 @@ import { FcGoogle } from 'react-icons/fc'
 import { SiNaver } from 'react-icons/si'
 import { RiKakaoTalkFill } from 'react-icons/ri'
 import { useState } from 'react'
-import { apiInstance } from '../../apis/setting'
+import { apiInstance } from '../../../apis/setting'
+import Router from 'next/router'
 
 const Login = () => {
     const [values, setValues] = useState({
@@ -26,7 +27,6 @@ const Login = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-
         await apiInstance.post('/login', {
             email: values.email,
             pw: values.pw,
@@ -39,6 +39,7 @@ const Login = () => {
         const { name, value } = e.target
         setValues({ ...values, [name]: value })
     }
+
     return (
         <LoginContainerDiv>
             <LoginDiv>
