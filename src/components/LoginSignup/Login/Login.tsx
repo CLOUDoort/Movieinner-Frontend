@@ -16,15 +16,9 @@ import { FcGoogle } from 'react-icons/fc'
 import { SiNaver } from 'react-icons/si'
 import { RiKakaoTalkFill } from 'react-icons/ri'
 import { useState } from 'react'
-<<<<<<< HEAD:src/components/LoginSignup/Login.tsx
-
-import { KaKao_login } from './Kakao_login'
-
-import { apiInstance } from '../../apis/setting'
-=======
+import { KaKao_login } from '../Kakao_login'
 import { apiInstance } from '../../../apis/setting'
 import Router from 'next/router'
->>>>>>> 86beafdfecfccb7de47db8ca0e98cbb8148c839b:src/components/LoginSignup/Login/Login.tsx
 
 const Login = () => {
     const [values, setValues] = useState({
