@@ -15,11 +15,15 @@ import {
 } from './Signup.style'
 =======
 import { useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { setPage } from '../../store/reducers/pageSlice'
+import { RootState } from '../../store/store'
 import CurrentStatusSecond from './CurrentStatus/CurrentStatusSecond'
 import { EmailForm, ProgressBtn, SignupContainerDiv } from './Signup_pw.style'
 >>>>>>> upstream/main
 
 const Signuppw = () => {
+<<<<<<< HEAD
     const router = useRouter()
     const { insertId, key } = router.query
     const [verification, setVerification] = useState({
@@ -41,6 +45,12 @@ const Signuppw = () => {
     console.log(`insertId: ${insertId}, key:${key} verification:${isVerified}`)
     console.log(verification)
 
+=======
+    const pageValue = useSelector((state: RootState) => {
+        state.page.pageValue
+    })
+    const dispatch = useDispatch()
+>>>>>>> 86beafdfecfccb7de47db8ca0e98cbb8148c839b
     const [password, setPassword] = useState('')
 
     const handleChange = (e) => {
@@ -49,6 +59,7 @@ const Signuppw = () => {
     }
     const handleSubmit = (e) => {
         e.preventDefault()
+        dispatch(setPage('Signupinfo'))
     }
 <<<<<<< HEAD
     if (isVerified) {
@@ -112,6 +123,7 @@ const Signuppw = () => {
                     <input type='password' name='password' value={password} onChange={handleChange} placeholder='비밀번호를 입력해주세요' />
                     <div>비밀번호 확인</div>
                     <input type='password' name='pwCheck' placeholder='비밀번호를 다시 입력해주세요' />
+                    <input type='submit' value='확인' />
                 </EmailForm>
 
                 <div>

@@ -2,26 +2,38 @@ import { SignupInfoForm, TitleDiv, UserInfoDiv, ProgressBtn, UserProfile, UserIn
 import { useRef, useState } from 'react'
 import Image from 'next/image'
 import CurrentStatusThird from './CurrentStatus/CurrentStatusThird'
+import { apiInstance } from '../../apis/setting'
+import { toast } from 'react-toastify'
 
 const Signupinfo = () => {
     const [image, setImage] = useState('/blank.png')
     const fileInput = useRef(null)
 
-    const handleChange = (e: any) => {
-        const fileList = e.target.files
-        if (fileList[0]) {
-            setImage(fileList[0])
+    const handleChange = async (e: any) => {
+        const file = e.target.files[0]
+        if (file) {
+            setImage(file)
         } else {
             setImage(image)
             return
         }
         const reader = new FileReader()
+        reader.readAsDataURL(file) // 파일에서 불러오는 메서드 / 종료되는 시점에 readyState는 Done(2)가 되고 onload 시작
         reader.onload = (e: any) => {
             if (reader.readyState === 2) {
+                // 파일 읽는 것이 성공했을 때, 2 반환 / 진행 중은 1, 실패는 0
                 setImage(e.target.result)
             }
         }
-        reader.readAsDataURL(fileList[0])
+        let formData = new FormData()
+        formData.append('image', file)
+        try {
+            const imageRes = await apiInstance.post('/profile_image', formData, { headers: { 'Content-Type': 'multipart/form-data' } })
+            toast.success('success')
+        } catch (e) {
+            console.log(e)
+            toast.error('error')
+        }
     }
 
     return (

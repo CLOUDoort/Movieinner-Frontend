@@ -1,52 +1,5 @@
 import styled from '@emotion/styled'
 
-export const CurrentStatusDiv = styled.div`
-    display: flex;
-    flex-direction: column;
-    margin-top: 80px;
-    position: relative;
-`
-export const CurrentTextDiv = styled.div`
-    width: 600px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    font-size: 15px;
-    position: absolute;
-    z-index: 100;
-    bottom: 120px;
-`
-export const HorizontalRule = styled.div`
-    > hr {
-        width: 600px;
-        margin-bottom: 85px;
-        position: relative;
-    }
-`
-
-export const CircleBox = styled.div`
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    width: 600px;
-    position: absolute;
-    bottom: 60px;
-`
-export const StatusCircleDiv = styled.div`
-    background-color: #3434f2;
-    border: none;
-    width: 50px;
-    height: 50px;
-    border-radius: 25px;
-`
-export const CircleDiv = styled.div`
-    background-color: white;
-    border: 1px solid black;
-    width: 50px;
-    height: 50px;
-    border-radius: 25px;
-`
-
 export const SignupContainerDiv = styled.div`
     margin: 20px;
     display: flex;
@@ -74,6 +27,7 @@ export const EmailForm = styled.form`
         border: none;
         margin-bottom: 10px;
         color: white;
+<<<<<<< HEAD
     }
     > .submitBtn:hover {
         background-color: #161616;
@@ -89,6 +43,12 @@ export const EmailForm = styled.form`
         border: none;
         margin-bottom: 10px;
         color: white;
+=======
+        cursor: pointer;
+        :hover {
+            background-color: #161616;
+        }
+>>>>>>> 86beafdfecfccb7de47db8ca0e98cbb8148c839b
     }
 `
 
@@ -103,4 +63,15 @@ export const ProgressBtn = styled.button`
     :hover {
         background-color: white;
     }
+`
+export const SuccessText = styled.p`
+    color: #2ecf14;
+    margin-top: 20px;
+    font-size: 20px;
+`
+
+export const FailText = styled.p`
+    color: red;
+    margin-top: 20px;
+    font-size: 20px;
 `

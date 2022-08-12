@@ -16,10 +16,15 @@ import { FcGoogle } from 'react-icons/fc'
 import { SiNaver } from 'react-icons/si'
 import { RiKakaoTalkFill } from 'react-icons/ri'
 import { useState } from 'react'
+<<<<<<< HEAD:src/components/LoginSignup/Login.tsx
 
 import { KaKao_login } from './Kakao_login'
 
 import { apiInstance } from '../../apis/setting'
+=======
+import { apiInstance } from '../../../apis/setting'
+import Router from 'next/router'
+>>>>>>> 86beafdfecfccb7de47db8ca0e98cbb8148c839b:src/components/LoginSignup/Login/Login.tsx
 
 const Login = () => {
     const [values, setValues] = useState({
@@ -29,7 +34,6 @@ const Login = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-
         await apiInstance.post('/login', {
             email: values.email,
             pw: values.pw,
@@ -42,6 +46,7 @@ const Login = () => {
         const { name, value } = e.target
         setValues({ ...values, [name]: value })
     }
+
     return (
         <LoginContainerDiv>
             <LoginDiv>
@@ -94,3 +99,11 @@ const Login = () => {
 }
 
 export default Login
+
+/* 로그인 유지 기능
+next.js는 ssr이기 때문에 front에서 localstorage를 사용할 수 없다.
+-> 쿠키로부터 토큰을 관리하는 방법 사용
+
+로그인 -> 액세스 토큰과 리프레시 토큰을 받음 -> 쿠키와 리덕스에 토큰 저장 -> 헤더에 액세스 토큰 기입 -> 새로고침 시 프론트 서버에 있는 쿠키를 바탕으로 내 정보를 불러옴
+
+*/
