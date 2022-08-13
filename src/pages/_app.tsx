@@ -11,8 +11,24 @@ import Footer from '../components/Footer/Footer'
 import { Global } from '@emotion/react'
 import 'keen-slider/keen-slider.min.css'
 import '../style/slider.css'
+import { useEffect } from 'react'
+
+declare global {
+    interface Window {
+        Kakao: any
+    }
+}
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
+    useEffect(() => {
+        try {
+            if (!window.Kakao.isInitialized() && window.Kakao) {
+                window.Kakao.init(process.env.NEXT_PUBLIC_KAKAO_JAVASCRIPT)
+            }
+        } catch (e) {
+            console.log(e)
+        }
+    }, [])
     return (
         <>
             <Head>

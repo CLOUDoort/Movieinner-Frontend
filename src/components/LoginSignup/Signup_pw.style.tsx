@@ -27,14 +27,13 @@ export const EmailForm = styled.form`
         border: none;
         margin-bottom: 10px;
         color: white;
-        cursor: pointer;
         :hover {
             background-color: #161616;
         }
     }
 `
 
-export const SubmitInput = styled.input`
+export const ProgressBtn = styled.button`
     width: 300px;
     border: none;
     background-color: gray;
@@ -56,4 +55,17 @@ export const FailText = styled.p`
     color: red;
     margin-top: 20px;
     font-size: 20px;
+`
+export const SubmitInput = styled.input`
+    width: 300px;
+    border: none;
+    background-color: gray;
+    font-size: 15px;
+    padding: 10px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    cursor: pointer;
+    :hover {
+        background-color: white;
+    }
 `

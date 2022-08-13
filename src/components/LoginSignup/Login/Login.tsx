@@ -18,6 +18,7 @@ import { RiKakaoTalkFill } from 'react-icons/ri'
 import { useState } from 'react'
 import { apiInstance } from '../../../apis/setting'
 import Router from 'next/router'
+import router from 'next/router'
 
 const Login = () => {
     const [values, setValues] = useState({
@@ -38,6 +39,17 @@ const Login = () => {
 
         const { name, value } = e.target
         setValues({ ...values, [name]: value })
+    }
+
+    const kakao_login = () => {
+        window.Kakao.Auth.login({
+            success(authObj: any) {
+                router.push('/signup')
+            },
+            fail(err: any) {
+                console.log(err)
+            },
+        })
     }
 
     return (
@@ -77,7 +89,7 @@ const Login = () => {
                 </NaverLogin>
                 <KakaoLogin>
                     <RiKakaoTalkFill color='black' size={20} />
-                    <input type='button' value='카카오 계정 로그인' />
+                    <input type='button' value='카카오 계정 로그인' onClick={kakao_login} />
                 </KakaoLogin>
             </SocialLoginServiceDiv>
         </LoginContainerDiv>
