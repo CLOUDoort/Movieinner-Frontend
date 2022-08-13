@@ -12,6 +12,8 @@ import { Global } from '@emotion/react'
 import 'keen-slider/keen-slider.min.css'
 import '../style/slider.css'
 import { useEffect } from 'react'
+import 'react-date-range/dist/styles.css'
+import 'react-date-range/dist/theme/default.css'
 
 declare global {
     interface Window {

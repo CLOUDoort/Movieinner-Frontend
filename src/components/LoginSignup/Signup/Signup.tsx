@@ -25,6 +25,7 @@ const Signup = () => {
         e.preventDefault()
         dispatch(setUser({ key: 'email', value: email }))
         dispatch(setComponent('Signuppw'))
+        console.log(userData)
     }
     return (
         <>
