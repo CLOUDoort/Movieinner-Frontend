@@ -2,12 +2,12 @@ import { createSlice } from '@reduxjs/toolkit'
 
 export interface TempState {
     component: string
-    user: []
+    user: {}
 }
 
 const initialState: TempState = {
     component: 'Signup',
-    user: [],
+    user: {},
 }
 
 export const signupSlice = createSlice({
@@ -18,8 +18,8 @@ export const signupSlice = createSlice({
         setComponent: (state, action) => {
             state.component = action.payload
         },
-        setUser: (state: any, action: any) => {
-            ;[...state.user, state.user.push(action.payload)]
+        setUser: (state, action) => {
+            state.user[action.payload.key] = action.payload.value
         },
         // 이게 맞나? => 잘못됨
         // action 발생 후의 값 변화, 단순한 JS문법 기능 삽입 가능

@@ -5,14 +5,13 @@ export const SignupContainerDiv = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    > div {
+    > p {
         display: flex;
-        align-items: center;
         font-size: 30px;
         margin-bottom: 20px;
     }
 `
-export const EmailForm = styled.form`
+export const EmailDiv = styled.div`
     display: flex;
     flex-direction: column;
     > div {
@@ -45,17 +44,7 @@ export const ProgressBtn = styled.button`
         background-color: white;
     }
 `
-export const SuccessText = styled.p`
-    color: #2ecf14;
-    margin-top: 20px;
-    font-size: 20px;
-`
 
-export const FailText = styled.p`
-    color: red;
-    margin-top: 20px;
-    font-size: 20px;
-`
 export const SubmitInput = styled.input`
     width: 300px;
     border: none;

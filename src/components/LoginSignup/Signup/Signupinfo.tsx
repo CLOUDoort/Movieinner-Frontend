@@ -1,15 +1,30 @@
 import { SignupInfoForm, TitleDiv, UserInfoDiv, ProgressBtn, UserProfile, UserInfo, UserSex } from './Signupinfo.style'
 import { useRef, useState } from 'react'
 import Image from 'next/image'
-import CurrentStatusThird from './CurrentStatus/CurrentStatusThird'
-import { apiInstance } from '../../apis/setting'
+
 import { toast } from 'react-toastify'
+import { apiInstance } from '../../../apis/setting'
+import CurrentStatusThird from '../CurrentStatus/CurrentStatusThird'
+import { useDispatch, useSelector } from 'react-redux'
+import { RootState } from '../../../store/store'
+import { setComponent, setUser } from '../../../store/reducers/signupSlice'
 
 const Signupinfo = () => {
+    const [info, setInfo] = useState({
+        profileName: '',
+        sex: '',
+        birth: '',
+    })
+
+    const signupComponent = useSelector((state: RootState) => {
+        state.component.component
+    })
+    const dispatch = useDispatch()
+
     const [image, setImage] = useState('/blank.png')
     const fileInput = useRef(null)
 
-    const handleChange = async (e: any) => {
+    const handleImage = async (e: any) => {
         const file = e.target.files[0]
         if (file) {
             setImage(file)
@@ -25,7 +40,7 @@ const Signupinfo = () => {
                 setImage(e.target.result)
             }
         }
-        let formData = new FormData()
+        const formData = new FormData()
         formData.append('image', file)
         try {
             const imageRes = await apiInstance.post('/profile_image', formData, { headers: { 'Content-Type': 'multipart/form-data' } })
@@ -34,6 +49,12 @@ const Signupinfo = () => {
             console.log(e)
             toast.error('error')
         }
+    }
+
+    const handleClick = (e) => {
+        e.preventDefault()
+        dispatch(setComponent('SignupVerify'))
+        dispatch(setUser({}))
     }
 
     return (
@@ -52,15 +73,7 @@ const Signupinfo = () => {
                 <UserInfoDiv>
                     <input type='text' placeholder='닉네임을 입력하세요' />
                     <label htmlFor='input-file'>이미지 선택</label>
-                    <input
-                        type='file'
-                        name='profile_img'
-                        id='input-file'
-                        accept='image/*'
-                        style={{ display: 'none' }}
-                        ref={fileInput}
-                        onChange={handleChange}
-                    />
+                    <input type='file' name='profile_img' id='input-file' accept='image/*' style={{ display: 'none' }} ref={fileInput} onChange={handleImage} />
                 </UserInfoDiv>
             </UserProfile>
             <UserInfo>
@@ -74,9 +87,7 @@ const Signupinfo = () => {
                 <div>생년월일</div>
                 <input type='date' name='birth' placeholder='생년월일을 입력하세요' />
             </UserInfo>
-            <div>
-                <ProgressBtn>완료</ProgressBtn>
-            </div>
+            <ProgressBtn onClick={handleClick}>완료</ProgressBtn>
         </SignupInfoForm>
     )
 }

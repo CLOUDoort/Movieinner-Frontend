@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { EmailForm, SignupContainerDiv } from './Signup_pw.style'
+import { EmailDiv, SignupContainerDiv } from './Signup/Signup_pw.style'
 
 const Forgot = () => {
     const [email, setEmail] = useState('')
@@ -16,11 +16,11 @@ const Forgot = () => {
         <>
             <SignupContainerDiv>
                 <div>비밀번호 찾기</div>
-                <EmailForm onSubmit={handleSubmit}>
+                <EmailDiv onSubmit={handleSubmit}>
                     <div>Email</div>
                     <input type='email' name='email' value={email} placeholder='이메일을 입력해주세요' onChange={handleChange} />
                     <button>인증 메일 발송!</button>
-                </EmailForm>
+                </EmailDiv>
             </SignupContainerDiv>
         </>
     )

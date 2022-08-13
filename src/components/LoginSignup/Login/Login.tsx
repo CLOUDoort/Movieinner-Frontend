@@ -44,11 +44,17 @@ const Login = () => {
     const kakao_login = () => {
         window.Kakao.Auth.login({
             success(authObj: any) {
-                router.push('/signup')
+                router.push('/signupinfo')
             },
             fail(err: any) {
                 console.log(err)
             },
+        })
+    }
+
+    const kakao_logout = () => {
+        window.Kakao.Auth.logout(() => {
+            console.log('success')
         })
     }
 
@@ -91,6 +97,7 @@ const Login = () => {
                     <RiKakaoTalkFill color='black' size={20} />
                     <input type='button' value='카카오 계정 로그인' onClick={kakao_login} />
                 </KakaoLogin>
+                <button onClick={kakao_logout}>로그아웃</button>
             </SocialLoginServiceDiv>
         </LoginContainerDiv>
     )
