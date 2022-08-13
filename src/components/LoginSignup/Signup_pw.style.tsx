@@ -34,7 +34,7 @@ export const EmailForm = styled.form`
     }
 `
 
-export const ProgressBtn = styled.button`
+export const SubmitInput = styled.input`
     width: 300px;
     border: none;
     background-color: gray;

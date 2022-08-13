@@ -1,9 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit'
-import pageReducer from './reducers/pageSlice'
+import componentReducer from './reducers/signupSlice'
+import userReducer from './reducers/signupSlice'
 
 export const store = configureStore({
     reducer: {
-        page: pageReducer,
+        component: componentReducer,
+        user: userReducer,
     },
 })
 

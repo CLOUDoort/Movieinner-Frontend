@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { apiInstance } from '../../apis/setting'
-import { setPage } from '../../store/reducers/pageSlice'
+import { setComponent, setUser } from '../../store/reducers/signupSlice'
 import { RootState } from '../../store/store'
 import CurrentStatusFirst from './CurrentStatus/CurrentStatusFirst'
 import Signupinfo from './Signupinfo'
@@ -9,7 +9,8 @@ import Signuppw from './Signuppw'
 import { EmailForm, FailText, SignupContainerDiv, SuccessText } from './Signup_pw.style'
 
 const Signup = () => {
-    const pageValue = useSelector((state: RootState) => state.page.pageValue)
+    const signupComponent = useSelector((state: RootState) => state.component.component)
+    const userData = useSelector((state: RootState) => state.user.user)
     const dispatch = useDispatch()
 
     const [email, setEmail] = useState('')
@@ -23,15 +24,16 @@ const Signup = () => {
     }
     const handleSubmit = async (e) => {
         e.preventDefault()
-        dispatch(setPage('Signuppw'))
         await apiInstance
             .post('/signup', { email: email })
             .then(() => setSuccessText('메일을 전송하였습니다. 메일을 확인해주세요!'))
             .catch(() => setFailText('메일 전송 실패!'))
+        dispatch(setUser({ email: email }))
+        console.log(userData)
     }
     return (
         <>
-            {pageValue === 'Signup' && (
+            {signupComponent === 'Signup' && (
                 <SignupContainerDiv>
                     <CurrentStatusFirst />
                     <div>회원 이메일 인증</div>
@@ -44,8 +46,8 @@ const Signup = () => {
                     </EmailForm>
                 </SignupContainerDiv>
             )}
-            {pageValue === 'Signuppw' && <Signuppw />}
-            {pageValue === 'Signupinfo' && <Signupinfo />}
+            {signupComponent === 'Signuppw' && <Signuppw />}
+            {signupComponent === 'Signupinfo' && <Signupinfo />}
         </>
     )
 }

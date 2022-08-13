@@ -1,14 +1,15 @@
 import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { setPage } from '../../store/reducers/pageSlice'
+import { setComponent, setUser } from '../../store/reducers/signupSlice'
 import { RootState } from '../../store/store'
 import CurrentStatusSecond from './CurrentStatus/CurrentStatusSecond'
-import { EmailForm, ProgressBtn, SignupContainerDiv } from './Signup_pw.style'
+import { EmailForm, SignupContainerDiv, SubmitInput } from './Signup_pw.style'
 
 const Signuppw = () => {
-    const pageValue = useSelector((state: RootState) => {
-        state.page.pageValue
+    const signupComponent = useSelector((state: RootState) => {
+        state.component.component
     })
+    const userData = useSelector((state: RootState) => state.user.user)
     const dispatch = useDispatch()
     const [password, setPassword] = useState('')
 
@@ -18,7 +19,9 @@ const Signuppw = () => {
     }
     const handleSubmit = (e) => {
         e.preventDefault()
-        dispatch(setPage('Signupinfo'))
+        dispatch(setUser({ password: password }))
+        console.log(password)
+        console.log(userData)
     }
 
     return (
@@ -31,12 +34,8 @@ const Signuppw = () => {
                     <input type='password' name='password' value={password} onChange={handleChange} placeholder='비밀번호를 입력해주세요' />
                     <div>비밀번호 확인</div>
                     <input type='password' name='pwCheck' placeholder='비밀번호를 다시 입력해주세요' />
-                    <input type='submit' value='확인' />
+                    <SubmitInput type='submit' value='계속하기' />
                 </EmailForm>
-
-                <div>
-                    <ProgressBtn>계속하기</ProgressBtn>
-                </div>
             </SignupContainerDiv>
         </>
     )
