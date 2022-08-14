@@ -99,6 +99,7 @@ export const BirthInfo = styled.div`
         margin-right: 10px;
     }
     > p {
+        margin-left: 10px;
         font-size: 20px;
     }
 `
