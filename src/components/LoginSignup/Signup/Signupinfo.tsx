@@ -1,4 +1,4 @@
-import { TitleDiv, UserInfoDiv, ProgressBtn, UserProfile, UserInfo, UserSex, SignupInfo } from './Signupinfo.style'
+import { TitleDiv, UserInfoDiv, ProgressBtn, UserProfile, UserInfo, UserSex, SignupInfo, BirthInfo } from './Signupinfo.style'
 import { useCallback, useRef, useState } from 'react'
 import Image from 'next/image'
 
@@ -13,6 +13,7 @@ import moment from 'moment'
 import ko from 'date-fns/locale/ko'
 
 const Signupinfo = () => {
+    const [gender, setGender] = useState([])
     const [info, setInfo] = useState({
         nickname: '사람',
         name: '강준석',
@@ -83,11 +84,8 @@ const Signupinfo = () => {
         dispatch(setUser({ key: 'gender', value: info.gender }))
         console.log(userData)
         await apiInstance.post('/users', userData)
-
-        // dispatch(setComponent('SignupVerify'))
-        // // dispatch(setUser({ key: 'profileName', value: info.profileName }))
-        // await apiInstance.post('users', userData)
-    }
+        dispatch(setComponent('SignupVerify'))
+    } // form data 서버전송
     const handleChange = (e) => {
         e.preventDefault()
     }
@@ -116,16 +114,24 @@ const Signupinfo = () => {
                 <input type='text' name='name' placeholder='이름을 입력하세요' onChange={handleChange} />
                 <div>성별</div>
                 <UserSex>
-                    <button>남자</button>
-                    <button>여자</button>
+                    <label>
+                        남자
+                        <input type='radio' value='남자' onChange={handleChange} />
+                    </label>
+                    <label>
+                        여자
+                        <input type='radio' value='여자' onChange={handleChange} />
+                    </label>
                 </UserSex>
-                <div>
-                    <button onClick={handleCalendar}>생년월일</button>
+                <div>생년월일</div>
+                <BirthInfo>
+                    <button onClick={handleCalendar}>생년월일 선택</button>
                     {showCalendar && (
                         <Calendar locale={ko} months={1} maxDate={new Date()} date={date} onChange={onChangeDate} dateDisplayFormat={'yyyy.mm.dd'} />
                     )}
-                    <p>{Number(date)}</p>
-                </div>
+                    <span>내 생일: </span>
+                    <p>{date.toLocaleDateString()}</p>
+                </BirthInfo>
             </UserInfo>
             <ProgressBtn onClick={handleClick}>완료</ProgressBtn>
         </SignupInfo>

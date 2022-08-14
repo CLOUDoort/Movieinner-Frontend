@@ -75,15 +75,31 @@ export const UserInfo = styled.div`
 export const UserSex = styled.div`
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    > button {
+    > label {
         border: none;
         color: white;
         background-color: black;
         padding: 8px 12px;
+        border-radius: 5px;
         font-size: 20px;
-        width: 250px;
         margin-bottom: 20px;
+        margin-right: 20px;
+    }
+`
+export const BirthInfo = styled.div`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    > button {
+        font-size: 15px;
+        padding: 8px 16px;
+        background-color: powderblue;
+        border: none;
+        border-radius: 5px;
+        margin-right: 10px;
+    }
+    > p {
+        font-size: 20px;
     }
 `
 
