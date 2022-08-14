@@ -13,12 +13,11 @@ import moment from 'moment'
 import ko from 'date-fns/locale/ko'
 
 const Signupinfo = () => {
-    const [gender, setGender] = useState([])
     const [info, setInfo] = useState({
         nickname: '사람',
         name: '강준석',
         image_URL: 'abc',
-        gender: '남자',
+        gender: '',
         birth: '',
     })
     const [showCalendar, setShowCalendar] = useState<boolean>(false) // 캘린더 토글
@@ -116,11 +115,11 @@ const Signupinfo = () => {
                 <UserSex>
                     <label>
                         남자
-                        <input type='radio' value='남자' onChange={handleChange} />
+                        <input type='radio' value='남자' onChange={handleChange} checked={info.gender === '남자'} />
                     </label>
                     <label>
                         여자
-                        <input type='radio' value='여자' onChange={handleChange} />
+                        <input type='radio' value='여자' onChange={handleChange} checked={info.gender === '여자'} />
                     </label>
                 </UserSex>
                 <div>생년월일</div>
