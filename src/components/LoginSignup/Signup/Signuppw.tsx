@@ -21,8 +21,8 @@ const Signuppw = () => {
         setPassword(value)
     }
     const handleClick = (e) => {
-        e.preventDefault()
         dispatch(setUser({ key: 'password', value: password }))
+        e.preventDefault()
         dispatch(setComponent('Signupinfo'))
         console.log(userData)
     }
@@ -37,6 +37,8 @@ const Signuppw = () => {
                     <div>비밀번호 확인</div>
                     <input type='password' name='pwCheck' onChange={handleChange} placeholder='비밀번호를 다시 입력해주세요' />
                 </EmailDiv>
+                <p>숫자 1개 이상</p>
+                <p>8개 문자 이상</p>
                 <ProgressBtn onClick={handleClick}>다음</ProgressBtn>
             </SignupContainerDiv>
         </>

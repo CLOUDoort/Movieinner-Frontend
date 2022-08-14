@@ -22,8 +22,8 @@ const Signup = () => {
         setEmail(value)
     }
     const handleClick = async (e) => {
-        e.preventDefault()
         dispatch(setUser({ key: 'email', value: email }))
+        e.preventDefault()
         dispatch(setComponent('Signuppw'))
         console.log(userData)
     }
