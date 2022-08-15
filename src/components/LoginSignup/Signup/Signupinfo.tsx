@@ -84,14 +84,16 @@ const Signupinfo = () => {
     dispatch(setUser({ key: 'birth', value: birth }))
     dispatch(setUser({ key: 'image_URL', value: info.image_URL }))
     dispatch(setUser({ key: 'gender', value: info.gender }))
+
     const handleClick = async () => {
         console.log(userData)
         try {
             await apiInstance.post('/users', userData)
-            dispatch(setComponent('SignupVerify'))
+            // await apiInstance.get('/verify')
         } catch (e) {
             console.log(e)
         }
+        dispatch(setComponent('SignupVerify'))
     } // form data 서버전송
     return (
         <SignupInfo>

@@ -5,4 +5,13 @@ export const Container = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-top: 30px;
+    > div {
+        margin-top: 20px;
+    }
+`
+
+export const HomeLink = styled.a`
+    background-color: gray;
+    padding: 8px 16px;
 `

@@ -44,7 +44,7 @@ const Login = () => {
     const kakao_login = () => {
         window.Kakao.Auth.login({
             success(authObj: any) {
-                router.push('/signupinfo')
+                router.push('/')
             },
             fail(err: any) {
                 console.log(err)
