@@ -27,7 +27,6 @@ const Signup = () => {
         dispatch(setComponent('Signuppw'))
         // await apiInstance.post('/verify', { email: email })
     }
-    console.log(userData)
     return (
         <>
             {signupComponent === 'Signup' && (
