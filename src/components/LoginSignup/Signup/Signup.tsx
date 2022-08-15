@@ -16,16 +16,16 @@ const Signup = () => {
 
     const [email, setEmail] = useState('')
 
-    const handleChange = (e) => {
-        e.preventDefault()
-        const { value } = e.target
-        setEmail(value)
-    }
     const handleClick = async (e) => {
         dispatch(setUser({ key: 'email', value: email }))
         e.preventDefault()
         dispatch(setComponent('Signuppw'))
         // await apiInstance.post('/verify', { email: email })
+    }
+
+    const handleChange = (e) => {
+        const { value } = e.target
+        setEmail(value)
     }
     return (
         <>
@@ -37,7 +37,9 @@ const Signup = () => {
                         <div>Email</div>
                         <input type='email' name='email' value={email} placeholder='example@company.com' onChange={handleChange} />
                     </EmailDiv>
-                    <ProgressBtn onClick={handleClick}>다음</ProgressBtn>
+                    <ProgressBtn disabled={email === ''} onClick={handleClick}>
+                        다음
+                    </ProgressBtn>
                 </SignupContainerDiv>
             )}
             {signupComponent === 'Signuppw' && <Signuppw />}

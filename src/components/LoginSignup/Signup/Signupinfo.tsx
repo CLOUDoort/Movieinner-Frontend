@@ -13,9 +13,6 @@ import moment from 'moment'
 import ko from 'date-fns/locale/ko'
 
 const Signupinfo = () => {
-    const signupComponent = useSelector((state: RootState) => {
-        state.component.component
-    })
     const userData = useSelector((state: RootState) => state.user.user)
     const dispatch = useDispatch()
     const [birth, setBirth] = useState('')
@@ -28,18 +25,15 @@ const Signupinfo = () => {
     const [showCalendar, setShowCalendar] = useState<boolean>(false) // 캘린더 토글
     const today = moment().toDate()
     const [date, setDate] = useState<Date>(today) // date 선언하고 기본갓을 오늘 날짜로 지정
-    const onChangeDate = useCallback(
-        (date: Date): void | undefined => {
-            if (!date) {
-                return
-            }
-            setDate(date)
-            // const dateTimestamp = Date.parse(String(date))
-            setShowCalendar(false)
-            setBirth(date.toLocaleDateString().replaceAll(' ', ''))
-        },
-        [date]
-    )
+    const onChangeDate = useCallback((date: Date): void | undefined => {
+        if (!date) {
+            return
+        }
+        setDate(date)
+        // const dateTimestamp = Date.parse(String(date))
+        setShowCalendar(false)
+        setBirth(date.toLocaleDateString().replaceAll(' ', ''))
+    }, [])
     const handleCalendar = () => {
         setShowCalendar(true)
     }
