@@ -40,9 +40,6 @@ export const ProgressBtn = styled.button`
     padding: 10px;
     margin-top: 30px;
     margin-bottom: 30px;
-    /* :hover {
-        background-color: white;
-    } */
 `
 
 export const SubmitInput = styled.input`

@@ -107,12 +107,9 @@ export const BirthInfo = styled.div`
 export const ProgressBtn = styled.button`
     width: 300px;
     border: none;
-    background-color: gray;
+    background-color: #f6f6f6;
     font-size: 15px;
     padding: 10px;
     margin-top: 30px;
     margin-bottom: 30px;
-    :hover {
-        background-color: white;
-    }
 `

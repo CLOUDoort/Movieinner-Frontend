@@ -136,7 +136,9 @@ const Signupinfo = () => {
                     <p>{date.toLocaleDateString()}</p>
                 </BirthInfo>
             </UserInfo>
-            <ProgressBtn onClick={handleClick}>완료</ProgressBtn>
+            <ProgressBtn disabled={info.nickname === '' || info.name === '' || info.gender === '' || birth === ''} onClick={handleClick}>
+                완료
+            </ProgressBtn>
         </SignupInfo>
     )
 }
