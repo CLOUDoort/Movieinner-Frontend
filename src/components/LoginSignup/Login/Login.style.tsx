@@ -105,10 +105,6 @@ export const NaverLogin = styled.div`
         background-color: #07c907;
     }
 `
-export const KakaoLogin = styled.div`
-    background-color: #fceb02;
-    > input {
-        background-color: #fceb02;
-        color: black;
-    }
+export const KakaoLogin = styled.img`
+    cursor: pointer;
 `

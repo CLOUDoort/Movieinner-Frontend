@@ -17,8 +17,8 @@ import { SiNaver } from 'react-icons/si'
 import { RiKakaoTalkFill } from 'react-icons/ri'
 import { useState } from 'react'
 import { apiInstance } from '../../../apis/setting'
-import Router from 'next/router'
 import router from 'next/router'
+import Image from 'next/image'
 
 const Login = () => {
     const [values, setValues] = useState({
@@ -45,6 +45,7 @@ const Login = () => {
         window.Kakao.Auth.login({
             success(authObj: any) {
                 router.push('/')
+                console.log(authObj)
             },
             fail(err: any) {
                 console.log(err)
@@ -93,10 +94,7 @@ const Login = () => {
                     <SiNaver size={20} />
                     <input type='button' value='네이버 계정 로그인' />
                 </NaverLogin>
-                <KakaoLogin>
-                    <RiKakaoTalkFill color='black' size={20} />
-                    <input type='button' value='카카오 계정 로그인' onClick={kakao_login} />
-                </KakaoLogin>
+                <KakaoLogin src='/kakao_login_medium_wide.png' alt='카카오 로그인' onClick={kakao_login} />
                 <button onClick={kakao_logout}>로그아웃</button>
             </SocialLoginServiceDiv>
         </LoginContainerDiv>
