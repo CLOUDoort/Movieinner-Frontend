@@ -13,12 +13,17 @@ import moment from 'moment'
 import ko from 'date-fns/locale/ko'
 
 const Signupinfo = () => {
+    const signupComponent = useSelector((state: RootState) => {
+        state.component.component
+    })
+    const userData = useSelector((state: RootState) => state.user.user)
+    const dispatch = useDispatch()
+    const [birth, setBirth] = useState('')
     const [info, setInfo] = useState({
-        nickname: '사람',
-        name: '강준석',
+        nickname: '',
+        name: '',
         image_URL: 'abc',
         gender: '',
-        birth: '',
     })
     const [showCalendar, setShowCalendar] = useState<boolean>(false) // 캘린더 토글
     const today = moment().toDate()
@@ -31,19 +36,18 @@ const Signupinfo = () => {
             setDate(date)
             // const dateTimestamp = Date.parse(String(date))
             setShowCalendar(false)
-            setInfo({ ...info, birth: date.toLocaleDateString().replaceAll(' ', '') })
+            setBirth(date.toLocaleDateString().replaceAll(' ', ''))
         },
         [date]
     )
     const handleCalendar = () => {
         setShowCalendar(true)
     }
-
-    const signupComponent = useSelector((state: RootState) => {
-        state.component.component
-    })
-    const userData = useSelector((state: RootState) => state.user.user)
-    const dispatch = useDispatch()
+    const handleChange = (e) => {
+        e.preventDefault()
+        const { value, name } = e.target
+        setInfo({ ...info, [name]: value })
+    }
 
     const [image, setImage] = useState('/blank.png')
     const fileInput = useRef(null)
@@ -73,22 +77,22 @@ const Signupinfo = () => {
             console.log(e)
             toast.error('error')
         }
-    }
+    } // image
 
+    dispatch(setUser({ key: 'nickname', value: info.nickname }))
+    dispatch(setUser({ key: 'name', value: info.name }))
+    dispatch(setUser({ key: 'birth', value: birth }))
+    dispatch(setUser({ key: 'image_URL', value: info.image_URL }))
+    dispatch(setUser({ key: 'gender', value: info.gender }))
     const handleClick = async () => {
-        dispatch(setUser({ key: 'nickname', value: info.nickname }))
-        dispatch(setUser({ key: 'name', value: info.name }))
-        dispatch(setUser({ key: 'birth', value: info.birth }))
-        dispatch(setUser({ key: 'image_URL', value: info.image_URL }))
-        dispatch(setUser({ key: 'gender', value: info.gender }))
         console.log(userData)
-        await apiInstance.post('/users', userData)
-        dispatch(setComponent('SignupVerify'))
+        try {
+            await apiInstance.post('/users', userData)
+            dispatch(setComponent('SignupVerify'))
+        } catch (e) {
+            console.log(e)
+        }
     } // form data 서버전송
-    const handleChange = (e) => {
-        e.preventDefault()
-    }
-
     return (
         <SignupInfo>
             <CurrentStatusThird />
@@ -103,23 +107,23 @@ const Signupinfo = () => {
                     <Image src={image} width={150} height={150} alt='이미지입니다.' />
                 </a>
                 <UserInfoDiv>
-                    <input type='text' placeholder='닉네임을 입력하세요' name='profileName' onChange={handleChange} />
+                    <input type='text' placeholder='닉네임을 입력하세요' name='nickname' value={info.nickname} onChange={handleChange} />
                     <label htmlFor='input-file'>이미지 선택</label>
-                    <input type='file' name='profile_img' id='input-file' accept='image/*' style={{ display: 'none' }} ref={fileInput} onChange={handleImage} />
+                    <input type='file' name='image_URL' id='input-file' accept='image/*' style={{ display: 'none' }} ref={fileInput} onChange={handleImage} />
                 </UserInfoDiv>
             </UserProfile>
             <UserInfo>
                 <div>이름</div>
-                <input type='text' name='name' placeholder='이름을 입력하세요' onChange={handleChange} />
+                <input type='text' name='name' value={info.name} placeholder='이름을 입력하세요' onChange={handleChange} />
                 <div>성별</div>
                 <UserSex>
                     <label>
                         남자
-                        <input type='radio' value='남자' onChange={handleChange} checked={info.gender === '남자'} />
+                        <input type='radio' value='남자' name='gender' onChange={handleChange} checked={info.gender === '남자'} />
                     </label>
                     <label>
                         여자
-                        <input type='radio' value='여자' onChange={handleChange} checked={info.gender === '여자'} />
+                        <input type='radio' value='여자' name='gender' onChange={handleChange} checked={info.gender === '여자'} />
                     </label>
                 </UserSex>
                 <div>생년월일</div>
