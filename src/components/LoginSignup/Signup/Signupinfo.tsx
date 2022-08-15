@@ -13,7 +13,7 @@ import moment from 'moment'
 import ko from 'date-fns/locale/ko'
 
 const Signupinfo = () => {
-    const userData = useSelector((state: RootState) => state.user.user)
+    const userData: UserDataState = useSelector((state: RootState) => state.user.user)
     const dispatch = useDispatch()
     const [birth, setBirth] = useState('')
     const [info, setInfo] = useState({
@@ -22,6 +22,8 @@ const Signupinfo = () => {
         image_URL: 'abc',
         gender: '',
     })
+
+    // birth calendar
     const [showCalendar, setShowCalendar] = useState<boolean>(false) // 캘린더 토글
     const today = moment().toDate()
     const [date, setDate] = useState<Date>(today) // date 선언하고 기본갓을 오늘 날짜로 지정
@@ -37,15 +39,10 @@ const Signupinfo = () => {
     const handleCalendar = () => {
         setShowCalendar(true)
     }
-    const handleChange = (e) => {
-        e.preventDefault()
-        const { value, name } = e.target
-        setInfo({ ...info, [name]: value })
-    }
 
+    // profile_img
     const [image, setImage] = useState('/blank.png')
     const fileInput = useRef(null)
-
     const handleImage = async (e: any) => {
         const file = e.target.files[0]
         if (file) {
@@ -71,7 +68,14 @@ const Signupinfo = () => {
             console.log(e)
             toast.error('error')
         }
-    } // image
+    }
+
+    // user info 값
+    const handleChange = (e) => {
+        e.preventDefault()
+        const { value, name } = e.target
+        setInfo({ ...info, [name]: value })
+    }
 
     dispatch(setUser({ key: 'nickname', value: info.nickname }))
     dispatch(setUser({ key: 'name', value: info.name }))
@@ -79,16 +83,16 @@ const Signupinfo = () => {
     dispatch(setUser({ key: 'image_URL', value: info.image_URL }))
     dispatch(setUser({ key: 'gender', value: info.gender }))
 
+    // 완료버튼, 이메일을 백엔드로 전송
     const handleClick = async () => {
-        console.log(userData)
+        console.log(userData.email)
         try {
-            await apiInstance.post('/users', userData)
-            // await apiInstance.get('/verify')
+            await apiInstance.post('/verify', userData.email)
         } catch (e) {
             console.log(e)
         }
         dispatch(setComponent('SignupVerify'))
-    } // form data 서버전송
+    }
     return (
         <SignupInfo>
             <CurrentStatusThird />

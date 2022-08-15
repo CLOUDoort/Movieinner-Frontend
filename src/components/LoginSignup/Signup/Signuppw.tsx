@@ -16,7 +16,7 @@ const Signuppw = () => {
         setPassword({ ...password, [name]: value })
     }
     const handleClick = (e) => {
-        dispatch(setUser({ key: 'password', value: password }))
+        dispatch(setUser({ key: 'password', value: password.first }))
         e.preventDefault()
         dispatch(setComponent('Signupinfo'))
     }

@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { apiInstance } from '../../../apis/setting'
 import { setComponent, setUser } from '../../../store/reducers/signupSlice'
 import { RootState } from '../../../store/store'
 import CurrentStatusFirst from '../CurrentStatus/CurrentStatusFirst'
@@ -11,7 +10,6 @@ import { EmailDiv, ProgressBtn, SignupContainerDiv } from './Signup_pw.style'
 
 const Signup = () => {
     const signupComponent = useSelector((state: RootState) => state.component.component)
-    const userData = useSelector((state: RootState) => state.user.user)
     const dispatch = useDispatch()
 
     const [email, setEmail] = useState('')
