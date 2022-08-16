@@ -103,7 +103,7 @@ const Signupinfo = () => {
                         fileInput.current.click()
                     }}
                 >
-                    <Image src={image} width={150} height={150} alt='이미지입니다.' />
+                    <Image src={image} width={150} height={150} alt='프로필 이미지입니다.' />
                 </a>
                 <UserInfoDiv>
                     <input type='text' placeholder='닉네임을 입력하세요' name='nickname' value={info.nickname} onChange={handleChange} />
