@@ -1,7 +1,6 @@
 import { TitleDiv, UserInfoDiv, ProgressBtn, UserProfile, UserInfo, UserSex, SignupInfo, BirthInfo } from './Signupinfo.style'
 import { useCallback, useRef, useState } from 'react'
 import Image from 'next/image'
-
 import { toast } from 'react-toastify'
 import { apiInstance } from '../../../apis/setting'
 import CurrentStatusThird from '../CurrentStatus/CurrentStatusThird'

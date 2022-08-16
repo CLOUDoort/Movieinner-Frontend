@@ -20,13 +20,13 @@ declare global {
         Kakao: any
     }
     interface UserDataState {
-        email: string
-        password: string
-        nickname: string
-        name: string
-        birth: string
-        gender: string
-        image_URL: string
+        email?: string
+        password?: string
+        nickname?: string
+        name?: string
+        birth?: string
+        gender?: string
+        image_URL?: string
     }
 }
 
