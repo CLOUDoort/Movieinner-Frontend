@@ -86,7 +86,7 @@ const Signupinfo = () => {
     const handleClick = async () => {
         console.log(userData.email)
         try {
-            await apiInstance.post('/verify', userData.email)
+            await apiInstance.post('/verify', { email: userData.email })
         } catch (e) {
             console.log(e)
         }

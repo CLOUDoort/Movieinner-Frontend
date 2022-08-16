@@ -9,6 +9,7 @@ import { apiInstance } from '../../../apis/setting'
 
 const SignupVerify = () => {
     const router = useRouter()
+    const { key } = router.query
     const [verification, setVerification] = useState({
         success: false,
         isVerified: false,
@@ -20,7 +21,7 @@ const SignupVerify = () => {
         if (!router.isReady) return
         const getRequest = async () => {
             try {
-                const response = await apiInstance.get('/verify')
+                const response = await apiInstance.get('/verify', { params: { key: key } })
                 setVerification({
                     success: true, // router query가 담긴 링크 받고 접속 성공
                     isVerified: response.data.isVerified, // 시간 내에 접속 성공
@@ -34,7 +35,8 @@ const SignupVerify = () => {
             }
         }
         getRequest()
-    }, [router.isReady])
+    }, [])
+    console.log(verification)
 
     const userData: UserDataState = useSelector((state: RootState) => state.user.user)
     const [image, setImage] = useState('/blank.png')
