@@ -48,7 +48,7 @@ const SignupVerifyFail = () => {
         }
     }
     const signupSuccess = () => {
-        router.replace('/')
+        router.replace('/welcome')
     }
     return (
         <>
