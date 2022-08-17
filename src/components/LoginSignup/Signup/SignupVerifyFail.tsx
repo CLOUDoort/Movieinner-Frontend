@@ -37,7 +37,7 @@ const SignupVerifyFail = () => {
             }
             getRequest()
         }
-    }, [router.isReady])
+    }, [key, router.isReady])
     console.log(verification)
     const handleClick = async () => {
         try {
@@ -47,29 +47,34 @@ const SignupVerifyFail = () => {
             console.log(e)
         }
     }
+    const signupSuccess = () => {
+        router.replace('/')
+    }
     return (
         <>
-            {/* 인증 성공했을 때, index페이지로 이동 */}
-            {verification.isVerified && router.push('/')}
-            <Container>
-                <ContainerTitle>이메일 인증 실패</ContainerTitle>
-                <ContainerText>
-                    <div>인증 메일이 {email}&#40;으&#41;로 전송되었습니다.</div>
-                    <div>받으신 이메일을 열어 링크로 접속하시면 가입이 완료됩니다.</div>
-                </ContainerText>
-                {!verification.isVerified && (
-                    <FailText>
-                        <p>인증에 실패했습니다!</p>
-                    </FailText>
-                )}
-                <ContainerBtn>
-                    <Link href='/'>
-                        <button>Home</button>
-                    </Link>
-                    <button onClick={handleClick}>인증 메일 다시 보내기</button>
-                    {/* 메일보냈을때 UI */}
-                </ContainerBtn>
-            </Container>
+            {verification.isVerified ? (
+                signupSuccess()
+            ) : (
+                <Container>
+                    <ContainerTitle>이메일 인증 실패</ContainerTitle>
+                    <ContainerText>
+                        <div>인증 메일이 {email}&#40;으&#41;로 전송되었습니다.</div>
+                        <div>받으신 이메일을 열어 링크로 접속하시면 가입이 완료됩니다.</div>
+                    </ContainerText>
+                    {!verification.isVerified && (
+                        <FailText>
+                            <p>인증에 실패했습니다!</p>
+                        </FailText>
+                    )}
+                    <ContainerBtn>
+                        <Link href='/'>
+                            <button>Home</button>
+                        </Link>
+                        <button onClick={handleClick}>인증 메일 다시 보내기</button>
+                        {/* 메일보냈을때 UI */}
+                    </ContainerBtn>
+                </Container>
+            )}
         </>
     )
 }
