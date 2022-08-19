@@ -117,12 +117,12 @@ const Signupinfo = () => {
                 <div>성별</div>
                 <UserSex>
                     <label>
-                        남자
-                        <input type='radio' value='남자' name='gender' onChange={handleChange} checked={info.gender === '남자'} />
+                        남성
+                        <input type='radio' value='남성' name='gender' onChange={handleChange} checked={info.gender === '남성'} />
                     </label>
                     <label>
-                        여자
-                        <input type='radio' value='여자' name='gender' onChange={handleChange} checked={info.gender === '여자'} />
+                        여성
+                        <input type='radio' value='여성' name='gender' onChange={handleChange} checked={info.gender === '여성'} />
                     </label>
                 </UserSex>
                 <div>생년월일</div>

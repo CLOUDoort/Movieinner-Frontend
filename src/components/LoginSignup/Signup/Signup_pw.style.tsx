@@ -55,3 +55,12 @@ export const SubmitInput = styled.input`
         background-color: white;
     }
 `
+
+export const RedText = styled.p`
+    color: red;
+    margin-bottom: 10px;
+`
+export const GreenText = styled.p`
+    color: #08cf08;
+    margin-bottom: 10px;
+`
