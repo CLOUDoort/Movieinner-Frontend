@@ -36,9 +36,6 @@ export const SecondHearderNav = styled.nav`
     flex-direction: row;
     align-items: center;
     margin-left: 50px;
-    a {
-        margin-right: 20px;
-    }
 `
 
 export const TitleDiv = styled.div`
@@ -48,8 +45,18 @@ export const TitleDiv = styled.div`
 `
 
 export const NavDiv = styled.div`
-    width: auto;
-    @media (max-width: 810px) {
+    > a {
+        float: left;
+    }
+    > a::after {
+        content: '|';
+        float: right;
+        color: #ccc;
+        margin-right: 17px;
+        margin-left: 17px;
+    }
+    > a:last-child::after {
+        content: '';
     }
 `
 
