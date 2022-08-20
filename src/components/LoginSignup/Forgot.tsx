@@ -1,8 +1,15 @@
 import { useState } from 'react'
-import { EmailDiv, SignupContainerDiv } from './Signup/Signup_pw.style'
+import { useDispatch, useSelector } from 'react-redux'
+import { setComponent } from '../../store/reducers/signupSlice'
+import { RootState } from '../../store/store'
+import { EmailForm, ForgotContainer } from './Forgot.style'
+import Forgotvalid from './Forgotvalid'
+import { SignupContainerDiv } from './Signup/Signup_pw.style'
 
 const Forgot = () => {
     const [email, setEmail] = useState('')
+    const signupComponent = useSelector((state: RootState) => state.component.component)
+    const dispatch = useDispatch()
 
     const handleChange = (e) => {
         e.preventDefault()
@@ -11,17 +18,21 @@ const Forgot = () => {
     }
     const handleSubmit = (e) => {
         e.preventDefault()
+        dispatch(setComponent('Forgot'))
     }
     return (
         <>
-            <SignupContainerDiv>
-                <div>비밀번호 찾기</div>
-                <EmailDiv onSubmit={handleSubmit}>
-                    <div>Email</div>
-                    <input type='email' name='email' value={email} placeholder='이메일을 입력해주세요' onChange={handleChange} />
-                    <button>인증 메일 발송!</button>
-                </EmailDiv>
-            </SignupContainerDiv>
+            {signupComponent === 'Signup' && (
+                <ForgotContainer>
+                    <div>비밀번호 찾기</div>
+                    <EmailForm onSubmit={handleSubmit}>
+                        <div>Email</div>
+                        <input type='email' name='email' value={email} placeholder='이메일을 입력해주세요' onChange={handleChange} />
+                        <input type='submit' value='인증 메일 발송!' />
+                    </EmailForm>
+                </ForgotContainer>
+            )}
+            {signupComponent === 'Forgot' && <Forgotvalid />}
         </>
     )
 }

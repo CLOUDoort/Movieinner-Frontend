@@ -61,7 +61,7 @@ const Signupinfo = () => {
         const formData = new FormData()
         formData.append('image', file)
         try {
-            const imageRes = await apiInstance.post('/profile_image', formData, { headers: { 'Content-Type': 'multipart/form-data' } })
+            const imageRes = await apiInstance.post('/image', formData, { headers: { 'Content-Type': 'multipart/form-data' } })
             toast.success('success')
         } catch (e) {
             console.log(e)
