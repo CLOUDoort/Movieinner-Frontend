@@ -14,7 +14,6 @@ import {
 } from './Login.style'
 import { FcGoogle } from 'react-icons/fc'
 import { SiNaver } from 'react-icons/si'
-import { RiKakaoTalkFill } from 'react-icons/ri'
 import { useState } from 'react'
 import { apiInstance } from '../../../apis/setting'
 import router from 'next/router'
