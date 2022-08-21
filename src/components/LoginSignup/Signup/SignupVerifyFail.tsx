@@ -37,7 +37,6 @@ const SignupVerifyFail = () => {
             getRequest()
         }
     }, [key, router.isReady])
-    console.log(verification)
     const handleClick = async () => {
         try {
             await apiInstance.post('/verify', { email: email })
@@ -49,7 +48,6 @@ const SignupVerifyFail = () => {
         }
     }
     const signupSuccess = async () => {
-        await apiInstance.post('/users')
         router.replace('/welcome')
     }
     if (!verification.success && !verification.isVerified) {

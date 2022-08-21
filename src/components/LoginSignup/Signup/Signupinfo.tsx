@@ -91,6 +91,7 @@ const Signupinfo = () => {
         }
         dispatch(setUser({ key: 'birth', value: birth }))
         dispatch(setComponent('SignupVerify'))
+        // await apiInstance.post('/users', userData)
     }
     console.log(userData)
     return (
