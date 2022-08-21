@@ -74,13 +74,12 @@ const Signupinfo = () => {
         e.preventDefault()
         const { value, name } = e.target
         setInfo({ ...info, [name]: value })
+        dispatch(setUser({ key: name, value: value }))
     }
-
-    dispatch(setUser({ key: 'nickname', value: info.nickname }))
-    dispatch(setUser({ key: 'name', value: info.name }))
-    dispatch(setUser({ key: 'birth', value: birth }))
-    dispatch(setUser({ key: 'image_URL', value: info.image_URL }))
-    dispatch(setUser({ key: 'gender', value: info.gender }))
+    // dispatch(setUser({ key: 'nickname', value: info.nickname }))
+    // dispatch(setUser({ key: 'name', value: info.name }))
+    // dispatch(setUser({ key: 'image_URL', value: info.image_URL }))
+    // dispatch(setUser({ key: 'gender', value: info.gender }))
 
     // 완료버튼, 이메일을 백엔드로 전송
     const handleClick = async () => {
@@ -90,8 +89,10 @@ const Signupinfo = () => {
         } catch (e) {
             console.log(e)
         }
+        dispatch(setUser({ key: 'birth', value: birth }))
         dispatch(setComponent('SignupVerify'))
     }
+    console.log(userData)
     return (
         <SignupInfo>
             <CurrentStatusThird />
