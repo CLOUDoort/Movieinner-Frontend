@@ -1,11 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-export interface TempState {
+export interface SignupState {
     component: string
     user: {}
 }
 
-const initialState: TempState = {
+const initialState: SignupState = {
     component: 'Signup',
     user: {},
 }
