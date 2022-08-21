@@ -4,7 +4,6 @@ import { setComponent } from '../../store/reducers/signupSlice'
 import { RootState } from '../../store/store'
 import { EmailForm, ForgotContainer } from './Forgot.style'
 import Forgotvalid from './Forgotvalid'
-import { SignupContainerDiv } from './Signup/Signup_pw.style'
 
 const Forgot = () => {
     const [email, setEmail] = useState('')
@@ -28,7 +27,7 @@ const Forgot = () => {
                     <EmailForm onSubmit={handleSubmit}>
                         <div>Email</div>
                         <input type='email' name='email' value={email} placeholder='이메일을 입력해주세요' onChange={handleChange} />
-                        <input type='submit' value='인증 메일 발송!' />
+                        <input type='submit' value='인증 메일 발송!' disabled={email === ''} />
                     </EmailForm>
                 </ForgotContainer>
             )}

@@ -26,8 +26,5 @@ export const EmailForm = styled.form`
         border: none;
         margin-bottom: 10px;
         color: white;
-        :hover {
-            background-color: #161616;
-        }
     }
 `
