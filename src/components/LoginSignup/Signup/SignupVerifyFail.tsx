@@ -1,11 +1,9 @@
-import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
-import { useSelector } from 'react-redux'
-import { RootState } from '../../../store/store'
-import { Container, ContainerBtn, ContainerProfile, ContainerText, ContainerTitle, FailText } from './SignupVerify.style'
+import { Container, ContainerBtn, ContainerTitle, FailText, VerifyFailText } from './SignupVerify.style'
 import { apiInstance } from '../../../apis/setting'
+import { GreenText, RedText } from './Signup_pw.style'
 
 const SignupVerifyFail = () => {
     const router = useRouter()
@@ -14,6 +12,7 @@ const SignupVerifyFail = () => {
         success: false,
         isVerified: false,
     })
+    const [sendEmail, setSendEmail] = useState(1)
 
     //라우터 필드가 클라이언트 측에서 업데이트되고 사용할 준비가 되었는지 여부.
     //useEffect 메소드 내에서만 사용해야하며 서버에서 조건부로 렌더링 하는 데에 사용해야한다.
@@ -42,8 +41,10 @@ const SignupVerifyFail = () => {
     const handleClick = async () => {
         try {
             await apiInstance.post('/verify', { email: email })
+            setSendEmail(2)
             console.log('success')
         } catch (e) {
+            setSendEmail(3)
             console.log(e)
         }
     }
@@ -57,21 +58,22 @@ const SignupVerifyFail = () => {
             ) : (
                 <Container>
                     <ContainerTitle>이메일 인증 실패</ContainerTitle>
-                    <ContainerText>
-                        <div>인증 메일이 {email}&#40;으&#41;로 전송되었습니다.</div>
-                        <div>받으신 이메일을 열어 링크로 접속하시면 가입이 완료됩니다.</div>
-                    </ContainerText>
                     {!verification.isVerified && (
-                        <FailText>
+                        <VerifyFailText>
                             <p>인증에 실패했습니다!</p>
-                        </FailText>
+                        </VerifyFailText>
                     )}
                     <ContainerBtn>
-                        <Link href='/'>
-                            <button>Home</button>
-                        </Link>
-                        <button onClick={handleClick}>인증 메일 다시 보내기</button>
-                        {/* 메일보냈을때 UI */}
+                        <div>
+                            <Link href='/'>
+                                <button>Home</button>
+                            </Link>
+                            <button onClick={handleClick}>인증 메일 다시 보내기</button>
+                        </div>
+                        <div>
+                            {sendEmail === 2 && <GreenText>다시 보내기 성공!</GreenText>}
+                            {sendEmail === 3 && <RedText>에러 발생!</RedText>}
+                        </div>
                     </ContainerBtn>
                 </Container>
             )}

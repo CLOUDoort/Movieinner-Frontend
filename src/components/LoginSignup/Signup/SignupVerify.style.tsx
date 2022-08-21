@@ -39,11 +39,26 @@ export const ContainerText = styled.div`
 
 export const ContainerBtn = styled.div`
     display: flex;
+    flex-direction: column;
     width: 300px;
-    justify-content: space-evenly;
-    > button {
+    > div {
+        display: flex;
+        justify-content: center;
+    }
+    > div > button {
         background-color: white;
         padding: 8px 16px;
         border: none;
+        margin-left: 10px;
+    }
+    > div > p {
+        font-size: 20px;
+        margin-top: 20px;
+    }
+`
+export const VerifyFailText = styled.div`
+    > p {
+        color: red;
+        font-size: 20px;
     }
 `

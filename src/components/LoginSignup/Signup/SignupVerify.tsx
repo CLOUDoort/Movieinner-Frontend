@@ -5,13 +5,17 @@ import { useSelector } from 'react-redux'
 import { RootState } from '../../../store/store'
 import { Container, ContainerBtn, ContainerProfile, ContainerText, ContainerTitle, FailText } from './SignupVerify.style'
 import { apiInstance } from '../../../apis/setting'
+import { GreenText, RedText } from './Signup_pw.style'
 
 const SignupVerify = () => {
     const userData: UserDataState = useSelector((state: RootState) => state.user.user)
+    const [sendEmail, setSendEmail] = useState(false)
+    console.log(userData)
     const [image, setImage] = useState('/blank.png')
     const handleClick = async () => {
         try {
-            await apiInstance.post('/verify', userData.email)
+            await apiInstance.post('/verify', { email: userData.email })
+            setSendEmail(true)
             console.log('success')
         } catch (e) {
             console.log(e)
@@ -30,10 +34,13 @@ const SignupVerify = () => {
                     <div>받으신 이메일을 열어 링크로 접속하시면 가입이 완료됩니다.</div>
                 </ContainerText>
                 <ContainerBtn>
-                    <Link href='/'>
-                        <button>Home</button>
-                    </Link>
-                    <button onClick={handleClick}>인증 메일 다시 보내기</button>
+                    <div>
+                        <Link href='/'>
+                            <button>Home</button>
+                        </Link>
+                        <button onClick={handleClick}>인증 메일 다시 보내기</button>
+                    </div>
+                    <div>{sendEmail ? <GreenText>다시 보내기 성공!</GreenText> : <RedText>에러 발생!</RedText>}</div>
                 </ContainerBtn>
             </Container>
         </>
