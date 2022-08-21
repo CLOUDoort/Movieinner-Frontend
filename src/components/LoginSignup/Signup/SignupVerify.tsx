@@ -9,15 +9,16 @@ import { GreenText, RedText } from './Signup_pw.style'
 
 const SignupVerify = () => {
     const userData: UserDataState = useSelector((state: RootState) => state.user.user)
-    const [sendEmail, setSendEmail] = useState(false)
+    const [sendEmail, setSendEmail] = useState(1)
     console.log(userData)
     const [image, setImage] = useState('/blank.png')
     const handleClick = async () => {
         try {
             await apiInstance.post('/verify', { email: userData.email })
-            setSendEmail(true)
+            setSendEmail(2)
             console.log('success')
         } catch (e) {
+            setSendEmail(3)
             console.log(e)
         }
     }
@@ -39,8 +40,11 @@ const SignupVerify = () => {
                             <button>Home</button>
                         </Link>
                         <button onClick={handleClick}>인증 메일 다시 보내기</button>
+                        <div>
+                            {sendEmail === 2 && <GreenText>다시 보내기 성공!</GreenText>}
+                            {sendEmail === 3 && <RedText>에러 발생!</RedText>}
+                        </div>
                     </div>
-                    <div>{sendEmail ? <GreenText>다시 보내기 성공!</GreenText> : <RedText>에러 발생!</RedText>}</div>
                 </ContainerBtn>
             </Container>
         </>

@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
-import { Container, ContainerBtn, ContainerTitle, FailText, VerifyFailText } from './SignupVerify.style'
+import { Container, ContainerBtn, ContainerTitle, FailText, Loading, LoadingContainer, LoadingText, VerifyFailText } from './SignupVerify.style'
 import { apiInstance } from '../../../apis/setting'
 import { GreenText, RedText } from './Signup_pw.style'
 
@@ -48,14 +48,24 @@ const SignupVerifyFail = () => {
             console.log(e)
         }
     }
-    const signupSuccess = () => {
+    const signupSuccess = async () => {
+        await apiInstance.post('/users')
         router.replace('/welcome')
     }
-    return (
-        <>
-            {verification.isVerified ? (
-                signupSuccess()
-            ) : (
+    if (!verification.success && !verification.isVerified) {
+        return (
+            <>
+                <LoadingContainer>
+                    <Loading></Loading>
+                    <LoadingText>Loading</LoadingText>
+                </LoadingContainer>
+            </>
+        )
+    } else if (verification.isVerified) {
+        return signupSuccess()
+    } else {
+        return (
+            <>
                 <Container>
                     <ContainerTitle>이메일 인증 실패</ContainerTitle>
                     {!verification.isVerified && (
@@ -76,9 +86,9 @@ const SignupVerifyFail = () => {
                         </div>
                     </ContainerBtn>
                 </Container>
-            )}
-        </>
-    )
+            </>
+        )
+    }
 }
 
 export default SignupVerifyFail
