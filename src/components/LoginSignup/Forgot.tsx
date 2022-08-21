@@ -4,7 +4,6 @@ import { setComponent } from '../../store/reducers/signupSlice'
 import { RootState } from '../../store/store'
 import { EmailForm, ForgotContainer } from './Forgot.style'
 import Forgotvalid from './Forgotvalid'
-import { apiInstance } from '../../apis/setting'
 import { setForgot } from '../../store/reducers/forgotSlice'
 
 const Forgot = () => {
@@ -23,6 +22,7 @@ const Forgot = () => {
         dispatch(setForgot({ key: 'email', value: email }))
         dispatch(setComponent('Forgot'))
     }
+    console.log('forgot', forgot)
     return (
         <>
             {signupComponent === 'Signup' && (
