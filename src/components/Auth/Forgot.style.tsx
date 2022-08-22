@@ -11,7 +11,7 @@ export const ForgotContainer = styled.div`
     }
 `
 
-export const EmailForm = styled.div`
+export const EmailForm = styled.form`
     display: flex;
     flex-direction: column;
     > div {
