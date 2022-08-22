@@ -1,12 +1,12 @@
 import { TitleDiv, UserInfoDiv, ProgressBtn, UserProfile, UserInfo, UserSex, SignupInfo, BirthInfo } from './Signupinfo.style'
-import { useCallback, useRef, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import Image from 'next/image'
 import { toast } from 'react-toastify'
 import { apiInstance } from '../../../apis/setting'
 import CurrentStatusThird from '../CurrentStatus/CurrentStatusThird'
 import { useDispatch, useSelector } from 'react-redux'
 import { RootState } from '../../../store/store'
-import { setComponent, setUser } from '../../../store/reducers/signupSlice'
+import { setSignup, setUser } from '../../../store/reducers/signupSlice'
 import { Calendar } from 'react-date-range'
 import moment from 'moment'
 import ko from 'date-fns/locale/ko'
@@ -18,7 +18,6 @@ const Signupinfo = () => {
     const [info, setInfo] = useState({
         nickname: '',
         name: '',
-        image_URL: 'abc',
         gender: '',
     })
 
@@ -76,22 +75,20 @@ const Signupinfo = () => {
         setInfo({ ...info, [name]: value })
         dispatch(setUser({ key: name, value: value }))
     }
-    // dispatch(setUser({ key: 'nickname', value: info.nickname }))
-    // dispatch(setUser({ key: 'name', value: info.name }))
-    // dispatch(setUser({ key: 'image_URL', value: info.image_URL }))
-    // dispatch(setUser({ key: 'gender', value: info.gender }))
 
     // 완료버튼, 이메일을 백엔드로 전송
+    useEffect(() => {
+        dispatch(setUser({ key: 'birth', value: birth }))
+    })
     const handleClick = async () => {
         console.log(userData.email)
         try {
-            await apiInstance.post('/verify', { email: userData.email })
+            await apiInstance.post('/verify', { email: userData.email, type: 'email' })
+            dispatch(setSignup('SignupVerify'))
         } catch (e) {
             console.log(e)
         }
-        dispatch(setUser({ key: 'birth', value: birth }))
-        dispatch(setComponent('SignupVerify'))
-        // await apiInstance.post('/users', userData)
+        await apiInstance.post('/users', userData)
     }
     console.log(userData)
     return (

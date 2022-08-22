@@ -15,7 +15,7 @@ export const signupSlice = createSlice({
     initialState, // 초기화
     reducers: {
         // 객체로 반환, 모두 함수로 구성
-        setComponent: (state, action) => {
+        setSignup: (state, action) => {
             state.component = action.payload
         },
         setUser: (state, action) => {
@@ -27,6 +27,6 @@ export const signupSlice = createSlice({
     },
 })
 
-export const { setComponent, setUser } = signupSlice.actions
+export const { setSignup, setUser } = signupSlice.actions
 export default signupSlice.reducer
 // store에 전달

@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { setComponent, setUser } from '../../../store/reducers/signupSlice'
+import { setSignup, setUser } from '../../../store/reducers/signupSlice'
 import { RootState } from '../../../store/store'
 import CurrentStatusFirst from '../CurrentStatus/CurrentStatusFirst'
 import Signupinfo from './Signupinfo'
@@ -9,7 +9,7 @@ import SignupVerify from './SignupVerify'
 import { EmailDiv, ProgressBtn, SignupContainerDiv } from './Signup_pw.style'
 
 const Signup = () => {
-    const signupComponent = useSelector((state: RootState) => state.component.component)
+    const signupComponent = useSelector((state: RootState) => state.signup.component)
     const dispatch = useDispatch()
 
     const [email, setEmail] = useState('')
@@ -17,7 +17,7 @@ const Signup = () => {
     const handleClick = async (e) => {
         e.preventDefault()
         dispatch(setUser({ key: 'email', value: email }))
-        dispatch(setComponent('Signuppw'))
+        dispatch(setSignup('Signuppw'))
         // await apiInstance.post('/verify', { email: email })
     }
 

@@ -19,7 +19,7 @@ const SignupVerifyReturn = () => {
         else {
             const getRequest = async () => {
                 try {
-                    const response = await apiInstance.get('/verify', { params: { key: key } })
+                    const response = await apiInstance.get('/verify', { params: { key: key, type: 'email' } })
                     setVerification({
                         success: true, // router query가 담긴 링크 받고 접속 성공
                         isVerified: response.data.isVerified, // 시간 내에 접속 성공

@@ -12,7 +12,7 @@ const SignupVerifyFail = (props) => {
     const { email } = props
     const handleClick = async () => {
         try {
-            await apiInstance.post('/verify', { email: email })
+            await apiInstance.post('/verify', { email: email, type: 'email' })
             setSendEmail({
                 ...sendEmail,
                 click: true,

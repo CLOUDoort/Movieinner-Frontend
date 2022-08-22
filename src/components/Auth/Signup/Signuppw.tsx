@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { setComponent, setUser } from '../../../store/reducers/signupSlice'
+import { setSignup, setUser } from '../../../store/reducers/signupSlice'
 import { EmailDiv, GreenText, ProgressBtn, RedText, SignupContainerDiv } from './Signup_pw.style'
 import CurrentStatusSecond from '../CurrentStatus/CurrentStatusSecond'
 
@@ -31,7 +31,7 @@ const Signuppw = () => {
     const handleClick = (e) => {
         dispatch(setUser({ key: 'password', value: password.first }))
         e.preventDefault()
-        dispatch(setComponent('Signupinfo'))
+        dispatch(setSignup('Signupinfo'))
     }
     return (
         <>
