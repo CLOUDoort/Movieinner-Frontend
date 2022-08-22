@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
-import { Container, ContainerBtn, ContainerTitle, FailText, Loading, LoadingContainer, LoadingText, VerifyFailText } from './SignupVerify.style'
+import { Container, ContainerBtn, ContainerTitle, Loading, LoadingContainer, LoadingText, VerifyFailText } from './SignupVerify.style'
 import { apiInstance } from '../../../apis/setting'
 import { GreenText, RedText } from './Signup_pw.style'
 
@@ -47,9 +47,6 @@ const SignupVerifyFail = () => {
             console.log(e)
         }
     }
-    const signupSuccess = async () => {
-        router.replace('/welcome')
-    }
     if (!verification.success && !verification.isVerified) {
         return (
             <>
@@ -60,17 +57,15 @@ const SignupVerifyFail = () => {
             </>
         )
     } else if (verification.isVerified) {
-        return signupSuccess()
+        router.replace('/welcome')
     } else {
         return (
             <>
                 <Container>
                     <ContainerTitle>이메일 인증 실패</ContainerTitle>
-                    {!verification.isVerified && (
-                        <VerifyFailText>
-                            <p>인증에 실패했습니다!</p>
-                        </VerifyFailText>
-                    )}
+                    <VerifyFailText>
+                        <p>인증에 실패했습니다!</p>
+                    </VerifyFailText>
                     <ContainerBtn>
                         <div>
                             <Link href='/'>

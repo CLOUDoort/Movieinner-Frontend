@@ -32,7 +32,7 @@ const Forgot = () => {
                         <div>Email</div>
                         <input type='email' name='email' value={email} placeholder='이메일을 입력해주세요' onChange={handleChange} />
                         <button onClick={handleClick} disabled={email === ''}>
-                            인증 메일 발송!
+                            다음
                         </button>
                     </EmailForm>
                 </ForgotContainer>
