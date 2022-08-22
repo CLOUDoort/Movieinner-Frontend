@@ -14,8 +14,7 @@ export const SignupContainerDiv = styled.div`
 export const EmailDiv = styled.div`
     display: flex;
     flex-direction: column;
-    > div {
-        text-align: start;
+    > label {
         margin-bottom: 10px;
     }
     > input {

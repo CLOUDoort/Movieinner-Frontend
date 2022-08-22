@@ -26,10 +26,10 @@ const Signuppw = () => {
                 <CurrentStatusSecond />
                 <p>비밀번호 설정</p>
                 <EmailDiv>
-                    <div>비밀번호 입력</div>
+                    <label>비밀번호 입력</label>
                     <input type='password' name='first' required value={password.first} onChange={handleChange} placeholder='6자리 이상 입력해 주세요.' />
                     {password.first.length >= 6 ? <GreenText>알맞은 비밀번호 입니다.</GreenText> : <RedText>아직 6자리가 아니에요.</RedText>}
-                    <div>비밀번호 확인</div>
+                    <label>비밀번호 확인</label>
                     <input type='password' name='second' required value={password.second} onChange={handleChange} placeholder='다시 한번 입력해 주세요.' />
                     {password.first !== password.second ? <RedText>두 비밀번호가 달라요&#33;</RedText> : <GreenText>일치합니다.</GreenText>}
                 </EmailDiv>

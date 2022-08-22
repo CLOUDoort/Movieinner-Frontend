@@ -15,8 +15,8 @@ const Signup = () => {
     const [email, setEmail] = useState('')
 
     const handleClick = async (e) => {
-        dispatch(setUser({ key: 'email', value: email }))
         e.preventDefault()
+        dispatch(setUser({ key: 'email', value: email }))
         dispatch(setComponent('Signuppw'))
         // await apiInstance.post('/verify', { email: email })
     }
@@ -32,8 +32,8 @@ const Signup = () => {
                     <CurrentStatusFirst />
                     <p>이메일 입력</p>
                     <EmailDiv>
-                        <div>Email</div>
-                        <input type='email' name='email' value={email} placeholder='example@company.com' onChange={handleChange} />
+                        <label htmlFor='email'>Email</label>
+                        <input type='email' name='email' id='email' value={email} placeholder='example@company.com' onChange={handleChange} />
                     </EmailDiv>
                     <ProgressBtn disabled={email === ''} onClick={handleClick}>
                         다음
