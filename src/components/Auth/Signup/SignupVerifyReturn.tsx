@@ -35,10 +35,9 @@ const SignupVerifyReturn = () => {
             getRequest()
         }
     }, [key, router.isReady])
-
-    if (verification.isVerified) router.replace('/welcome')
-
-    return <>{!verification.success ? <Loading /> : <SignupVerifyFail email={email} />}</>
+    if (!verification.success) return <Loading />
+    else if (verification.isVerified) router.replace('/welcome') // return 금지
+    else return <SignupVerifyFail email={email} />
 }
 
 export default SignupVerifyReturn
