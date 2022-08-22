@@ -1,7 +1,7 @@
-import SignupVerifyFail from '../../components/Auth/Signup/SignupVerifyFail'
+import SignupVerifyReturn from '../../components/Auth/Signup/SignupVerifyReturn'
 
 const signupVerify = () => {
-    return <SignupVerifyFail />
+    return <SignupVerifyReturn />
 }
 
 export default signupVerify

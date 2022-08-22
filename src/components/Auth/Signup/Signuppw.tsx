@@ -15,6 +15,8 @@ const Signuppw = () => {
         second: false,
     })
 
+    // 응답값 고정 usememo
+    // 함수값 고정 usecallback
     const handleChange = (e) => {
         const { name, value } = e.target
         setPassword({ ...password, [name]: value })

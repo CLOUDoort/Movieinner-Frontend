@@ -30,7 +30,7 @@ const Forgot = () => {
                     <p>비밀번호 찾기</p>
                     <EmailForm>
                         <div>Email</div>
-                        <input type='email' name='email' value={email} placeholder='이메일을 입력해주세요' onChange={handleChange} />
+                        <input type='email' name='email' value={email} placeholder='example@company.com' onChange={handleChange} />
                         <button onClick={handleClick} disabled={email === ''}>
                             다음
                         </button>
