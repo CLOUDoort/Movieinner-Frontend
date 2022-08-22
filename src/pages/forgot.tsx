@@ -1,4 +1,4 @@
-import Forgot from '../components/LoginSignup/Forgot'
+import Forgot from '../components/Auth/Forgot'
 
 const forgot = () => {
     return <Forgot />
