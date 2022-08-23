@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { RootState } from '../../../store/store'
 import { Container, ContainerBtn, ContainerProfile, ContainerText, ContainerTitle, FailText } from './SignupVerify.style'
@@ -9,12 +9,19 @@ import { GreenText, RedText } from './Signup_pw.style'
 
 const SignupVerify = () => {
     const userData: UserDataState = useSelector((state: RootState) => state.user.user)
+
+    // 이메일 다시 보내기
     const [email, setEmail] = useState({
         click: false,
         send: false,
     })
     console.log(userData)
+
     const [image, setImage] = useState('/blank.png')
+    useEffect(() => {
+        if (userData.image_URL) setImage(userData.image_URL)
+    }, [image, userData.image_URL])
+
     const handleClick = async () => {
         try {
             await apiInstance.post('/verify', { email: userData.email })
