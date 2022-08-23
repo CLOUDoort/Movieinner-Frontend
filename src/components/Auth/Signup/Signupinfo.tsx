@@ -19,6 +19,7 @@ const Signupinfo = () => {
         nickname: '',
         name: '',
         gender: '',
+        image_URL: '',
     })
 
     // birth calendar
@@ -61,6 +62,8 @@ const Signupinfo = () => {
         formData.append('image', file)
         try {
             const imageRes = await apiInstance.post('/image', formData, { headers: { 'Content-Type': 'multipart/form-data' } })
+            const image_URL = imageRes.data.imageURL
+            dispatch(setUser({ key: 'image_URL', value: image_URL }))
             toast.success('success')
         } catch (e) {
             console.log(e)
@@ -68,27 +71,26 @@ const Signupinfo = () => {
         }
     }
 
-    // user info 값
+    // user info 설정, userData에 user info값 넣기
     const handleChange = (e) => {
         e.preventDefault()
         const { value, name } = e.target
         setInfo({ ...info, [name]: value })
         dispatch(setUser({ key: name, value: value }))
     }
-
-    // 완료버튼, 이메일을 백엔드로 전송
     useEffect(() => {
         dispatch(setUser({ key: 'birth', value: birth }))
     })
+
+    // 완료버튼, 이메일을 백엔드로 전송
     const handleClick = async () => {
-        console.log(userData.email)
         try {
             await apiInstance.post('/verify', { email: userData.email, type: 'email' })
             dispatch(setSignup('SignupVerify'))
         } catch (e) {
             console.log(e)
         }
-        await apiInstance.post('/users', userData)
+        // await apiInstance.post('/users', userData)
     }
     console.log(userData)
     return (
@@ -102,7 +104,7 @@ const Signupinfo = () => {
                         fileInput.current.click()
                     }}
                 >
-                    <Image src={image} width={150} height={150} alt='프로필 이미지입니다.' />
+                    {image && <Image src={image} width={150} height={150} alt='프로필 이미지입니다.' />}
                 </a>
                 <UserInfoDiv>
                     <input type='text' placeholder='닉네임을 입력하세요' name='nickname' value={info.nickname} onChange={handleChange} />
