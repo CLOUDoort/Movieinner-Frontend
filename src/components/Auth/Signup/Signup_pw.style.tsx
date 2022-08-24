@@ -57,6 +57,7 @@ export const SubmitInput = styled.input`
 
 export const RedText = styled.p`
     color: red;
+    margin-top: 10px;
     margin-bottom: 10px;
 `
 export const GreenText = styled.p`

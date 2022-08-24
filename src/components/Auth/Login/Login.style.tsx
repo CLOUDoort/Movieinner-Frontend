@@ -92,19 +92,19 @@ export const SocialLoginServiceDiv = styled.div`
     }
 `
 
-export const GoogleLogin = styled.div`
+export const GoogleLoginImg = styled.div`
     background-color: white;
     > input {
         background-color: white;
     }
 `
-export const NaverLogin = styled.div`
+export const NaverLoginImg = styled.div`
     background-color: #07c907;
     > input {
         color: white;
         background-color: #07c907;
     }
 `
-export const KakaoLogin = styled.img`
+export const KakaoLoginImg = styled.img`
     cursor: pointer;
 `

@@ -69,8 +69,12 @@ const Signupinfo = () => {
             console.log(e)
             toast.error('error')
         }
+        // await apiInstatnce.delete('/image', {params: {imageName: ''}}) 이미지 삭제
     }
-
+    /**
+     * @param e info 값 설정
+     * @param e redux userData에 info값 넣기
+     */
     // user info 설정, userData에 user info값 넣기
     const handleChange = (e) => {
         e.preventDefault()
@@ -87,10 +91,10 @@ const Signupinfo = () => {
         try {
             await apiInstance.post('/verify', { email: userData.email, type: 'email' })
             dispatch(setSignup('SignupVerify'))
+            await apiInstance.post('/users', userData)
         } catch (e) {
             console.log(e)
         }
-        // await apiInstance.post('/users', userData)
     }
     console.log(userData)
     return (

@@ -2,9 +2,7 @@ import { Html, Head, Main, NextScript } from 'next/document'
 
 const Document = () => (
     <Html>
-        <Head>
-            <script defer src='https://developers.kakao.com/sdk/js/kakao.js'></script>
-        </Head>
+        <Head></Head>
         <body>
             <Main />
             <NextScript />

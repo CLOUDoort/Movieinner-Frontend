@@ -2,13 +2,13 @@ import Link from 'next/link'
 import {
     FormContainer,
     FormDiv,
-    GoogleLogin,
-    KakaoLogin,
+    GoogleLoginImg,
+    KakaoLoginImg,
     LoginContainerDiv,
     LoginDiv,
     LoginSecondDiv,
     LoginSustainDiv,
-    NaverLogin,
+    NaverLoginImg,
     SocialLoginServiceDiv,
     SubmitInput,
 } from './Login.style'
@@ -16,8 +16,7 @@ import { FcGoogle } from 'react-icons/fc'
 import { SiNaver } from 'react-icons/si'
 import { useState } from 'react'
 import { apiInstance } from '../../../apis/setting'
-import router from 'next/router'
-import Image from 'next/image'
+import KakaoLogin from './KakaoLogin'
 
 const Login = () => {
     const [values, setValues] = useState({
@@ -38,24 +37,6 @@ const Login = () => {
 
         const { name, value } = e.target
         setValues({ ...values, [name]: value })
-    }
-
-    const kakao_login = () => {
-        window.Kakao.Auth.login({
-            success(authObj: any) {
-                router.push('/')
-                console.log(authObj)
-            },
-            fail(err: any) {
-                console.log(err)
-            },
-        })
-    }
-
-    const kakao_logout = () => {
-        window.Kakao.Auth.logout(() => {
-            console.log('success')
-        })
     }
 
     return (
@@ -85,16 +66,15 @@ const Login = () => {
                 </Link>
             </LoginSecondDiv>
             <SocialLoginServiceDiv>
-                <GoogleLogin>
+                <GoogleLoginImg>
                     <FcGoogle size={20} />
                     <input type='button' value='Google 계정 로그인' />
-                </GoogleLogin>
-                <NaverLogin>
+                </GoogleLoginImg>
+                <NaverLoginImg>
                     <SiNaver size={20} />
                     <input type='button' value='네이버 계정 로그인' />
-                </NaverLogin>
-                <KakaoLogin src='/kakao_login_medium_wide.png' alt='카카오 로그인' onClick={kakao_login} />
-                <button onClick={kakao_logout}>로그아웃</button>
+                </NaverLoginImg>
+                <KakaoLoginImg src='/kakao_login_medium_wide.png' alt='카카오 로그인' onClick={() => <KakaoLogin />} />
             </SocialLoginServiceDiv>
         </LoginContainerDiv>
     )

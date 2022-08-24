@@ -18,7 +18,6 @@ const Signup = () => {
         e.preventDefault()
         dispatch(setUser({ key: 'email', value: email }))
         dispatch(setSignup('Signuppw'))
-        // await apiInstance.post('/verify', { email: email })
     }
 
     const handleChange = (e) => {

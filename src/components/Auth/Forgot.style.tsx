@@ -9,6 +9,9 @@ export const ForgotContainer = styled.div`
         margin-bottom: 20px;
         font-size: 30px;
     }
+    > div {
+        margin-top: 20px;
+    }
 `
 
 export const EmailForm = styled.form`
@@ -24,16 +27,15 @@ export const EmailForm = styled.form`
         padding: 8px 16px;
         background-color: black;
         border: none;
-        margin-bottom: 10px;
+        margin-bottom: 30px;
         color: white;
     }
     > button {
-        width: 600px;
-        font-size: 20px;
-        padding: 8px 16px;
-        background-color: black;
+        width: 300px;
         border: none;
-        margin-bottom: 10px;
-        color: white;
+        background-color: #f6f6f6;
+        font-size: 15px;
+        padding: 10px;
+        margin: auto;
     }
 `

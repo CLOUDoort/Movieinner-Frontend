@@ -11,14 +11,10 @@ import Footer from '../components/Footer/Footer'
 import { Global } from '@emotion/react'
 import 'keen-slider/keen-slider.min.css'
 import '../style/slider.css'
-import { useEffect } from 'react'
 import 'react-date-range/dist/styles.css'
 import 'react-date-range/dist/theme/default.css'
 
 declare global {
-    interface Window {
-        Kakao: any
-    }
     interface UserDataState {
         email?: string
         password?: string
@@ -31,15 +27,6 @@ declare global {
 }
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
-    useEffect(() => {
-        try {
-            if (!window.Kakao.isInitialized() && window.Kakao) {
-                window.Kakao.init(process.env.NEXT_PUBLIC_KAKAO_JAVASCRIPT)
-            }
-        } catch (e) {
-            console.log(e)
-        }
-    }, [])
     return (
         <>
             <Head>
