@@ -168,6 +168,7 @@ const GlobalCss = css`
     }
     input {
         border-radius: 5px;
+        outline: none;
     }
 `
 

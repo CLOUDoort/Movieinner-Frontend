@@ -35,7 +35,9 @@ const Forgot = () => {
                 <EmailForm onSubmit={handleSubmit}>
                     <div>Email</div>
                     <input type='email' name='email' value={email} placeholder='example@company.com' onChange={handleChange} />
-                    <button disabled={email === ''}>인증 메일 발송!</button>
+                    <button type='submit' disabled={email === ''}>
+                        인증 메일 발송!
+                    </button>
                 </EmailForm>
                 {valid.click === true &&
                     (valid.send ? (
