@@ -16,7 +16,6 @@ import { FcGoogle } from 'react-icons/fc'
 import { SiNaver } from 'react-icons/si'
 import { useState } from 'react'
 import { apiInstance } from '../../../apis/setting'
-import KakaoLogin from './KakaoLogin'
 
 const Login = () => {
     const [values, setValues] = useState({
@@ -38,6 +37,13 @@ const Login = () => {
         const { name, value } = e.target
         setValues({ ...values, [name]: value })
     }
+
+    const REST_API_KEY = process.env.NEXT_PUBLIC_KAKAO_REST_API_KEY
+    const REDIRECT_URI = 'http://localhost:3000/login/kakao'
+    const STATE = 'state-true' // 대조 위한 임시 값
+    const NONCE = 'nonce-true' // 대조를 위한 임시 값
+
+    const KAKAO_AUTH_URL = `https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=${REST_API_KEY}&redirect_uri=${REDIRECT_URI}&nonce=${NONCE}&state=${STATE}`
 
     return (
         <LoginContainerDiv>
@@ -74,7 +80,9 @@ const Login = () => {
                     <SiNaver size={20} />
                     <input type='button' value='네이버 계정 로그인' />
                 </NaverLoginImg>
-                <KakaoLoginImg src='/kakao_login_medium_wide.png' alt='카카오 로그인' onClick={() => <KakaoLogin />} />
+                <Link href={KAKAO_AUTH_URL}>
+                    <KakaoLoginImg src='/kakao_login_medium_wide.png' alt='카카오 로그인' />
+                </Link>
             </SocialLoginServiceDiv>
         </LoginContainerDiv>
     )
