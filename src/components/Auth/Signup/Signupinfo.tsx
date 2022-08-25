@@ -11,7 +11,7 @@ import { Calendar } from 'react-date-range'
 import moment from 'moment'
 import ko from 'date-fns/locale/ko'
 
-const Signupinfo = () => {
+const Signupinfo = (props) => {
     const userData: UserDataState = useSelector((state: RootState) => state.user.user)
     const dispatch = useDispatch()
     const [birth, setBirth] = useState('')
@@ -21,7 +21,17 @@ const Signupinfo = () => {
         gender: '',
         image_URL: '',
     })
+    const { kakaoName, kakaoGender, kakaoImage_URL } = props
 
+    if (kakaoName && kakaoGender && kakaoImage_URL) {
+        setInfo({
+            ...info,
+            name: kakaoName,
+            gender: kakaoGender,
+            image_URL: kakaoImage_URL,
+        })
+    } else {
+    }
     // birth calendar
     const [showCalendar, setShowCalendar] = useState<boolean>(false) // 캘린더 토글
     const today = moment().toDate()
@@ -38,6 +48,9 @@ const Signupinfo = () => {
     const handleCalendar = () => {
         setShowCalendar(true)
     }
+    useEffect(() => {
+        dispatch(setUser({ key: 'birth', value: birth }))
+    })
 
     // profile_img
     const [image, setImage] = useState('/blank.png')
@@ -71,20 +84,12 @@ const Signupinfo = () => {
         }
         // await apiInstatnce.delete('/image', {params: {imageName: ''}}) 이미지 삭제
     }
-    /**
-     * @param e info 값 설정
-     * @param e redux userData에 info값 넣기
-     */
-    // user info 설정, userData에 user info값 넣기
     const handleChange = (e) => {
         e.preventDefault()
         const { value, name } = e.target
         setInfo({ ...info, [name]: value })
         dispatch(setUser({ key: name, value: value }))
     }
-    useEffect(() => {
-        dispatch(setUser({ key: 'birth', value: birth }))
-    })
 
     // 완료버튼, 이메일을 백엔드로 전송
     const handleClick = async () => {
