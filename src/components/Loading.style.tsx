@@ -1,10 +1,16 @@
 import styled from '@emotion/styled'
 
+export const LoadingPage = styled.div`
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+`
+
 export const LoadingContainer = styled.div`
-    margin: 230px auto;
-    height: 100px;
     position: relative;
-    width: 100px;
     border-radius: 100%;
     :hover :first-of-type {
         border-color: transparent #e45635 transparent #e45635;
@@ -72,8 +78,6 @@ export const LoadingView = styled.div`
     position: relative;
     width: 200px;
     border-radius: 100%;
-    right: 50px;
-    bottom: 45px;
     -webkit-transition: all 0.5s ease-in-out;
     -moz-transition: all 0.5s ease-in-out;
     -ms-transition: all 0.5s ease-in-out;
@@ -103,6 +107,6 @@ export const LoadingText = styled.div`
     position: absolute;
     text-align: center;
     text-transform: uppercase;
-    top: 0;
-    width: 100px;
+    top: 45px;
+    left: 58px;
 `
