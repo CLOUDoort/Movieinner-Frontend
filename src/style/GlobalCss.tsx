@@ -139,8 +139,13 @@ const GlobalCss = css`
         font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
         box-sizing: border-box;
     }
+    html {
+        width: 100%;
+        height: 100%;
+    }
     body {
-        width: 100vw;
+        width: 100%;
+        height: 100%;
         background-color: #2e2e2e;
         color: white;
     }

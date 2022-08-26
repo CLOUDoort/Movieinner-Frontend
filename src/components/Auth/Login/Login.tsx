@@ -76,10 +76,7 @@ const Login = () => {
             </LoginSecondDiv>
             <SocialLoginServiceDiv>
                 <Link href={GOOGLE_AUTH_UTL}>
-                    <GoogleLoginImg>
-                        <FcGoogle size={20} />
-                        <input type='button' value='Google 계정 로그인' />
-                    </GoogleLoginImg>
+                    <GoogleLoginImg src='/google_login.png' />
                 </Link>
                 <Link href={GOOGLE_AUTH_UTL}>
                     <NaverLoginImg>
@@ -88,7 +85,7 @@ const Login = () => {
                     </NaverLoginImg>
                 </Link>
                 <Link href={KAKAO_AUTH_URL}>
-                    <KakaoLoginImg src='/kakao_login_medium_wide.png' alt='카카오 로그인' />
+                    <KakaoLoginImg src='/kakao_login_large_wide.png' alt='카카오 로그인' />
                 </Link>
             </SocialLoginServiceDiv>
         </LoginContainerDiv>

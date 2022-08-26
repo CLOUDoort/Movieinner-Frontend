@@ -92,11 +92,8 @@ export const SocialLoginServiceDiv = styled.div`
     }
 `
 
-export const GoogleLoginImg = styled.div`
-    background-color: white;
-    > input {
-        background-color: white;
-    }
+export const GoogleLoginImg = styled.img`
+    cursor: pointer;
 `
 export const NaverLoginImg = styled.div`
     background-color: #07c907;
