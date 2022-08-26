@@ -38,12 +38,10 @@ const Login = () => {
         setValues({ ...values, [name]: value })
     }
 
+    // kakao_login
     const REST_API_KEY = process.env.NEXT_PUBLIC_KAKAO_REST_API_KEY
     const REDIRECT_URI = 'http://localhost:3000/login/kakao'
-    const STATE = 'state-true' // 대조 위한 임시 값
-    const NONCE = 'nonce-true' // 대조를 위한 임시 값
-
-    const KAKAO_AUTH_URL = `https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=${REST_API_KEY}&redirect_uri=${REDIRECT_URI}&nonce=${NONCE}&state=${STATE}`
+    const KAKAO_AUTH_URL = `https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=${REST_API_KEY}&redirect_uri=${REDIRECT_URI}`
 
     return (
         <LoginContainerDiv>

@@ -11,7 +11,7 @@ import { Calendar } from 'react-date-range'
 import moment from 'moment'
 import ko from 'date-fns/locale/ko'
 
-const Signupinfo = (props) => {
+const Signupinfo = () => {
     const userData: UserDataState = useSelector((state: RootState) => state.user.user)
     const dispatch = useDispatch()
     const [birth, setBirth] = useState('')
@@ -21,17 +21,6 @@ const Signupinfo = (props) => {
         gender: '',
         image_URL: '',
     })
-    const { kakaoName, kakaoGender, kakaoImage_URL } = props
-
-    if (kakaoName && kakaoGender && kakaoImage_URL) {
-        setInfo({
-            ...info,
-            name: kakaoName,
-            gender: kakaoGender,
-            image_URL: kakaoImage_URL,
-        })
-    } else {
-    }
     // birth calendar
     const [showCalendar, setShowCalendar] = useState<boolean>(false) // 캘린더 토글
     const today = moment().toDate()
