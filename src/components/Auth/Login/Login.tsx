@@ -40,8 +40,13 @@ const Login = () => {
 
     // kakao_login
     const REST_API_KEY = process.env.NEXT_PUBLIC_KAKAO_REST_API_KEY
-    const REDIRECT_URI = 'http://localhost:3000/login/kakao'
-    const KAKAO_AUTH_URL = `https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=${REST_API_KEY}&redirect_uri=${REDIRECT_URI}`
+    const KAKAO_REDIRECT_URI = 'http://localhost:3000/login/kakao'
+    const KAKAO_AUTH_URL = `https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=${REST_API_KEY}&redirect_uri=${KAKAO_REDIRECT_URI}`
+
+    // google_login
+    const GOOGLE_CLIENT_ID = process.env.NEXT_PUBLIC_GOOGLE_CLIENT_KEY
+    const GOOGLE_REDIRECT_URL = 'http://localhost:3000/login/google'
+    const GOOGLE_AUTH_UTL = `https://accounts.google.com/o/oauth2/v2/auth?client_id=${GOOGLE_CLIENT_ID}&response_type=token&redirect_uri=${GOOGLE_REDIRECT_URL}&scope=https://www.googleapis.com/auth/userinfo.email`
 
     return (
         <LoginContainerDiv>
@@ -70,14 +75,18 @@ const Login = () => {
                 </Link>
             </LoginSecondDiv>
             <SocialLoginServiceDiv>
-                <GoogleLoginImg>
-                    <FcGoogle size={20} />
-                    <input type='button' value='Google 계정 로그인' />
-                </GoogleLoginImg>
-                <NaverLoginImg>
-                    <SiNaver size={20} />
-                    <input type='button' value='네이버 계정 로그인' />
-                </NaverLoginImg>
+                <Link href={GOOGLE_AUTH_UTL}>
+                    <GoogleLoginImg>
+                        <FcGoogle size={20} />
+                        <input type='button' value='Google 계정 로그인' />
+                    </GoogleLoginImg>
+                </Link>
+                <Link href={GOOGLE_AUTH_UTL}>
+                    <NaverLoginImg>
+                        <SiNaver size={20} />
+                        <input type='button' value='네이버 계정 로그인' />
+                    </NaverLoginImg>
+                </Link>
                 <Link href={KAKAO_AUTH_URL}>
                     <KakaoLoginImg src='/kakao_login_medium_wide.png' alt='카카오 로그인' />
                 </Link>
