@@ -10,10 +10,12 @@ import { setSignup, setUser } from '../../../store/reducers/signupSlice'
 import { Calendar } from 'react-date-range'
 import moment from 'moment'
 import ko from 'date-fns/locale/ko'
+import { GreenText, RedText } from './Signup_pw.style'
 
 const Signupinfo = () => {
     const userData: UserDataState = useSelector((state: RootState) => state.user.user)
     const dispatch = useDispatch()
+    const [checkNickname, setCheckNickname] = useState(false) // 닉네임 중복 여부
     const [birth, setBirth] = useState('')
     const [info, setInfo] = useState({
         nickname: '',
@@ -21,6 +23,22 @@ const Signupinfo = () => {
         gender: '',
         image_URL: '',
     })
+
+    useEffect(() => {
+        const check = async () => {
+            try {
+                const response = await apiInstance.post('/users/nickname', { nickname: info.nickname })
+                if (response.data.isNicknameExisted) setCheckNickname(true)
+                else setCheckNickname(false)
+                console.log(response)
+            } catch (e) {
+                console.log(e.response)
+                setCheckNickname(false)
+            }
+        }
+        check()
+    }, [info.nickname])
+
     // birth calendar
     const [showCalendar, setShowCalendar] = useState<boolean>(false) // 캘린더 토글
     const today = moment().toDate()
@@ -106,6 +124,7 @@ const Signupinfo = () => {
                 </a>
                 <UserInfoDiv>
                     <input type='text' placeholder='닉네임을 입력하세요' name='nickname' value={info.nickname} onChange={handleChange} />
+                    {checkNickname ? <RedText>중복된 닉네임입니다.</RedText> : <GreenText>사용 가능한 닉네임입니다.</GreenText>}
                     <label htmlFor='input-file'>이미지 선택</label>
                     <input type='file' name='image_URL' id='input-file' accept='image/*' style={{ display: 'none' }} ref={fileInput} onChange={handleImage} />
                 </UserInfoDiv>
