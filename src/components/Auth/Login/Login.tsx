@@ -12,11 +12,10 @@ import {
     SocialLoginServiceDiv,
     SubmitInput,
 } from './Login.style'
-import { FcGoogle } from 'react-icons/fc'
 import { SiNaver } from 'react-icons/si'
 import { useState } from 'react'
 import { apiInstance } from '../../../apis/setting'
-
+import btn_google from '*.svg'
 const Login = () => {
     const [values, setValues] = useState({
         email: '',
@@ -85,7 +84,7 @@ const Login = () => {
                     </NaverLoginImg>
                 </Link>
                 <Link href={KAKAO_AUTH_URL}>
-                    <KakaoLoginImg src='/kakao_login_large_wide.png' alt='카카오 로그인' />
+                    <KakaoLoginImg src='/kakao_login_large_wide.png' alt='카카오 로그인' height={80} />
                 </Link>
             </SocialLoginServiceDiv>
         </LoginContainerDiv>
