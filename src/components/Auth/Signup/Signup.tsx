@@ -76,6 +76,7 @@ const Signup = () => {
                         />
                         <div>
                             {emailValid.touch === true &&
+                                email.length > 0 &&
                                 (emailValid.valid === true ? (
                                     checkEmail === true ? (
                                         <RedText>존재하는 이메일입니다.</RedText>

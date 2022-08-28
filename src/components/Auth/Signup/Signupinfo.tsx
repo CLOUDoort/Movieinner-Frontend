@@ -15,7 +15,10 @@ import { GreenText, RedText } from './Signup_pw.style'
 const Signupinfo = () => {
     const userData: UserDataState = useSelector((state: RootState) => state.user.user)
     const dispatch = useDispatch()
-    const [checkNickname, setCheckNickname] = useState(false) // 닉네임 중복 여부
+    const [checkNickname, setCheckNickname] = useState({
+        click: false,
+        valid: false,
+    }) // 닉네임 중복 여부
     const [birth, setBirth] = useState('')
     const [info, setInfo] = useState({
         nickname: '',
@@ -28,12 +31,23 @@ const Signupinfo = () => {
         const check = async () => {
             try {
                 const response = await apiInstance.post('/users/nickname', { nickname: info.nickname })
-                if (response.data.isNicknameExisted) setCheckNickname(true)
-                else setCheckNickname(false)
+                if (response.data.isNicknameExisted)
+                    setCheckNickname({
+                        ...checkNickname,
+                        valid: true,
+                    })
+                else
+                    setCheckNickname({
+                        ...checkNickname,
+                        valid: false,
+                    })
                 console.log(response)
             } catch (e) {
                 console.log(e.response)
-                setCheckNickname(false)
+                setCheckNickname({
+                    ...checkNickname,
+                    valid: false,
+                })
             }
         }
         check()
@@ -123,8 +137,19 @@ const Signupinfo = () => {
                     {image && <Image src={image} width={150} height={150} alt='프로필 이미지입니다.' />}
                 </a>
                 <UserInfoDiv>
-                    <input type='text' placeholder='닉네임을 입력하세요' name='nickname' value={info.nickname} onChange={handleChange} />
-                    {checkNickname ? <RedText>중복된 닉네임입니다.</RedText> : <GreenText>사용 가능한 닉네임입니다.</GreenText>}
+                    <input
+                        type='text'
+                        placeholder='닉네임을 입력하세요'
+                        name='nickname'
+                        value={info.nickname}
+                        onChange={handleChange}
+                        onFocus={() => {
+                            setCheckNickname({ ...checkNickname, click: true })
+                        }}
+                    />
+                    {checkNickname.click &&
+                        info.nickname.length > 0 &&
+                        (checkNickname.valid ? <RedText>중복된 닉네임입니다.</RedText> : <GreenText>사용 가능한 닉네임입니다.</GreenText>)}
                     <label htmlFor='input-file'>이미지 선택</label>
                     <input type='file' name='image_URL' id='input-file' accept='image/*' style={{ display: 'none' }} ref={fileInput} onChange={handleImage} />
                 </UserInfoDiv>
