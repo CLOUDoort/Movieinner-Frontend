@@ -8,7 +8,7 @@ import {
     LoginDiv,
     LoginSecondDiv,
     LoginSustainDiv,
-    NaverLoginImg,
+    NaverLogin,
     SocialLoginServiceDiv,
     SubmitInput,
 } from './Login.style'
@@ -47,6 +47,12 @@ const Login = () => {
     const GOOGLE_REDIRECT_URL = 'http://localhost:3000/login/google'
     const GOOGLE_AUTH_URL = `https://accounts.google.com/o/oauth2/v2/auth?client_id=${GOOGLE_CLIENT_ID}&response_type=token&redirect_uri=${GOOGLE_REDIRECT_URL}&scope=https://www.googleapis.com/auth/userinfo.email`
 
+    // naver_login
+    const NAVER_CLIENT_ID = process.env.NEXT_PUBLIC_NAVER_CLIENT_KEY
+    const NAVER_REDIRECT_URL = 'http://localhost:3000/login/naver'
+    const STATE = 'Movie-inner'
+    const NAVER_AUTH_URL = `https://nid.naver.com/oauth2.0/authorize?response_type=code&client_id=${NAVER_CLIENT_ID}&state=${STATE}&redirect_uri=${NAVER_REDIRECT_URL}
+    `
     return (
         <LoginContainerDiv>
             <LoginDiv>
@@ -80,11 +86,10 @@ const Login = () => {
                         <label>Google 로그인</label>
                     </GoogleLogin>
                 </Link>
-                <Link href={GOOGLE_AUTH_URL}>
-                    <NaverLoginImg>
-                        <SiNaver size={20} />
-                        <input type='button' value='네이버 계정 로그인' />
-                    </NaverLoginImg>
+                <Link href={NAVER_AUTH_URL}>
+                    <div>
+                        <Image src='/btnW_완성형.png' width={200} height={40} alt='네이버 로그인' />
+                    </div>
                 </Link>
                 <Link href={KAKAO_AUTH_URL}>
                     <KakaoLogin>

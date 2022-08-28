@@ -97,11 +97,18 @@ export const GoogleLogin = styled.div`
         font-size: 14px;
     }
 `
-export const NaverLoginImg = styled.div`
-    background-color: #07c907;
-    > input {
-        color: white;
-        background-color: #07c907;
+export const NaverLogin = styled.div`
+    background-color: white;
+    color: black;
+    > label {
+        cursor: pointer;
+        color: black;
+        display: flex;
+        align-items: center;
+        border: none;
+        font-weight: 500;
+        margin-left: 80px;
+        font-size: 14px;
     }
 `
 export const KakaoLogin = styled.div`
