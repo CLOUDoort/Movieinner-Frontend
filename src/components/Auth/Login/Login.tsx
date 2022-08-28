@@ -2,8 +2,8 @@ import Link from 'next/link'
 import {
     FormContainer,
     FormDiv,
-    GoogleLoginImg,
-    KakaoLoginImg,
+    GoogleLogin,
+    KakaoLogin,
     LoginContainerDiv,
     LoginDiv,
     LoginSecondDiv,
@@ -15,7 +15,7 @@ import {
 import { SiNaver } from 'react-icons/si'
 import { useState } from 'react'
 import { apiInstance } from '../../../apis/setting'
-import btn_google from '*.svg'
+import Image from 'next/image'
 const Login = () => {
     const [values, setValues] = useState({
         email: '',
@@ -45,7 +45,7 @@ const Login = () => {
     // google_login
     const GOOGLE_CLIENT_ID = process.env.NEXT_PUBLIC_GOOGLE_CLIENT_KEY
     const GOOGLE_REDIRECT_URL = 'http://localhost:3000/login/google'
-    const GOOGLE_AUTH_UTL = `https://accounts.google.com/o/oauth2/v2/auth?client_id=${GOOGLE_CLIENT_ID}&response_type=token&redirect_uri=${GOOGLE_REDIRECT_URL}&scope=https://www.googleapis.com/auth/userinfo.email`
+    const GOOGLE_AUTH_URL = `https://accounts.google.com/o/oauth2/v2/auth?client_id=${GOOGLE_CLIENT_ID}&response_type=token&redirect_uri=${GOOGLE_REDIRECT_URL}&scope=https://www.googleapis.com/auth/userinfo.email`
 
     return (
         <LoginContainerDiv>
@@ -74,17 +74,23 @@ const Login = () => {
                 </Link>
             </LoginSecondDiv>
             <SocialLoginServiceDiv>
-                <Link href={GOOGLE_AUTH_UTL}>
-                    <GoogleLoginImg src='/google_login.png' />
+                <Link href={GOOGLE_AUTH_URL}>
+                    <GoogleLogin>
+                        <Image src='/btn_google.svg' width={40} height={40} alt='Google 로그인' />
+                        <label>Google 로그인</label>
+                    </GoogleLogin>
                 </Link>
-                <Link href={GOOGLE_AUTH_UTL}>
+                <Link href={GOOGLE_AUTH_URL}>
                     <NaverLoginImg>
                         <SiNaver size={20} />
                         <input type='button' value='네이버 계정 로그인' />
                     </NaverLoginImg>
                 </Link>
                 <Link href={KAKAO_AUTH_URL}>
-                    <KakaoLoginImg src='/kakao_login_large_wide.png' alt='카카오 로그인' height={80} />
+                    <KakaoLogin>
+                        <Image src='/kakaoballon.png' width={40} height={40} alt='카카오 로그인' />
+                        <label>카카오 로그인</label>
+                    </KakaoLogin>
                 </Link>
             </SocialLoginServiceDiv>
         </LoginContainerDiv>

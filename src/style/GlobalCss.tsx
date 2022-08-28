@@ -1,8 +1,7 @@
 import { css } from '@emotion/react'
-import Header from '../components/Header/Header'
-import Footer from '../components/Footer/Footer'
 
 const GlobalCss = css`
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
     html,
     body,
     div,
@@ -136,7 +135,7 @@ const GlobalCss = css`
         border-spacing: 0;
     }
     * {
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        font-family: 'Roboto';
         box-sizing: border-box;
     }
     html {
@@ -144,6 +143,7 @@ const GlobalCss = css`
         height: 100%;
     }
     body {
+        font-family: 'Roboto';
         width: 100%;
         height: 100%;
         background-color: #2e2e2e;

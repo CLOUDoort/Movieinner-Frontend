@@ -70,30 +70,32 @@ export const SocialLoginServiceDiv = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 400px;
+    height: 200px;
     margin-bottom: 30px;
     > div {
-        cursor: pointer;
-        width: 600px;
         border: none;
         border-radius: 5px;
-        padding: 16px 32px;
         margin-bottom: 50px;
+        width: 300px;
         display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    > div > input {
-        border: none;
-        font-size: 20px;
-    }
-    > input:hover {
-        text-decoration-line: underline;
+        height: 70px;
+        cursor: pointer;
     }
 `
 
-export const GoogleLoginImg = styled.img`
-    cursor: pointer;
+export const GoogleLogin = styled.div`
+    background-color: white;
+    color: black;
+    > label {
+        cursor: pointer;
+        color: black;
+        display: flex;
+        align-items: center;
+        border: none;
+        font-weight: 500;
+        margin-left: 80px;
+        font-size: 14px;
+    }
 `
 export const NaverLoginImg = styled.div`
     background-color: #07c907;
@@ -102,6 +104,19 @@ export const NaverLoginImg = styled.div`
         background-color: #07c907;
     }
 `
-export const KakaoLoginImg = styled.img`
-    cursor: pointer;
+export const KakaoLogin = styled.div`
+    background-color: #fee500;
+    color: black;
+    height: 70px;
+
+    > label {
+        cursor: pointer;
+        color: black;
+        display: flex;
+        align-items: center;
+        border: none;
+        font-weight: 500;
+        margin-left: 80px;
+        font-size: 14px;
+    }
 `
