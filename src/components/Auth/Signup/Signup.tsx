@@ -87,7 +87,7 @@ const Signup = () => {
                                 ))}
                         </div>
                     </EmailDiv>
-                    <ProgressBtn disabled={(email === '' || !email.match(emailRegExp)) && checkEmail === true} onClick={handleClick}>
+                    <ProgressBtn disabled={email === '' || !email.match(emailRegExp) || checkEmail} onClick={handleClick}>
                         다음
                     </ProgressBtn>
                 </SignupContainerDiv>
