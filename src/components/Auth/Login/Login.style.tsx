@@ -70,52 +70,33 @@ export const SocialLoginServiceDiv = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 200px;
+    height: 180px;
     margin-bottom: 30px;
     > div {
         border: none;
         border-radius: 5px;
-        margin-bottom: 50px;
+        margin-bottom: 30px;
         width: 300px;
         display: flex;
-        height: 70px;
         cursor: pointer;
     }
 `
 
 export const GoogleLogin = styled.div`
-    background-color: white;
-    color: black;
+    background-color: #4285f4;
     > label {
         cursor: pointer;
-        color: black;
+        color: white;
         display: flex;
         align-items: center;
         border: none;
         font-weight: 500;
-        margin-left: 80px;
+        margin-left: 75px;
         font-size: 14px;
     }
 `
 export const NaverLogin = styled.div`
     background-color: white;
-    color: black;
-    > label {
-        cursor: pointer;
-        color: black;
-        display: flex;
-        align-items: center;
-        border: none;
-        font-weight: 500;
-        margin-left: 80px;
-        font-size: 14px;
-    }
-`
-export const KakaoLogin = styled.div`
-    background-color: #fee500;
-    color: black;
-    height: 70px;
-
     > label {
         cursor: pointer;
         color: black;
