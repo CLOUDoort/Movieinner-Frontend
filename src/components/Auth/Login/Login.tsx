@@ -12,7 +12,6 @@ import {
     SocialLoginServiceDiv,
     SubmitInput,
 } from './Login.style'
-import { SiNaver } from 'react-icons/si'
 import { useState } from 'react'
 import { apiInstance } from '../../../apis/setting'
 import Image from 'next/image'
