@@ -65,18 +65,18 @@ const Login = () => {
             <SocialLoginServiceDiv>
                 <Link href={GOOGLE_AUTH_URL}>
                     <GoogleLogin>
-                        <Image src='/btn_google.svg' width={40} height={40} alt='Google 로그인' />
+                        <Image src='/btn_google.svg' width={50} height={50} alt='Google 로그인' />
                         <label>Google 로그인</label>
                     </GoogleLogin>
                 </Link>
                 <Link href={NAVER_AUTH_URL}>
                     <NaverLogin>
-                        <Image src='/btn_naver.png' width={40} height={40} alt='네이버 로그인' />
+                        <Image src='/btn_naver.png' width={50} height={50} alt='네이버 로그인' />
                         <label>네이버 로그인</label>
                     </NaverLogin>
                 </Link>
                 <Link href={KAKAO_AUTH_URL}>
-                    <Image src='/btn_kakao.png' width={300} height={40} alt='카카오 로그인' />
+                    <Image src='/btn_kakao.png' width={350} height={50} alt='카카오 로그인' />
                 </Link>
             </SocialLoginServiceDiv>
         </LoginContainerDiv>

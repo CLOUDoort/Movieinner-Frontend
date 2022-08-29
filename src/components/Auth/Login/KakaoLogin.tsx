@@ -11,7 +11,6 @@ const KakaoLogin = () => {
         const postCode = async () => {
             try {
                 const response = await apiInstance.post('/auth/kakao', null, { params: { authorizationCode: KAKAO_CODE } })
-                console.log(response.data.success.properties.nickname)
                 setValid(true)
             } catch (e) {
                 console.log(e)

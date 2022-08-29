@@ -70,14 +70,17 @@ export const SocialLoginServiceDiv = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 180px;
+    margin-top: 50px;
     margin-bottom: 30px;
     > div {
         border: none;
         border-radius: 5px;
         margin-bottom: 30px;
-        width: 300px;
+        width: 350px;
         display: flex;
+        cursor: pointer;
+    }
+    > span > img {
         cursor: pointer;
     }
 `
@@ -91,8 +94,9 @@ export const GoogleLogin = styled.div`
         align-items: center;
         border: none;
         font-weight: 500;
-        margin-left: 75px;
-        font-size: 14px;
+        margin-left: 70px;
+        font-size: 18px;
+        padding: 8px 16px;
     }
 `
 export const NaverLogin = styled.div`
@@ -104,7 +108,7 @@ export const NaverLogin = styled.div`
         align-items: center;
         border: none;
         font-weight: 500;
-        margin-left: 80px;
-        font-size: 14px;
+        margin-left: 92px;
+        font-size: 18px;
     }
 `
