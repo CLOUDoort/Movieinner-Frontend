@@ -51,7 +51,7 @@ const Signupinfo = () => {
             }
         }
         check()
-    }, [info.nickname])
+    }, [info.nickname, checkNickname])
 
     // birth calendar
     const [showCalendar, setShowCalendar] = useState<boolean>(false) // 캘린더 토글
