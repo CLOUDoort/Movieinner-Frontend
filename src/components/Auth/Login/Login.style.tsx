@@ -47,6 +47,10 @@ export const SubmitInput = styled.input`
     margin: auto;
     margin-top: 20px;
     cursor: pointer;
+    transition: opacity, 0.3;
+    :focus {
+        opacity: 0.4;
+    }
 `
 
 export const LoginSecondDiv = styled.div`
