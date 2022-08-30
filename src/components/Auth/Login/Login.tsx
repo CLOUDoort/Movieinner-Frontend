@@ -11,10 +11,14 @@ import {
     SocialLoginServiceDiv,
     SubmitInput,
 } from './Login.style'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { apiInstance } from '../../../apis/setting'
 import Image from 'next/image'
 import { KAKAO_AUTH_URL, NAVER_AUTH_URL, GOOGLE_AUTH_URL } from './LoginConfig'
+import axios from 'axios'
+
+axios.defaults.baseURL = 'http://localhost:3000'
+axios.defaults.withCredentials = true
 const Login = () => {
     const [values, setValues] = useState({
         email: '',
@@ -23,10 +27,25 @@ const Login = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        await apiInstance.post('/login', {
-            email: values.email,
-            pw: values.pw,
-        })
+        try {
+            const response = await apiInstance.post(
+                '/auth',
+                {
+                    email: values.email,
+                    password: values.pw,
+                },
+                {
+                    withCredentials: true,
+                }
+            )
+            // const responseAuth = await apiInstance.get('/auth')
+            const { accessToken } = response.data
+            axios.defaults.headers.common['Authorization'] = `Bearer ${accessToken}` // api요청할 때마다 accessToken을 헤더에 담아서 전송
+            console.log(accessToken)
+            // console.log(responseAuth)
+        } catch (e) {
+            console.log(e.response)
+        }
     }
 
     const handleChange = (e) => {
