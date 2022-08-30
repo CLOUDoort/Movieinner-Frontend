@@ -44,9 +44,9 @@ const Login = () => {
             <FormDiv>
                 <FormContainer onSubmit={handleSubmit}>
                     <div>Email</div>
-                    <input type='email' name='email' onChange={handleChange} placeholder='이메일을 입력하세요' />
+                    <input type='email' name='email' onChange={handleChange} placeholder='이메일을 입력하세요' autoComplete='off' />
                     <div>Password</div>
-                    <input type='password' name='pw' onChange={handleChange} placeholder='비밀번호를 입력하세요' />
+                    <input type='password' name='pw' onChange={handleChange} placeholder='비밀번호를 입력하세요' autoComplete='off' />
                     <LoginSustainDiv>
                         <input type='checkbox' />
                         <div>로그인 유지하기</div>
@@ -64,19 +64,25 @@ const Login = () => {
             </LoginSecondDiv>
             <SocialLoginServiceDiv>
                 <Link href={GOOGLE_AUTH_URL}>
-                    <GoogleLogin>
-                        <Image src='/btn_google.svg' width={50} height={50} alt='Google 로그인' />
-                        <label>Google 로그인</label>
-                    </GoogleLogin>
+                    <a>
+                        <GoogleLogin>
+                            <Image src='/btn_google.svg' width={50} height={50} alt='Google 로그인' />
+                            <label>Google 로그인</label>
+                        </GoogleLogin>
+                    </a>
                 </Link>
                 <Link href={NAVER_AUTH_URL}>
-                    <NaverLogin>
-                        <Image src='/btn_naver.png' width={50} height={50} alt='네이버 로그인' />
-                        <label>네이버 로그인</label>
-                    </NaverLogin>
+                    <a>
+                        <NaverLogin>
+                            <Image src='/btn_naver.png' width={50} height={50} alt='네이버 로그인' />
+                            <label>네이버 로그인</label>
+                        </NaverLogin>
+                    </a>
                 </Link>
                 <Link href={KAKAO_AUTH_URL}>
-                    <Image src='/btn_kakao.png' width={350} height={50} alt='카카오 로그인' />
+                    <a>
+                        <Image src='/btn_kakao.png' width={350} height={50} alt='카카오 로그인' />
+                    </a>
                 </Link>
             </SocialLoginServiceDiv>
         </LoginContainerDiv>

@@ -72,7 +72,7 @@ export const SocialLoginServiceDiv = styled.div`
     align-items: center;
     margin-top: 50px;
     margin-bottom: 30px;
-    > div {
+    > a > div {
         border: none;
         border-radius: 5px;
         margin-bottom: 30px;
@@ -80,7 +80,7 @@ export const SocialLoginServiceDiv = styled.div`
         display: flex;
         cursor: pointer;
     }
-    > span > img {
+    > a > img {
         cursor: pointer;
     }
 `
