@@ -3,7 +3,6 @@ import { useEffect, useState } from 'react'
 import { apiInstance } from '../../../apis/setting'
 import Loading from '../../Loading'
 import Signupinfo from '../Signup/Signupinfo'
-import { GOOGLE_CLIENT_ID, GOOGLE_REDIRECT_URI, GOOGLE_CLIENT_PASSWORD } from './LoginConfig'
 
 const GoogleLogin = () => {
     const [valid, setValid] = useState(false)

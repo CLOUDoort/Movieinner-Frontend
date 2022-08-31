@@ -14,7 +14,7 @@ import {
 import { useEffect, useState } from 'react'
 import { apiInstance } from '../../../apis/setting'
 import Image from 'next/image'
-import { KAKAO_AUTH_URL, NAVER_AUTH_URL, GOOGLE_AUTH_URL } from './LoginConfig'
+import { KAKAO_AUTH_URL, NAVER_AUTH_URL, GOOGLE_AUTH_URL } from '../../../Lib/SocialLoginData'
 import axios from 'axios'
 
 const JWT_EXPIRY_TIME = 24 * 3600 * 1000
@@ -29,22 +29,19 @@ const Login = () => {
     const onLoginSuccess = (response) => {
         const { accessToken } = response.data
         axios.defaults.headers.common['Authorization'] = `Bearer ${accessToken}` // api요청할 때마다 accessToken을 헤더에 담아서 전송
-        setTimeout(onSilentRefresh, JWT_EXPIRY_TIME - 60000) // 만료 1분 전에 재발급 함수
+        // setTimeout(onSilentRefresh, JWT_EXPIRY_TIME - 60000) // 만료 1분 전에 재발급 함수
     }
 
     // accessToken 재발급 & 로그인 함수
     // 기한이 지나거나 페이지가 리로드될 때 함수 실행
-    const onSilentRefresh = async () => {
-        try {
-            const response = await apiInstance.post('/slient-refresh', {
-                email: values.email,
-                password: values.pw,
-            })
-            onLoginSuccess(response)
-        } catch (e) {
-            console.log(e.response)
-        }
-    }
+    // const onSilentRefresh = async () => {
+    //     try {
+    //         const response = await apiInstance.post('/slient-refresh')
+    //         onLoginSuccess(response)
+    //     } catch (e) {
+    //         console.log(e.response)
+    //     }
+    // }
     // accessToken을 받고 api 요청
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -54,10 +51,15 @@ const Login = () => {
                 password: values.pw,
             })
             onLoginSuccess(response)
+            console.log(response.data)
         } catch (e) {
             console.log(e.response)
         }
     }
+    useEffect(() => {
+        const getCookie = document.cookie
+        console.log(getCookie)
+    })
 
     const handleChange = (e) => {
         e.preventDefault()

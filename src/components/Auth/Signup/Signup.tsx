@@ -8,7 +8,7 @@ import Signupinfo from './Signupinfo'
 import Signuppw from './Signuppw'
 import SignupVerify from './SignupVerify'
 import { EmailDiv, GreenText, ProgressBtn, RedText, SignupContainerDiv } from './Signup_pw.style'
-import { emailRegExp } from '../SignupLogic'
+import { emailRegExp } from '../../../Lib/EmailRegExp'
 
 const Signup = () => {
     const signupComponent = useSelector((state: RootState) => state.signup.component)
