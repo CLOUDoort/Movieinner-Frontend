@@ -17,6 +17,7 @@ import Image from 'next/image'
 import { KAKAO_AUTH_URL, NAVER_AUTH_URL, GOOGLE_AUTH_URL } from './LoginConfig'
 import axios from 'axios'
 
+const JWT_EXPIRY_TIME = 24 * 3600 * 1000
 axios.defaults.baseURL = 'http://localhost:3000'
 axios.defaults.withCredentials = true
 const Login = () => {
@@ -25,24 +26,34 @@ const Login = () => {
         pw: '',
     })
 
+    const onLoginSuccess = (response) => {
+        const { accessToken } = response.data
+        axios.defaults.headers.common['Authorization'] = `Bearer ${accessToken}` // api요청할 때마다 accessToken을 헤더에 담아서 전송
+        setTimeout(onSilentRefresh, JWT_EXPIRY_TIME - 60000) // 만료 1분 전에 재발급 함수
+    }
+
+    // accessToken 재발급 & 로그인 함수
+    // 기한이 지나거나 페이지가 리로드될 때 함수 실행
+    const onSilentRefresh = async () => {
+        try {
+            const response = await apiInstance.post('/slient-refresh', {
+                email: values.email,
+                password: values.pw,
+            })
+            onLoginSuccess(response)
+        } catch (e) {
+            console.log(e.response)
+        }
+    }
+    // accessToken을 받고 api 요청
     const handleSubmit = async (e) => {
         e.preventDefault()
         try {
-            const response = await apiInstance.post(
-                '/auth',
-                {
-                    email: values.email,
-                    password: values.pw,
-                },
-                {
-                    withCredentials: true,
-                }
-            )
-            // const responseAuth = await apiInstance.get('/auth')
-            const { accessToken } = response.data
-            axios.defaults.headers.common['Authorization'] = `Bearer ${accessToken}` // api요청할 때마다 accessToken을 헤더에 담아서 전송
-            console.log(accessToken)
-            // console.log(responseAuth)
+            const response = await apiInstance.post('/auth', {
+                email: values.email,
+                password: values.pw,
+            })
+            onLoginSuccess(response)
         } catch (e) {
             console.log(e.response)
         }

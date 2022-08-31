@@ -48,7 +48,7 @@ export const SubmitInput = styled.input`
     margin-top: 20px;
     cursor: pointer;
     transition: opacity, 0.3;
-    :focus {
+    :hover {
         opacity: 0.4;
     }
 `
