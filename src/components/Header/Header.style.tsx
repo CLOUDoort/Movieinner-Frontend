@@ -18,9 +18,6 @@ export const FirstHeaderDiv = styled.div`
     align-items: center;
     a {
         margin-right: 20px;
-        :hover {
-            box-shadow: 0 1px 2px rgba(255, 0, 0, 0.18);
-        }
     }
 `
 
