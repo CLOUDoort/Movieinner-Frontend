@@ -56,11 +56,6 @@ const Login = () => {
             console.log(e.response)
         }
     }
-    useEffect(() => {
-        const getCookie = document.cookie
-        console.log(getCookie)
-    })
-
     const handleChange = (e) => {
         e.preventDefault()
 
