@@ -30,7 +30,6 @@ declare global {
         image_URL?: string
     }
 }
-
 const MyApp = ({ Component, pageProps }: AppProps) => {
     useEffect(() => {
         try {

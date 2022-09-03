@@ -22,15 +22,13 @@ import { setToken } from '../../../store/reducers/logintokenSlice'
 import Router from 'next/router'
 
 const JWT_EXPIRY_TIME = 3600 * 1000
-axios.defaults.baseURL = 'http://localhost:3000'
-axios.defaults.withCredentials = true
 const Login = () => {
+    axios.defaults.baseURL = 'http://localhost:3000'
+
     const [values, setValues] = useState({
         email: '',
         pw: '',
     })
-
-    const loginToken = useSelector((state: RootState) => state.token.token)
     const dispatch = useDispatch()
     const onLoginSuccess = (response) => {
         const { accessToken } = response.data
