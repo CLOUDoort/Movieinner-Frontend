@@ -13,6 +13,11 @@ import 'keen-slider/keen-slider.min.css'
 import '../style/slider.css'
 import 'react-date-range/dist/styles.css'
 import 'react-date-range/dist/theme/default.css'
+import { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { RootState } from '../store/store'
+import { apiInstance } from '../apis/setting'
+import { setToken } from '../store/reducers/logintokenSlice'
 
 declare global {
     interface UserDataState {
@@ -27,6 +32,19 @@ declare global {
 }
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
+    useEffect(() => {
+        try {
+            const getLoginToken = async () => {
+                const response = await apiInstance.post('/auth/refresh')
+                store.dispatch(setToken(response.data.accessToken))
+                console.log('silent-success')
+                console.log(response.data)
+            }
+            getLoginToken()
+        } catch (e) {
+            console.log(e.response)
+        }
+    })
     return (
         <>
             <Head>
@@ -34,13 +52,13 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
                 <meta charSet='utf-8' />
                 <meta name='viewport' content='width=device-width, initial-scale=1.0' />
             </Head>
+            <Header />
             <Provider store={store}>
-                <Header />
                 <main>
                     <Component {...pageProps} />
-                    <Footer />
                 </main>
             </Provider>
+            <Footer />
             <ToastContainer />
             <Global styles={GlobalCss} />
         </>

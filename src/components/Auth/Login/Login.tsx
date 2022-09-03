@@ -16,8 +16,12 @@ import { apiInstance } from '../../../apis/setting'
 import Image from 'next/image'
 import { KAKAO_AUTH_URL, NAVER_AUTH_URL, GOOGLE_AUTH_URL } from '../../../Lib/SocialLoginData'
 import axios from 'axios'
+import { RootState } from '../../../store/store'
+import { useDispatch, useSelector } from 'react-redux'
+import { setToken } from '../../../store/reducers/logintokenSlice'
+import Router from 'next/router'
 
-const JWT_EXPIRY_TIME = 24 * 3600 * 1000
+const JWT_EXPIRY_TIME = 3600 * 1000
 axios.defaults.baseURL = 'http://localhost:3000'
 axios.defaults.withCredentials = true
 const Login = () => {
@@ -26,22 +30,27 @@ const Login = () => {
         pw: '',
     })
 
+    const loginToken = useSelector((state: RootState) => state.token.token)
+    const dispatch = useDispatch()
     const onLoginSuccess = (response) => {
         const { accessToken } = response.data
         axios.defaults.headers.common['Authorization'] = `Bearer ${accessToken}` // api요청할 때마다 accessToken을 헤더에 담아서 전송
-        // setTimeout(onSilentRefresh, JWT_EXPIRY_TIME - 60000) // 만료 1분 전에 재발급 함수
+        dispatch(setToken(accessToken))
+        setTimeout(onSilentRefresh, JWT_EXPIRY_TIME - 60000) // 만료 1분 전에 재발급 함수
+        console.log('login')
     }
 
     // accessToken 재발급 & 로그인 함수
     // 기한이 지나거나 페이지가 리로드될 때 함수 실행
-    // const onSilentRefresh = async () => {
-    //     try {
-    //         const response = await apiInstance.post('/slient-refresh')
-    //         onLoginSuccess(response)
-    //     } catch (e) {
-    //         console.log(e.response)
-    //     }
-    // }
+    const onSilentRefresh = async () => {
+        try {
+            const response = await apiInstance.post('/auth/refresh')
+            onLoginSuccess(response)
+            console.log('silent-success')
+        } catch (e) {
+            console.log(e.response)
+        }
+    }
     // accessToken을 받고 api 요청
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -51,7 +60,7 @@ const Login = () => {
                 password: values.pw,
             })
             onLoginSuccess(response)
-            console.log(response.data)
+            Router.replace('/')
         } catch (e) {
             console.log(e.response)
         }

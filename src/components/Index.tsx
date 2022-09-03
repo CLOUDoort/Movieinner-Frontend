@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import { useKeenSlider } from 'keen-slider/react'
+import { useDispatch, useSelector } from 'react-redux'
+import { RootState } from '../store/store'
 
 function Arrow(props) {
     const disabeld = props.disabled ? ' arrow--disabled' : ''
@@ -17,6 +19,7 @@ function Arrow(props) {
 }
 
 const Index = () => {
+    const loginToken = useSelector((state: RootState) => state.token.token)
     const [currentSlide, setCurrentSlide] = useState(0)
     const [loaded, setLoaded] = useState(false)
     const [sliderRef, instanceRef] = useKeenSlider({
@@ -28,6 +31,7 @@ const Index = () => {
             setLoaded(true)
         },
     })
+    console.log(loginToken)
     // // const [verifyEmail, setVerifyEmail] = useState(false)
     // const verifyEmail = await apiInstance.get('/verify')
     // if (verifyEmail) toast.success('메일 인증에 성공하셨습니다!')
