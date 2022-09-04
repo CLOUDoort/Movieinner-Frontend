@@ -55,7 +55,6 @@ const Login = () => {
         try {
             const response = await apiInstance.post('/auth', {
                 email: values.email,
-                password: values.pw,
             })
             onLoginSuccess(response)
             Router.replace('/')
