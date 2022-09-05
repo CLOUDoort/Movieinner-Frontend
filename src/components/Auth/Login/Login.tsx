@@ -11,13 +11,12 @@ import {
     SocialLoginServiceDiv,
     SubmitInput,
 } from './Login.style'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { apiInstance } from '../../../apis/setting'
 import Image from 'next/image'
 import { KAKAO_AUTH_URL, NAVER_AUTH_URL, GOOGLE_AUTH_URL } from '../../../Lib/SocialLoginData'
 import axios from 'axios'
-import { RootState } from '../../../store/store'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { setToken } from '../../../store/reducers/logintokenSlice'
 import Router from 'next/router'
 

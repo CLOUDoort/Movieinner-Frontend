@@ -1,12 +1,16 @@
 import Link from 'next/link'
 import { MdNightlight } from 'react-icons/md'
+import { useSelector } from 'react-redux'
+import { RootState } from '../../store/store'
 import { FirstHeaderDiv, HeaderContainer, NavDiv, SecondHearderDiv, SecondHearderNav, SecondHearderSearchDiv, TitleDiv } from './Header.style'
 
 const Header = () => {
+    const loginToken = useSelector((state: RootState) => state.token.token)
+
     return (
         <HeaderContainer>
             <FirstHeaderDiv>
-                <Link href='/login'>로그인</Link>
+                <Link href={!loginToken ? '/' : 'login'}>{!loginToken ? '로그아웃' : '로그인'}</Link>
                 <Link href='/signup'>회원가입</Link>
             </FirstHeaderDiv>
             <SecondHearderDiv>

@@ -15,10 +15,6 @@ import { GreenText, RedText } from './Signup_pw.style'
 const Signupinfo = () => {
     const userData: UserDataState = useSelector((state: RootState) => state.user.user)
     const dispatch = useDispatch()
-    const [checkNickname, setCheckNickname] = useState({
-        click: false,
-        valid: false,
-    }) // 닉네임 중복 여부
     const [birth, setBirth] = useState('')
     const [info, setInfo] = useState({
         nickname: '',
@@ -27,6 +23,11 @@ const Signupinfo = () => {
         image_URL: '',
     })
 
+    // 닉네임 중복 여부
+    const [checkNickname, setCheckNickname] = useState({
+        click: false,
+        valid: false,
+    })
     useEffect(() => {
         const check = async () => {
             try {

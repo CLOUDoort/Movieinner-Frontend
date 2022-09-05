@@ -33,6 +33,8 @@ const Signup = () => {
             touch: true,
         })
     }
+
+    // 이메일 정규식 부합하면 DB에서 이메일 중복 여부 확인
     const handleChange = async (e) => {
         const { value } = e.target
         setEmail(value)
