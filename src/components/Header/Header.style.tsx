@@ -16,8 +16,11 @@ export const FirstHeaderDiv = styled.div`
     flex-direction: row;
     justify-content: end;
     align-items: center;
-    a {
+    button {
         margin-right: 20px;
+        background-color: black;
+        color: white;
+        border: none;
     }
 `
 

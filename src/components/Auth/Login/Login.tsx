@@ -28,6 +28,8 @@ const Login = () => {
         email: '',
         pw: '',
     })
+    const [checkUser, setCheckUser] = useState(true)
+
     const dispatch = useDispatch()
     const onLoginSuccess = (response) => {
         const { accessToken } = response.data
@@ -48,19 +50,37 @@ const Login = () => {
             console.log(e.response)
         }
     }
-    // accessToken을 받고 api 요청
+
+    // 일반로그인 시 email, password 입력 => true 나오면 토큰 발급, false 나오면 로그인 실패 알림(email,password) => 잘못된 이메일, 잘못된 비밀번호 확인
     const handleSubmit = async (e) => {
         e.preventDefault()
         try {
-            const response = await apiInstance.post('/auth', {
-                email: values.email,
-            })
-            onLoginSuccess(response)
-            Router.replace('/')
+            const response = await apiInstance.post('/users/login', { email: values.email, passowrd: values.pw })
+            if (response.data.login) {
+                try {
+                    const tokenResponse = await apiInstance.post('/auth', { email: values.email })
+                    onLoginSuccess(tokenResponse)
+                    Router.replace('/')
+                } catch (e) {
+                    setCheckUser(false) // 실패시 UI 띄우기
+                    console.log(e.response)
+                }
+            } else {
+            }
         } catch (e) {
             console.log(e.response)
         }
     }
+    // accessToken을 받고 api 요청
+    // try {
+    //     const response = await apiInstance.post('/auth', {
+    //         email: values.email,
+    //     })
+    //     onLoginSuccess(response)
+    //     Router.replace('/')
+    // } catch (e) {
+    //     console.log(e.response)
+    // }
     const handleChange = (e) => {
         e.preventDefault()
 

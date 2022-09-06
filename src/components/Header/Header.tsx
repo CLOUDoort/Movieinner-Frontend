@@ -1,17 +1,46 @@
 import Link from 'next/link'
+import Router from 'next/router'
+import { useState } from 'react'
 import { MdNightlight } from 'react-icons/md'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { apiInstance } from '../../apis/setting'
+import { setToken } from '../../store/reducers/logintokenSlice'
 import { RootState } from '../../store/store'
 import { FirstHeaderDiv, HeaderContainer, NavDiv, SecondHearderDiv, SecondHearderNav, SecondHearderSearchDiv, TitleDiv } from './Header.style'
 
 const Header = () => {
     const loginToken = useSelector((state: RootState) => state.token.token)
+    const dispatch = useDispatch()
+    const [loginToggle, setLoginToggle] = useState('로그인')
+    if (loginToken) {
+        setLoginToggle('로그아웃')
+    }
+
+    // 클릭시 로그아웃이면 accessToken 없앰, 로그인UI로 변경
+    // 클릭시 로그인이면 accessToken이 없다는 것이니
+    const clickLogin = async () => {
+        if (loginToggle === '로그아웃') {
+            try {
+                const response = await apiInstance.post('/users/logout')
+                if (response.data.logout) {
+                    dispatch(setToken(''))
+                    setLoginToggle('로그인')
+                }
+            } catch (e) {
+                console.log(e.response)
+            }
+        } else {
+            Router.push('/login')
+        }
+    }
+
+    // 액세스 토큰이 있으면 로그아웃 / 없으면 로그인 버튼
 
     return (
         <HeaderContainer>
             <FirstHeaderDiv>
-                <Link href={!loginToken ? '/' : 'login'}>{!loginToken ? '로그아웃' : '로그인'}</Link>
-                <Link href='/signup'>회원가입</Link>
+                <button onClick={clickLogin}>{loginToggle}</button>
+                <button onClick={() => Router.push('/signup')}>회원가입</button>
             </FirstHeaderDiv>
             <SecondHearderDiv>
                 <SecondHearderNav>
