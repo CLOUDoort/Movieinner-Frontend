@@ -1,7 +1,7 @@
 // kakao_login
 const REST_API_KEY = process.env.NEXT_PUBLIC_KAKAO_REST_API_KEY
 const KAKAO_REDIRECT_URI = 'http://localhost:3000/login/kakao'
-export const KAKAO_AUTH_URL = `https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=${REST_API_KEY}&redirect_uri=${KAKAO_REDIRECT_URI}`
+export const KAKAO_AUTH_URL = `https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=${REST_API_KEY}&redirect_uri=${KAKAO_REDIRECT_URI}&scope=account_email`
 
 // google_login
 const GOOGLE_CLIENT_ID = process.env.NEXT_PUBLIC_GOOGLE_CLIENT_KEY

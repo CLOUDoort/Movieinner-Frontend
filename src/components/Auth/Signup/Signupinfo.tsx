@@ -11,16 +11,25 @@ import { Calendar } from 'react-date-range'
 import moment from 'moment'
 import ko from 'date-fns/locale/ko'
 import { GreenText, RedText } from './Signup_pw.style'
+import { isFSA } from '@reduxjs/toolkit/dist/createAction'
+import Router from 'next/router'
 
 const Signupinfo = () => {
     const userData: UserDataState = useSelector((state: RootState) => state.user.user)
     const dispatch = useDispatch()
     const [birth, setBirth] = useState('')
+    const socialEmail = useSelector((state: RootState) => state.socialEmail.socialEmail)
+    console.log(socialEmail)
+    useEffect(() => {
+        if (socialEmail) {
+            dispatch(setUser({ key: 'email', value: socialEmail }))
+        }
+    })
     const [info, setInfo] = useState({
         nickname: '',
         name: '',
         gender: '',
-        image_URL: '',
+        image_URL: '/blank.png',
     })
 
     // 닉네임 중복 여부
@@ -114,13 +123,23 @@ const Signupinfo = () => {
     }
 
     // 완료버튼, 이메일을 백엔드로 전송
+    // 패스워드가 없으면 소셜회원가입(이메일 인증x), 패스워드가 있으면 일반 회원가입
     const handleClick = async () => {
-        try {
-            await apiInstance.post('/verify', { email: userData.email, type: 'email' })
-            dispatch(setSignup('SignupVerify'))
-            await apiInstance.post('/users', userData)
-        } catch (e) {
-            console.log(e)
+        if (userData.password === undefined) {
+            try {
+                await apiInstance.post('/users', userData)
+                Router.replace('/welcome')
+            } catch (e) {
+                console.log(e.response)
+            }
+        } else {
+            try {
+                await apiInstance.post('/verify', { email: userData.email, type: 'email' })
+                dispatch(setSignup('SignupVerify'))
+                await apiInstance.post('/users', userData)
+            } catch (e) {
+                console.log(e)
+            }
         }
     }
     console.log(userData)
