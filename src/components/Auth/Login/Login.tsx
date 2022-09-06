@@ -55,7 +55,7 @@ const Login = () => {
     const handleSubmit = async (e) => {
         e.preventDefault()
         try {
-            const response = await apiInstance.post('/users/login', { email: values.email, passowrd: values.pw })
+            const response = await apiInstance.post('/users/login', { email: values.email, password: values.pw })
             if (response.data.login) {
                 try {
                     const tokenResponse = await apiInstance.post('/auth', { email: values.email })

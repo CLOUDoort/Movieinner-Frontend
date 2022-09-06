@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import Router from 'next/router'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { MdNightlight } from 'react-icons/md'
 import { useDispatch, useSelector } from 'react-redux'
 import { apiInstance } from '../../apis/setting'
@@ -12,9 +12,11 @@ const Header = () => {
     const loginToken = useSelector((state: RootState) => state.token.token)
     const dispatch = useDispatch()
     const [loginToggle, setLoginToggle] = useState('로그인')
-    if (loginToken) {
-        setLoginToggle('로그아웃')
-    }
+    useEffect(() => {
+        if (loginToken) {
+            setLoginToggle('로그아웃')
+        }
+    }, [loginToken])
 
     // 클릭시 로그아웃이면 accessToken 없앰, 로그인UI로 변경
     // 클릭시 로그인이면 accessToken이 없다는 것이니
@@ -25,6 +27,7 @@ const Header = () => {
                 if (response.data.logout) {
                     dispatch(setToken(''))
                     setLoginToggle('로그인')
+                    Router.replace('/')
                 }
             } catch (e) {
                 console.log(e.response)
