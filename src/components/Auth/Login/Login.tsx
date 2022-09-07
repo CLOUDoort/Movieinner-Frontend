@@ -5,6 +5,7 @@ import {
     GoogleLogin,
     LoginContainerDiv,
     LoginDiv,
+    LoginFailText,
     LoginSecondDiv,
     LoginSustainDiv,
     NaverLogin,
@@ -19,16 +20,20 @@ import axios from 'axios'
 import { useDispatch } from 'react-redux'
 import { setToken } from '../../../store/reducers/logintokenSlice'
 import Router from 'next/router'
+import { GreenText, RedText } from '../Signup/Signup_pw.style'
 
 const JWT_EXPIRY_TIME = 3600 * 1000
 const Login = () => {
     axios.defaults.baseURL = 'http://localhost:3000'
 
+    const [check, setCheck] = useState({
+        user: true,
+        login: true,
+    })
     const [values, setValues] = useState({
         email: '',
         pw: '',
     })
-    const [checkUser, setCheckUser] = useState(true)
 
     const dispatch = useDispatch()
     const onLoginSuccess = (response) => {
@@ -62,25 +67,23 @@ const Login = () => {
                     onLoginSuccess(tokenResponse)
                     Router.replace('/')
                 } catch (e) {
-                    setCheckUser(false) // 실패시 UI 띄우기
                     console.log(e.response)
                 }
             } else {
+                console.log('login-false')
+                setCheck({
+                    ...check,
+                    login: false,
+                }) // 실패시 UI 띄우기
             }
         } catch (e) {
             console.log(e.response)
+            setCheck({
+                ...check,
+                user: false,
+            }) // 실패시 UI 띄우기
         }
     }
-    // accessToken을 받고 api 요청
-    // try {
-    //     const response = await apiInstance.post('/auth', {
-    //         email: values.email,
-    //     })
-    //     onLoginSuccess(response)
-    //     Router.replace('/')
-    // } catch (e) {
-    //     console.log(e.response)
-    // }
     const handleChange = (e) => {
         e.preventDefault()
 
@@ -100,8 +103,19 @@ const Login = () => {
                     <div>Password</div>
                     <input type='password' name='pw' onChange={handleChange} placeholder='비밀번호를 입력하세요' autoComplete='off' />
                     <LoginSustainDiv>
-                        <input type='checkbox' />
-                        <div>로그인 유지하기</div>
+                        <div>
+                            <input type='checkbox' />
+                            <div>로그인 유지하기</div>
+                        </div>
+                        <LoginFailText>
+                            {!check.login && (
+                                <>
+                                    <RedText>아이디 또는 비밀번호를 잘못 입력했습니다. </RedText>
+                                    <RedText>입력하신 내용을 다시 확인해주세요.</RedText>
+                                </>
+                            )}
+                            {!check.user && <RedText>존재하지 않는 이메일입니다.</RedText>}
+                        </LoginFailText>
                     </LoginSustainDiv>
                     <SubmitInput type='submit' value='로그인' />
                 </FormContainer>

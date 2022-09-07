@@ -39,7 +39,19 @@ export const FormContainer = styled.form`
 
 export const LoginSustainDiv = styled.div`
     display: flex;
-    align-items: baseline;
+    flex-direction: column;
+    > div {
+        display: flex;
+        align-items: baseline;
+    }
+`
+
+export const LoginFailText = styled.div`
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    line-height: 7px;
+    text-align: center;
 `
 
 export const SubmitInput = styled.input`
