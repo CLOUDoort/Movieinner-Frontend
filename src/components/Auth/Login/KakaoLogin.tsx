@@ -2,7 +2,8 @@ import Router from 'next/router'
 import { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { apiInstance } from '../../../apis/setting'
-import { setSocialEmail, setSocialToken } from '../../../store/reducers/socialSlice'
+import { setToken } from '../../../store/reducers/logintokenSlice'
+import { setSocialEmail } from '../../../store/reducers/socialSlice'
 import Loading from '../../Loading'
 import Signupinfo from '../Signup/Signupinfo'
 
@@ -24,7 +25,7 @@ const KakaoLogin = () => {
                         // 액세스 토큰 받고 홈으로
                         const tokenResponse = await apiInstance.post('/auth', { email: userEmail })
                         const { accessToken } = tokenResponse.data
-                        dispatch(setSocialToken(accessToken))
+                        dispatch(setToken(accessToken))
                         Router.replace('/')
                     } catch (e) {
                         console.log(e.response)
