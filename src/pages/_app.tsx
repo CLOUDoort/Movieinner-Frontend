@@ -31,24 +31,24 @@ declare global {
     }
 }
 const MyApp = ({ Component, pageProps }: AppProps) => {
-    // const dispatch = useDispatch()
-    // const loginToken = useSelector((state: RootState) => state.token.token)
-    // axios.defaults.headers.common['Authorization'] = `Bearer ${loginToken}`
-    // useEffect(() => {
-    //     if (!loginToken) {
-    //         try {
-    //             const getLoginToken = async () => {
-    //                 const response = await apiInstance.post('/auth/refresh')
-    //                 dispatch(setToken(response.data.accessToken))
-    //                 console.log('reload-silent-success')
-    //                 console.log(response.data.accessToken)
-    //             }
-    //             getLoginToken()
-    //         } catch (e) {
-    //             console.log(e.response)
-    //         }
-    //     }
-    // }, [dispatch, loginToken])
+    const dispatch = useDispatch()
+    const loginToken = useSelector((state: RootState) => state.token.token)
+    axios.defaults.headers.common['Authorization'] = `Bearer ${loginToken}`
+    useEffect(() => {
+        if (!loginToken) {
+            try {
+                const getLoginToken = async () => {
+                    const response = await apiInstance.post('/auth/refresh')
+                    dispatch(setToken(response.data.accessToken))
+                    console.log('reload-silent-success')
+                    console.log(response.data.accessToken)
+                }
+                getLoginToken()
+            } catch (e) {
+                console.log(e.response)
+            }
+        }
+    }, [dispatch, loginToken])
 
     return (
         <>

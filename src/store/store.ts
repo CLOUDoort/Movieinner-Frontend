@@ -3,7 +3,6 @@ import signupComponentReducer from './reducers/signupSlice'
 import userReducer from './reducers/signupSlice'
 import tokenReducer from './reducers/logintokenSlice'
 import socialEmailReducer from './reducers/socialSlice'
-import socialTokenReducer from './reducers/socialSlice'
 import { createWrapper, HYDRATE } from 'next-redux-wrapper'
 
 const combinedReducer = combineReducers({
@@ -11,7 +10,6 @@ const combinedReducer = combineReducers({
     user: userReducer,
     token: tokenReducer,
     socialEmail: socialEmailReducer,
-    socialToken: socialTokenReducer,
 })
 
 const reducer = (state: ReturnType<typeof combinedReducer>, action: AnyAction) => {
