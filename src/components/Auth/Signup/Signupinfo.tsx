@@ -11,7 +11,6 @@ import { Calendar } from 'react-date-range'
 import moment from 'moment'
 import ko from 'date-fns/locale/ko'
 import { GreenText, RedText } from './Signup_pw.style'
-import { isFSA } from '@reduxjs/toolkit/dist/createAction'
 import Router from 'next/router'
 
 const Signupinfo = () => {
@@ -29,7 +28,7 @@ const Signupinfo = () => {
         nickname: '',
         name: '',
         gender: '',
-        image_URL: '/blank.png',
+        image_URL: '',
     })
 
     // 닉네임 중복 여부
@@ -125,6 +124,7 @@ const Signupinfo = () => {
     // 완료버튼, 이메일을 백엔드로 전송
     // 패스워드가 없으면 소셜회원가입(이메일 인증x), 패스워드가 있으면 일반 회원가입
     const handleClick = async () => {
+        // 패스워드 입력이 없은 소셜 로그인
         if (userData.password === undefined) {
             try {
                 await apiInstance.post('/users', userData)
@@ -132,7 +132,9 @@ const Signupinfo = () => {
             } catch (e) {
                 console.log(e.response)
             }
-        } else {
+        }
+        // 이메일, 패스워드 입력 받는 일반 로그인 + 인증 이메일
+        else {
             try {
                 await apiInstance.post('/verify', { email: userData.email, type: 'email' })
                 dispatch(setSignup('SignupVerify'))
