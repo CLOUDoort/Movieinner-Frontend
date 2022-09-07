@@ -66,6 +66,11 @@ const Login = () => {
                     const tokenResponse = await apiInstance.post('/auth', { email: values.email })
                     onLoginSuccess(tokenResponse)
                     Router.replace('/')
+                    setCheck({
+                        ...check,
+                        login: true,
+                        user: true,
+                    }) // 실패시 UI 띄우기
                 } catch (e) {
                     console.log(e.response)
                 }
