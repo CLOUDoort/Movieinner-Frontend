@@ -15,7 +15,7 @@ const Header = () => {
     useEffect(() => {
         if (loginToken) {
             setLoginToggle('로그아웃')
-        }
+        } else setLoginToggle('로그인')
     }, [loginToken])
 
     // 클릭시 로그아웃이면 accessToken 없앰, 로그인UI로 변경
