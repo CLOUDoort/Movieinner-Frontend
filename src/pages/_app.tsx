@@ -11,13 +11,7 @@ import 'keen-slider/keen-slider.min.css'
 import '../style/slider.css'
 import 'react-date-range/dist/styles.css'
 import 'react-date-range/dist/theme/default.css'
-import { useEffect } from 'react'
-import { apiInstance } from '../apis/setting'
-import { setToken } from '../store/reducers/logintokenSlice'
 import { wrapper } from '../store/store'
-import { RootState } from '../store/store'
-import { useDispatch, useSelector } from 'react-redux'
-import axios from 'axios'
 
 declare global {
     interface UserDataState {
@@ -31,25 +25,6 @@ declare global {
     }
 }
 const MyApp = ({ Component, pageProps }: AppProps) => {
-    const dispatch = useDispatch()
-    const loginToken = useSelector((state: RootState) => state.token.token)
-    axios.defaults.headers.common['Authorization'] = `Bearer ${loginToken}`
-    useEffect(() => {
-        if (!loginToken) {
-            try {
-                const getLoginToken = async () => {
-                    const response = await apiInstance.post('/auth/refresh')
-                    dispatch(setToken(response.data.accessToken))
-                    console.log('reload-silent-success')
-                    console.log(response.data.accessToken)
-                }
-                getLoginToken()
-            } catch (e) {
-                console.log(e.response)
-            }
-        }
-    }, [dispatch, loginToken])
-
     return (
         <>
             <Head>

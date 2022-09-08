@@ -76,20 +76,22 @@ const Login = () => {
                     })
                 } catch (e) {
                     console.log(e.response)
+                    setCheck({
+                        ...check,
+                        login: false,
+                        user: true,
+                    }) // 로그인 실패, 이메일이나 비밀번호 확인
                 }
             } else {
                 console.log('login-false')
                 setCheck({
                     ...check,
                     login: false,
-                }) // 로그인 실패, 이메일이나 비밀번호 확인
+                    user: false,
+                }) // 존재하지 않는 이메일
             }
         } catch (e) {
             console.log(e.response)
-            setCheck({
-                ...check,
-                user: false,
-            }) // 존재하지 않는 이메일
         }
     }
     const handleChange = (e) => {
@@ -116,13 +118,13 @@ const Login = () => {
                             <div>로그인 유지하기</div>
                         </div>
                         <LoginFailText>
-                            {!check.login && (
+                            {!check.login && check.login && (
                                 <>
                                     <RedText>아이디 또는 비밀번호를 잘못 입력했습니다. </RedText>
                                     <RedText>입력하신 내용을 다시 확인해주세요.</RedText>
                                 </>
                             )}
-                            {!check.user && <RedText>존재하지 않는 이메일입니다.</RedText>}
+                            {!check.user && !check.login && <RedText>존재하지 않는 이메일입니다.</RedText>}
                         </LoginFailText>
                     </LoginSustainDiv>
                     <SubmitInput type='submit' value='로그인' />

@@ -1,3 +1,4 @@
+import axios from 'axios'
 import Link from 'next/link'
 import Router from 'next/router'
 import { useEffect, useState } from 'react'
@@ -12,11 +13,29 @@ const Header = () => {
     const loginToken = useSelector((state: RootState) => state.token.token)
     const dispatch = useDispatch()
     const [loginToggle, setLoginToggle] = useState('로그인')
+    console.log(loginToken)
     useEffect(() => {
-        if (loginToken) {
-            setLoginToggle('로그아웃')
-        } else setLoginToggle('로그인')
-    }, [loginToken])
+        const check = async () => {
+            if (loginToken) {
+                setLoginToggle('로그아웃')
+            } else {
+                const tokenResponse = await apiInstance.get('/auth') // refreshToken이 없으면 에러
+                const { isRefreshToken } = tokenResponse.data
+                if (isRefreshToken) {
+                    try {
+                        console.log(isRefreshToken)
+                        const response = await apiInstance.post('/auth/refresh')
+                        dispatch(setToken(response.data.accessToken))
+                        console.log('reload-silent-success')
+                        console.log(response.data.accessToken)
+                    } catch (e) {
+                        console.log(e.response)
+                    }
+                } else setLoginToggle('로그인')
+            }
+        }
+        check()
+    })
 
     // 클릭시 로그아웃이면 accessToken 없앰, 로그인UI로 변경
     // 클릭시 로그인이면 accessToken이 없다는 것이니
@@ -34,8 +53,19 @@ const Header = () => {
                 console.log(e.response)
             }
         } else {
+            const tokenResponse = await apiInstance.get('/auth')
+            const { isRefreshToken } = tokenResponse.data
+            if (isRefreshToken) {
+                try {
+                    const response = await apiInstance.post('/auth/refresh')
+                    dispatch(setToken(response.data.accessToken))
+                    console.log('reload-silent-success')
+                    console.log(response.data.accessToken)
+                } catch (e) {
+                    console.log(e.response)
+                }
+            } else Router.push('/login')
             // refreshToken 유무 확인 true 나오면 auth-refresh로 아니면 로그인 페이지로
-            Router.push('/login')
         }
     }
 
