@@ -28,6 +28,7 @@ const Header = () => {
                     dispatch(setToken(''))
                     setLoginToggle('로그인')
                     Router.replace('/')
+                    location.reload()
                 }
             } catch (e) {
                 console.log(e.response)
