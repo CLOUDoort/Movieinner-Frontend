@@ -34,6 +34,7 @@ const Header = () => {
                 console.log(e.response)
             }
         } else {
+            // refreshToken 유무 확인 true 나오면 auth-refresh로 아니면 로그인 페이지로
             Router.push('/login')
         }
     }

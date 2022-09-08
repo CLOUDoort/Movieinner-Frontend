@@ -36,6 +36,7 @@ const Login = () => {
     })
 
     const dispatch = useDispatch()
+
     const onLoginSuccess = (response) => {
         const { accessToken } = response.data
         axios.defaults.headers.common['Authorization'] = `Bearer ${accessToken}` // api요청할 때마다 accessToken을 헤더에 담아서 전송
@@ -45,7 +46,7 @@ const Login = () => {
     }
 
     // accessToken 재발급 & 로그인 함수
-    // 기한이 지나거나 페이지가 리로드될 때 함수 실행
+    // 만료 1분전 토큰 재발급
     const onSilentRefresh = async () => {
         try {
             const response = await apiInstance.post('/auth/refresh')
@@ -60,7 +61,9 @@ const Login = () => {
     const handleSubmit = async (e) => {
         e.preventDefault()
         try {
+            // 이메일 유무 확인
             const response = await apiInstance.post('/users/login', { email: values.email, password: values.pw })
+            // 로그인 성공 유무
             if (response.data.login) {
                 try {
                     const tokenResponse = await apiInstance.post('/auth', { email: values.email })
@@ -70,7 +73,7 @@ const Login = () => {
                         ...check,
                         login: true,
                         user: true,
-                    }) // 실패시 UI 띄우기
+                    })
                 } catch (e) {
                     console.log(e.response)
                 }
@@ -79,14 +82,14 @@ const Login = () => {
                 setCheck({
                     ...check,
                     login: false,
-                }) // 실패시 UI 띄우기
+                }) // 로그인 실패, 이메일이나 비밀번호 확인
             }
         } catch (e) {
             console.log(e.response)
             setCheck({
                 ...check,
                 user: false,
-            }) // 실패시 UI 띄우기
+            }) // 존재하지 않는 이메일
         }
     }
     const handleChange = (e) => {
