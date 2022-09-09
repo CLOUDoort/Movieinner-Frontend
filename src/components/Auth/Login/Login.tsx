@@ -65,8 +65,8 @@ const Login = () => {
             const response = await apiInstance.post('/users/login', { email: values.email, password: values.pw })
             console.log(response)
             // 로그인 성공 유무
-            if (response.data.user) {
-                if (response.data.isEqual) {
+            if (response.data.isEmailEqual) {
+                if (response.data.isPasswordEqual) {
                     try {
                         const tokenResponse = await apiInstance.post('/auth', { email: values.email })
                         onLoginSuccess(tokenResponse)
@@ -83,7 +83,6 @@ const Login = () => {
                     console.log('비밀번호 다름')
                 }
             } else {
-                console.log(response.data.login)
                 console.log('none-email')
                 setCheck({
                     ...check,
