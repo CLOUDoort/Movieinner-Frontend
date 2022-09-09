@@ -20,7 +20,7 @@ import axios from 'axios'
 import { useDispatch } from 'react-redux'
 import { setToken } from '../../../store/reducers/logintokenSlice'
 import Router from 'next/router'
-import { GreenText, RedText } from '../Signup/Signup_pw.style'
+import { RedText } from '../Signup/Signup_pw.style'
 
 const JWT_EXPIRY_TIME = 3600 * 1000
 const Login = () => {
@@ -63,27 +63,28 @@ const Login = () => {
         try {
             // 이메일 유무 확인
             const response = await apiInstance.post('/users/login', { email: values.email, password: values.pw })
+            console.log(response)
             // 로그인 성공 유무
-            if (response.data.login) {
-                try {
-                    const tokenResponse = await apiInstance.post('/auth', { email: values.email })
-                    onLoginSuccess(tokenResponse)
-                    Router.replace('/')
-                    setCheck({
-                        ...check,
-                        login: true,
-                        user: true,
-                    })
-                } catch (e) {
-                    console.log(e.response)
+            if (response.data.user) {
+                if (response.data.isEqual) {
+                    try {
+                        const tokenResponse = await apiInstance.post('/auth', { email: values.email })
+                        onLoginSuccess(tokenResponse)
+                        Router.replace('/')
+                    } catch (e) {
+                        console.log(e.response)
+                    }
+                } else {
                     setCheck({
                         ...check,
                         login: false,
                         user: true,
                     }) // 로그인 실패, 이메일이나 비밀번호 확인
+                    console.log('비밀번호 다름')
                 }
             } else {
-                console.log('login-false')
+                console.log(response.data.login)
+                console.log('none-email')
                 setCheck({
                     ...check,
                     login: false,
@@ -118,12 +119,7 @@ const Login = () => {
                             <div>로그인 유지하기</div>
                         </div>
                         <LoginFailText>
-                            {!check.login && check.login && (
-                                <>
-                                    <RedText>아이디 또는 비밀번호를 잘못 입력했습니다. </RedText>
-                                    <RedText>입력하신 내용을 다시 확인해주세요.</RedText>
-                                </>
-                            )}
+                            {!check.login && check.user && <RedText>잘못된 비밀번호 입니다. </RedText>}
                             {!check.user && !check.login && <RedText>존재하지 않는 이메일입니다.</RedText>}
                         </LoginFailText>
                     </LoginSustainDiv>
