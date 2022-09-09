@@ -12,30 +12,35 @@ import { FirstHeaderDiv, HeaderContainer, NavDiv, SecondHearderDiv, SecondHearde
 const Header = () => {
     const loginToken = useSelector((state: RootState) => state.token.token)
     const dispatch = useDispatch()
-    const [loginToggle, setLoginToggle] = useState('로그인')
-    console.log(loginToken)
+    const [loginToggle, setLoginToggle] = useState('')
+
+    // login/logout UI 변경
     useEffect(() => {
-        const check = async () => {
-            if (loginToken) {
-                setLoginToggle('로그아웃')
+        if (loginToken) setLoginToggle('로그아웃')
+    }, [loginToken])
+
+    // 브라우저에 refreshToken이 있으면 무조건 액세스 토큰이 재발급되니 UI는 로그아웃으로 변경
+    // 브라우저에 refreshToken이 있으면 액세스 토큰 재발급
+    useEffect(() => {
+        const refreshTokenCheck = async () => {
+            const refreshTokenResponse = await apiInstance.get('/auth')
+            const { isRefreshToken } = refreshTokenResponse.data
+            if (isRefreshToken) {
+                try {
+                    setLoginToggle('로그아웃')
+                    const response = await apiInstance.post('/auth/refresh')
+                    dispatch(setToken(response.data.accessToken))
+                    console.log('reload-silent-success')
+                } catch (e) {
+                    console.log(e.response)
+                }
             } else {
-                const tokenResponse = await apiInstance.get('/auth') // refreshToken이 없으면 에러
-                const { isRefreshToken } = tokenResponse.data
-                if (isRefreshToken) {
-                    try {
-                        console.log(isRefreshToken)
-                        const response = await apiInstance.post('/auth/refresh')
-                        dispatch(setToken(response.data.accessToken))
-                        console.log('reload-silent-success')
-                        console.log(response.data.accessToken)
-                    } catch (e) {
-                        console.log(e.response)
-                    }
-                } else setLoginToggle('로그인')
+                console.log('none-refreshToken')
+                setLoginToggle('로그인')
             }
         }
-        check()
-    })
+        refreshTokenCheck()
+    }, [dispatch])
 
     // 클릭시 로그아웃이면 accessToken 없앰, 로그인UI로 변경
     // 클릭시 로그인이면 accessToken이 없다는 것이니
@@ -48,28 +53,13 @@ const Header = () => {
                     setLoginToggle('로그인')
                     Router.replace('/')
                     location.reload()
+                    console.log('Logout')
                 }
             } catch (e) {
                 console.log(e.response)
             }
-        } else {
-            const tokenResponse = await apiInstance.get('/auth')
-            const { isRefreshToken } = tokenResponse.data
-            if (isRefreshToken) {
-                try {
-                    const response = await apiInstance.post('/auth/refresh')
-                    dispatch(setToken(response.data.accessToken))
-                    console.log('reload-silent-success')
-                    console.log(response.data.accessToken)
-                } catch (e) {
-                    console.log(e.response)
-                }
-            } else Router.push('/login')
-            // refreshToken 유무 확인 true 나오면 auth-refresh로 아니면 로그인 페이지로
-        }
+        } else Router.push('/login')
     }
-
-    // 액세스 토큰이 있으면 로그아웃 / 없으면 로그인 버튼
 
     return (
         <HeaderContainer>

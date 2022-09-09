@@ -11,7 +11,11 @@ import 'keen-slider/keen-slider.min.css'
 import '../style/slider.css'
 import 'react-date-range/dist/styles.css'
 import 'react-date-range/dist/theme/default.css'
-import { wrapper } from '../store/store'
+import { RootState, wrapper } from '../store/store'
+import { useDispatch, useSelector } from 'react-redux'
+import { useEffect } from 'react'
+import { apiInstance } from '../apis/setting'
+import { setToken } from '../store/reducers/logintokenSlice'
 
 declare global {
     interface UserDataState {

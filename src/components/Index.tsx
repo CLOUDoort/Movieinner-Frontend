@@ -31,7 +31,6 @@ const Index = () => {
             setLoaded(true)
         },
     })
-    console.log(loginToken)
     // // const [verifyEmail, setVerifyEmail] = useState(false)
     // const verifyEmail = await apiInstance.get('/verify')
     // if (verifyEmail) toast.success('메일 인증에 성공하셨습니다!')
