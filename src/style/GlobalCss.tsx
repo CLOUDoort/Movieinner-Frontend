@@ -166,16 +166,10 @@ const GlobalCss = css`
         text-decoration-line: none;
         color: white;
         cursor: pointer;
-        :hover {
-            text-decoration: underline;
-        }
     }
     button {
         cursor: pointer;
         border-radius: 5px;
-        :hover {
-            text-decoration: underline;
-        }
     }
     input {
         border-radius: 5px;

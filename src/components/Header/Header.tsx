@@ -12,7 +12,7 @@ import { FirstHeaderDiv, HeaderContainer, NavDiv, SecondHearderDiv, SecondHearde
 const Header = () => {
     const loginToken = useSelector((state: RootState) => state.token.token)
     const dispatch = useDispatch()
-    const [loginToggle, setLoginToggle] = useState('')
+    const [loginToggle, setLoginToggle] = useState('로그인')
 
     // login/logout UI 변경
     useEffect(() => {
@@ -76,7 +76,7 @@ const Header = () => {
                         <Link href='/community'>리뷰</Link>
                         <Link href='/community'>커뮤니티</Link>
                         <Link href='/theme'>테마</Link>
-                        <Link href='/theme'>마이페이지</Link>
+                        <Link href='/user'>마이페이지</Link>
                     </NavDiv>
                 </SecondHearderNav>
                 <SecondHearderSearchDiv>

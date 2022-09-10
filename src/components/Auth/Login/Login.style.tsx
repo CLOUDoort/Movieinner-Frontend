@@ -94,7 +94,6 @@ export const SocialLoginServiceDiv = styled.div`
         margin-bottom: 30px;
         width: 350px;
         display: flex;
-        cursor: pointer;
     }
     > a > img {
         cursor: pointer;

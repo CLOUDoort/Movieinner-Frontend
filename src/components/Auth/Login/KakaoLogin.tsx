@@ -37,7 +37,7 @@ const KakaoLogin = () => {
             }
         }
         postCode()
-    }, [])
+    }, [dispatch])
 
     return <>{valid ? <Signupinfo /> : <Loading />}</>
 }
