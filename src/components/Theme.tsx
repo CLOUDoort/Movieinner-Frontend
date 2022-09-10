@@ -1,5 +1,7 @@
+import Slider from './Slider'
+
 const Theme = () => {
-    return <></>
+    return <Slider />
 }
 
 export default Theme
