@@ -31,7 +31,7 @@ const KakaoLogin = () => {
                         console.log(e.response)
                     }
                 }
-                setValid(true) // 인가코드 발송 성공
+                setValid(true)
             } catch (e) {
                 console.log(e)
             }
