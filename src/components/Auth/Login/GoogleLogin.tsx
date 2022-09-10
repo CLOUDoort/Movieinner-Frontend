@@ -1,41 +1,44 @@
-import axios from 'axios'
+import Router from 'next/router'
 import { useEffect, useState } from 'react'
+import { useDispatch } from 'react-redux'
 import { apiInstance } from '../../../apis/setting'
+import { setToken } from '../../../store/reducers/logintokenSlice'
+import { setSocialEmail } from '../../../store/reducers/socialSlice'
 import Loading from '../../Loading'
 import Signupinfo from '../Signup/Signupinfo'
 
 const GoogleLogin = () => {
     const [valid, setValid] = useState(false)
+    const dispatch = useDispatch()
     useEffect(() => {
         const GOOGLE_CODE = new URL(window.location.href).searchParams.get('code')
         console.log(GOOGLE_CODE)
-
         const postCode = async () => {
             try {
-                await apiInstance.post('/auth/google', null, { params: { authorizationCode: GOOGLE_CODE } })
+                const response = await apiInstance.post('/auth/google', null, { params: { authorizationCode: GOOGLE_CODE } })
+                console.log(response)
+                const userEmail = response.data.success.email
+                dispatch(setSocialEmail(userEmail))
+                const checkUser = await apiInstance.post('/users/email', { email: userEmail })
+                if (checkUser.data.isEmailExisted) {
+                    // 이미 있는 이메일이라면
+                    try {
+                        // 액세스 토큰 받고 홈으로
+                        const tokenResponse = await apiInstance.post('/auth', { email: userEmail })
+                        const { accessToken } = tokenResponse.data
+                        dispatch(setToken(accessToken))
+                        Router.replace('/')
+                    } catch (e) {
+                        console.log(e.response)
+                    }
+                }
                 setValid(true)
             } catch (e) {
                 console.log(e.response)
             }
         }
         postCode()
-        // const getAccessToken = async () => {
-        //     try {
-        //         const response = await axios.post(
-        //             `https://oauth2.googleapis.com/token?code=${GOOGLE_CODE}&client_id=${GOOGLE_CLIENT_ID}&client_secret=${GOOGLE_CLIENT_PASSWORD}&redirect_uri=${GOOGLE_REDIRECT_URI}&grant_type=${GOOGLE_GRANT_TYPE}`,
-        //             null,
-        //             {
-        //                 headers: { 'content-type': 'application/x-www-form-urlencoded' },
-        //             }
-        //         )
-        //         console.log(response)
-        //         // setValid(true)
-        //     } catch (e) {
-        //         console.log(e.response)
-        //     }
-        // }
-        // getAccessToken()
-    }, [])
+    }, [dispatch])
     return <>{valid ? <Signupinfo /> : <Loading />}</>
 }
 
