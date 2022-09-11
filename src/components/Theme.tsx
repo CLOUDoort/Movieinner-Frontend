@@ -1,4 +1,4 @@
-import Slider from './Slider'
+import Slider from './SliderTheme'
 
 const Theme = () => {
     return <Slider />

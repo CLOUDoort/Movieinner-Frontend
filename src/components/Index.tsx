@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { RootState } from '../store/store'
-import Slider from './Slider'
+import Slider from './SliderTheme'
 
 const Index = () => {
     const loginToken = useSelector((state: RootState) => state.token.token)
