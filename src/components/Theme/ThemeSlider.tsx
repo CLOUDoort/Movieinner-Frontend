@@ -4,14 +4,26 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 
 // import required modules
 import { Autoplay, Pagination, Navigation } from 'swiper'
+import { useEffect, useState } from 'react'
+import { apiInstance } from '../../apis/setting'
+import Music from './Music'
 
-const SliderTheme = () => {
+const ThemeSlider = () => {
+    const [image, setImage] = useState({})
+
+    // 6개 테마의 백드롭 이미지 불러오기
+    useEffect(() => {
+        const getImage = async () => {
+            const backDropImage = await apiInstance.get('')
+        }
+        getImage()
+    })
     return (
         <>
             <Swiper
                 cssMode={true}
                 autoplay={{
-                    delay: 2500,
+                    delay: 3000,
                     disableOnInteraction: false,
                 }}
                 slidesPerView={1}
@@ -25,16 +37,13 @@ const SliderTheme = () => {
                 className='mySwiper'
             >
                 <SwiperSlide>
-                    <Image src='https://image.tmdb.org/t/p/w500/odJ4hx6g6vBt4lBWKFD1tI8WS4x.jpg' alt='이미지' width={700} height={300} />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <Image src='https://image.tmdb.org/t/p/w500/odJ4hx6g6vBt4lBWKFD1tI8WS4x.jpg' alt='이미지' width={700} height={300} />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <Image src='https://image.tmdb.org/t/p/w500/odJ4hx6g6vBt4lBWKFD1tI8WS4x.jpg' alt='이미지' width={700} height={300} />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <Image src='https://image.tmdb.org/t/p/w500/odJ4hx6g6vBt4lBWKFD1tI8WS4x.jpg' alt='이미지' width={700} height={300} />
+                    <Image
+                        src='https://image.tmdb.org/t/p/w500/odJ4hx6g6vBt4lBWKFD1tI8WS4x.jpg'
+                        alt='이미지'
+                        width={700}
+                        height={300}
+                        onClick={() => <Music />}
+                    />
                 </SwiperSlide>
                 <SwiperSlide>
                     <Image src='https://image.tmdb.org/t/p/w500/odJ4hx6g6vBt4lBWKFD1tI8WS4x.jpg' alt='이미지' width={700} height={300} />
@@ -56,4 +65,4 @@ const SliderTheme = () => {
     )
 }
 
-export default SliderTheme
+export default ThemeSlider

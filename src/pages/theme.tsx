@@ -1,4 +1,4 @@
-import Theme from '../components/Theme'
+import Theme from '../components/Theme/Theme'
 
 const theme = () => {
     return <Theme />
