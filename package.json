@@ -16,16 +16,17 @@
         "date-fns": "^2.29.1",
         "html-react-parser": "^3.0.1",
         "humbleicons": "^1.8.0",
-        "keen-slider": "^6.7.0",
         "moment": "^2.29.4",
         "next": "12.2.3",
         "next-images": "^1.8.4",
+        "next-redux-wrapper": "^8.0.0",
         "react": "18.2.0",
         "react-date-range": "^1.4.0",
         "react-dom": "18.2.0",
         "react-icons": "^4.4.0",
         "react-redux": "^8.0.2",
-        "react-toastify": "^9.0.7"
+        "react-toastify": "^9.0.7",
+        "swiper": "^8.3.2"
     },
     "devDependencies": {
         "@types/node": "18.6.2",
