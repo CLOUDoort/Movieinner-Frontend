@@ -19,7 +19,8 @@ body {
 .swiper {
     width: 700px;
     height: 300px;
-    border-radius: 20px;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
 .swiper-slide {

@@ -16,3 +16,18 @@ export const ThemeGridContainer = styled.div`
     row-gap: 10px;
     column-gap: 10px;
 `
+export const ThemeItem = styled.div`
+    width: 450px;
+    height: 350px;
+    position: relative;
+    cursor: pointer;
+    > span {
+        border-radius: 5px;
+    }
+    > div {
+        position: absolute;
+        bottom: 100px;
+        left: 30px;
+        font-size: 20px;
+    }
+`

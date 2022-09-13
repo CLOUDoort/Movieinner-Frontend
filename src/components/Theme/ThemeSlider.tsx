@@ -6,10 +6,11 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import { Autoplay, Pagination, Navigation } from 'swiper'
 import { useEffect, useState } from 'react'
 import { apiInstance } from '../../apis/setting'
-import Music from './Music'
+import Music from './ThemeModal'
 
-const ThemeSlider = () => {
-    const [image, setImage] = useState({})
+const ThemeSlider = (props) => {
+    const { images } = props
+    console.log('images', images)
 
     // 6개 테마의 백드롭 이미지 불러오기
     useEffect(() => {

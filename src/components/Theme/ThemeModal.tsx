@@ -1,4 +1,4 @@
-const Music = () => {
+const ThemeModal = () => {
     return (
         <>
             <p>music theme</p>
@@ -6,4 +6,4 @@ const Music = () => {
     )
 }
 
-export default Music
+export default ThemeModal
