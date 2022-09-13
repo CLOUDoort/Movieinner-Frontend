@@ -16,7 +16,7 @@ export const ThemeGridContainer = styled.div`
     row-gap: 10px;
     column-gap: 10px;
 `
-export const ThemeItem = styled.div`
+export const ThemeItemContainer = styled.div`
     width: 450px;
     height: 350px;
     position: relative;
