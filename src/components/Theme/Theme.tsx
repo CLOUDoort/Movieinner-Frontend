@@ -14,20 +14,20 @@ const Theme = () => {
         fifth: '',
         sixth: '',
     })
-    const [modal, setModal] = useState(false)
+    const [showModal, setShowModal] = useState(false)
     const openModal = () => {
-        setModal(true)
+        setShowModal(true)
     }
     const closeModal = () => {
-        setModal(false)
+        setShowModal(false)
     }
-
     return (
         <ThemeContainer>
             <p>추천 테마</p>
-            <ThemeSlider images={images} onClick={() => <ThemeModal />} />
+            <ThemeSlider openModal={openModal} />
             <p>테마 리스트</p>
-            <ThemeItem />
+            <ThemeItem openModal={openModal} />
+            {showModal ? <ThemeModal showModal={true} closeModal={closeModal} /> : null}
         </ThemeContainer>
     )
 }

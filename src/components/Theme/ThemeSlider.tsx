@@ -9,16 +9,10 @@ import { apiInstance } from '../../apis/setting'
 import Music from './ThemeModal'
 
 const ThemeSlider = (props) => {
-    const { images } = props
-    console.log('images', images)
+    const openModal = () => {
+        props.openModal()
+    }
 
-    // 6개 테마의 백드롭 이미지 불러오기
-    useEffect(() => {
-        const getImage = async () => {
-            const backDropImage = await apiInstance.get('')
-        }
-        getImage()
-    })
     return (
         <>
             <Swiper
@@ -38,28 +32,22 @@ const ThemeSlider = (props) => {
                 className='mySwiper'
             >
                 <SwiperSlide>
-                    <Image
-                        src='https://image.tmdb.org/t/p/w500/odJ4hx6g6vBt4lBWKFD1tI8WS4x.jpg'
-                        alt='이미지'
-                        width={700}
-                        height={300}
-                        onClick={() => <Music />}
-                    />
+                    <Image src='https://image.tmdb.org/t/p/w500/odJ4hx6g6vBt4lBWKFD1tI8WS4x.jpg' alt='이미지' width={700} height={300} onClick={openModal} />
                 </SwiperSlide>
                 <SwiperSlide>
-                    <Image src='https://image.tmdb.org/t/p/w500/odJ4hx6g6vBt4lBWKFD1tI8WS4x.jpg' alt='이미지' width={700} height={300} />
+                    <Image src='https://image.tmdb.org/t/p/w500/odJ4hx6g6vBt4lBWKFD1tI8WS4x.jpg' alt='이미지' width={700} height={300} onClick={openModal} />
                 </SwiperSlide>
                 <SwiperSlide>
-                    <Image src='https://image.tmdb.org/t/p/w500/odJ4hx6g6vBt4lBWKFD1tI8WS4x.jpg' alt='이미지' width={700} height={300} />
+                    <Image src='https://image.tmdb.org/t/p/w500/odJ4hx6g6vBt4lBWKFD1tI8WS4x.jpg' alt='이미지' width={700} height={300} onClick={openModal} />
                 </SwiperSlide>
                 <SwiperSlide>
-                    <Image src='https://image.tmdb.org/t/p/w500/odJ4hx6g6vBt4lBWKFD1tI8WS4x.jpg' alt='이미지' width={700} height={300} />
+                    <Image src='https://image.tmdb.org/t/p/w500/odJ4hx6g6vBt4lBWKFD1tI8WS4x.jpg' alt='이미지' width={700} height={300} onClick={openModal} />
                 </SwiperSlide>
                 <SwiperSlide>
-                    <Image src='https://image.tmdb.org/t/p/w500/odJ4hx6g6vBt4lBWKFD1tI8WS4x.jpg' alt='이미지' width={700} height={300} />
+                    <Image src='https://image.tmdb.org/t/p/w500/odJ4hx6g6vBt4lBWKFD1tI8WS4x.jpg' alt='이미지' width={700} height={300} onClick={openModal} />
                 </SwiperSlide>
                 <SwiperSlide>
-                    <Image src='https://image.tmdb.org/t/p/w500/odJ4hx6g6vBt4lBWKFD1tI8WS4x.jpg' alt='이미지' width={700} height={300} />
+                    <Image src='https://image.tmdb.org/t/p/w500/odJ4hx6g6vBt4lBWKFD1tI8WS4x.jpg' alt='이미지' width={700} height={300} onClick={openModal} />
                 </SwiperSlide>
             </Swiper>
         </>
