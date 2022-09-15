@@ -6,7 +6,7 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import { Autoplay, Pagination, Navigation } from 'swiper'
 
 const ThemeSlider = (props) => {
-    const { openModal } = props
+    const { openModal, image } = props
 
     return (
         <>
@@ -26,24 +26,18 @@ const ThemeSlider = (props) => {
                 modules={[Autoplay, Pagination, Navigation]}
                 className='mySwiper'
             >
-                <SwiperSlide>
-                    <Image src='https://image.tmdb.org/t/p/w500/odJ4hx6g6vBt4lBWKFD1tI8WS4x.jpg' alt='이미지' width={700} height={300} onClick={openModal} />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <Image src='https://image.tmdb.org/t/p/w500/odJ4hx6g6vBt4lBWKFD1tI8WS4x.jpg' alt='이미지' width={700} height={300} onClick={openModal} />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <Image src='https://image.tmdb.org/t/p/w500/odJ4hx6g6vBt4lBWKFD1tI8WS4x.jpg' alt='이미지' width={700} height={300} onClick={openModal} />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <Image src='https://image.tmdb.org/t/p/w500/odJ4hx6g6vBt4lBWKFD1tI8WS4x.jpg' alt='이미지' width={700} height={300} onClick={openModal} />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <Image src='https://image.tmdb.org/t/p/w500/odJ4hx6g6vBt4lBWKFD1tI8WS4x.jpg' alt='이미지' width={700} height={300} onClick={openModal} />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <Image src='https://image.tmdb.org/t/p/w500/odJ4hx6g6vBt4lBWKFD1tI8WS4x.jpg' alt='이미지' width={700} height={300} onClick={openModal} />
-                </SwiperSlide>
+                {image.map((obj: any) => (
+                    <SwiperSlide key={obj.idx}>
+                        <Image
+                            src={`https://image.tmdb.org/t/p/w500${obj.backdrop_path}`}
+                            alt='이미지'
+                            width={700}
+                            height={300}
+                            onClick={openModal}
+                            objectFit='contain'
+                        />
+                    </SwiperSlide>
+                ))}
             </Swiper>
         </>
     )

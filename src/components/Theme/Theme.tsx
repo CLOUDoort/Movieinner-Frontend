@@ -7,22 +7,22 @@ import { apiInstance } from '../../apis/setting'
 
 const Theme = () => {
     // backdropImage
-    const [backImages, setBackImages] = useState({
-        horror: '',
-        action: '',
-        music: '',
-        romance: '',
-        animation: '',
-        sf: '',
-    })
-    const [poster, setPoster] = useState({
-        horror: '',
-        action: '',
-        music: '',
-        romance: '',
-        animation: '',
-        sf: '',
-    })
+    // const [backImages, setBackImages] = useState({
+    //     horror: '',
+    //     action: '',
+    //     music: '',
+    //     romance: '',
+    //     animation: '',
+    //     sf: '',
+    // })
+    // const [poster, setPoster] = useState({
+    //     horror: '',
+    //     action: '',
+    //     music: '',
+    //     romance: '',
+    //     animation: '',
+    //     sf: '',
+    // })
 
     const [response, setResponse] = useState([])
 
@@ -46,9 +46,9 @@ const Theme = () => {
     return (
         <ThemeContainer>
             <p>추천 테마</p>
-            <ThemeSlider openModal={openModal} />
+            <ThemeSlider openModal={openModal} image={response} />
             <p>테마 리스트</p>
-            <ThemeItem openModal={openModal} />
+            <ThemeItem openModal={openModal} image={response} />
             {showModal ? <ThemeModal showModal={true} closeModal={closeModal} image={response} /> : null}
         </ThemeContainer>
     )
