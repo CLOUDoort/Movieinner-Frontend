@@ -4,9 +4,6 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 
 // import required modules
 import { Autoplay, Pagination, Navigation } from 'swiper'
-import { useEffect, useState } from 'react'
-import { apiInstance } from '../../apis/setting'
-import Music from './ThemeModal'
 
 const ThemeSlider = (props) => {
     const { openModal } = props
