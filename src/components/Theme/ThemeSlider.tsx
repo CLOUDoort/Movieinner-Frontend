@@ -9,9 +9,7 @@ import { apiInstance } from '../../apis/setting'
 import Music from './ThemeModal'
 
 const ThemeSlider = (props) => {
-    const openModal = () => {
-        props.openModal()
-    }
+    const { openModal } = props
 
     return (
         <>

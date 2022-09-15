@@ -6,11 +6,7 @@ import { AiOutlineCloseSquare } from 'react-icons/ai'
 
 const ThemeModal = (props) => {
     const [image, setImage] = useState('')
-    const { showModal } = props
-
-    const closeModal = () => {
-        props.closeModal()
-    }
+    const { showModal, closeModal } = props
 
     return (
         <>
@@ -18,7 +14,7 @@ const ThemeModal = (props) => {
                 <ThemeModalBox onClick={closeModal}>
                     <ThemeModalContainer onClick={(e) => e.stopPropagation()}>
                         {/* 상위 이벤트로의 클릭 이벤트 전파 금지 */}
-                        <div>Theme</div>
+                        <p>Theme</p>
                         <ThemeModalItemContainer>
                             <ThemeModalItem>
                                 <Link href='/movie'>

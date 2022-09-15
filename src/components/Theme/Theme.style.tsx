@@ -14,20 +14,21 @@ export const ThemeContainer = styled.div`
 export const ThemeGridContainer = styled.div`
     display: grid;
     grid-template-columns: 1fr 1fr;
-    row-gap: 10px;
-    column-gap: 10px;
+    column-gap: 30px;
+    row-gap: 30px;
 `
 export const ThemeItemContainer = styled.div`
-    width: 450px;
-    height: 350px;
+    width: 400px;
+    height: 300px;
     position: relative;
-    cursor: pointer;
+    margin-bottom: 30px;
     > span {
+        cursor: pointer;
         border-radius: 5px;
     }
     > div {
         position: absolute;
-        bottom: 100px;
+        bottom: 30px;
         left: 30px;
         font-size: 20px;
     }
@@ -54,6 +55,10 @@ export const ThemeModalContainer = styled.div`
     border-radius: 10px;
     border: 1px solid rgba(0, 0, 0, 0.3);
     box-shadow: 0 2px 3px 0 rgba(34, 36, 38, 0.15);
+    > p {
+        margin-bottom: 10px;
+        font-size: 25px;
+    }
     /* background-clip: padding-box; */
 `
 export const ThemeModalItemContainer = styled.div`
@@ -68,16 +73,23 @@ export const ThemeModalItem = styled.div`
     position: relative;
     > span {
         object-fit: contain;
+        cursor: pointer;
+        border-radius: 5px;
     }
 `
 export const ThemeModalContent = styled.div`
     display: flex;
     flex-direction: column;
     height: 40px;
+    margin-top: 5px;
+    > p {
+        margin-top: 5px;
+    }
 `
 export const ThemeCloseBtn = styled.div`
     position: absolute;
     top: 5px;
     right: 15px;
     background-color: transparent;
+    cursor: pointer;
 `
