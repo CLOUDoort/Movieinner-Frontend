@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react'
 import { ThemeModalBox, ThemeModalContainer, ThemeModalItemContainer, ThemeModalItem, ThemeModalContent, ThemeCloseBtn } from './Theme.style'
 import Image from 'next/image'
 import Link from 'next/link'

@@ -6,15 +6,14 @@ import ThemeModal from './ThemeModal'
 import { apiInstance } from '../../apis/setting'
 
 const Theme = () => {
-    // backdropImage
-    // const [backImages, setBackImages] = useState({
-    //     horror: '',
-    //     action: '',
-    //     music: '',
-    //     romance: '',
-    //     animation: '',
-    //     sf: '',
-    // })
+    const [themeInfo, setThemeInfo] = useState({
+        horror: [],
+        action: [],
+        music: [],
+        romance: [],
+        animation: [],
+        sf: [],
+    })
     // const [poster, setPoster] = useState({
     //     horror: '',
     //     action: '',
@@ -28,9 +27,11 @@ const Theme = () => {
 
     useEffect(() => {
         const getImages = async () => {
-            const response: any = await apiInstance.get('/movies/theme/music')
-            console.log(response.data)
-            setResponse(response.data)
+            const themeList = ['horror', 'action', 'music', 'romance', 'animation', 'sf']
+            for (const theme of themeList) {
+                const themeResponse: any = await apiInstance.get(`/movies/theme/${theme}`)
+                setResponse(themeInfo[theme])
+            }
         }
         getImages()
     }, [])
