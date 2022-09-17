@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import Image from 'next/image'
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react'
@@ -6,8 +7,7 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import { Autoplay, Pagination, Navigation } from 'swiper'
 
 const ThemeSlider = (props) => {
-    const { openModal, image } = props
-
+    const { openModal, sliderImage } = props
     return (
         <>
             <Swiper
@@ -26,7 +26,7 @@ const ThemeSlider = (props) => {
                 modules={[Autoplay, Pagination, Navigation]}
                 className='mySwiper'
             >
-                {image.map((obj: any) => (
+                {sliderImage.map((obj: any) => (
                     <SwiperSlide key={obj.idx}>
                         <Image
                             src={`https://image.tmdb.org/t/p/w500${obj.backdrop_path}`}

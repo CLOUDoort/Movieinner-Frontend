@@ -14,28 +14,35 @@ const Theme = () => {
         animation: [],
         sf: [],
     })
-    // const [poster, setPoster] = useState({
-    //     horror: '',
-    //     action: '',
-    //     music: '',
-    //     romance: '',
-    //     animation: '',
-    //     sf: '',
-    // })
+    const [sliderImage, setSliderImage] = useState([])
+    const [posterInfo, setPosterInfo] = useState([])
 
-    const [response, setResponse] = useState([])
-
+    const themeList = ['horror', 'action', 'music', 'romance', 'animation', 'sf']
     useEffect(() => {
-        const getImages = async () => {
-            const themeList = ['horror', 'action', 'music', 'romance', 'animation', 'sf']
-            for (const theme of themeList) {
-                const themeResponse: any = await apiInstance.get(`/movies/theme/${theme}`)
-                setResponse(themeInfo[theme])
+        const getInfo = async () => {
+            try {
+                for (const theme of themeList) {
+                    const themeResponse: any = await apiInstance.get(`/movies/theme/${theme}`)
+                    setThemeInfo({ ...themeInfo, [theme]: themeResponse.data })
+                }
+            } catch (e) {
+                console.log(e)
             }
         }
-        getImages()
+        getInfo()
     }, [])
-    console.log(response)
+    console.log(themeInfo)
+
+    // slider & themeItem image 배열화
+    for (const theme in themeList) {
+        const themeMovieList = themeInfo[theme]
+        const movie = themeMovieList[0] //  첫 영화의 backdrop image 사용
+        setSliderImage([...sliderImage, { idx: [movie.idx], backdrop_path: movie.backdrop_path }])
+    }
+    // themeModal info 배열화
+    for (const theme of themeList) {
+        const MovieList = themeInfo[theme]
+    }
 
     const [showModal, setShowModal] = useState(false)
     const openModal = () => {
@@ -47,10 +54,10 @@ const Theme = () => {
     return (
         <ThemeContainer>
             <p>추천 테마</p>
-            <ThemeSlider openModal={openModal} image={response} />
+            <ThemeSlider openModal={openModal} sliderImage={sliderImage} />
             <p>테마 리스트</p>
-            <ThemeItem openModal={openModal} image={response} />
-            {showModal ? <ThemeModal showModal={true} closeModal={closeModal} image={response} /> : null}
+            <ThemeItem openModal={openModal} sliderImage={sliderImage} />
+            {showModal ? <ThemeModal showModal={true} closeModal={closeModal} themeInfo={themeInfo} /> : null}
         </ThemeContainer>
     )
 }
