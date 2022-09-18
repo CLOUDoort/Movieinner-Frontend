@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { AiOutlineCloseSquare } from 'react-icons/ai'
 
 const ThemeModal = (props) => {
-    const { showModal, closeModal, image } = props
+    const { showModal, closeModal, modalInfo } = props
 
     return (
         <>
@@ -14,7 +14,7 @@ const ThemeModal = (props) => {
                         {/* 상위 이벤트로의 클릭 이벤트 전파 금지 */}
                         <p>Theme</p>
                         <ThemeModalItemContainer>
-                            {image.map((obj: any) => (
+                            {modalInfo.map((obj: any) => (
                                 <ThemeModalItem key={obj.idx}>
                                     <Link href='/movie'>
                                         <a>

@@ -30,7 +30,7 @@ const ThemeSlider = (props) => {
                     <SwiperSlide key={obj.idx}>
                         <Image
                             src={`https://image.tmdb.org/t/p/w500${obj.backdrop_path}`}
-                            alt='이미지'
+                            alt={obj.theme_name}
                             width={700}
                             height={300}
                             onClick={openModal}

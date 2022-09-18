@@ -9,6 +9,7 @@ import Signuppw from './Signuppw'
 import SignupVerify from './SignupVerify'
 import { EmailDiv, GreenText, ProgressBtn, RedText, SignupContainerDiv } from './Signup_pw.style'
 import { emailRegExp } from '../../../Lib/EmailRegExp'
+import SocialLogin from '../Login/SocialLogin'
 
 const Signup = () => {
     const signupComponent = useSelector((state: RootState) => state.signup.component)
@@ -93,6 +94,7 @@ const Signup = () => {
                     <ProgressBtn disabled={email === '' || !email.match(emailRegExp) || checkEmail} onClick={handleClick}>
                         다음
                     </ProgressBtn>
+                    <SocialLogin />
                 </SignupContainerDiv>
             )}
             {signupComponent === 'Signuppw' && <Signuppw />}

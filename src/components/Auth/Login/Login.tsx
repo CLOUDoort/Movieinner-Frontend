@@ -1,26 +1,14 @@
 import Link from 'next/link'
-import {
-    FormContainer,
-    FormDiv,
-    GoogleLogin,
-    LoginContainerDiv,
-    LoginDiv,
-    LoginFailText,
-    LoginSecondDiv,
-    LoginSustainDiv,
-    NaverLogin,
-    SocialLoginServiceDiv,
-    SubmitInput,
-} from './Login.style'
+import { FormContainer, FormDiv, LoginContainerDiv, LoginDiv, LoginFailText, LoginSecondDiv, LoginSustainDiv, SubmitInput } from './Login.style'
 import { useState } from 'react'
 import { apiInstance } from '../../../apis/setting'
-import Image from 'next/image'
-import { KAKAO_AUTH_URL, NAVER_AUTH_URL, GOOGLE_AUTH_URL } from '../../../Lib/SocialLoginData'
+
 import axios from 'axios'
 import { useDispatch } from 'react-redux'
 import { setToken } from '../../../store/reducers/logintokenSlice'
 import Router from 'next/router'
 import { RedText } from '../Signup/Signup_pw.style'
+import SocialLogin from './SocialLogin'
 
 const JWT_EXPIRY_TIME = 3600 * 1000
 const Login = () => {
@@ -133,29 +121,7 @@ const Login = () => {
                     <button>회원가입</button>
                 </Link>
             </LoginSecondDiv>
-            <SocialLoginServiceDiv>
-                <Link href={GOOGLE_AUTH_URL}>
-                    <a>
-                        <GoogleLogin>
-                            <Image src='/btn_google.svg' width={50} height={50} alt='Google 로그인' />
-                            <label>Google 로그인</label>
-                        </GoogleLogin>
-                    </a>
-                </Link>
-                <Link href={NAVER_AUTH_URL}>
-                    <a>
-                        <NaverLogin>
-                            <Image src='/btn_naver.png' width={50} height={50} alt='네이버 로그인' />
-                            <label>네이버 로그인</label>
-                        </NaverLogin>
-                    </a>
-                </Link>
-                <Link href={KAKAO_AUTH_URL}>
-                    <a>
-                        <Image src='/btn_kakao.png' width={350} height={50} alt='카카오 로그인' />
-                    </a>
-                </Link>
-            </SocialLoginServiceDiv>
+            <SocialLogin />
         </LoginContainerDiv>
     )
 }

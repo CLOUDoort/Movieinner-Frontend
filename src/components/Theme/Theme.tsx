@@ -6,24 +6,21 @@ import ThemeModal from './ThemeModal'
 import { apiInstance } from '../../apis/setting'
 
 const Theme = () => {
-    const [themeInfo, setThemeInfo] = useState({
-        horror: [],
-        action: [],
-        music: [],
-        romance: [],
-        animation: [],
-        sf: [],
-    })
     const [sliderImage, setSliderImage] = useState([])
-    const [posterInfo, setPosterInfo] = useState([])
 
+    // 반복문 내에서는 useState 함수 사용 불가능
+
+    const [themeInfo, setThemeInfo] = useState([])
     const themeList = ['horror', 'action', 'music', 'romance', 'animation', 'sf']
     useEffect(() => {
         const getInfo = async () => {
             try {
+                const theme = await apiInstance.get('/movies/theme')
+                setThemeInfo(theme.data)
                 for (const theme of themeList) {
-                    const themeResponse: any = await apiInstance.get(`/movies/theme/${theme}`)
-                    setThemeInfo({ ...themeInfo, [theme]: themeResponse.data })
+                    const themeMovieList = themeInfo[theme]
+                    const firstMovie = themeMovieList[0]
+                    sliderImage.push({ idx: firstMovie.idx, backdrop_path: firstMovie.backdrop_path, theme_name: firstMovie.theme_name })
                 }
             } catch (e) {
                 console.log(e)
@@ -31,23 +28,18 @@ const Theme = () => {
         }
         getInfo()
     }, [])
-    console.log(themeInfo)
 
-    // slider & themeItem image 배열화
-    for (const theme in themeList) {
-        const themeMovieList = themeInfo[theme]
-        const movie = themeMovieList[0] //  첫 영화의 backdrop image 사용
-        setSliderImage([...sliderImage, { idx: [movie.idx], backdrop_path: movie.backdrop_path }])
+    const openModal = (e) => {
+        const themeModalName = e.target.alt
+        const modalInfo = themeInfo[themeModalName]
+        console.log(e.target.alt)
+        setShowModal(true)
+        console.log('modalInfo', modalInfo)
+        // return modalInfo
     }
-    // themeModal info 배열화
-    for (const theme of themeList) {
-        const MovieList = themeInfo[theme]
-    }
+    let modalInfo = openModal
 
     const [showModal, setShowModal] = useState(false)
-    const openModal = () => {
-        setShowModal(true)
-    }
     const closeModal = () => {
         setShowModal(false)
     }
@@ -57,7 +49,7 @@ const Theme = () => {
             <ThemeSlider openModal={openModal} sliderImage={sliderImage} />
             <p>테마 리스트</p>
             <ThemeItem openModal={openModal} sliderImage={sliderImage} />
-            {showModal ? <ThemeModal showModal={true} closeModal={closeModal} themeInfo={themeInfo} /> : null}
+            {showModal ? <ThemeModal showModal={true} closeModal={closeModal} modalInfo={modalInfo} /> : null}
         </ThemeContainer>
     )
 }
