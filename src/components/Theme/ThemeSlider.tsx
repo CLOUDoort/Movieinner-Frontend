@@ -8,6 +8,7 @@ import { Autoplay, Pagination, Navigation } from 'swiper'
 
 const ThemeSlider = (props) => {
     const { openModal, sliderImage } = props
+    console.log(sliderImage)
     return (
         <>
             <Swiper
@@ -27,7 +28,7 @@ const ThemeSlider = (props) => {
                 className='mySwiper'
             >
                 {sliderImage.map((obj: any) => (
-                    <SwiperSlide key={obj.idx}>
+                    <SwiperSlide key={obj.movie_id}>
                         <Image
                             src={`https://image.tmdb.org/t/p/w500${obj.backdrop_path}`}
                             alt={obj.theme_name}

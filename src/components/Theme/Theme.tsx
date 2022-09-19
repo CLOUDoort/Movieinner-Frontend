@@ -1,26 +1,30 @@
 import ThemeSlider from './ThemeSlider'
 import ThemeItem from './ThemeItem'
 import { ThemeContainer } from './Theme.style'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import ThemeModal from './ThemeModal'
 import { apiInstance } from '../../apis/setting'
 
 const Theme = () => {
-    const [sliderImage, setSliderImage] = useState([])
+    let sliderImage = []
 
     // 반복문 내에서는 useState 함수 사용 불가능
-
-    const [themeInfo, setThemeInfo] = useState([])
-    const themeList = ['horror', 'action', 'music', 'romance', 'animation', 'sf']
+    const themeInfo = useRef({})
+    // let themeInfo
+    // const themeList = useRef([])
     useEffect(() => {
         const getInfo = async () => {
             try {
                 const theme = await apiInstance.get('/movies/theme')
-                setThemeInfo(theme.data)
-                for (const theme of themeList) {
-                    const themeMovieList = themeInfo[theme]
-                    const firstMovie = themeMovieList[0]
-                    sliderImage.push({ idx: firstMovie.idx, backdrop_path: firstMovie.backdrop_path, theme_name: firstMovie.theme_name })
+                // set함수 사용 왜 안되는지...
+                themeInfo.current = theme.data
+                const themeList = Object.keys(theme.data)
+                for (const a of themeList) {
+                    sliderImage.push({
+                        movie_id: themeInfo.current[a][0].movie_id,
+                        backdrop_path: themeInfo.current[a][0].backdrop_path,
+                        theme_name: themeInfo.current[a][0].theme_name,
+                    })
                 }
             } catch (e) {
                 console.log(e)
@@ -29,15 +33,14 @@ const Theme = () => {
         getInfo()
     }, [])
 
+    console.log('sliderImage: ', sliderImage)
+    const [modalInfo, setModalInfo] = useState([])
     const openModal = (e) => {
         const themeModalName = e.target.alt
-        const modalInfo = themeInfo[themeModalName]
         console.log(e.target.alt)
         setShowModal(true)
-        console.log('modalInfo', modalInfo)
-        // return modalInfo
+        setModalInfo(themeInfo.current[themeModalName])
     }
-    let modalInfo = openModal
 
     const [showModal, setShowModal] = useState(false)
     const closeModal = () => {

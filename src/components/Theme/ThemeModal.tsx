@@ -15,7 +15,7 @@ const ThemeModal = (props) => {
                         <p>Theme</p>
                         <ThemeModalItemContainer>
                             {modalInfo.map((obj: any) => (
-                                <ThemeModalItem key={obj.idx}>
+                                <ThemeModalItem key={obj.movie_id}>
                                     <Link href='/movie'>
                                         <a>
                                             <Image
