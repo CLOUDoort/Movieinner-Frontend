@@ -14,7 +14,8 @@ import 'swiper/css/pagination'
 import 'swiper/css/navigation'
 import 'react-date-range/dist/styles.css'
 import 'react-date-range/dist/theme/default.css'
-import { wrapper } from '../store/store'
+import { store } from '../store/store'
+import { Provider } from 'react-redux'
 
 declare global {
     interface UserDataState {
@@ -29,7 +30,7 @@ declare global {
 }
 const MyApp = ({ Component, pageProps }: AppProps) => {
     return (
-        <>
+        <Provider store={store}>
             <Head>
                 <title>Movie Inner</title>
                 <meta charSet='utf-8' />
@@ -42,8 +43,8 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
             <Footer />
             <ToastContainer />
             <Global styles={GlobalCss} />
-        </>
+        </Provider>
     )
 }
 
-export default wrapper.withRedux(MyApp)
+export default MyApp

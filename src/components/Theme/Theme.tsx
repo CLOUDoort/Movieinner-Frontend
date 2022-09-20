@@ -6,25 +6,29 @@ import ThemeModal from './ThemeModal'
 import { apiInstance } from '../../apis/setting'
 
 const Theme = () => {
-    let sliderImage = []
-
     // 반복문 내에서는 useState 함수 사용 불가능
+    // const themeInfo = useRef({})
+    //=> 객체 setState
+    // const [themeInfo, setThemeInfo] = useState()
     const themeInfo = useRef({})
-    // let themeInfo
-    // const themeList = useRef([])
+    const sliderImage = useRef([])
+
     useEffect(() => {
         const getInfo = async () => {
             try {
-                const theme = await apiInstance.get('/movies/theme')
-                // set함수 사용 왜 안되는지...
+                const theme = await apiInstance.get(`/movies/theme`)
                 themeInfo.current = theme.data
-                const themeList = Object.keys(theme.data)
+                console.log(themeInfo.current)
+                // set함수 사용 왜 안되는지...
+                const themeList = Object.keys(themeInfo.current)
+                console.log(themeList)
                 for (const a of themeList) {
-                    sliderImage.push({
+                    sliderImage.current.push({
                         movie_id: themeInfo.current[a][0].movie_id,
                         backdrop_path: themeInfo.current[a][0].backdrop_path,
                         theme_name: themeInfo.current[a][0].theme_name,
                     })
+                    console.log('hello')
                 }
             } catch (e) {
                 console.log(e)
@@ -32,8 +36,7 @@ const Theme = () => {
         }
         getInfo()
     }, [])
-
-    console.log('sliderImage: ', sliderImage)
+    console.log('sliderImage: ', sliderImage.current)
     const [modalInfo, setModalInfo] = useState([])
     const openModal = (e) => {
         const themeModalName = e.target.alt
@@ -49,9 +52,9 @@ const Theme = () => {
     return (
         <ThemeContainer>
             <p>추천 테마</p>
-            <ThemeSlider openModal={openModal} sliderImage={sliderImage} />
+            <ThemeSlider openModal={openModal} sliderImage={sliderImage.current} />
             <p>테마 리스트</p>
-            <ThemeItem openModal={openModal} sliderImage={sliderImage} />
+            <ThemeItem openModal={openModal} sliderImage={sliderImage.current} />
             {showModal ? <ThemeModal showModal={true} closeModal={closeModal} modalInfo={modalInfo} /> : null}
         </ThemeContainer>
     )
