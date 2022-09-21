@@ -5,9 +5,10 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 
 // import required modules
 import { Autoplay, Pagination, Navigation } from 'swiper'
+import { ThemeSlideContainer } from './Theme.style'
 
 const ThemeSlider = (props) => {
-    const { openModal, sliderImage } = props
+    const { openModal, sliderImage, themeL } = props
     console.log(sliderImage)
     return (
         <>
@@ -28,16 +29,18 @@ const ThemeSlider = (props) => {
                 className='mySwiper'
             >
                 {sliderImage.map((obj: any) => (
-                    <SwiperSlide key={obj.movie_id}>
-                        <Image
-                            src={`https://image.tmdb.org/t/p/w500${obj.backdrop_path}`}
-                            alt={obj.theme_name}
-                            width={700}
-                            height={300}
-                            onClick={openModal}
-                            objectFit='contain'
-                        />
-                    </SwiperSlide>
+                    <>
+                        <SwiperSlide key={obj.movie_id}>
+                            <Image
+                                src={`https://image.tmdb.org/t/p/w500${obj.backdrop_path}`}
+                                alt={obj.theme_name}
+                                onClick={openModal}
+                                layout='fill'
+                                objectFit='contain'
+                            />
+                            <div>{obj.theme_name}</div>
+                        </SwiperSlide>
+                    </>
                 ))}
             </Swiper>
         </>
