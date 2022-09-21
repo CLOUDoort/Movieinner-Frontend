@@ -11,15 +11,29 @@ export const ThemeContainer = styled.div`
         margin-bottom: 20px;
     }
 `
+
+export const ThemeSlideContainer = styled.div`
+    position: relative;
+    > img {
+        border-radius: 20px;
+    }
+    > div {
+        position: absolute;
+        bottom: 30px;
+        left: 100px;
+        mix-blend-mode: difference;
+        font-size: 20px;
+    }
+`
+
 export const ThemeGridContainer = styled.div`
     display: grid;
     grid-template-columns: 1fr 1fr;
     column-gap: 30px;
-    row-gap: 30px;
 `
 export const ThemeItemContainer = styled.div`
-    width: 400px;
-    height: 300px;
+    width: 350px;
+    height: 200px;
     position: relative;
     margin-bottom: 30px;
     > span {
@@ -31,6 +45,7 @@ export const ThemeItemContainer = styled.div`
         bottom: 30px;
         left: 30px;
         font-size: 20px;
+        mix-blend-mode: difference;
     }
 `
 
@@ -49,17 +64,16 @@ export const ThemeModalBox = styled.div`
 
 export const ThemeModalContainer = styled.div`
     position: absolute;
-    padding: 40px;
+    padding: 10px;
     text-align: center;
     background-color: #282727;
     border-radius: 10px;
     border: 1px solid rgba(0, 0, 0, 0.3);
     box-shadow: 0 2px 3px 0 rgba(34, 36, 38, 0.15);
     > p {
-        margin-bottom: 10px;
+        margin-bottom: 20px;
         font-size: 25px;
     }
-    /* background-clip: padding-box; */
 `
 export const ThemeModalItemContainer = styled.div`
     display: grid;
