@@ -14,28 +14,32 @@ const Theme = () => {
 
     useEffect(() => {
         const getImages = async () => {
-            const response: any = await apiInstance.get(`/movies/theme`)
-            const themeResponse = response.data
-            const themeList = Object.keys(themeResponse)
+            try {
+                const response: any = await apiInstance.get(`/movies/theme`)
+                const themeResponse = response.data
+                const themeList = Object.keys(themeResponse)
 
-            // 테마별 영화 모음
-            const themeInfoBox = {}
-            themeList.map((obj) => {
-                themeInfoBox[obj] = themeResponse[obj]
-            })
-            setThemeInfo(themeInfoBox)
-
-            // 테마별 slide & item 에 들어갈 영화 모음
-            const sliderImageBox = []
-            themeList.map((obj) => {
-                sliderImageBox.push({
-                    movie_id: themeResponse[obj][0].movie_id,
-                    movie_name: themeResponse[obj][0].movie_name,
-                    backdrop_path: themeResponse[obj][0].backdrop_path,
-                    theme_name: themeResponse[obj][0].theme_name,
+                // 테마별 영화 모음
+                const themeInfoBox = {}
+                themeList.map((obj) => {
+                    themeInfoBox[obj] = themeResponse[obj]
                 })
-            })
-            setSliderImage(sliderImageBox)
+                setThemeInfo(themeInfoBox)
+
+                // 테마별 slide & item 에 들어갈 영화 모음
+                const sliderImageBox = []
+                themeList.map((obj) => {
+                    sliderImageBox.push({
+                        movie_id: themeResponse[obj][0].movie_id,
+                        movie_name: themeResponse[obj][0].movie_name,
+                        backdrop_path: themeResponse[obj][0].backdrop_path,
+                        theme_name: themeResponse[obj][0].theme_name,
+                    })
+                })
+                setSliderImage(sliderImageBox)
+            } catch (e) {
+                console.log(e)
+            }
         }
         getImages()
     }, [])
