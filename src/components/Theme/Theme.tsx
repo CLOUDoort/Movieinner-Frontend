@@ -19,26 +19,26 @@ const Theme = () => {
                 const themeResponse = response.data
                 const themeList = Object.keys(themeResponse)
 
+                // forEach와 map
                 // 테마별 영화 모음
                 const themeInfoBox = {}
-                themeList.map((obj) => {
+                themeList.forEach((obj) => {
                     themeInfoBox[obj] = themeResponse[obj]
                 })
                 setThemeInfo(themeInfoBox)
 
                 // 테마별 slide & item 에 들어갈 영화 모음
-                const sliderImageBox = []
-                themeList.map((obj) => {
-                    sliderImageBox.push({
-                        movie_id: themeResponse[obj][0].movie_id,
-                        movie_name: themeResponse[obj][0].movie_name,
-                        backdrop_path: themeResponse[obj][0].backdrop_path,
-                        theme_name: themeResponse[obj][0].theme_name,
-                    })
-                })
+                // map이 배열을 리턴
+                const sliderImageBox = themeList.map((obj) => ({
+                    movie_id: themeResponse[obj][0].movie_id,
+                    movie_name: themeResponse[obj][0].movie_name,
+                    backdrop_path: themeResponse[obj][0].backdrop_path,
+                    theme_name: themeResponse[obj][0].theme_name,
+                }))
                 setSliderImage(sliderImageBox)
             } catch (e) {
-                console.log(e)
+                console.error(e)
+                // 항상 띄워주고 console.info 사용, 에러는 error
             }
         }
         getImages()
@@ -47,7 +47,7 @@ const Theme = () => {
     console.log('themeInfo: ', themeInfo)
     console.log('SliderImage: ', sliderImage)
     const openModal = (e) => {
-        const themeModalName = e.target.alt
+        const themeModalName = e.target.id
         console.log(e.target.alt)
         setShowModal(true)
         setModalInfo(themeInfo[themeModalName])

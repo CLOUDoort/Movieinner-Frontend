@@ -30,7 +30,7 @@ const Login = () => {
         axios.defaults.headers.common['Authorization'] = `Bearer ${accessToken}` // api요청할 때마다 accessToken을 헤더에 담아서 전송
         dispatch(setToken(accessToken))
         setTimeout(onSilentRefresh, JWT_EXPIRY_TIME - 60000) // 만료 1분 전에 재발급 함수
-        console.log('login')
+        console.info('login')
     }
 
     // accessToken 재발급 & 로그인 함수
@@ -39,7 +39,7 @@ const Login = () => {
         try {
             const response = await apiInstance.post('/auth/refresh')
             onLoginSuccess(response)
-            console.log('silent-success')
+            console.info('silent-success')
         } catch (e) {
             console.log(e.response)
         }
