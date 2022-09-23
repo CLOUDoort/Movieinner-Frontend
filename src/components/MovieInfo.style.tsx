@@ -6,3 +6,11 @@ export const MovieInfoContainer = styled.div`
     justify-content: center;
     align-items: center;
 `
+
+export const MovieBackdropImgContainer = styled.div`
+    width: 50%;
+    > a > span {
+        border-radius: 10px;
+        padding-top: 50%;
+    }
+`
