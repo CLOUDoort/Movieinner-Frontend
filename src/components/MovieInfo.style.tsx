@@ -8,9 +8,12 @@ export const MovieInfoContainer = styled.div`
 `
 
 export const MovieBackdropImgContainer = styled.div`
-    width: 50%;
-    > a > span {
+    width: 80%;
+    margin: 0 auto;
+    position: relative;
+    > span {
+        padding-top: 56.25% !important;
         border-radius: 10px;
-        padding-top: 50%;
+        margin: 20px !important;
     }
 `
