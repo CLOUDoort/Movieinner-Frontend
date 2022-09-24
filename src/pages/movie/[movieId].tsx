@@ -1,5 +1,4 @@
-import { useRouter } from 'next/router'
-import MovieInfo from '../../components/MovieInfo'
+import MovieInfo from '../../components/MovieInfo/MovieInfo'
 
 const movie_id = () => {
     return <MovieInfo />

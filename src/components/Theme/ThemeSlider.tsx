@@ -1,11 +1,9 @@
-import { useState } from 'react'
 import Image from 'next/image'
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react'
 
 // import required modules
 import { Autoplay, Pagination, Navigation } from 'swiper'
-import { ThemeSlideContainer } from './Theme.style'
 
 const ThemeSlider = (props) => {
     const { openModal, sliderImage, themeL } = props
@@ -35,7 +33,6 @@ const ThemeSlider = (props) => {
                         id={obj.theme_name}
                         onClick={openModal}
                         layout='fill'
-                        objectFit='contain'
                     />
                     <div>{obj.theme_name}</div>
                 </SwiperSlide>
