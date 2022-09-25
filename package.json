@@ -8,6 +8,9 @@
         "start": "next start",
         "lint": "next lint"
     },
+    "tags": [
+        "swiper"
+    ],
     "dependencies": {
         "@emotion/react": "^11.9.3",
         "@emotion/styled": "^11.9.3",

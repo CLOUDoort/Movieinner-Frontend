@@ -6,9 +6,9 @@ const MovieInfoActor = (props) => {
     const { actorInfo } = props
     return (
         <Swiper
-            cssMode={true}
-            slidesPerView={4}
+            slidesPerView={3}
             spaceBetween={30}
+            freeMode={true}
             pagination={{
                 clickable: true,
             }}
