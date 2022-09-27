@@ -112,7 +112,7 @@ const GlobalCss = css`
         display: none;
     }
     body {
-        line-height: 1;
+        line-height: 1.6rem;
     }
     menu,
     ol,

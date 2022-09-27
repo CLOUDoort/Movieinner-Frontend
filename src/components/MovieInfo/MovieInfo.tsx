@@ -12,9 +12,8 @@ import {
     HorizontalRule,
 } from './MovieInfo.style'
 import Image from 'next/image'
-import Link from 'next/link'
-import MovieInfoActor from './MovieInfoActor'
 import { toast } from 'react-toastify'
+import MovieActorInfo from './MovieActorInfo'
 
 interface MovieInfoDataList {
     title?: string
@@ -48,8 +47,7 @@ const MovieInfo = () => {
                 setMovieInfo(movieInfoBox)
 
                 const actorResponse = await apiInstance.get(`movies/credits/${movieId}`)
-                const actorInfoData = actorResponse.data
-                setActorInfo(actorInfoData)
+                setActorInfo(actorResponse.data)
             } catch (e) {
                 console.error('error: ', e.response)
             }
@@ -84,7 +82,7 @@ const MovieInfo = () => {
                             </MovieTextOverview>
                         </MovieTextContainer>
                         <MovieFosterImgContainer>
-                            <Image src={`https://image.tmdb.org/t/p/w500${movieInfo.poster_path}`} alt={movieInfo.title} layout='fill' />
+                            <Image src={`https://image.tmdb.org/t/p/w500${movieInfo.poster_path}`} alt={movieInfo.title} layout='fill' priority={true} />
                         </MovieFosterImgContainer>
                     </MovieInfoMiddleContainer>
                     <div>
@@ -93,7 +91,8 @@ const MovieInfo = () => {
                         {/* dymanic router 이용해서 각 영화에 맞는 리뷰 쓰도록 유도 */}
                     </div>
                     <HorizontalRule />
-                    <MovieInfoActor actorInfo={actorInfo} />
+
+                    <MovieActorInfo actorInfo={actorInfo} />
                 </MovieInfoContainer>
             )}
         </>

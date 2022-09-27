@@ -17,14 +17,12 @@ body {
 }
 
 .swiper {
-    width: 650px;
-    height: 250px;
+    width: 700px;
+    height: 300px;
     border-radius: 5px;
 }
 
 .swiper-slide {
-    width: 650px;
-    height: 200px;
     text-align: center;
     font-size: 18px;
     background: #2e2e2e;
