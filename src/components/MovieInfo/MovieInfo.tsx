@@ -14,6 +14,8 @@ import {
 import Image from 'next/image'
 import { toast } from 'react-toastify'
 import MovieActorInfo from './MovieActorInfo'
+import { RootState } from '../../store/store'
+import { useSelector } from 'react-redux'
 
 interface MovieInfoDataList {
     title?: string
@@ -25,17 +27,24 @@ interface MovieInfoDataList {
 }
 
 const MovieInfo = () => {
+    const [likeCheck, setLikeCheck] = useState(false)
     const router = useRouter()
     const [movieInfo, setMovieInfo] = useState<MovieInfoDataList | null>({})
     const [actorInfo, setActorInfo] = useState([])
+    const [info, setInfo] = useState({
+        nickname: '',
+        movieId: '',
+    })
 
+    const accessToken = useSelector((state: RootState) => state.token.token)
+    console.log('accessToken: ', accessToken)
     console.log('movieInfo: ', movieInfo)
     useEffect(() => {
         const getMovieInfo = async () => {
             try {
                 if (!router.isReady) return
-                const { movieId } = router.query
-                console.log('movieId: ', movieId)
+                const { movieId }: any = router.query
+                console.log('movieId:', movieId)
                 const movieResponse = await apiInstance.get(`/movies/details/${movieId}`)
                 console.log('MovieResponse: ', movieResponse)
                 const movieInfoData = movieResponse.data
@@ -45,9 +54,23 @@ const MovieInfo = () => {
                     movieInfoBox[obj] = movieInfoData[obj]
                 })
                 setMovieInfo(movieInfoBox)
-
                 const actorResponse = await apiInstance.get(`movies/credits/${movieId}`)
                 setActorInfo(actorResponse.data)
+
+                // 로그인 검사 여부
+                const tokenResponse = await apiInstance.post('auth/verify', {
+                    token: accessToken,
+                })
+                const nicknameResponse = tokenResponse.data.payload.nickname
+                setInfo({ ...info, nickname: nicknameResponse, movieId: movieId })
+                if (accessToken) {
+                    const checkLiked = await apiInstance.post('movies/liked/movie', { nickname: nicknameResponse, movieId: movieId })
+                    console.log('sdsd', checkLiked)
+                    if (checkLiked.data.isExisted) {
+                        setLikeCheck(true)
+                    }
+                }
+                // 리프레시 토큰이 있을경우 if / DB에
             } catch (e) {
                 console.error('error: ', e.response)
             }
@@ -56,9 +79,39 @@ const MovieInfo = () => {
     }, [router.isReady, router.query])
 
     const clickLikeBtn = async () => {
-        // 해당 영화 id DB로 보내고 없으면 각 유저 마이페이지에 영화 담기, 있으면 있다고 실패 UI 띄우기
-        toast.success('마이페이지에 담김')
-        toast.error('이미 있음')
+        // 리프레시 토큰이 있는 경우에 찜하기 하고 없으면 toast로 로그인 필요 알림 띄우기
+        try {
+            const clickLikeResponse = await apiInstance.post('movies/liked', {
+                type: 'movie',
+                nickname: info.nickname,
+                movieId: info.movieId,
+                name: movieInfo.title,
+                poster_path: movieInfo.poster_path,
+                backdrop_path: movieInfo.backdrop_path,
+            })
+            console.log('클릭성공', clickLikeResponse)
+            toast.success('마이페이지에 담김')
+            setLikeCheck(true)
+        } catch (e) {
+            console.error(e.response)
+            toast.error('이미 있음')
+        }
+    }
+    const clickDeleteBtn = async () => {
+        try {
+            const clickDeleteResponse = await apiInstance.delete('movies/liked', {
+                data: {
+                    type: 'movie',
+                    nickname: info.nickname,
+                    name: movieInfo.title,
+                },
+            })
+            console.log('clickdelete', clickDeleteResponse)
+            toast.success('삭제완료')
+            setLikeCheck(false)
+        } catch (e) {
+            console.log(e.response)
+        }
     }
 
     console.info('actorInfoResponse: ', actorInfo)
@@ -86,7 +139,7 @@ const MovieInfo = () => {
                         </MovieFosterImgContainer>
                     </MovieInfoMiddleContainer>
                     <div>
-                        <button onClick={clickLikeBtn}>좋아요</button>
+                        {!likeCheck ? <button onClick={clickLikeBtn}>좋아요</button> : <button onClick={clickDeleteBtn}>좋아요 누른 영화</button>}
                         <button onClick={() => router.push('/community')}>리뷰 쓰기</button>
                         {/* dymanic router 이용해서 각 영화에 맞는 리뷰 쓰도록 유도 */}
                     </div>
