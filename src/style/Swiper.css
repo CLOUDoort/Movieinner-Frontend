@@ -17,29 +17,17 @@ body {
 }
 
 .swiper {
-    width: 700px;
-    height: 280px;
+    width: 650px;
+    height: 250px;
     border-radius: 5px;
 }
 
 .swiper-slide {
+    width: 650px;
+    height: 200px;
     text-align: center;
     font-size: 18px;
     background: #2e2e2e;
-
-    /* Center slide text vertically */
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: -webkit-flex;
-    display: flex;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    -webkit-justify-content: center;
-    justify-content: center;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    -webkit-align-items: center;
-    align-items: center;
 }
 
 .swiper-slide span {
@@ -49,6 +37,13 @@ body {
 }
 .swiper-slide div {
     bottom: 20px;
+    left: 50px;
+    mix-blend-mode: difference;
+    font-size: 20px;
+    position: absolute;
+}
+.swiper-slide p {
+    top: 200px;
     left: 50px;
     mix-blend-mode: difference;
     font-size: 20px;

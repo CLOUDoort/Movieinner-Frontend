@@ -1,10 +1,20 @@
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 import { apiInstance } from '../../apis/setting'
-import { MovieInfoContainer, MovieBackdropImgContainer } from './MovieInfo.style'
+import {
+    MovieInfoContainer,
+    MovieBackdropImgContainer,
+    MovieFosterImgContainer,
+    MovieTextContainer,
+    MovieInfoMiddleContainer,
+    MovieTextTitle,
+    MovieTextOverview,
+    HorizontalRule,
+} from './MovieInfo.style'
 import Image from 'next/image'
 import Link from 'next/link'
 import MovieInfoActor from './MovieInfoActor'
+import { toast } from 'react-toastify'
 
 interface MovieInfoDataList {
     title?: string
@@ -47,19 +57,43 @@ const MovieInfo = () => {
         getMovieInfo()
     }, [router.isReady, router.query])
 
-    console.log('actorInfoResponse: ', actorInfo)
+    const clickLikeBtn = async () => {
+        // 해당 영화 id DB로 보내고 없으면 각 유저 마이페이지에 영화 담기, 있으면 있다고 실패 UI 띄우기
+        toast.success('마이페이지에 담김')
+        toast.error('이미 있음')
+    }
+
+    console.info('actorInfoResponse: ', actorInfo)
     // if (!movieInfo.backdrop_path) return
     return (
         <>
             {movieInfo && actorInfo && (
                 <MovieInfoContainer>
                     <MovieBackdropImgContainer>
-                        <Image src={`https://image.tmdb.org/t/p/w500${movieInfo.backdrop_path}`} alt={movieInfo.title} layout='fill' />
+                        <Image src={`https://image.tmdb.org/t/p/w500${movieInfo.backdrop_path}`} alt={movieInfo.title} layout='fill' priority={true} />
                     </MovieBackdropImgContainer>
-                    <div></div>
-                    <p>{movieInfo.overview}</p>
+                    <MovieInfoMiddleContainer>
+                        <MovieTextContainer>
+                            <MovieTextTitle>
+                                <p>영화 제목</p>
+                                <div>{movieInfo.title}</div>
+                            </MovieTextTitle>
+                            <MovieTextOverview>
+                                <p>영화 설명</p>
+                                <div>{movieInfo.overview}</div>
+                            </MovieTextOverview>
+                        </MovieTextContainer>
+                        <MovieFosterImgContainer>
+                            <Image src={`https://image.tmdb.org/t/p/w500${movieInfo.poster_path}`} alt={movieInfo.title} layout='fill' />
+                        </MovieFosterImgContainer>
+                    </MovieInfoMiddleContainer>
+                    <div>
+                        <button onClick={clickLikeBtn}>좋아요</button>
+                        <button onClick={() => router.push('/community')}>리뷰 쓰기</button>
+                        {/* dymanic router 이용해서 각 영화에 맞는 리뷰 쓰도록 유도 */}
+                    </div>
+                    <HorizontalRule />
                     <MovieInfoActor actorInfo={actorInfo} />
-                    <p>찜하기</p>
                 </MovieInfoContainer>
             )}
         </>
