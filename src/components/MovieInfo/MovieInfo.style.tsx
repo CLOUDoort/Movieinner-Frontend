@@ -66,8 +66,8 @@ export const MovieFosterImgContainer = styled.div`
 `
 
 export const HorizontalRule = styled.hr`
-    width: 900px;
-    height: 3px;
+    width: 800px;
+    height: 1px;
 `
 
 export const MovieActorScroll = styled.div`
@@ -77,10 +77,13 @@ export const MovieActorScroll = styled.div`
     margin: 0 -24px;
     vertical-align: top;
     font-size: 1.3rem;
+    > :first-of-type {
+        margin-left: 10px;
+    }
 `
 
 export const MovieActorContainer = styled.div`
-    width: 900px;
+    width: 800px;
     position: relative;
     overflow: hidden;
     padding: 0 0 1px;
@@ -89,7 +92,8 @@ export const MovieActorContainer = styled.div`
 
 export const MovieActorList = styled.ul`
     display: table;
-    padding: 1px 15px 4px;
+    margin-top: 10px;
+    margin-bottom: 10px;
     border-spacing: 9px 0;
     border-collapse: separate;
     table-layout: fixed;
@@ -100,7 +104,7 @@ export const MovieActorList = styled.ul`
     overflow: scroll;
 `
 export const ActorAreaCard = styled.li`
-    width: 140px !important;
+    width: 145px !important;
     display: table-cell;
     position: relative;
     white-space: normal;
@@ -132,8 +136,8 @@ export const ActorAreaCard = styled.li`
 export const ActorImageBox = styled.div`
     display: block;
     position: relative;
-    width: 140px !important;
-    height: 140px !important;
+    width: 145px !important;
+    height: 150px !important;
     ::before {
         display: block;
         position: absolute;

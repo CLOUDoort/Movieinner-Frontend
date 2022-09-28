@@ -6,8 +6,8 @@ const MovieActorInfo = (props) => {
     const { actorInfo } = props
     return (
         <>
-            <div>감독&#47;출연</div>
             <MovieActorScroll>
+                <div>감독&#47;출연</div>
                 <MovieActorContainer>
                     <div>
                         <MovieActorList>
