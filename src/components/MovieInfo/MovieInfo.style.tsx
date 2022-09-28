@@ -65,6 +65,21 @@ export const MovieFosterImgContainer = styled.div`
     }
 `
 
+export const MovieBtnContainer = styled.div`
+    display: flex;
+`
+
+type MovieLikeBtnProps = {
+    like: boolean
+}
+
+export const MovieLikeBtn = styled.div<MovieLikeBtnProps>`
+    > svg {
+        color: ${(props) => (props.like ? 'red' : 'white')};
+        margin-right: 10px;
+    }
+`
+
 export const HorizontalRule = styled.hr`
     width: 800px;
     height: 1px;

@@ -100,17 +100,20 @@ export const ThemeModalContent = styled.div`
     }
 `
 
-export const ThemeLikeBtn = styled.div`
+type ThemeLikeBtnProps = {
+    like: boolean
+}
+
+export const ThemeLikeBtn = styled.div<ThemeLikeBtnProps>`
     position: absolute;
     top: 10px;
     right: 60px;
     cursor: pointer;
     > svg {
-        color: #fefefe;
         border-radius: 5px;
+        color: ${(props) => (props.like ? 'red' : 'white')};
     }
 `
-
 export const ThemeCloseBtn = styled.div`
     position: absolute;
     top: 10px;
