@@ -1,10 +1,48 @@
-import { ThemeModalBox, ThemeModalContainer, ThemeModalItemContainer, ThemeModalItem, ThemeModalContent, ThemeCloseBtn } from './Theme.style'
+import { ThemeModalBox, ThemeModalContainer, ThemeModalItemContainer, ThemeModalItem, ThemeModalContent, ThemeCloseBtn, ThemeLikeBtn } from './Theme.style'
 import Image from 'next/image'
 import Link from 'next/link'
-import { AiOutlineCloseSquare } from 'react-icons/ai'
+import { AiFillCloseSquare } from 'react-icons/ai'
+import { BsFillHandThumbsUpFill } from 'react-icons/bs'
+import { apiInstance } from '../../apis/setting'
+import { toast } from 'react-toastify'
+import { RootState } from '../../store/store'
+import { useSelector } from 'react-redux'
+import { useEffect, useState } from 'react'
 
 const ThemeModal = (props) => {
     const { showModal, closeModal, modalInfo } = props
+    const accessToken = useSelector((state: RootState) => state.token.token)
+    const [nickname, setNickname] = useState('')
+    useEffect(() => {
+        const getCheckResponse = async () => {
+            try {
+                const tokenResponse = await apiInstance.post('auth/verify', {
+                    token: accessToken,
+                })
+                const nicknameResponse = tokenResponse.data.payload.nickname
+                setNickname(nicknameResponse)
+            } catch (e) {
+                console.log(e.response)
+            }
+        }
+        getCheckResponse()
+    }, [accessToken])
+
+    const clickLikedBtn = async () => {
+        try {
+            if (accessToken) {
+                // const clickLikeResponse = await apiInstance.post('/movies/like', {
+                //     type: 'theme',
+                //     nickname: nickname,
+                //     movieId: modalInfo.movie_id,
+                //     name: modalInfo.
+                // })
+            }
+        } catch (e) {
+            console.log(e.response)
+        }
+        toast.success('like!')
+    }
     return (
         <>
             {showModal ? (
@@ -35,8 +73,11 @@ const ThemeModal = (props) => {
                                     </ThemeModalContent>
                                 </ThemeModalItem>
                             ))}
+                            <ThemeLikeBtn onClick={clickLikedBtn}>
+                                <BsFillHandThumbsUpFill size={30} />
+                            </ThemeLikeBtn>
                             <ThemeCloseBtn onClick={closeModal}>
-                                <AiOutlineCloseSquare size={40} />
+                                <AiFillCloseSquare size={35} />
                             </ThemeCloseBtn>
                         </ThemeModalItemContainer>
                     </ThemeModalContainer>

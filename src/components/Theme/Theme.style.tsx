@@ -95,15 +95,29 @@ export const ThemeModalContent = styled.div`
     display: flex;
     flex-direction: column;
     height: 40px;
-    margin-top: 5px;
     > p {
-        margin-top: 5px;
+        margin-bottom: 5px;
     }
 `
+
+export const ThemeLikeBtn = styled.div`
+    position: absolute;
+    top: 10px;
+    right: 60px;
+    cursor: pointer;
+    > svg {
+        color: #fefefe;
+        border-radius: 5px;
+    }
+`
+
 export const ThemeCloseBtn = styled.div`
     position: absolute;
-    top: 5px;
+    top: 10px;
     right: 15px;
-    background-color: transparent;
     cursor: pointer;
+    > svg {
+        color: #fefefe;
+        border-radius: 5px;
+    }
 `

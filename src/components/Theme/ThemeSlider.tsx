@@ -33,6 +33,7 @@ const ThemeSlider = (props) => {
                         id={obj.theme_name}
                         onClick={openModal}
                         layout='fill'
+                        priority={true}
                     />
                     <div>{obj.theme_name}</div>
                 </SwiperSlide>
