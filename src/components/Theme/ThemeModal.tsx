@@ -13,14 +13,20 @@ const ThemeModal = (props) => {
     const { showModal, closeModal, modalInfo } = props
     const accessToken = useSelector((state: RootState) => state.token.token)
     const [nickname, setNickname] = useState('')
+    const [like, setLike] = useState(false)
+    console.log('modalinfo', modalInfo)
     useEffect(() => {
         const getCheckResponse = async () => {
             try {
-                const tokenResponse = await apiInstance.post('auth/verify', {
-                    token: accessToken,
-                })
-                const nicknameResponse = tokenResponse.data.payload.nickname
-                setNickname(nicknameResponse)
+                if (accessToken) {
+                    const tokenResponse = await apiInstance.post('auth/verify', {
+                        token: accessToken,
+                    })
+                    const nicknameResponse = tokenResponse.data.payload.nickname
+                    setNickname(nicknameResponse)
+
+                    // const checkLiked = await apiInstance.post('moives/liked/theme', { nickname: nicknameResponse, theme_name: modalInfo[0].theme_name })
+                }
             } catch (e) {
                 console.log(e.response)
             }
@@ -37,11 +43,14 @@ const ThemeModal = (props) => {
                 //     movieId: modalInfo.movie_id,
                 //     name: modalInfo.
                 // })
+                setLike(true)
+                toast.success('like!')
+            } else {
+                toast.error('로그인 해주세요!')
             }
         } catch (e) {
             console.log(e.response)
         }
-        toast.success('like!')
     }
     return (
         <>
@@ -73,7 +82,7 @@ const ThemeModal = (props) => {
                                     </ThemeModalContent>
                                 </ThemeModalItem>
                             ))}
-                            <ThemeLikeBtn onClick={clickLikedBtn}>
+                            <ThemeLikeBtn like={like} onClick={clickLikedBtn}>
                                 <BsFillHandThumbsUpFill size={30} />
                             </ThemeLikeBtn>
                             <ThemeCloseBtn onClick={closeModal}>
