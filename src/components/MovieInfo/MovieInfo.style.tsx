@@ -15,6 +15,7 @@ export const MovieBackdropImgContainer = styled.div`
     > span {
         border-radius: 10px !important;
         border: 1px solid black !important;
+        cursor: pointer;
     }
 `
 

@@ -1,10 +1,13 @@
-import { MovieLikeBtn } from './MovieInfo.style'
+import { MovieLikeBtn, MovieBtnContainer, HorizontalRule } from './MovieInfo.style'
 import { useState, useEffect } from 'react'
 import { BsFillHandThumbsUpFill } from 'react-icons/bs'
 import { apiInstance } from '../../apis/setting'
 import { toast } from 'react-toastify'
+import { useRouter } from 'next/router'
 
-const MovieLike = (props) => {
+const MovieReview = (props) => {
+    const router = useRouter()
+
     const [like, setLike] = useState(false)
     const { accessToken, info, movieInfo } = props
 
@@ -14,16 +17,19 @@ const MovieLike = (props) => {
             if (accessToken) {
                 // 좋아요 목록 확인
                 const checkLiked = await apiInstance.post('movies/liked/movie', { nickname: info.nickname, movieId: info.movieId })
+                console.log(checkLiked.data.isExisted)
                 if (checkLiked.data.isExisted) {
                     setLike(true)
                 }
             }
         }
         getResponse()
-    }, [])
+    }, [accessToken, info.nickname, info.movieId])
 
     const clickLikeBtn = async () => {
+        // 로그인 되어있을 경우
         if (accessToken) {
+            // 이미 좋아요 된 경우에는 삭제
             if (like) {
                 try {
                     const deleteResponse = await apiInstance.delete('movies/liked', {
@@ -39,7 +45,9 @@ const MovieLike = (props) => {
                 } catch (e) {
                     console.error(e.response)
                 }
-            } else {
+            }
+            // 좋아요 안 된 경우는 좋아요 추가
+            else {
                 try {
                     const likeResponse = await apiInstance.post('movies/liked', {
                         type: 'movie',
@@ -62,10 +70,16 @@ const MovieLike = (props) => {
     }
 
     return (
-        <MovieLikeBtn like={like} onClick={clickLikeBtn}>
-            <BsFillHandThumbsUpFill size={30} />
-        </MovieLikeBtn>
+        <>
+            <MovieBtnContainer>
+                <MovieLikeBtn like={like} onClick={clickLikeBtn}>
+                    <BsFillHandThumbsUpFill size={30} />
+                </MovieLikeBtn>
+                <button onClick={() => router.push('/community')}>리뷰 쓰기</button>
+            </MovieBtnContainer>
+            <HorizontalRule />
+        </>
     )
 }
 
-export default MovieLike
+export default MovieReview

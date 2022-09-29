@@ -1,23 +1,13 @@
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 import { apiInstance } from '../../apis/setting'
-import {
-    MovieInfoContainer,
-    MovieBackdropImgContainer,
-    MovieFosterImgContainer,
-    MovieTextContainer,
-    MovieInfoMiddleContainer,
-    MovieTextTitle,
-    MovieTextOverview,
-    HorizontalRule,
-    MovieBtnContainer,
-} from './MovieInfo.style'
-import Image from 'next/image'
-import { toast } from 'react-toastify'
+import { MovieInfoContainer } from './MovieInfo.style'
 import MovieActorInfo from './MovieActorInfo'
 import { RootState } from '../../store/store'
 import { useSelector } from 'react-redux'
-import MovieLike from './MovieLike'
+import MovieReview from './MovieReview'
+import MovieInfoText from './MovieInfoText'
+import MovieBackdropImg from './MovieBackdropImg'
 
 interface MovieInfoDataList {
     title?: string
@@ -29,6 +19,7 @@ interface MovieInfoDataList {
 }
 
 const MovieInfo = () => {
+    const accessToken = useSelector((state: RootState) => state.token.token)
     const router = useRouter()
     const [movieInfo, setMovieInfo] = useState<MovieInfoDataList | null>({})
     const [actorInfo, setActorInfo] = useState([])
@@ -37,17 +28,14 @@ const MovieInfo = () => {
         movieId: '',
     })
 
-    const accessToken = useSelector((state: RootState) => state.token.token)
-
     useEffect(() => {
         const getMovieInfo = async () => {
             try {
                 if (!router.isReady) return
                 const { movieId }: any = router.query
-                console.log('movieId:', movieId)
                 const movieResponse = await apiInstance.get(`/movies/details/${movieId}`)
-                console.log('MovieResponse: ', movieResponse)
                 const movieInfoData = movieResponse.data
+                console.log('sdsd', movieInfoData)
                 const movieInfoBox = {}
                 const dataList = ['title', 'backdrop_path', 'poster_path', 'overview', 'runtime', 'release_date']
                 dataList.forEach((obj) => {
@@ -69,36 +57,15 @@ const MovieInfo = () => {
             }
         }
         getMovieInfo()
-    }, [router.isReady, router.query])
+    }, [router.isReady, router.query, accessToken])
 
     return (
         <>
             {movieInfo && actorInfo && (
                 <MovieInfoContainer>
-                    <MovieBackdropImgContainer>
-                        <Image src={`https://image.tmdb.org/t/p/w500${movieInfo.backdrop_path}`} alt={movieInfo.title} layout='fill' priority={true} />
-                    </MovieBackdropImgContainer>
-                    <MovieInfoMiddleContainer>
-                        <MovieTextContainer>
-                            <MovieTextTitle>
-                                <p>영화 제목</p>
-                                <div>{movieInfo.title}</div>
-                            </MovieTextTitle>
-                            <MovieTextOverview>
-                                <p>영화 설명</p>
-                                <div>{movieInfo.overview}</div>
-                            </MovieTextOverview>
-                        </MovieTextContainer>
-                        <MovieFosterImgContainer>
-                            <Image src={`https://image.tmdb.org/t/p/w500${movieInfo.poster_path}`} alt={movieInfo.title} layout='fill' priority={true} />
-                        </MovieFosterImgContainer>
-                    </MovieInfoMiddleContainer>
-                    <MovieBtnContainer>
-                        <MovieLike accessToken={accessToken} info={info} movieInfo={movieInfo} />
-                        <button onClick={() => router.push('/community')}>리뷰 쓰기</button>
-                        {/* dymanic router 이용해서 각 영화에 맞는 리뷰 쓰도록 유도 */}
-                    </MovieBtnContainer>
-                    <HorizontalRule />
+                    <MovieBackdropImg movieInfo={movieInfo} />
+                    <MovieInfoText movieInfo={movieInfo} />
+                    <MovieReview accessToken={accessToken} info={info} movieInfo={movieInfo} />
                     <MovieActorInfo actorInfo={actorInfo} />
                 </MovieInfoContainer>
             )}
