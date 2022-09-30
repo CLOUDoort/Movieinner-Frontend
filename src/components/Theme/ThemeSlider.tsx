@@ -6,7 +6,7 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import { Autoplay, Pagination, Navigation } from 'swiper'
 
 const ThemeSlider = (props) => {
-    const { openModal, sliderImage, themeL } = props
+    const { openModal, sliderImage } = props
     console.log(sliderImage)
     return (
         <Swiper
@@ -28,7 +28,7 @@ const ThemeSlider = (props) => {
             {sliderImage.map((obj: any) => (
                 <SwiperSlide key={obj.movie_id}>
                     <Image
-                        src={`https://image.tmdb.org/t/p/w500${obj.backdrop_path}`}
+                        src={`https://image.tmdb.org/t/p/w1280${obj.backdrop_path}`}
                         alt={obj.theme_name}
                         id={obj.theme_name}
                         onClick={openModal}

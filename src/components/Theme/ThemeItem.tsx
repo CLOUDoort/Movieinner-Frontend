@@ -9,7 +9,7 @@ const ThemeItem = (props) => {
             {sliderImage.map((obj: any) => (
                 <ThemeItemContainer key={obj.movie_id}>
                     <Image
-                        src={`https://image.tmdb.org/t/p/w500${obj.backdrop_path}`}
+                        src={`https://image.tmdb.org/t/p/w1280${obj.backdrop_path}`}
                         id={obj.theme_name}
                         alt={obj.theme_name}
                         onClick={openModal}

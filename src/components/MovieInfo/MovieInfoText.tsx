@@ -24,7 +24,7 @@ const MovieInfoText = (props) => {
                 </MovieTextOverview>
             </MovieTextContainer>
             <MovieFosterImgContainer>
-                <Image src={`https://image.tmdb.org/t/p/w500${movieInfo.poster_path}`} alt={movieInfo.title} layout='fill' priority={true} />
+                <Image src={`https://image.tmdb.org/t/p/w780${movieInfo.poster_path}`} alt={movieInfo.title} layout='fill' priority={true} />
             </MovieFosterImgContainer>
         </MovieInfoMiddleContainer>
     )

@@ -15,7 +15,7 @@ const MovieActorInfo = (props) => {
                                 <ActorAreaCard key={obj.name}>
                                     <div>
                                         <ActorImageBox>
-                                            <Image src={`https://image.tmdb.org/t/p/w500${obj.profile_path}`} layout='fill' alt={obj.name} />
+                                            <Image src={`https://image.tmdb.org/t/p/original${obj.profile_path}`} layout='fill' alt={obj.name} />
                                         </ActorImageBox>
                                         <ActorTitleBox>
                                             <strong>{obj.name}</strong>
