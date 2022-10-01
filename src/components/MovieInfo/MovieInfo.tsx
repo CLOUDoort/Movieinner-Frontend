@@ -18,6 +18,11 @@ interface MovieInfoDataList {
     release_date?: string
 }
 
+export type RecentMovie = {
+    movieId: string
+    poster_path: string
+}
+
 const MovieInfo = () => {
     const accessToken = useSelector((state: RootState) => state.token.token)
     const router = useRouter()
@@ -28,6 +33,8 @@ const MovieInfo = () => {
         movieId: '',
     })
 
+    // localstorage는 브라우저내에서만 사용할 수 있다.
+    // useEffect는 CSR 전용 hook이기 때문에 이 동작은 브라우저 내에서 이루어지는 것이라 확신을 줄 수 있으므로 useEffect 내에서 localstorage를 사용해도 에러가 나지 않는다.
     useEffect(() => {
         const getMovieInfo = async () => {
             try {
@@ -35,7 +42,6 @@ const MovieInfo = () => {
                 const { movieId }: any = router.query
                 const movieResponse = await apiInstance.get(`/movies/details/${movieId}`)
                 const movieInfoData = movieResponse.data
-                console.log('sdsd', movieInfoData)
                 const movieInfoBox = {}
                 const dataList = ['title', 'backdrop_path', 'poster_path', 'overview', 'runtime', 'release_date']
                 dataList.forEach((obj) => {
@@ -51,9 +57,16 @@ const MovieInfo = () => {
                 })
                 const nicknameResponse = tokenResponse.data.payload.nickname
                 setInfo({ ...info, nickname: nicknameResponse, movieId: movieId })
-                // 리프레시 토큰이 있을경우 if / DB에
             } catch (e) {
                 console.error('error: ', e.response)
+            }
+        }
+        const checkRecentMovie = () => {
+            try {
+                if (!router.isReady) return
+                // const previousWatched: RecentMovie[] = JSON.parse()
+            } catch (e) {
+                console.error(e.response)
             }
         }
         getMovieInfo()
