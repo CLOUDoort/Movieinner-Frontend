@@ -1,4 +1,3 @@
-import { SwiperSlide } from 'swiper/react'
 import Image from 'next/image'
 import { ActorAreaCard, ActorImageBox, ActorTitleBox, MovieActorContainer, MovieActorList, MovieActorScroll } from './MovieInfo.style'
 
