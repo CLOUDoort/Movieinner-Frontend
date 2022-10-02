@@ -18,11 +18,6 @@ interface MovieInfoDataList {
     release_date?: string
 }
 
-export type RecentMovie = {
-    movieId: string
-    poster_path: string
-}
-
 const MovieInfo = () => {
     const accessToken = useSelector((state: RootState) => state.token.token)
     const router = useRouter()
@@ -42,7 +37,7 @@ const MovieInfo = () => {
                 const { movieId }: any = router.query
                 const movieResponse = await apiInstance.get(`/movies/details/${movieId}`)
                 const movieInfoData = movieResponse.data
-                const movieInfoBox = {}
+                const movieInfoBox: MovieInfoDataList = {}
                 const dataList = ['title', 'backdrop_path', 'poster_path', 'overview', 'runtime', 'release_date']
                 dataList.forEach((obj) => {
                     movieInfoBox[obj] = movieInfoData[obj]
@@ -57,16 +52,38 @@ const MovieInfo = () => {
                 })
                 const nicknameResponse = tokenResponse.data.payload.nickname
                 setInfo({ ...info, nickname: nicknameResponse, movieId: movieId })
+
+                // 최근 본 영화 추가
+                // 데이터 베이스 생성
+                const previousWatchedReq = window.indexedDB.open('movieinfo', 1)
+                let previousWatched // DB에 접근할 수 있는 레퍼런스 생성
+                // // 시간이 걸리는 비동기작업이기 때문에 성공 또는 에러가 났을 때 제어할 객체를 요청해야 한다.
+                // success는 DB관련 작업 성공할 때마다 실행, 콜백함수로 open이 성공했을 때 할 작업 실행
+                previousWatchedReq.onsuccess = (e: any) => {
+                    console.info('database open success!')
+                    previousWatched = e.target.result
+                    let store = previousWatched.transaction('watched', 'readwrite').objectStore('watched')
+                    let addReq = store.add({
+                        title: movieInfoBox.title,
+                        poster_path: movieInfoBox.poster_path,
+                    })
+                    addReq.onsuccess = (e: any) => {
+                        console.log('add success', e.target.result)
+                    }
+                }
+                // error는 DB관련 작업 실패 때마다 실행
+                previousWatchedReq.onerror = (e: any) => {
+                    const error = e.target.error
+                    console.error('indexedDB error: ', error.name)
+                }
+                // 버전이 바뀔 때마다 실행되는 이벤트에서 object store 생성
+                previousWatchedReq.onupgradeneeded = (e: any) => {
+                    console.info('database upgrade success!')
+                    previousWatched = e.target.result
+                    previousWatched.createObjectStore('watched', { keyPath: 'id', autoIncrement: true })
+                }
             } catch (e) {
                 console.error('error: ', e.response)
-            }
-        }
-        const checkRecentMovie = () => {
-            try {
-                if (!router.isReady) return
-                // const previousWatched: RecentMovie[] = JSON.parse()
-            } catch (e) {
-                console.error(e.response)
             }
         }
         getMovieInfo()
