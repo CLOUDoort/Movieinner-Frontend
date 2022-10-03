@@ -1,5 +1,5 @@
-import axios from 'axios'
 import Link from 'next/link'
+import axios from 'axios'
 import Router from 'next/router'
 import { useEffect, useState } from 'react'
 import { MdNightlight } from 'react-icons/md'
@@ -13,10 +13,19 @@ const Header = () => {
     const loginToken = useSelector((state: RootState) => state.token.token)
     const dispatch = useDispatch()
     const [loginToggle, setLoginToggle] = useState('로그인')
+    const [nickname, setNickname] = useState('')
 
     // login/logout UI 변경
     useEffect(() => {
-        if (loginToken) setLoginToggle('로그아웃')
+        const getResponse = async () => {
+            if (loginToken) {
+                setLoginToggle('로그아웃')
+                const tokenPayload = await apiInstance.post('/auth/verify', { token: loginToken })
+                const nicknameResponse = tokenPayload.data.payload.nickname
+                setNickname(nicknameResponse)
+            }
+        }
+        getResponse()
     }, [loginToken])
 
     // 브라우저에 refreshToken이 있으면 무조건 액세스 토큰이 재발급되니 UI는 로그아웃으로 변경
@@ -52,8 +61,8 @@ const Header = () => {
                     dispatch(setToken(''))
                     setLoginToggle('로그인')
                     Router.replace('/')
-                    location.reload()
-                    console.log('Logout')
+                    console.info('Logout')
+                    setNickname('')
                 }
             } catch (e) {
                 console.log(e.response)
@@ -76,7 +85,7 @@ const Header = () => {
                         <Link href='/community'>리뷰</Link>
                         <Link href='/community'>커뮤니티</Link>
                         <Link href='/theme'>테마</Link>
-                        <Link href='/user'>마이페이지</Link>
+                        {nickname ? <Link href={`/user/${nickname}`}>마이페이지</Link> : <Link href='/login'>마이페이지</Link>}
                     </NavDiv>
                 </SecondHearderNav>
                 <SecondHearderSearchDiv>
