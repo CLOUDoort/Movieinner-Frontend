@@ -140,6 +140,7 @@ const Signupinfo = () => {
                 dispatch(setSignup('SignupVerify'))
                 await apiInstance.post('/users', userData)
             } catch (e) {
+                toast.error(e.response.data)
                 console.log(e)
             }
         }
