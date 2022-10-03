@@ -19,7 +19,10 @@ const ThemeLike = (props) => {
                     const tokenPayload = await apiInstance.post('/auth/verify', { token: accessToken })
                     const nicknameResponse = tokenPayload.data.payload.nickname
                     setNickname(nicknameResponse)
-                    const checkLiked = await apiInstance.post('movies/liked/theme', { nickname: nicknameResponse, name: modalInfo[0].theme_name })
+                    const checkLiked = await apiInstance.post('movies/liked/theme', {
+                        nickname: nicknameResponse,
+                        name: modalInfo[0].theme_name,
+                    })
                     if (checkLiked.data.isExisted) {
                         setLike(true)
                     }
@@ -55,6 +58,7 @@ const ThemeLike = (props) => {
                         type: 'theme',
                         nickname: nickname,
                         name: modalInfo[0].theme_name,
+                        backdrop_path: modalInfo[0].backdrop_path,
                     })
                     setLike(true)
                     toast.success('좋아요! 마이페이지에 담김')

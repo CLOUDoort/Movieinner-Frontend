@@ -64,6 +64,7 @@ const MovieInfo = () => {
                     previousWatched = e.target.result
                     let store = previousWatched.transaction('watched', 'readwrite').objectStore('watched')
                     let addReq = store.add({
+                        movieId: movieId,
                         title: movieInfoBox.title,
                         poster_path: movieInfoBox.poster_path,
                     })
