@@ -2,7 +2,7 @@ import Image from 'next/image'
 import Router from 'next/router'
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { StorageThemeDiv } from './Storage.style'
+import { StorageThemeContainer } from './Storage.style'
 
 // import required modules
 import { Autoplay, Pagination, Navigation } from 'swiper'
@@ -10,7 +10,7 @@ import { Autoplay, Pagination, Navigation } from 'swiper'
 const StorageTheme = (props) => {
     const { themeLiked } = props
     return (
-        <StorageThemeDiv>
+        <StorageThemeContainer>
             <p>찜한 테마</p>
             <Swiper
                 cssMode={true}
@@ -41,7 +41,7 @@ const StorageTheme = (props) => {
                     </SwiperSlide>
                 ))}
             </Swiper>
-        </StorageThemeDiv>
+        </StorageThemeContainer>
     )
 }
 
