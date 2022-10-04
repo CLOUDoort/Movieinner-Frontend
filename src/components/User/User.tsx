@@ -12,6 +12,12 @@ const User = () => {
             try {
                 const themeResponse = await apiInstance.get('/movies/liked/theme', { params: { nickname: nickname } })
                 console.info(themeResponse.data.liked)
+                const movieResponse = await apiInstance.get('/movies/liked/movie', {
+                    params: {
+                        nickname: nickname,
+                    },
+                })
+                console.log(movieResponse.data.liked)
             } catch (e) {
                 console.error(e.response)
             }
