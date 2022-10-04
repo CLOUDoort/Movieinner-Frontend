@@ -8,6 +8,7 @@ import { apiInstance } from '../../apis/setting'
 import { setToken } from '../../store/reducers/logintokenSlice'
 import { RootState } from '../../store/store'
 import { FirstHeaderDiv, HeaderContainer, NavDiv, SecondHearderDiv, SecondHearderNav, SecondHearderSearchDiv, TitleDiv } from './Header.style'
+import { toast } from 'react-toastify'
 
 const Header = () => {
     const loginToken = useSelector((state: RootState) => state.token.token)
@@ -61,7 +62,7 @@ const Header = () => {
                     dispatch(setToken(''))
                     setLoginToggle('로그인')
                     Router.replace('/')
-                    console.info('Logout')
+                    toast.success('로그아웃되었습니다!')
                     setNickname('')
                 }
             } catch (e) {

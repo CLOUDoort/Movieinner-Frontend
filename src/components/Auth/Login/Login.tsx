@@ -9,6 +9,7 @@ import { setToken } from '../../../store/reducers/logintokenSlice'
 import Router from 'next/router'
 import { RedText } from '../Signup/Signup_pw.style'
 import SocialLogin from './SocialLogin'
+import { toast } from 'react-toastify'
 
 const JWT_EXPIRY_TIME = 3600 * 1000
 const Login = () => {
@@ -59,6 +60,7 @@ const Login = () => {
                         const tokenResponse = await apiInstance.post('/auth', { email: values.email })
                         onLoginSuccess(tokenResponse)
                         Router.replace('/')
+                        toast.success('로그인되었습니다!')
                     } catch (e) {
                         console.log(e.response)
                     }
@@ -68,10 +70,10 @@ const Login = () => {
                         login: false,
                         user: true,
                     }) // 로그인 실패, 이메일이나 비밀번호 확인
-                    console.log('비밀번호 다름')
+                    toast.error('비밀번호가 다릅니다!')
                 }
             } else {
-                console.log('none-email')
+                toast.error('이메일이 존재하지 않습니다!')
                 setCheck({
                     ...check,
                     login: false,

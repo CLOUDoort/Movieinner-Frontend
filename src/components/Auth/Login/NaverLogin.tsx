@@ -7,6 +7,7 @@ import { setToken } from '../../../store/reducers/logintokenSlice'
 import { setSocialEmail } from '../../../store/reducers/socialSlice'
 import Loading from '../../Loading'
 import Signupinfo from '../Signup/Signupinfo'
+import { toast } from 'react-toastify'
 
 const NaverLogin = () => {
     const [valid, setValid] = useState(false)
@@ -32,6 +33,7 @@ const NaverLogin = () => {
                         const { accessToken } = tokenResponse.data
                         dispatch(setToken(accessToken))
                         Router.replace('/')
+                        toast.success('로그인되었습니다!')
                     } catch (e) {
                         console.log(e.response)
                     }
