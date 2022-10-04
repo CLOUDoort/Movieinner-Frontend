@@ -17,7 +17,7 @@ const User = () => {
                         nickname: nickname,
                     },
                 })
-                console.log(movieResponse.data.liked)
+                console.info(movieResponse.data.liked)
             } catch (e) {
                 console.error(e.response)
             }
