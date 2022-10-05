@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import Link from 'next/link'
+import Router from 'next/router'
 import { StorageMovieScroll, StorageMovieContainer, StorageMovieList, StorageMovieAreaCard, StorageMovieImgBox, StorageMovieTitleBox } from './Storage.style'
 
 const StorageMovie = (props) => {
@@ -14,15 +14,11 @@ const StorageMovie = (props) => {
                         {movieLiked.map((obj) => (
                             <StorageMovieAreaCard key={obj.idx}>
                                 <div>
-                                    <StorageMovieImgBox>
-                                        <Link href={`/movie/${obj.movie_id}`}>
-                                            <a>
-                                                <Image src={`https://image.tmdb.org/t/p/original${obj.poster_path}`} layout='fill' alt={obj.name} />
-                                            </a>
-                                        </Link>
+                                    <StorageMovieImgBox onClick={() => Router.push(`/movie/${obj.movie_id}`)}>
+                                        <Image src={`https://image.tmdb.org/t/p/original${obj.poster_path}`} layout='fill' alt={obj.name} />
                                     </StorageMovieImgBox>
                                     <StorageMovieTitleBox>
-                                        <strong>{obj.name}</strong>
+                                        <strong onClick={() => Router.push(`/movie/${obj.movie_id}`)}>{obj.name}</strong>
                                     </StorageMovieTitleBox>
                                 </div>
                             </StorageMovieAreaCard>

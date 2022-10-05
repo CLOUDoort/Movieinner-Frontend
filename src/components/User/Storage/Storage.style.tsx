@@ -101,45 +101,32 @@ export const StorageMovieImgBox = styled.div`
         z-index: 2;
         content: '';
         border: 1px solid rgba(0, 0, 0, 0.4);
+        cursor: pointer;
     }
     > span {
         border-radius: 6px 6px 0 0;
-        cursor: pointer;
     }
 `
 
 export const StorageMovieTitleBox = styled.div`
-    padding: 4px 6px 5px !important;
     white-space: normal;
     display: block;
+    text-align: center;
+    padding: 10px;
     > strong {
         max-height: 4.8rem;
         overflow: hidden;
         text-overflow: ellipsis;
         word-break: break-all;
         word-wrap: break-word;
-
         position: relative;
         z-index: 5;
         color: #242424;
         font-size: 1rem;
         font-weight: normal;
-        line-height: 1.8rem;
+        line-height: 1rem;
         white-space: normal;
-    }
-    > p {
-        overflow: hidden;
-        text-overflow: ellipsis;
-        word-break: break-all;
-        word-wrap: break-word;
-        position: relative;
-        z-index: 5;
-        color: #242424;
-        color: gray;
-        line-height: 1.8rem;
-        font-size: 1rem;
-        white-space: normal;
-        margin-top: 3px !important;
+        cursor: pointer;
     }
 `
 
