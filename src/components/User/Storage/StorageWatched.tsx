@@ -17,7 +17,6 @@ const StorageWatched = (props) => {
                 let getAllList = store.getAll()
                 getAllList.onsuccess = (e) => {
                     toast.success('read success')
-                    console.info(e.target.result)
                     setWatched(e.target.result)
                 }
             }
