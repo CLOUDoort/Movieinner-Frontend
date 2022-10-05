@@ -8,6 +8,7 @@ import { useSelector } from 'react-redux'
 import MovieReview from './MovieReview'
 import MovieInfoText from './MovieInfoText'
 import MovieBackdropImg from './MovieBackdropImg'
+import { toast } from 'react-toastify'
 
 interface MovieInfoDataList {
     title?: string
@@ -59,19 +60,6 @@ const MovieInfo = () => {
                 let previousWatched // DB에 접근할 수 있는 레퍼런스 생성
                 // // 시간이 걸리는 비동기작업이기 때문에 성공 또는 에러가 났을 때 제어할 객체를 요청해야 한다.
                 // success는 DB관련 작업 성공할 때마다 실행, 콜백함수로 open이 성공했을 때 할 작업 실행
-                previousWatchedReq.onsuccess = (e: any) => {
-                    console.info('database open success!')
-                    previousWatched = e.target.result
-                    let store = previousWatched.transaction('watched', 'readwrite').objectStore('watched')
-                    let addReq = store.add({
-                        movieId: movieId,
-                        title: movieInfoBox.title,
-                        poster_path: movieInfoBox.poster_path,
-                    })
-                    addReq.onsuccess = (e: any) => {
-                        console.log('add success', e.target.result)
-                    }
-                }
                 // error는 DB관련 작업 실패 때마다 실행
                 previousWatchedReq.onerror = (e: any) => {
                     const error = e.target.error
@@ -82,6 +70,55 @@ const MovieInfo = () => {
                     console.info('database upgrade success!')
                     previousWatched = e.target.result
                     previousWatched.createObjectStore('watched', { keyPath: 'id', autoIncrement: true })
+                }
+                previousWatchedReq.onsuccess = (e: any) => {
+                    console.info('database open success!')
+                    previousWatched = e.target.result
+                    let store = previousWatched.transaction('watched', 'readonly').objectStore('watched')
+                    let getAllList = store.getAll()
+                    getAllList.onsuccess = (e) => {
+                        const watchedMovieList = e.target.result
+                        const movieIdList = watchedMovieList.map((arr) => arr.movieId)
+                        // 중복
+                        if (movieIdList.includes(movieId)) {
+                            const movie = watchedMovieList.filter((arr) => arr.movieId === movieId)
+                            console.log('asdasdasd', movie)
+                            let store = previousWatched.transaction('watched', 'readwrite').objectStore('watched')
+                            let deleteMovie = store.delete(movie[0].id)
+                            deleteMovie.onsuccess = (e) => {
+                                let store = previousWatched.transaction('watched', 'readwrite').objectStore('watched')
+                                let addReq = store.add({
+                                    movieId: movieId,
+                                    title: movieInfoBox.title,
+                                    poster_path: movieInfoBox.poster_path,
+                                })
+                                addReq.onsucces = (e: any) => {
+                                    toast.success('중복 삭제 후 추가 성공')
+                                }
+                            }
+                        }
+                        // 중복x
+                        else {
+                            let store = previousWatched.transaction('watched', 'readwrite').objectStore('watched')
+                            let addReq = store.add({
+                                movieId: movieId,
+                                title: movieInfoBox.title,
+                                poster_path: movieInfoBox.poster_path,
+                            })
+                            addReq.onsucces = (e: any) => {
+                                toast.success('추가 성공')
+                            }
+                        }
+                        // 최대 10개까지만 저장
+                        if (watchedMovieList.length > 10) {
+                            let store = previousWatched.transaction('watched', 'readwrite').objectStore('watched')
+                            const id = watchedMovieList[0].id
+                            let deleteMovie = store.delete(id)
+                            deleteMovie.onsuccess = (e) => {
+                                toast.error('삭제 성공')
+                            }
+                        }
+                    }
                 }
             } catch (e) {
                 console.error('error: ', e.response)
