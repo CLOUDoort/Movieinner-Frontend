@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react'
-import { toast } from 'react-toastify'
 import { StorageMovieScroll, StorageMovieContainer, StorageMovieList, StorageMovieAreaCard, StorageMovieImgBox, StorageMovieTitleBox } from './Storage.style'
 import Router from 'next/router'
 import Image from 'next/image'
@@ -16,18 +15,16 @@ const StorageWatched = (props) => {
                 let store = previousWatched.transaction('watched', 'readonly').objectStore('watched')
                 let getAllList = store.getAll()
                 getAllList.onsuccess = (e) => {
-                    toast.success('read success')
                     setWatched(e.target.result)
+                    console.info(e.target.result)
                 }
             }
             previousWatchedReq.onerror = (e: any) => {
                 const error = e.target.error
                 console.error('error: ', error)
-                toast.error('error')
             }
         } catch (e) {
             console.error(e.response)
-            toast.error('error')
         }
     }, [])
 
