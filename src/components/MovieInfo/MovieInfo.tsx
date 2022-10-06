@@ -60,6 +60,7 @@ const MovieInfo = () => {
                 let previousWatched // DB에 접근할 수 있는 레퍼런스 생성
                 // // 시간이 걸리는 비동기작업이기 때문에 성공 또는 에러가 났을 때 제어할 객체를 요청해야 한다.
                 // success는 DB관련 작업 성공할 때마다 실행, 콜백함수로 open이 성공했을 때 할 작업 실행
+
                 // error는 DB관련 작업 실패 때마다 실행
                 previousWatchedReq.onerror = (e: any) => {
                     const error = e.target.error

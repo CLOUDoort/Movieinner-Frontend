@@ -39,11 +39,15 @@ const Storage = () => {
     console.log('liked', liked)
 
     return (
-        <StorageContainer>
-            <StorageTheme themeLiked={liked.theme} />
-            <StorageMovie movieLiked={liked.movie} />
-            <StorageWatched />
-        </StorageContainer>
+        <>
+            {liked && (
+                <StorageContainer>
+                    <StorageTheme themeLiked={liked.theme} />
+                    <StorageMovie movieLiked={liked.movie} />
+                    <StorageWatched />
+                </StorageContainer>
+            )}
+        </>
     )
 }
 
