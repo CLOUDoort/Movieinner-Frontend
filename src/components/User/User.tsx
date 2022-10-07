@@ -2,6 +2,7 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
 import { apiInstance } from '../../apis/setting'
+import StorageWatched from './Storage/StorageWatched'
 
 const User = () => {
     const router = useRouter()
@@ -30,6 +31,7 @@ const User = () => {
         <>
             <p>mypage</p>
             <Link href={`/user/${nickname}/storage`}>저장소</Link>
+            <StorageWatched />
         </>
     )
 }
