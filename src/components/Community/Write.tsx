@@ -1,11 +1,8 @@
-const Write = () => {
-    const handleSubmit = (e) => {
-        e.preventDefault()
-        const title = e.target.title.value
-        const body = e.target.body.value
-    }
+import dynamic from 'next/dynamic'
+const NoSsrWysiwyg = dynamic(() => import('./WysiwygEditor'), { ssr: false })
 
-    return <></>
+const Write = () => {
+    return <NoSsrWysiwyg />
 }
 
 export default Write

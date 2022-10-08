@@ -84,7 +84,7 @@ const Header = () => {
                         <Link href='/'>홈</Link>
                         <Link href='/'>카테고리</Link>
                         <Link href='/community'>리뷰</Link>
-                        <Link href='/community'>커뮤니티</Link>
+                        <Link href='/community/feed'>커뮤니티</Link>
                         <Link href='/theme'>테마</Link>
                         {nickname ? <Link href={`/user/${nickname}`}>마이페이지</Link> : <Link href='/login'>마이페이지</Link>}
                     </NavDiv>
