@@ -10,10 +10,10 @@ export const WriteTitle = styled.input`
     background-color: #232428;
     width: 725px;
     color: #fff;
-    height: 45px;
+    height: 60px;
     border-radius: 2px;
     margin-top: 10px;
-    font-size: 13px;
+    font-size: 20px;
     border: 1px solid #303238;
     padding: 18px 25px;
     outline: none;
@@ -26,7 +26,9 @@ export const WriteBtn = styled.div`
     justify-content: space-between;
     :last-child {
         background-color: #96f2d7;
-        border: none;
         padding: 10px 20px;
+    }
+    > button {
+        font-size: 20px;
     }
 `
