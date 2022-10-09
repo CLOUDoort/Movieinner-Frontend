@@ -1,7 +1,7 @@
 import { Editor } from '@toast-ui/react-editor'
 import colorSyntax from '@toast-ui/editor-plugin-color-syntax'
 import { useRef } from 'react'
-import { WriteContainer, WriteTitle } from './Write.style'
+import { WriteContainer, WriteTitle, WriteBtn } from './Write.style'
 
 const WysiwygEditor = () => {
     const editorRef = useRef(null)
@@ -16,7 +16,7 @@ const WysiwygEditor = () => {
     }
     return (
         <WriteContainer>
-            <WriteTitle type='text' placeholder='제목 입력하세요' />
+            <WriteTitle type='text' placeholder='제목을 입력해주세요!' />
             <Editor
                 ref={editorRef}
                 initialValue=''
@@ -29,7 +29,10 @@ const WysiwygEditor = () => {
                 toolbarItems={toolbarItems}
                 plugins={[colorSyntax]}
             />
-            <button onClick={showContent}>작성 완료</button>
+            <WriteBtn>
+                <button>나가기</button>
+                <button onClick={showContent}>저장</button>
+            </WriteBtn>
         </WriteContainer>
     )
 }
