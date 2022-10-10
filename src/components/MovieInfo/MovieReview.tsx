@@ -9,14 +9,14 @@ const MovieReview = (props) => {
     const router = useRouter()
 
     const [like, setLike] = useState(false)
-    const { accessToken, info, movieInfo } = props
+    const { accessToken, nickname, movieId, movieInfo } = props
 
     useEffect(() => {
         const getResponse = async () => {
             // 로그인 되어 있을 경우
             if (accessToken) {
                 // 좋아요 목록 확인
-                const checkLiked = await apiInstance.post('movies/liked/movie', { nickname: info.nickname, movieId: info.movieId })
+                const checkLiked = await apiInstance.post('movies/liked/movie', { nickname: nickname, movieId: movieId })
                 console.log(checkLiked.data.isExisted)
                 if (checkLiked.data.isExisted) {
                     setLike(true)
@@ -24,7 +24,7 @@ const MovieReview = (props) => {
             }
         }
         getResponse()
-    }, [accessToken, info.nickname, info.movieId])
+    }, [accessToken, nickname, movieId])
 
     const clickLikeBtn = async () => {
         // 로그인 되어있을 경우
@@ -35,7 +35,7 @@ const MovieReview = (props) => {
                     const deleteResponse = await apiInstance.delete('movies/liked', {
                         data: {
                             type: 'movie',
-                            nickname: info.nickname,
+                            nickname: nickname,
                             name: movieInfo.title,
                         },
                     })
@@ -51,8 +51,8 @@ const MovieReview = (props) => {
                 try {
                     const likeResponse = await apiInstance.post('movies/liked', {
                         type: 'movie',
-                        nickname: info.nickname,
-                        movieId: info.movieId,
+                        nickname: nickname,
+                        movieId: movieId,
                         name: movieInfo.title,
                         poster_path: movieInfo.poster_path,
                         backdrop_path: movieInfo.backdrop_path,

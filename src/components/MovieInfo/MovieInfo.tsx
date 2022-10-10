@@ -21,13 +21,11 @@ interface MovieInfoDataList {
 
 const MovieInfo = () => {
     const accessToken = useSelector((state: RootState) => state.token.token)
+    const nickname = useSelector((state: RootState) => state.nickname.nickname)
     const router = useRouter()
     const [movieInfo, setMovieInfo] = useState<MovieInfoDataList | null>({})
     const [actorInfo, setActorInfo] = useState([])
-    const [info, setInfo] = useState({
-        nickname: '',
-        movieId: '',
-    })
+    const [movieId, setMovieId] = useState('')
 
     // localstorage는 브라우저내에서만 사용할 수 있다.
     // useEffect는 CSR 전용 hook이기 때문에 이 동작은 브라우저 내에서 이루어지는 것이라 확신을 줄 수 있으므로 useEffect 내에서 localstorage를 사용해도 에러가 나지 않는다.
@@ -47,12 +45,7 @@ const MovieInfo = () => {
                 const actorResponse = await apiInstance.get(`movies/credits/${movieId}`)
                 setActorInfo(actorResponse.data)
 
-                // 로그인 검사 여부
-                const tokenResponse = await apiInstance.post('auth/verify', {
-                    token: accessToken,
-                })
-                const nicknameResponse = tokenResponse.data.payload.nickname
-                setInfo({ ...info, nickname: nicknameResponse, movieId: movieId })
+                setMovieId(movieId)
 
                 // 최근 본 영화 추가
                 // 데이터 베이스 생성
@@ -134,7 +127,7 @@ const MovieInfo = () => {
                 <MovieInfoContainer>
                     <MovieBackdropImg movieInfo={movieInfo} />
                     <MovieInfoText movieInfo={movieInfo} />
-                    <MovieReview accessToken={accessToken} info={info} movieInfo={movieInfo} />
+                    <MovieReview accessToken={accessToken} movieId={movieId} nickname={nickname} movieInfo={movieInfo} />
                     <MovieActorInfo actorInfo={actorInfo} />
                 </MovieInfoContainer>
             )}

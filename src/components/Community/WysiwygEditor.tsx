@@ -5,7 +5,8 @@ import { WriteContainer, WriteTitle, WriteBtn } from './Write.style'
 import { useRouter } from 'next/router'
 import { apiInstance } from '../../apis/setting'
 
-const WysiwygEditor = () => {
+const WysiwygEditor = (props) => {
+    const { nickname } = props
     const router = useRouter()
     const [title, setTitle] = useState('')
     const editorRef = useRef(null)
@@ -14,18 +15,15 @@ const WysiwygEditor = () => {
     const handleChange = (e) => {
         const { value } = e.target
         setTitle(value)
-        console.log('value', value)
     }
 
     const showContent = async () => {
         const editorIns = editorRef.current.getInstance()
-        const contentHtml = editorIns.getHTML()
-        const contentMark = editorIns.getMarkdown()
-        console.log('html', contentHtml)
-        console.log('mark', contentMark)
+        const content = editorIns.getMarkdown()
         console.log('title', title)
+        console.log('content', content)
 
-        const postContent = await apiInstance.post('/community/content')
+        const postContent = await apiInstance.post('/community/content', { nickname: nickname, title: title, content: content, file: '' })
     }
     return (
         <WriteContainer>

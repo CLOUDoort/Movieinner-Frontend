@@ -1,20 +1,19 @@
 import Link from 'next/link'
-import axios from 'axios'
 import Router from 'next/router'
 import { useEffect, useState } from 'react'
 import { MdNightlight } from 'react-icons/md'
 import { useDispatch, useSelector } from 'react-redux'
 import { apiInstance } from '../../apis/setting'
-import { setToken } from '../../store/reducers/logintokenSlice'
+import { setToken, setNickname } from '../../store/reducers/logintokenSlice'
 import { RootState } from '../../store/store'
 import { FirstHeaderDiv, HeaderContainer, NavDiv, SecondHearderDiv, SecondHearderNav, SecondHearderSearchDiv, TitleDiv } from './Header.style'
 import { toast } from 'react-toastify'
 
 const Header = () => {
     const loginToken = useSelector((state: RootState) => state.token.token)
+    const nickname = useSelector((state: RootState) => state.nickname.nickname)
     const dispatch = useDispatch()
     const [loginToggle, setLoginToggle] = useState('로그인')
-    const [nickname, setNickname] = useState('')
 
     // login/logout UI 변경
     useEffect(() => {
@@ -23,7 +22,7 @@ const Header = () => {
                 setLoginToggle('로그아웃')
                 const tokenPayload = await apiInstance.post('/auth/verify', { token: loginToken })
                 const nicknameResponse = tokenPayload.data.payload.nickname
-                setNickname(nicknameResponse)
+                dispatch(setNickname(nicknameResponse))
             }
         }
         getResponse()
@@ -60,10 +59,10 @@ const Header = () => {
                 const response = await apiInstance.post('/users/logout')
                 if (response.data.logout) {
                     dispatch(setToken(''))
+                    dispatch(setNickname(''))
                     setLoginToggle('로그인')
                     Router.replace('/')
                     toast.success('로그아웃되었습니다!')
-                    setNickname('')
                 }
             } catch (e) {
                 console.log(e.response)

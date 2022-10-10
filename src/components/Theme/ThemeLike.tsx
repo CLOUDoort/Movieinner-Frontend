@@ -8,7 +8,7 @@ import { BsFillHandThumbsUpFill } from 'react-icons/bs'
 
 const ThemeLike = (props) => {
     const accessToken = useSelector((state: RootState) => state.token.token)
-    const [nickname, setNickname] = useState('')
+    const nickname = useSelector((state: RootState) => state.nickname.nickname)
     const [like, setLike] = useState(false)
     const { modalInfo } = props
 
@@ -16,11 +16,8 @@ const ThemeLike = (props) => {
         const getResponse = async () => {
             try {
                 if (accessToken) {
-                    const tokenPayload = await apiInstance.post('/auth/verify', { token: accessToken })
-                    const nicknameResponse = tokenPayload.data.payload.nickname
-                    setNickname(nicknameResponse)
                     const checkLiked = await apiInstance.post('movies/liked/theme', {
-                        nickname: nicknameResponse,
+                        nickname: nickname,
                         name: modalInfo[0].theme_name,
                     })
                     if (checkLiked.data.isExisted) {

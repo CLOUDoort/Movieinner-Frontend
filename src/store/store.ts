@@ -3,12 +3,14 @@ import signupComponentReducer from './reducers/signupSlice'
 import userReducer from './reducers/signupSlice'
 import tokenReducer from './reducers/logintokenSlice'
 import socialEmailReducer from './reducers/socialSlice'
+import nicknameReducer from './reducers/logintokenSlice'
 
 export const store = configureStore({
     reducer: {
         signup: signupComponentReducer,
         user: userReducer,
         token: tokenReducer,
+        nickname: nicknameReducer,
         socialEmail: socialEmailReducer,
     },
 })
