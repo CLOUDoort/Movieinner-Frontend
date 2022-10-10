@@ -5,6 +5,7 @@ export const WriteContainer = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding: 20px;
 `
 export const WriteTitle = styled.input`
     background-color: #232428;
@@ -12,7 +13,6 @@ export const WriteTitle = styled.input`
     color: #fff;
     height: 60px;
     border-radius: 2px;
-    margin-top: 10px;
     font-size: 20px;
     border: 1px solid #303238;
     padding: 18px 25px;
@@ -25,7 +25,7 @@ export const WriteBtn = styled.div`
     display: flex;
     justify-content: space-between;
     :last-child {
-        background-color: #96f2d7;
+        background-color: #b7cbc5;
         padding: 10px 20px;
     }
     > button {
