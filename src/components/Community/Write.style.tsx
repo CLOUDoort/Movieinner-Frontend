@@ -24,6 +24,8 @@ export const WriteBtn = styled.div`
     background-color: #232428;
     display: flex;
     justify-content: space-between;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
     :last-child {
         background-color: #b7cbc5;
         padding: 10px 20px;

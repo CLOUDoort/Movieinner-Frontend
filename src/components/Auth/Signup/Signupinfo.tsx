@@ -87,12 +87,9 @@ const Signupinfo = () => {
     const fileInput = useRef(null)
     const handleImage = async (e: any) => {
         const file = e.target.files[0]
-        if (file) {
-            setImage(file)
-        } else {
-            setImage(image)
-            return
-        }
+        if (!file) return
+
+        // 이미지 화면에 띄우기
         const reader = new FileReader()
         reader.readAsDataURL(file) // 파일에서 불러오는 메서드 / 종료되는 시점에 readyState는 Done(2)가 되고 onload 시작
         reader.onload = (e: any) => {
@@ -101,11 +98,14 @@ const Signupinfo = () => {
                 setImage(e.target.result)
             }
         }
+
+        // 이미지 s3에 보내고 url 받기
         const formData = new FormData()
         formData.append('image', file)
         try {
             const imageRes = await apiInstance.post('/image', formData, { headers: { 'Content-Type': 'multipart/form-data' } })
             const image_URL = imageRes.data.imageURL
+            console.log(image_URL)
             dispatch(setUser({ key: 'image_URL', value: image_URL }))
             toast.success('success')
         } catch (e) {
