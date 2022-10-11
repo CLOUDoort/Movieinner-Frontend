@@ -1,11 +1,13 @@
 import { Editor } from '@toast-ui/react-editor'
 import colorSyntax from '@toast-ui/editor-plugin-color-syntax'
-import { useRef, useState } from 'react'
+import { useRef, useState, useEffect } from 'react'
 import { WriteContainer, WriteTitle, WriteBtn } from './Write.style'
 import { useRouter } from 'next/router'
 import { apiInstance } from '../../apis/setting'
+import { toast } from 'react-toastify'
 
 const WysiwygEditor = (props) => {
+    const [image, setImage] = useState('')
     const { nickname } = props
     const router = useRouter()
     const [title, setTitle] = useState('')
@@ -17,13 +19,35 @@ const WysiwygEditor = (props) => {
         setTitle(value)
     }
 
+    const onUploadImage = async (blob, callback) => {
+        const formData = new FormData()
+        formData.append('image', blob)
+        try {
+            const imageRes = await apiInstance.post('/image', formData, {
+                headers: {
+                    'Content-Type': 'multipart/form-data',
+                },
+            })
+            const image_URL = imageRes.data.imageURL
+            setImage(image_URL)
+            callback(image_URL, 'text image')
+        } catch (e) {
+            console.error(e.response)
+        }
+    }
+
     const showContent = async () => {
         const editorIns = editorRef.current.getInstance()
         const content = editorIns.getMarkdown()
         console.log('title', title)
         console.log('content', content)
-
-        const postContent = await apiInstance.post('/community/content', { nickname: nickname, title: title, content: content, file: '' })
+        try {
+            const postContent = await apiInstance.post('/community/content', { nickname: nickname, title: title, content: content, file: image })
+            router.replace('/community/feed')
+            toast.success(`${postContent.data.idx} 번 글 작성 완료!`)
+        } catch (e) {
+            console.error(e.response)
+        }
     }
     return (
         <WriteContainer>
@@ -39,6 +63,7 @@ const WysiwygEditor = (props) => {
                 usageStatistics={false} // GA 비활성화
                 toolbarItems={toolbarItems}
                 plugins={[colorSyntax]}
+                hooks={{ addImageBlobHook: onUploadImage }}
             />
             <WriteBtn>
                 <button onClick={() => router.push('/community/feed')}>나가기</button>
