@@ -6,7 +6,6 @@ export const FeedContainer = styled.div`
     row-gap: 50px;
     align-items: center;
     justify-content: center;
-    position: relative;
     margin-top: 40px;
     margin-bottom: 40px;
 `
@@ -28,16 +27,19 @@ export const PostArea = styled.div`
 export const FeedRemote = styled.div`
     display: flex;
     flex-direction: column;
-    position: absolute;
-    top: 150px;
-    left: 900px;
-    right: 0;
-    bottom: 0;
+    position: fixed;
+    right: 5%;
+    bottom: 5%;
+    z-index: 1;
     > svg {
         cursor: pointer;
         margin-top: 20px;
         border: 1px solid gray;
         border-radius: 40%;
         padding: 10px;
+        transition: color 0.4s;
+    }
+    > svg:hover {
+        color: rgb(222, 109, 109);
     }
 `
