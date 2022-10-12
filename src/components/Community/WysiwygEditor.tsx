@@ -20,6 +20,8 @@ const WysiwygEditor = (props) => {
     }
 
     const onUploadImage = async (blob, callback) => {
+        // blob은 base64 인코딩된 이미지 파일
+        // formData에 담아 서버로 보내고, 서버에서는 s3에 이미지 저장후 s3에서 url을 받아 다시 프론트로 값 전송
         const formData = new FormData()
         formData.append('image', blob)
         try {
@@ -30,7 +32,8 @@ const WysiwygEditor = (props) => {
             })
             const image_URL = imageRes.data.imageURL
             setImage(image_URL)
-            callback(image_URL, 'text image')
+            // 글 화면에 이미지 띄우기
+            callback(image_URL, 'image')
         } catch (e) {
             console.error(e.response)
         }
@@ -41,6 +44,8 @@ const WysiwygEditor = (props) => {
         const content = editorIns.getMarkdown()
         console.log('title', title)
         console.log('content', content)
+        console.log('image', image)
+        // 작성글 서버로 보내기
         try {
             const postContent = await apiInstance.post('/community/content', { nickname: nickname, title: title, content: content, file: image })
             router.replace('/community/feed')
