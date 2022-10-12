@@ -5,7 +5,7 @@ import { useRouter } from 'next/router'
 import { FeedContainer, FeedRemote } from './Feed.style'
 import FeedPost from './FeedPost'
 import FeedRanking from './FeedRanking'
-import { BsFillPencilFill } from 'react-icons/bs'
+import { BsPencilFill } from 'react-icons/bs'
 import { AiOutlineSearch } from 'react-icons/ai'
 const Feed = () => {
     const accessToken = useSelector((state: RootState) => state.token.token)
@@ -24,7 +24,7 @@ const Feed = () => {
             <FeedRanking />
             <FeedPost />
             <FeedRemote>
-                <BsFillPencilFill onClick={clickWrite} size={50}></BsFillPencilFill>
+                <BsPencilFill onClick={clickWrite} size={50}></BsPencilFill>
                 <AiOutlineSearch size={50}></AiOutlineSearch>
             </FeedRemote>
         </FeedContainer>
