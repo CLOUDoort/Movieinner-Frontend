@@ -2,7 +2,11 @@ import { useSelector } from 'react-redux'
 import { RootState } from '../../store/store'
 import { toast } from 'react-toastify'
 import { useRouter } from 'next/router'
-
+import { FeedContainer, FeedRemote } from './Feed.style'
+import FeedPost from './FeedPost'
+import FeedRanking from './FeedRanking'
+import { BsFillPencilFill } from 'react-icons/bs'
+import { AiOutlineSearch } from 'react-icons/ai'
 const Feed = () => {
     const accessToken = useSelector((state: RootState) => state.token.token)
     const router = useRouter()
@@ -15,7 +19,16 @@ const Feed = () => {
         }
     }
 
-    return <button onClick={clickWrite}>글 작성하기</button>
+    return (
+        <FeedContainer>
+            <FeedRanking />
+            <FeedPost />
+            <FeedRemote>
+                <BsFillPencilFill onClick={clickWrite} size={50}></BsFillPencilFill>
+                <AiOutlineSearch size={50}></AiOutlineSearch>
+            </FeedRemote>
+        </FeedContainer>
+    )
 }
 
 export default Feed
