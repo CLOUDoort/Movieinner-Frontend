@@ -7,9 +7,14 @@ import FeedPost from './FeedPost'
 import FeedRanking from './FeedRanking'
 import { BsPencilFill } from 'react-icons/bs'
 import { AiOutlineSearch } from 'react-icons/ai'
+import { useState } from 'react'
+
 const Feed = () => {
     const accessToken = useSelector((state: RootState) => state.token.token)
     const router = useRouter()
+    const [currentPage, setCurrentPage] = useState(0)
+    const { page } = router.query
+    console.log('page', page)
 
     const clickWrite = () => {
         if (accessToken) {
