@@ -1,4 +1,4 @@
-import Post from '../../components/Community/Post'
+import Post from '../../../components/Community/Post'
 const post = () => {
     return <Post />
 }
