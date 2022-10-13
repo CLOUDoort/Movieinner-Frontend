@@ -22,6 +22,40 @@ export const RankingSubtitle = styled.p`
 
 export const PostArea = styled.div`
     width: 700px;
+    border: 1px solid gray;
+    border-radius: 5px;
+    > hr {
+        margin: 0;
+    }
+`
+
+export const PostContainer = styled.div`
+    padding: 12px 20px;
+    display: flex;
+    justify-content: space-between;
+`
+
+export const PostFirstPart = styled.div`
+    display: flex;
+    > div {
+        margin-right: 10px;
+        text-align: center;
+    }
+    > :first-of-type {
+        width: 60px;
+    }
+    > :last-of-type {
+        max-width: 400px;
+    }
+`
+
+export const PostSecondPart = styled.div`
+    display: flex;
+    > div {
+        margin-left: 5px;
+        width: 50px;
+        text-align: center;
+    }
 `
 
 export const FeedRemote = styled.div`

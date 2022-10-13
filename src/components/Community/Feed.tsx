@@ -7,14 +7,30 @@ import FeedPost from './FeedPost'
 import FeedRanking from './FeedRanking'
 import { BsPencilFill } from 'react-icons/bs'
 import { AiOutlineSearch } from 'react-icons/ai'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { apiInstance } from '../../apis/setting'
 
 const Feed = () => {
     const accessToken = useSelector((state: RootState) => state.token.token)
     const router = useRouter()
-    const [currentPage, setCurrentPage] = useState(0)
+    const [currentPage, setCurrentPage] = useState(1)
     const { page } = router.query
+    const [feedPost, setFeedPost] = useState([])
     console.log('page', page)
+
+    useEffect(() => {
+        const getFeed = async () => {
+            try {
+                const postResponse = await apiInstance.get(`/community/page/${currentPage}`)
+                const postList = postResponse.data.contents.responseContents
+                console.log('post', postList)
+                setFeedPost(postList)
+            } catch (e) {
+                console.error(e.response)
+            }
+        }
+        getFeed()
+    }, [currentPage])
 
     const clickWrite = () => {
         if (accessToken) {
@@ -27,7 +43,7 @@ const Feed = () => {
     return (
         <FeedContainer>
             <FeedRanking />
-            <FeedPost />
+            <FeedPost feedPost={feedPost} />
             <FeedRemote>
                 <BsPencilFill onClick={clickWrite} size={50}></BsPencilFill>
                 <AiOutlineSearch size={50}></AiOutlineSearch>
