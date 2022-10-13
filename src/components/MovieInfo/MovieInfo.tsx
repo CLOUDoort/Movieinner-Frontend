@@ -50,9 +50,11 @@ const MovieInfo = () => {
                 // 최근 본 영화 추가
                 // 데이터 베이스 생성
                 const previousWatchedReq = window.indexedDB.open('movieinfo', 1)
-                let previousWatched // DB에 접근할 수 있는 레퍼런스 생성
-                // // 시간이 걸리는 비동기작업이기 때문에 성공 또는 에러가 났을 때 제어할 객체를 요청해야 한다.
-                // success는 DB관련 작업 성공할 때마다 실행, 콜백함수로 open이 성공했을 때 할 작업 실행
+
+                // DB에 접근할 수 있는 레퍼런스 생성
+                let previousWatched
+
+                // 시간이 걸리는 비동기작업이기 때문에 성공 또는 에러가 났을 때 제어할 객체를 요청해야 한다.
 
                 // error는 DB관련 작업 실패 때마다 실행
                 previousWatchedReq.onerror = (e: any) => {
@@ -65,6 +67,7 @@ const MovieInfo = () => {
                     previousWatched = e.target.result
                     previousWatched.createObjectStore('watched', { keyPath: 'id', autoIncrement: true })
                 }
+                // success는 DB관련 작업 성공할 때마다 실행, 콜백함수로 open이 성공했을 때 할 작업 실행
                 previousWatchedReq.onsuccess = (e: any) => {
                     console.info('database open success!')
                     previousWatched = e.target.result
@@ -73,12 +76,13 @@ const MovieInfo = () => {
                     getAllList.onsuccess = (e) => {
                         const watchedMovieList = e.target.result
                         const movieIdList = watchedMovieList.map((arr) => arr.movieId)
-                        // 중복
+                        // 추가할 항목 중복 체크, 중복되면 삭제
                         if (movieIdList.includes(movieId)) {
                             const movie = watchedMovieList.filter((arr) => arr.movieId === movieId)
                             console.log('asdasdasd', movie)
                             let store = previousWatched.transaction('watched', 'readwrite').objectStore('watched')
                             let deleteMovie = store.delete(movie[0].id)
+                            // 중복 삭제 성공하면 추가할 항목 추가
                             deleteMovie.onsuccess = (e) => {
                                 let store = previousWatched.transaction('watched', 'readwrite').objectStore('watched')
                                 let addReq = store.add({
@@ -91,7 +95,7 @@ const MovieInfo = () => {
                                 }
                             }
                         }
-                        // 중복x
+                        // 중복이 아닌 경우, 그냥 추가
                         else {
                             let store = previousWatched.transaction('watched', 'readwrite').objectStore('watched')
                             let addReq = store.add({
@@ -103,7 +107,7 @@ const MovieInfo = () => {
                                 toast.success('추가 성공')
                             }
                         }
-                        // 최대 10개까지만 저장
+                        // 항목 10개 넘어가면 앞의 항목 하나씩 삭제
                         if (watchedMovieList.length > 10) {
                             let store = previousWatched.transaction('watched', 'readwrite').objectStore('watched')
                             const id = watchedMovieList[0].id
