@@ -41,7 +41,9 @@ const WysiwygEditor = (props) => {
 
     const showContent = async () => {
         const editorIns = editorRef.current.getInstance()
-        const content = editorIns.getMarkdown()
+        // const HTML = editorIns.getMarkdown()
+        const content = editorIns.getHTML()
+        // console.log('html', HTML)
         console.log('title', title)
         console.log('content', content)
         console.log('image', image)
