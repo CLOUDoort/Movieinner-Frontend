@@ -3,7 +3,7 @@ import { RootState } from '../../store/store'
 import { toast } from 'react-toastify'
 import { useRouter } from 'next/router'
 import { FeedContainer, FeedRemote } from './Feed.style'
-import FeedPost from './FeedPost'
+import FeedList from './FeedList'
 import FeedRanking from './FeedRanking'
 import { BsPencilFill } from 'react-icons/bs'
 import { AiOutlineSearch } from 'react-icons/ai'
@@ -23,7 +23,7 @@ const Feed = () => {
             try {
                 const postResponse = await apiInstance.get(`/community/page/${currentPage}`)
                 const postList = postResponse.data.contents.responseContents
-                console.log('post', postList)
+                console.log('post', postResponse.data)
                 setFeedPost(postList)
             } catch (e) {
                 console.error(e.response)
@@ -43,7 +43,7 @@ const Feed = () => {
     return (
         <FeedContainer>
             <FeedRanking />
-            <FeedPost feedPost={feedPost} />
+            <FeedList feedPost={feedPost} />
             <FeedRemote>
                 <BsPencilFill onClick={clickWrite} size={50}></BsPencilFill>
                 <AiOutlineSearch size={50}></AiOutlineSearch>

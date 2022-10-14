@@ -20,7 +20,7 @@ export const RankingSubtitle = styled.p`
     padding: 16px 24px;
 `
 
-export const PostArea = styled.div`
+export const FeedListArea = styled.div`
     width: 700px;
     border: 1px solid gray;
     border-radius: 5px;
@@ -29,13 +29,13 @@ export const PostArea = styled.div`
     }
 `
 
-export const PostContainer = styled.div`
+export const FeedListContainer = styled.div`
     padding: 12px 20px;
     display: flex;
     justify-content: space-between;
 `
 
-export const PostFirstPart = styled.div`
+export const FeedListFirstType = styled.div`
     display: flex;
     > div {
         margin-right: 10px;
@@ -49,7 +49,7 @@ export const PostFirstPart = styled.div`
     }
 `
 
-export const PostSecondPart = styled.div`
+export const FeedListLastType = styled.div`
     display: flex;
     > div {
         margin-left: 5px;

@@ -1,4 +1,4 @@
-import { PostArea, PostContainer, PostFirstPart, PostSecondPart } from './Feed.style'
+import { FeedListArea, FeedListContainer, FeedListFirstType, FeedListLastType } from './Feed.style'
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 
@@ -9,35 +9,35 @@ const FeedPost = (props) => {
     useEffect(() => {}, [])
 
     return (
-        <PostArea>
-            <PostContainer>
-                <PostFirstPart>
+        <FeedListArea>
+            <FeedListContainer>
+                <FeedListFirstType>
                     <div>번호</div>
                     <div>제목</div>
-                </PostFirstPart>
-                <PostSecondPart>
+                </FeedListFirstType>
+                <FeedListLastType>
                     <div>작성자</div>
                     <div>날짜</div>
                     <div>조회수</div>
-                </PostSecondPart>
-            </PostContainer>
+                </FeedListLastType>
+            </FeedListContainer>
             <hr />
             {feedPost.map((obj) => (
-                <PostContainer key={obj.idx}>
-                    <PostFirstPart>
+                <FeedListContainer key={obj.idx}>
+                    <FeedListFirstType>
                         <div>1</div>
                         <div>
                             <Link href={`/community/post/${obj.idx}`}>{obj.title}</Link>
                         </div>
-                    </PostFirstPart>
-                    <PostSecondPart>
+                    </FeedListFirstType>
+                    <FeedListLastType>
                         <div>{obj.nickname}</div>
                         <div>date</div>
                         <div>조회수</div>
-                    </PostSecondPart>
-                </PostContainer>
+                    </FeedListLastType>
+                </FeedListContainer>
             ))}
-        </PostArea>
+        </FeedListArea>
     )
 }
 
