@@ -47,9 +47,14 @@ const WysiwygEditor = (props) => {
         console.log('title', title)
         console.log('content', content)
         console.log('image', image)
+        const imageSize = 'style="width:400px;height:600px"'
+        const position = content.indexOf('src')
+
+        const output = [content.slice(0, position), imageSize, content.slice(position)].join('')
+        console.log('output', output)
         // 작성글 서버로 보내기
         try {
-            const postContent = await apiInstance.post('/community/content', { nickname: nickname, title: title, content: content, file: image })
+            const postContent = await apiInstance.post('/community/content', { nickname: nickname, title: title, content: output, file: image })
             router.replace('/community/feed')
             toast.success(`${postContent.data.idx} 번 글 작성 완료!`)
         } catch (e) {
