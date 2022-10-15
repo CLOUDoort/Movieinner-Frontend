@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import { apiInstance } from '../../apis/setting'
-import { PostContainer, PostContentArea, PostFirstType } from './Post.style'
+import { PostContainer, PostContentArea, PostInfo, PostContents, PostCommentArea, PostCommentWrite, PostCommentList } from './Post.style'
 
 interface ContentData {
     nickname?: string
@@ -35,14 +35,19 @@ const Post = () => {
     return (
         <PostContainer>
             <PostContentArea>
-                <PostFirstType>
+                <PostInfo>
                     <div>{post.nickname}</div>
                     <div>date</div>
-                </PostFirstType>
-                <div>title : {post.title}</div>
-                {/* <div dangerouslySetInnerHTML={{ __html: post.content }} /> */}
+                </PostInfo>
+                <PostContents>
+                    <div>title : {post.title}</div>
+                    <div dangerouslySetInnerHTML={{ __html: post.content }} />
+                </PostContents>
             </PostContentArea>
-            <div></div>
+            <PostCommentArea>
+                <PostCommentWrite></PostCommentWrite>
+                <PostCommentList></PostCommentList>
+            </PostCommentArea>
         </PostContainer>
     )
 }

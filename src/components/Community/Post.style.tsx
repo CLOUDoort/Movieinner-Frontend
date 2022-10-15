@@ -2,26 +2,27 @@ import styled from '@emotion/styled'
 
 export const PostContainer = styled.div`
     display: grid;
-    grid-template-rows: 1fr 250px;
+    grid-template-rows: 700px 250px;
     row-gap: 50px;
-    align-items: center;
     justify-content: center;
     margin-top: 40px;
     margin-bottom: 40px;
-    width: 900px;
-    border: 1px solid gray;
 `
 export const PostContentArea = styled.div`
+    width: 700px;
     display: flex;
     flex-direction: column;
     border: 1px solid gray;
-    height: 250px;
     border-radius: 5px;
 `
 
-export const PostCommentArea = styled.div``
+export const PostCommentArea = styled.div`
+    width: 700px;
+    border: 1px solid gray;
+    height: 250px;
+`
 
-export const PostFirstType = styled.div`
+export const PostInfo = styled.div`
     display: flex;
     > div {
         margin-right: 10px;
@@ -34,3 +35,12 @@ export const PostFirstType = styled.div`
         max-width: 400px;
     }
 `
+
+export const PostContents = styled.div`
+    width: 700px;
+    height: auto;
+`
+
+export const PostCommentWrite = styled.div``
+
+export const PostCommentList = styled.div``
