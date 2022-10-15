@@ -1,4 +1,4 @@
-import Forgotvalid from '../../components/Auth/Forgotvalid'
+import Forgotvalid from '../../components/Auth/Login/Forgotvalid'
 
 const valid = () => {
     return <Forgotvalid />
