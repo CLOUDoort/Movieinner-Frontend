@@ -24,9 +24,10 @@ export const PostCommentArea = styled.div`
 
 export const PostInfo = styled.div`
     display: flex;
+    justify-content: space-between;
+    padding: 16px 24px;
     > div {
         margin-right: 10px;
-        text-align: center;
     }
     > :first-of-type {
         width: 60px;
@@ -37,8 +38,11 @@ export const PostInfo = styled.div`
 `
 
 export const PostContents = styled.div`
+    padding: 16px 24px;
     width: 700px;
-    height: auto;
+    > :first-of-type {
+        padding-bottom: 10px;
+    }
 `
 
 export const PostCommentWrite = styled.div``

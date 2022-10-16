@@ -40,7 +40,7 @@ const Post = () => {
                     <div>date</div>
                 </PostInfo>
                 <PostContents>
-                    <div>title : {post.title}</div>
+                    <div>{post.title}</div>
                     <div dangerouslySetInnerHTML={{ __html: post.content }} />
                 </PostContents>
             </PostContentArea>
