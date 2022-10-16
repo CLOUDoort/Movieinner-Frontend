@@ -9,11 +9,12 @@ import { BsPencilFill } from 'react-icons/bs'
 import { AiOutlineSearch } from 'react-icons/ai'
 import { useState, useEffect } from 'react'
 import { apiInstance } from '../../apis/setting'
+import Loading from '../Loading'
 
 const Feed = () => {
     const accessToken = useSelector((state: RootState) => state.token.token)
     const router = useRouter()
-    const [currentPage, setCurrentPage] = useState(1)
+    const [currentPage, setCurrentPage] = useState<any>(1)
     const { page } = router.query
     const [feedPost, setFeedPost] = useState([])
     console.log('page', page)
@@ -21,6 +22,8 @@ const Feed = () => {
     useEffect(() => {
         const getFeed = async () => {
             try {
+                if (!page) return
+                setCurrentPage(page)
                 const postResponse = await apiInstance.get(`/community/page/${currentPage}`)
                 const postList = postResponse.data.contents.responseContents
                 console.log('post', postResponse.data)
@@ -30,7 +33,7 @@ const Feed = () => {
             }
         }
         getFeed()
-    }, [currentPage])
+    }, [currentPage, page, router.isReady])
 
     const clickWrite = () => {
         if (accessToken) {
@@ -41,14 +44,20 @@ const Feed = () => {
     }
 
     return (
-        <FeedContainer>
-            <FeedRanking />
-            <FeedList feedPost={feedPost} />
-            <FeedRemote>
-                <BsPencilFill onClick={clickWrite} size={50}></BsPencilFill>
-                <AiOutlineSearch size={50}></AiOutlineSearch>
-            </FeedRemote>
-        </FeedContainer>
+        <>
+            {page ? (
+                <FeedContainer>
+                    <FeedRanking />
+                    <FeedList feedPost={feedPost} />
+                    <FeedRemote>
+                        <BsPencilFill onClick={clickWrite} size={50}></BsPencilFill>
+                        <AiOutlineSearch size={50}></AiOutlineSearch>
+                    </FeedRemote>
+                </FeedContainer>
+            ) : (
+                <Loading />
+            )}
+        </>
     )
 }
 

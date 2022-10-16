@@ -4,8 +4,6 @@ import Link from 'next/link'
 
 const FeedPost = (props) => {
     const { feedPost } = props
-    const [index, setIndex] = useState(0)
-
     useEffect(() => {}, [])
 
     return (
@@ -22,10 +20,10 @@ const FeedPost = (props) => {
                 </FeedListLastType>
             </FeedListContainer>
             <hr />
-            {feedPost.map((obj) => (
+            {feedPost.map((obj: any) => (
                 <FeedListContainer key={obj.idx}>
                     <FeedListFirstType>
-                        <div>1</div>
+                        <div>{obj.number}</div>
                         <div>
                             <Link href={`/community/post/${obj.idx}`}>{obj.title}</Link>
                         </div>
