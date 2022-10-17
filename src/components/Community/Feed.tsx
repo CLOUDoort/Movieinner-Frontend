@@ -14,17 +14,14 @@ import Loading from '../Loading'
 const Feed = () => {
     const accessToken = useSelector((state: RootState) => state.token.token)
     const router = useRouter()
-    const [currentPage, setCurrentPage] = useState<any>(1)
     const { page } = router.query
     const [feedPost, setFeedPost] = useState([])
-    console.log('page', page)
 
     useEffect(() => {
         const getFeed = async () => {
             try {
-                if (!page) return
-                setCurrentPage(page)
-                const postResponse = await apiInstance.get(`/community/page/${currentPage}`)
+                if (!router.isReady) return
+                const postResponse = await apiInstance.get(`/community/page/${page}`)
                 const postList = postResponse.data.contents.responseContents
                 console.log('post', postResponse.data)
                 setFeedPost(postList)
@@ -33,7 +30,7 @@ const Feed = () => {
             }
         }
         getFeed()
-    }, [currentPage, page, router.isReady])
+    }, [page, router.isReady])
 
     const clickWrite = () => {
         if (accessToken) {
