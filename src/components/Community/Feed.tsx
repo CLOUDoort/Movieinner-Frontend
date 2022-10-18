@@ -10,6 +10,7 @@ import { AiOutlineSearch } from 'react-icons/ai'
 import { useState, useEffect } from 'react'
 import { apiInstance } from '../../apis/setting'
 import Loading from '../Loading'
+import FeedNavigation from './FeedNavigation'
 
 const Feed = () => {
     const accessToken = useSelector((state: RootState) => state.token.token)
@@ -50,6 +51,7 @@ const Feed = () => {
                         <BsPencilFill onClick={clickWrite} size={50}></BsPencilFill>
                         <AiOutlineSearch size={50}></AiOutlineSearch>
                     </FeedRemote>
+                    <FeedNavigation />
                 </FeedContainer>
             ) : (
                 <Loading />

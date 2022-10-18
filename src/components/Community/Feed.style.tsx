@@ -77,3 +77,6 @@ export const FeedRemote = styled.div`
         color: rgb(222, 109, 109);
     }
 `
+export const FeedTableContainer = styled.table`
+    border: 1px solid gray;
+`
