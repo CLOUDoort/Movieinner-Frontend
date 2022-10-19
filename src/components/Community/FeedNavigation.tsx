@@ -1,7 +1,9 @@
 import { FeedTableContainer } from './Feed.style'
 import Link from 'next/link'
 
-const FeedNavigation = () => {
+const FeedNavigation = (props) => {
+    const { totalPage } = props
+
     return (
         <FeedTableContainer>
             <tbody>
@@ -13,7 +15,7 @@ const FeedNavigation = () => {
                         <Link href={'/community/feed/2'}>2</Link>
                     </td>
                     <td>
-                        <Link href={'/community/feed/1'}>3</Link>
+                        <Link href={'/community/feed/3'}>3</Link>
                     </td>
                 </tr>
             </tbody>

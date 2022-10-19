@@ -17,6 +17,7 @@ const Feed = () => {
     const router = useRouter()
     const { page } = router.query
     const [feedPost, setFeedPost] = useState([])
+    const [totalPage, setTotalPage] = useState(0)
 
     useEffect(() => {
         const getFeed = async () => {
@@ -24,7 +25,10 @@ const Feed = () => {
                 if (!router.isReady) return
                 const postResponse = await apiInstance.get(`/community/page/${page}`)
                 const postList = postResponse.data.contents.responseContents
+                const total = postResponse.data.contents.totalPage
+                console.log('total', total)
                 console.log('post', postResponse.data)
+                setTotalPage(total)
                 setFeedPost(postList)
             } catch (e) {
                 console.error(e.response)
@@ -51,7 +55,7 @@ const Feed = () => {
                         <BsPencilFill onClick={clickWrite} size={50}></BsPencilFill>
                         <AiOutlineSearch size={50}></AiOutlineSearch>
                     </FeedRemote>
-                    <FeedNavigation />
+                    <FeedNavigation totalPage={totalPage} />
                 </FeedContainer>
             ) : (
                 <Loading />
