@@ -1,4 +1,4 @@
-import type { AppProps } from 'next/app'
+import type { AppContext, AppInitialProps, AppProps } from 'next/app'
 import * as React from 'react'
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
@@ -16,11 +16,15 @@ import 'react-date-range/dist/styles.css'
 import 'react-date-range/dist/theme/default.css'
 import { store } from '../store/store'
 import { Provider } from 'react-redux'
+import { Hydrate, QueryClient, QueryClientProvider } from 'react-query'
 
 import '@toast-ui/editor/dist/toastui-editor.css'
 import '@toast-ui/editor/dist/theme/toastui-editor-dark.css'
 import 'tui-color-picker/dist/tui-color-picker.css'
 import '@toast-ui/editor-plugin-color-syntax/dist/toastui-editor-plugin-color-syntax.css'
+import { NextComponentType } from 'next'
+import { useState } from 'react'
+
 declare global {
     interface UserDataState {
         email?: string
@@ -32,22 +36,25 @@ declare global {
         image_URL?: string
     }
 }
-const MyApp = ({ Component, pageProps }: AppProps) => {
+const MyApp: NextComponentType<AppContext, AppInitialProps, AppProps> = ({ Component, pageProps }: AppProps) => {
+    const [queryClient] = useState(() => new QueryClient())
     return (
-        <Provider store={store}>
-            <Head>
-                <title>Movie Inner</title>
-                <meta charSet='utf-8' />
-                <meta name='viewport' content='width=device-width, initial-scale=1.0' />
-            </Head>
-            <Header />
-            <main>
-                <Component {...pageProps} />
-            </main>
-            <Footer />
-            <ToastContainer />
-            <Global styles={GlobalCss} />
-        </Provider>
+        <QueryClientProvider client={queryClient}>
+            <Provider store={store}>
+                <Head>
+                    <title>Movie Inner</title>
+                    <meta charSet='utf-8' />
+                    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+                </Head>
+                <Header />
+                <main>
+                    <Component {...pageProps} />
+                </main>
+                <Footer />
+                <ToastContainer />
+                <Global styles={GlobalCss} />
+            </Provider>
+        </QueryClientProvider>
     )
 }
 
