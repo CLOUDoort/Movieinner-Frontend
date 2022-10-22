@@ -11,6 +11,7 @@ import { useState, useEffect } from 'react'
 import { apiInstance } from '../../apis/setting'
 import Loading from '../Loading'
 import FeedNavigation from './FeedNavigation'
+import { useQuery } from 'react-query'
 
 const Feed = () => {
     const accessToken = useSelector((state: RootState) => state.token.token)
@@ -18,6 +19,7 @@ const Feed = () => {
     const { page } = router.query
     const [feedPost, setFeedPost] = useState([])
     const [totalPage, setTotalPage] = useState(0)
+    const { data } = useQuery('characters', async () => await apiInstance.get(`/community/page/${page}`).then((result: any) => setFeedPost(result)))
 
     useEffect(() => {
         const getFeed = async () => {
