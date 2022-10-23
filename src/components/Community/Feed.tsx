@@ -7,37 +7,32 @@ import FeedList from './FeedList'
 import FeedRanking from './FeedRanking'
 import { BsPencilFill } from 'react-icons/bs'
 import { AiOutlineSearch } from 'react-icons/ai'
-import { useState, useEffect } from 'react'
-import { apiInstance } from '../../apis/setting'
+import { useState } from 'react'
 import Loading from '../Loading'
 import FeedNavigation from './FeedNavigation'
-import { useQuery } from 'react-query'
+import { dehydrate, QueryClient } from 'react-query'
+import { GetServerSideProps } from 'next'
+import useGetFeedData from '../hooks/FeedData'
+
+export const getServerSideProps: GetServerSideProps = async (context) => {
+    const { page } = context.query as any
+    const queryClient = new QueryClient()
+    await queryClient.prefetchQuery(['feedPost', page], () => useGetFeedData(page))
+    return {
+        props: {
+            dehydratedState: dehydrate(queryClient),
+        },
+    }
+}
 
 const Feed = () => {
     const accessToken = useSelector((state: RootState) => state.token.token)
     const router = useRouter()
     const { page } = router.query
-    const [feedPost, setFeedPost] = useState([])
-    const [totalPage, setTotalPage] = useState(0)
-    const { data } = useQuery('characters', async () => await apiInstance.get(`/community/page/${page}`).then((result: any) => setFeedPost(result)))
+    const [pageValue, setPageValue] = useState(1)
+    const { data } = useGetFeedData(page ? page : 1)
 
-    useEffect(() => {
-        const getFeed = async () => {
-            try {
-                if (!router.isReady) return
-                const postResponse = await apiInstance.get(`/community/page/${page}`)
-                const postList = postResponse.data.contents.responseContents
-                const total = postResponse.data.contents.totalPage
-                console.log('total', total)
-                console.log('post', postResponse.data)
-                setTotalPage(total)
-                setFeedPost(postList)
-            } catch (e) {
-                console.error(e.response)
-            }
-        }
-        getFeed()
-    }, [page, router.isReady])
+    console.log('feedPost', data)
 
     const clickWrite = () => {
         if (accessToken) {
@@ -47,17 +42,22 @@ const Feed = () => {
         }
     }
 
+    const handlePaginationChange = (e, value) => {
+        setPageValue(value)
+        router.push(`/community/feed/${value}`, undefined, { shallow: true })
+    }
+
     return (
         <>
             {page ? (
                 <FeedContainer>
                     <FeedRanking />
-                    <FeedList feedPost={feedPost} />
+                    <FeedList feedPost={data} />
                     <FeedRemote>
                         <BsPencilFill onClick={clickWrite} size={50}></BsPencilFill>
                         <AiOutlineSearch size={50}></AiOutlineSearch>
                     </FeedRemote>
-                    <FeedNavigation totalPage={totalPage} />
+                    <FeedNavigation totalPage={data} page={page} handleChange={handlePaginationChange} />
                 </FeedContainer>
             ) : (
                 <Loading />

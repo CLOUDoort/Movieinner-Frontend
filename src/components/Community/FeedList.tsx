@@ -20,7 +20,7 @@ const FeedPost = (props) => {
                 </FeedListLastType>
             </FeedListContainer>
             <hr />
-            {feedPost.map((obj: any) => (
+            {feedPost?.data?.contents.responseContents.map((obj: any) => (
                 <FeedListContainer key={obj.idx}>
                     <FeedListFirstType>
                         <div>{obj.number}</div>
