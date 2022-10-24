@@ -77,6 +77,16 @@ export const FeedRemote = styled.div`
         color: rgb(222, 109, 109);
     }
 `
-export const FeedTableContainer = styled.table`
-    border: 1px solid gray;
+export const FeedPaginationContainer = styled.div`
+    color: red;
+    > nav {
+        display: flex;
+        justify-content: center;
+    }
+    .MuiPagination-root {
+        button {
+            background-color: red;
+            color: black !important;
+        }
+    }
 `

@@ -43,8 +43,13 @@ const Feed = () => {
     }
 
     const handlePaginationChange = (e, value) => {
-        setPageValue(value)
-        router.push(`/community/feed/${value}`, undefined, { shallow: true })
+        try {
+            setPageValue(value)
+            router.push(`/community/feed/${value}`, undefined, { shallow: true })
+            console.info('page', pageValue)
+        } catch (e) {
+            console.error(e.response)
+        }
     }
 
     return (
@@ -57,7 +62,7 @@ const Feed = () => {
                         <BsPencilFill onClick={clickWrite} size={50}></BsPencilFill>
                         <AiOutlineSearch size={50}></AiOutlineSearch>
                     </FeedRemote>
-                    <FeedNavigation totalPage={data} page={page} handleChange={handlePaginationChange} />
+                    <FeedNavigation totalPage={data} page={pageValue} handleChange={handlePaginationChange} />
                 </FeedContainer>
             ) : (
                 <Loading />
