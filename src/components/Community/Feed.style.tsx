@@ -78,14 +78,13 @@ export const FeedRemote = styled.div`
     }
 `
 export const FeedPaginationContainer = styled.div`
-    color: red;
     > nav {
         display: flex;
         justify-content: center;
     }
     .MuiPagination-root {
         button {
-            background-color: red;
+            background-color: #d8d5d5;
             color: black !important;
         }
     }
