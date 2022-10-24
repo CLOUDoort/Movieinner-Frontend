@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import { apiInstance } from '../../apis/setting'
 import { PostContainer, PostContentArea, PostInfo, PostContents, PostCommentArea, PostCommentWrite, PostCommentList } from './Post.style'
+import { AiOutlineMore } from 'react-icons/ai'
+import PostModifyModal from './PostModifyModal'
 
 interface ContentData {
     nickname?: string
@@ -14,7 +16,7 @@ const Post = () => {
     const router = useRouter()
     const { idx } = router.query
     const [post, setPost] = useState<ContentData>({})
-    const [content, setContent] = useState('')
+    const [showModal, setShowModal] = useState(false)
     console.log('idx', idx)
 
     useEffect(() => {
@@ -32,12 +34,19 @@ const Post = () => {
         getPost()
     }, [idx])
 
+    const openModal = () => {
+        setShowModal(true)
+    }
+
     return (
         <PostContainer>
             <PostContentArea>
                 <PostInfo>
                     <div>{post.nickname}</div>
-                    <div>date</div>
+                    <div>
+                        <div>date</div>
+                        <AiOutlineMore size={30} onClick={openModal} />
+                    </div>
                 </PostInfo>
                 <PostContents>
                     <div>{post.title}</div>
@@ -48,6 +57,7 @@ const Post = () => {
                 <PostCommentWrite></PostCommentWrite>
                 <PostCommentList></PostCommentList>
             </PostCommentArea>
+            {showModal ? <PostModifyModal /> : null}
         </PostContainer>
     )
 }

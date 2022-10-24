@@ -28,6 +28,10 @@ export const PostInfo = styled.div`
     padding: 16px 24px;
     > div {
         margin-right: 10px;
+        display: flex;
+        > svg {
+            cursor: pointer;
+        }
     }
     > :first-of-type {
         width: 60px;
@@ -48,3 +52,35 @@ export const PostContents = styled.div`
 export const PostCommentWrite = styled.div``
 
 export const PostCommentList = styled.div``
+
+export const PostModalContainer = styled.div`
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100;
+    background-color: rgba(16, 19, 34, 0.9);
+    z-index: 99999;
+`
+
+export const PostModalBox = styled.div`
+    position: absolute;
+    max-width: 700px;
+    width: 100%;
+    left: 0;
+    right: 0;
+    bottom: calc(env(safe-area-inset-bottom));
+    margin: 0 auto;
+`
+
+export const PostInnerModal = styled.div`
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding-top: 12px;
+    background-color: #172036;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+`
