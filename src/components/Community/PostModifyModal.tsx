@@ -1,4 +1,4 @@
-import { PostModalBox, PostModalContainer } from './Post.style'
+import { PostModalTitle, PostModalBox, PostModalContainer } from './Post.style'
 import { AiFillCloseSquare } from 'react-icons/ai'
 
 const PostModifyModal = (props) => {
@@ -6,12 +6,14 @@ const PostModifyModal = (props) => {
         <>
             <PostModalContainer>
                 <PostModalBox>
-                    <div>
-                        <div></div>
-                        <button>
-                            <AiFillCloseSquare size={30} />
-                        </button>
-                    </div>
+                    <PostModalTitle>
+                        <div>게시글</div>
+                        <div>
+                            <button>
+                                <AiFillCloseSquare size={30} />
+                            </button>
+                        </div>
+                    </PostModalTitle>
                     <ul>
                         <li>
                             <button>수정하기</button>

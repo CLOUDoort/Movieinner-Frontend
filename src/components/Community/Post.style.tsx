@@ -73,14 +73,20 @@ export const PostModalBox = styled.div`
     right: 0;
     bottom: calc(env(safe-area-inset-bottom));
     margin: 0 auto;
-`
-
-export const PostInnerModal = styled.div`
-    position: relative;
     display: flex;
     flex-direction: column;
+`
+
+export const PostModalTitle = styled.div`
+    position: relative;
+    display: flex;
+    justify-content: space-between;
     padding-top: 12px;
     background-color: #172036;
     border-top-right-radius: 20px;
     border-top-left-radius: 20px;
+    > div {
+        width: 50px;
+    }
 `
+export const PostModalModify = styled.ul``
