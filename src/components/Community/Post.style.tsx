@@ -53,40 +53,83 @@ export const PostCommentWrite = styled.div``
 
 export const PostCommentList = styled.div``
 
-export const PostModalContainer = styled.div`
+export const PostModal = styled.div`
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
+    z-index: 999900;
+    background: rgba(16, 19, 34, 0.9);
+`
+
+export const PostModalContainer = styled.div`
+    position: fixed;
+    left: 0;
+    right: 0;
     width: 100%;
-    height: 100;
-    background-color: rgba(16, 19, 34, 0.9);
-    z-index: 99999;
+    max-width: 700px;
+    margin: 0 auto;
+    background-color: rgba(0, 0, 0, 0.4);
+    bottom: calc(env(safe-area-inset-bottom));
 `
 
 export const PostModalBox = styled.div`
-    position: absolute;
-    max-width: 700px;
-    width: 100%;
-    left: 0;
-    right: 0;
-    bottom: calc(env(safe-area-inset-bottom));
-    margin: 0 auto;
+    position: relative;
+    padding-top: 12px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
     display: flex;
+    background: #172036;
     flex-direction: column;
 `
 
 export const PostModalTitle = styled.div`
-    position: relative;
+    height: 40px;
+    width: 100%;
     display: flex;
-    justify-content: space-between;
-    padding-top: 12px;
-    background-color: #172036;
-    border-top-right-radius: 20px;
-    border-top-left-radius: 20px;
-    > div {
-        width: 50px;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 10px 16px;
+    > button {
+        position: fixed;
+        bottom: 123px;
+        right: 200px;
+        background-size: 100% 100%;
+        background: #172036;
+        color: white;
+        border: none;
     }
 `
-export const PostModalModify = styled.ul``
+export const PostModalContents = styled.ul`
+    width: 100%;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    overflow-x: hidden;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    padding: 0 16px 40px;
+    /* justify-content: center;
+    align-items: center; */
+    > li {
+        display: list-item;
+        > button {
+            width: 100%;
+            padding-top: 11px;
+            padding-bottom: 12px;
+            padding-right: 4px;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 17px;
+            color: #d4d9e1;
+            text-align: left;
+            cursor: pointer;
+            border: none;
+            outline: none;
+            background: none;
+        }
+    }
+`
