@@ -13,7 +13,7 @@ const FeedNavigation = (props) => {
                 color='primary'
                 page={page}
                 onChange={handleChange}
-                size='large'
+                size='medium'
             />
         </FeedPaginationContainer>
     )
