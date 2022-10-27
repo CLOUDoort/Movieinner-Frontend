@@ -38,6 +38,10 @@ const Post = () => {
         setShowModal(true)
     }
 
+    const closeModal = () => {
+        setShowModal(false)
+    }
+
     return (
         <PostContainer>
             <PostContentArea>
@@ -57,7 +61,7 @@ const Post = () => {
                 <PostCommentWrite></PostCommentWrite>
                 <PostCommentList></PostCommentList>
             </PostCommentArea>
-            {showModal ? <PostModifyModal /> : null}
+            {showModal ? <PostModifyModal closeModal={closeModal} /> : null}
         </PostContainer>
     )
 }

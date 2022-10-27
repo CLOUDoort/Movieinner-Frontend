@@ -2,14 +2,15 @@ import { PostModal, PostModalTitle, PostModalBox, PostModalContainer, PostModalC
 import { IoMdClose } from 'react-icons/io'
 
 const PostModifyModal = (props) => {
+    const { closeModal } = props
     return (
-        <PostModal>
-            <PostModalContainer>
+        <PostModal onClick={closeModal}>
+            <PostModalContainer onClick={(e) => e.stopPropagation()}>
                 <PostModalBox>
                     <PostModalTitle>
                         <div>게시글</div>
                         <button>
-                            <IoMdClose size={25} />
+                            <IoMdClose onClick={closeModal} size={25} />
                         </button>
                     </PostModalTitle>
                     <PostModalContents>
