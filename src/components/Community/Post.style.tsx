@@ -7,6 +7,7 @@ export const PostContainer = styled.div`
     justify-content: center;
     margin-top: 40px;
     margin-bottom: 40px;
+    position: relative;
 `
 export const PostContentArea = styled.div`
     width: 700px;
@@ -59,8 +60,8 @@ export const PostModal = styled.div`
     left: 0;
     right: 0;
     bottom: 0;
-    z-index: 999900;
-    background: rgba(16, 19, 34, 0.9);
+    z-index: 9999;
+    background: rgba(0, 0, 0, 0.4);
 `
 
 export const PostModalContainer = styled.div`
@@ -80,7 +81,7 @@ export const PostModalBox = styled.div`
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
     display: flex;
-    background: #172036;
+    background: rgba(0, 0, 0, 0.4);
     flex-direction: column;
 `
 
@@ -97,7 +98,7 @@ export const PostModalTitle = styled.div`
         bottom: 123px;
         right: 200px;
         background-size: 100% 100%;
-        background: #172036;
+        background: rgba(0, 0, 0, 0.4);
         color: white;
         border: none;
     }
@@ -131,5 +132,22 @@ export const PostModalContents = styled.ul`
             outline: none;
             background: none;
         }
+    }
+`
+export const PostConfirmModalContainer = styled.div`
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    > div {
+        border: 1px solid black;
+        padding: 16px 24px;
+        border-radius: 5px;
     }
 `

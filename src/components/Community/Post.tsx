@@ -34,12 +34,9 @@ const Post = () => {
         getPost()
     }, [idx])
 
-    const openModal = () => {
-        setShowModal(true)
-    }
-
-    const closeModal = () => {
-        setShowModal(false)
+    const clickModify = () => {
+        if (showModal) setShowModal(false)
+        else setShowModal(true)
     }
 
     return (
@@ -49,7 +46,7 @@ const Post = () => {
                     <div>{post.nickname}</div>
                     <div>
                         <div>date</div>
-                        <AiOutlineMore size={30} onClick={openModal} />
+                        <AiOutlineMore size={30} onClick={clickModify} />
                     </div>
                 </PostInfo>
                 <PostContents>
@@ -61,7 +58,7 @@ const Post = () => {
                 <PostCommentWrite></PostCommentWrite>
                 <PostCommentList></PostCommentList>
             </PostCommentArea>
-            {showModal ? <PostModifyModal closeModal={closeModal} /> : null}
+            {showModal ? <PostModifyModal idx={idx} clickModify={clickModify} /> : null}
         </PostContainer>
     )
 }
