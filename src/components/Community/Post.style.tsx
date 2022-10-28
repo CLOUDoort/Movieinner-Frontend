@@ -147,7 +147,7 @@ export const PostConfirmModalContainer = styled.div`
     z-index: 2000;
     > div {
         border: 1px solid black;
-        padding: 16px 24px;
+        padding: 30px 50px;
         border-radius: 5px;
     }
 `
