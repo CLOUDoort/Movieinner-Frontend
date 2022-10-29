@@ -16,6 +16,7 @@ const PostModifyModal = (props) => {
             <PostModalContainer onClick={(e) => e.stopPropagation()}>
                 <PostModalBox>
                     <PostModalTitle>
+                        <div></div>
                         <div>게시글</div>
                         <button>
                             <IoMdClose onClick={clickModify} size={25} />

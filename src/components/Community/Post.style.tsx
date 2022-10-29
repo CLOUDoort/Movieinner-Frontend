@@ -90,13 +90,10 @@ export const PostModalTitle = styled.div`
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     position: relative;
     padding: 10px 16px;
     > button {
-        position: fixed;
-        bottom: 123px;
-        right: 200px;
         background-size: 100% 100%;
         background: rgba(0, 0, 0, 0.4);
         color: white;
