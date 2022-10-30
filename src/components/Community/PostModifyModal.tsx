@@ -2,11 +2,14 @@ import { PostModal, PostModalTitle, PostModalBox, PostModalContainer, PostModalC
 import { IoMdClose } from 'react-icons/io'
 import { useState } from 'react'
 import PostConfirmModal from './PostConfirmModal'
+import { useRouter } from 'next/router'
 
 const PostModifyModal = (props) => {
-    const { clickModify, idx } = props
+    const { clickModify, idx, post } = props
     const [confirmModal, setConfirmModal] = useState(false)
+    const router = useRouter()
 
+    console.log('modify post: ', post)
     const clickCheck = () => {
         if (confirmModal) setConfirmModal(false)
         else setConfirmModal(true)
@@ -24,7 +27,13 @@ const PostModifyModal = (props) => {
                     </PostModalTitle>
                     <PostModalContents>
                         <li>
-                            <button>수정하기</button>
+                            <button
+                                onClick={() => {
+                                    router.push(`/community/modify/${idx}`)
+                                }}
+                            >
+                                수정하기
+                            </button>
                         </li>
                         <li>
                             <button onClick={clickCheck}>삭제하기</button>
