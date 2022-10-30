@@ -1,10 +1,8 @@
 import { FeedListArea, FeedListContainer, FeedListFirstType, FeedListLastType } from './Feed.style'
-import { useState, useEffect } from 'react'
 import Link from 'next/link'
 
 const FeedPost = (props) => {
     const { feedPost } = props
-    useEffect(() => {}, [])
 
     return (
         <FeedListArea>
@@ -30,7 +28,7 @@ const FeedPost = (props) => {
                     </FeedListFirstType>
                     <FeedListLastType>
                         <div>{obj.nickname}</div>
-                        <div>date</div>
+                        <div>{obj.updated_at}</div>
                         <div>조회수</div>
                     </FeedListLastType>
                 </FeedListContainer>

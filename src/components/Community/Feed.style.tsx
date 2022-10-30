@@ -56,6 +56,9 @@ export const FeedListLastType = styled.div`
         width: 50px;
         text-align: center;
     }
+    > div:nth-of-type(2) {
+        width: 200px;
+    }
 `
 
 export const FeedRemote = styled.div`

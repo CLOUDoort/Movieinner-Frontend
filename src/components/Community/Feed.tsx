@@ -30,7 +30,7 @@ const Feed = () => {
     const router = useRouter()
     const { page } = router.query
     const [pageValue, setPageValue] = useState(1)
-    const { data } = useGetFeedData(page ? page : 1)
+    const { data, isLoading } = useGetFeedData(page ? page : 1)
 
     console.log('feedPost', data)
 
@@ -54,7 +54,7 @@ const Feed = () => {
 
     return (
         <>
-            {page ? (
+            {page && !isLoading ? (
                 <FeedContainer>
                     <FeedRanking />
                     <FeedList feedPost={data} />
