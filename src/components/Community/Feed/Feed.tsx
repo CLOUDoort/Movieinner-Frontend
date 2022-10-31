@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux'
-import { RootState } from '../../store/store'
+import { RootState } from '../../../store/store'
 import { toast } from 'react-toastify'
 import { useRouter } from 'next/router'
 import { FeedContainer, FeedRemote } from './Feed.style'
@@ -8,9 +8,9 @@ import FeedRanking from './FeedRanking'
 import { BsPencilFill } from 'react-icons/bs'
 import { AiOutlineSearch } from 'react-icons/ai'
 import { useState } from 'react'
-import Loading from '../Loading'
+import Loading from '../../Loading'
 import FeedNavigation from './FeedNavigation'
-import useGetFeedData from '../react-query/FeedData'
+import useGetFeedData from '../../react-query/FeedData'
 
 const Feed = () => {
     const accessToken = useSelector((state: RootState) => state.token.token)

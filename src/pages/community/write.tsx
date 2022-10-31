@@ -1,4 +1,4 @@
-import Write from '../../components/Community/Write'
+import Write from '../../components/Community/Write/Write'
 
 const write = () => {
     return <Write />

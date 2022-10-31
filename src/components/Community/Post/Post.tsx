@@ -1,9 +1,9 @@
 import { useState } from 'react'
 import { useRouter } from 'next/router'
-import Loading from '../Loading'
+import Loading from '../../Loading'
 import { PostContainer } from './Post.style'
 import PostModifyModal from './PostModifyModal'
-import useGetPostData from '../react-query/PostData'
+import useGetPostData from '../../react-query/PostData'
 import PostComment from './PostComment'
 import PostContent from './PostContent'
 
@@ -22,7 +22,7 @@ const Post = () => {
         <>
             {idx && !isLoading ? (
                 <PostContainer>
-                    <PostContent data={data} clickModify={clickModify} />
+                    <PostContent data={data?.data?.content} clickModify={clickModify} />
                     <PostComment />
                     {showModal ? <PostModifyModal idx={idx} clickModify={clickModify} /> : null}
                 </PostContainer>

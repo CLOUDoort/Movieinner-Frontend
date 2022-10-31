@@ -1,4 +1,4 @@
-import Feed from '../../../components/Community/Feed'
+import Feed from '../../../components/Community/Feed/Feed'
 
 const feedPage = () => {
     return <Feed />

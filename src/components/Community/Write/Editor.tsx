@@ -3,7 +3,7 @@ import colorSyntax from '@toast-ui/editor-plugin-color-syntax'
 import { useRef, useState, useEffect } from 'react'
 import { WriteContainer, WriteTitle, WriteBtn } from './Write.style'
 import { useRouter } from 'next/router'
-import { apiInstance } from '../../apis/setting'
+import { apiInstance } from '../../../apis/setting'
 import { toast } from 'react-toastify'
 
 const WysiwygEditor = (props) => {

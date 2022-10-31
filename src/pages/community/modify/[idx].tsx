@@ -1,4 +1,4 @@
-import ModifyPost from '../../../components/Community/ModifyPost'
+import ModifyPost from '../../../components/Community/Post/ModifyPost'
 
 const modifyPost = () => {
     return <ModifyPost />
