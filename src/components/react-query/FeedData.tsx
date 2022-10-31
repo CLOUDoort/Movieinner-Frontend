@@ -1,9 +1,21 @@
 import { apiInstance } from '../../apis/setting'
 import { AxiosResponse, AxiosError } from 'axios'
-import { useQuery } from 'react-query'
+import { dehydrate, QueryClient, useQuery } from 'react-query'
+import { GetServerSideProps } from 'next'
 
 export interface FeedPage {
     page: string | string[] | number
+}
+
+export const getServerSidePropsFeedPost: GetServerSideProps = async (context) => {
+    const { page } = context.query as any
+    const queryClient = new QueryClient()
+    await queryClient.prefetchQuery(['feedPost', page], () => useGetFeedData(page))
+    return {
+        props: {
+            dehydratedState: dehydrate(queryClient),
+        },
+    }
 }
 
 export const getFeedData = (page: any) => apiInstance.get(`/community/page/${page}`, { withCredentials: true })

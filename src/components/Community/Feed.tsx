@@ -10,20 +10,7 @@ import { AiOutlineSearch } from 'react-icons/ai'
 import { useState } from 'react'
 import Loading from '../Loading'
 import FeedNavigation from './FeedNavigation'
-import { dehydrate, QueryClient } from 'react-query'
-import { GetServerSideProps } from 'next'
-import useGetFeedData from '../hooks/FeedData'
-
-export const getServerSideProps: GetServerSideProps = async (context) => {
-    const { page } = context.query as any
-    const queryClient = new QueryClient()
-    await queryClient.prefetchQuery(['feedPost', page], () => useGetFeedData(page))
-    return {
-        props: {
-            dehydratedState: dehydrate(queryClient),
-        },
-    }
-}
+import useGetFeedData from '../react-query/FeedData'
 
 const Feed = () => {
     const accessToken = useSelector((state: RootState) => state.token.token)
