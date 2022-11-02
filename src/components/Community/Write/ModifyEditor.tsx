@@ -7,7 +7,7 @@ import { apiInstance } from '../../../apis/setting'
 import { toast } from 'react-toastify'
 
 const ModifyEditor = (props) => {
-    const { modifyPost } = props
+    const { modifyPost, idx } = props
     const [image, setImage] = useState('')
     const [title, setTitle] = useState(modifyPost.title)
     const { nickname } = props
@@ -55,9 +55,9 @@ const ModifyEditor = (props) => {
         console.log('output', output)
         // 작성글 서버로 보내기
         try {
-            const postContent = await apiInstance.post('/community/content', { nickname: nickname, title: title, content: output, file: image })
-            router.replace('/community/feed')
-            toast.success(`${postContent.data.idx} 번 글 작성 완료!`)
+            const putContent = await apiInstance.put(`/community/content/${idx}`, { nickname: nickname, title: title, content: output, file: image })
+            router.replace('/community/feed/1')
+            toast.success(`${idx} 번 글 수정 완료!`)
         } catch (e) {
             console.error(e.response)
         }
@@ -79,7 +79,7 @@ const ModifyEditor = (props) => {
                 hooks={{ addImageBlobHook: onUploadImage }}
             />
             <WriteBtn>
-                <button onClick={() => router.push('/community/feed')}>나가기</button>
+                <button onClick={() => router.push('/community/feed/1')}>나가기</button>
                 <button onClick={showContent}>저장</button>
             </WriteBtn>
         </WriteContainer>

@@ -7,7 +7,7 @@ const ModifyPost = () => {
     const { idx } = router.query
     const { data, isLoading } = useGetPostData(idx ? idx : null)
     console.log('postData', data)
-    return <>{idx && data && !isLoading ? <ModifyEditor modifyPost={data?.data?.content} /> : null}</>
+    return <>{idx && data && !isLoading ? <ModifyEditor idx={idx} modifyPost={data?.data?.content} /> : null}</>
 }
 
 export default ModifyPost
