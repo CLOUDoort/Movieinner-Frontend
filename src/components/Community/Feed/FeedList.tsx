@@ -3,6 +3,7 @@ import Link from 'next/link'
 
 const FeedPost = (props) => {
     const { feedPost } = props
+    console.log('feed', feedPost)
 
     return (
         <FeedListArea>
@@ -28,8 +29,8 @@ const FeedPost = (props) => {
                     </FeedListFirstType>
                     <FeedListLastType>
                         <div>{obj.nickname}</div>
-                        <div>{obj.updated_at}</div>
-                        <div>조회수</div>
+                        <div>{obj.created_at}</div>
+                        <div>{obj.hit}</div>
                     </FeedListLastType>
                 </FeedListContainer>
             ))}

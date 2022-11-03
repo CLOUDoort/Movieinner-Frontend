@@ -8,7 +8,7 @@ const PostContent = (props) => {
             <PostInfo>
                 <div>{data.nickname}</div>
                 <div>
-                    <div>date</div>
+                    <div>{data.created_at}</div>
                     <AiOutlineMore size={30} onClick={clickModify} />
                 </div>
             </PostInfo>
