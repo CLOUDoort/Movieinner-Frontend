@@ -143,8 +143,18 @@ export const PostConfirmModalContainer = styled.div`
     align-items: center;
     z-index: 2000;
     > div {
-        border: 1px solid black;
+        border: 1px solid gray;
         padding: 30px 50px;
         border-radius: 5px;
+        > div {
+            margin-top: 10px;
+            display: flex;
+            justify-content: space-between;
+            > button {
+                border: none;
+                padding: 8px 16px;
+                background-color: white;
+            }
+        }
     }
 `
