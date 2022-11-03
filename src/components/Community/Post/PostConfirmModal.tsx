@@ -1,4 +1,4 @@
-import { PostConfirmModalContainer } from './Post.style'
+import { PostConfirmModalContainer } from './PostModal.style'
 import { apiInstance } from '../../../apis/setting'
 import { toast } from 'react-toastify'
 import { useRouter } from 'next/router'

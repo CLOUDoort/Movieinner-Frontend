@@ -1,4 +1,4 @@
-import { PostModal, PostModalTitle, PostModalBox, PostModalContainer, PostModalContents } from './Post.style'
+import { PostModal, PostModalTitle, PostModalBox, PostModalContainer, PostModalContents } from './PostModal.style'
 import { IoMdClose } from 'react-icons/io'
 import { useState } from 'react'
 import PostConfirmModal from './PostConfirmModal'

@@ -2,12 +2,12 @@ import { PostCommentArea, PostCommentList, PostCommentWrite } from './Post.style
 
 const PostComment = () => {
     return (
-        <>
-            <PostCommentArea>
-                <PostCommentWrite></PostCommentWrite>
-                <PostCommentList></PostCommentList>
-            </PostCommentArea>
-        </>
+        <PostCommentArea>
+            <PostCommentWrite>
+                <input type='textarea' placeholder='댓글 입력' />
+            </PostCommentWrite>
+            <PostCommentList></PostCommentList>
+        </PostCommentArea>
     )
 }
 
