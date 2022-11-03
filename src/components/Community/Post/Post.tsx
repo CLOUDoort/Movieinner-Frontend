@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import Loading from '../../Loading'
 import { PostContainer } from './Post.style'
@@ -6,12 +6,25 @@ import PostModifyModal from './PostModifyModal'
 import useGetPostData from '../../react-query/PostData'
 import PostComment from './PostComment'
 import PostContent from './PostContent'
+import { apiInstance } from '../../../apis/setting'
 
 const Post = () => {
     const router = useRouter()
     const { idx } = router.query
     const [showModal, setShowModal] = useState(false)
     const { data, isLoading } = useGetPostData(idx ? idx : null)
+
+    useEffect(() => {
+        const getResponse = async () => {
+            try {
+                const hitResponse = await apiInstance.put(`/community/content/hit/${idx}`)
+                console.log('hit', hitResponse.data)
+            } catch (e) {
+                console.error(e.response)
+            }
+        }
+        getResponse()
+    }, [])
 
     const clickModify = () => {
         if (showModal) setShowModal(false)
