@@ -7,9 +7,10 @@ import FeedList from './FeedList'
 import FeedRanking from './FeedRanking'
 import { BsPencilFill } from 'react-icons/bs'
 import { AiOutlineSearch } from 'react-icons/ai'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Loading from '../../Loading'
 import FeedNavigation from './FeedNavigation'
+import { apiInstance } from '../../../apis/setting'
 import useGetFeedData from '../../react-query/FeedData'
 
 const Feed = () => {
@@ -18,6 +19,17 @@ const Feed = () => {
     const { page } = router.query
     const [pageValue, setPageValue] = useState(1)
     const { data, isLoading } = useGetFeedData(page ? page : 1)
+    const [hit, setHit] = useState([])
+    // const {} = useGetFeedRanking()
+
+    useEffect(() => {
+        const getResponse = async () => {
+            const hitResponse = await apiInstance.get(`/community/content/hit`)
+            console.log('hit', hitResponse.data)
+            setHit(hitResponse.data.top5Contents)
+        }
+        getResponse()
+    }, [])
 
     console.log('feedPost', data)
 
@@ -43,7 +55,7 @@ const Feed = () => {
         <>
             {page && !isLoading ? (
                 <FeedContainer>
-                    <FeedRanking />
+                    <FeedRanking hit={hit} />
                     <FeedList feedPost={data} />
                     <FeedRemote>
                         <BsPencilFill onClick={clickWrite} size={50}></BsPencilFill>
