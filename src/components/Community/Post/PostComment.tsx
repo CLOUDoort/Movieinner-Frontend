@@ -4,7 +4,10 @@ const PostComment = () => {
     return (
         <PostCommentArea>
             <PostCommentWrite>
-                <input type='textarea' placeholder='댓글 입력' />
+                <textarea></textarea>
+                <div>
+                    <button>작성하기</button>
+                </div>
             </PostCommentWrite>
             <PostCommentList></PostCommentList>
         </PostCommentArea>

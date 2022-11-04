@@ -16,13 +16,6 @@ export const PostContentArea = styled.div`
     border: 1px solid gray;
     border-radius: 5px;
 `
-
-export const PostCommentArea = styled.div`
-    width: 700px;
-    border: 1px solid gray;
-    height: 250px;
-`
-
 export const PostInfo = styled.div`
     display: flex;
     justify-content: space-between;
@@ -50,6 +43,32 @@ export const PostContents = styled.div`
     }
 `
 
-export const PostCommentWrite = styled.div``
+export const PostCommentArea = styled.div`
+    width: 100%;
+    height: 10rem;
+`
+
+export const PostCommentWrite = styled.div`
+    > textarea {
+        width: 100%;
+        resize: none;
+        border: 1px solid black;
+        height: 6.25rem;
+        border-radius: 5px;
+        padding: 3px 5px;
+        font-size: 15px;
+    }
+    > div {
+        display: flex;
+        justify-content: end;
+        margin-right: 10px;
+        margin-top: 10px;
+        > button {
+            border: none;
+            padding: 8px 16px;
+            background-color: skyblue;
+        }
+    }
+`
 
 export const PostCommentList = styled.div``
