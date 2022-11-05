@@ -19,6 +19,8 @@ const Post = () => {
             try {
                 const hitResponse = await apiInstance.put(`/community/content/hit/${idx}`)
                 console.log('hit', hitResponse.data)
+                // const getCommentList = await apiInstance.get(`/community/comment/${idx}`)
+                // console.log('comment', getCommentList.data)
             } catch (e) {
                 console.error(e.response)
             }
@@ -36,7 +38,7 @@ const Post = () => {
             {idx && !isLoading ? (
                 <PostContainer>
                     <PostContent data={data?.data?.content} clickModify={clickModify} />
-                    <PostComment />
+                    <PostComment idx={idx} />
                     {showModal ? <PostModifyModal idx={idx} clickModify={clickModify} /> : null}
                 </PostContainer>
             ) : (
