@@ -52,10 +52,11 @@ export const PostCommentWrite = styled.div`
     > textarea {
         width: 100%;
         resize: none;
-        border: 1px solid black;
+        border: none;
+        outline: none;
         height: 6.25rem;
         border-radius: 5px;
-        padding: 3px 5px;
+        padding: 5px 8px;
         font-size: 15px;
     }
     > div {
