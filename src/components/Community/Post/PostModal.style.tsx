@@ -26,7 +26,7 @@ export const PostModalBox = styled.div`
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
     display: flex;
-    background: rgba(0, 0, 0, 0.4);
+    background: rgb(0, 0, 0, 0.9);
     flex-direction: column;
     @keyframes fadeInUp {
         0% {
