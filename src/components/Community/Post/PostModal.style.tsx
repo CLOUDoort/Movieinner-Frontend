@@ -17,7 +17,6 @@ export const PostModalContainer = styled.div`
     width: 100%;
     max-width: 700px;
     margin: 0 auto;
-    background-color: rgba(0, 0, 0, 0.4);
     bottom: calc(env(safe-area-inset-bottom));
 `
 
@@ -29,6 +28,17 @@ export const PostModalBox = styled.div`
     display: flex;
     background: rgba(0, 0, 0, 0.4);
     flex-direction: column;
+    @keyframes fadeInUp {
+        0% {
+            opacity: 0;
+            transform: translate3d(0, 100%, 0);
+        }
+        to {
+            opacity: 1;
+            transform: translateZ(0);
+        }
+    }
+    animation: fadeInUp 1s;
 `
 
 export const PostModalTitle = styled.div`
