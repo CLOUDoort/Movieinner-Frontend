@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { PostCommentArea, PostCommentList, PostCommentWrite } from './Post.style'
+import { PostCommentArea, PostCommentList, PostCommentWrite } from './PostComment.style'
 import { apiInstance } from '../../../apis/setting'
 import { useSelector } from 'react-redux'
 import { RootState } from '../../../store/store'
