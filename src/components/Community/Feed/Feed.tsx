@@ -20,7 +20,6 @@ const Feed = () => {
     const [pageValue, setPageValue] = useState(1)
     const { data, isLoading } = useGetFeedData(page ? page : 1)
     const [hit, setHit] = useState([])
-    // const {} = useGetFeedRanking()
 
     useEffect(() => {
         const getResponse = async () => {

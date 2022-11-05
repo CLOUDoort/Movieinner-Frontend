@@ -1,21 +1,23 @@
-import { RankingArea, RankingSubtitle } from './Feed.style'
+import { useRouter } from 'next/router'
+import { RankingList, RankingArea, RankingSubtitle } from './FeedRanking.style'
 
 const FeedRanking = (props) => {
     const { hit } = props
+    const router = useRouter()
 
     return (
         <RankingArea>
             <RankingSubtitle>인기 게시글</RankingSubtitle>
-            <div>
-                {hit.map((obj: any) => (
-                    <div key={obj.idx}>
-                        <div>
-                            <div>{obj.title}</div>
-                            <div>{obj.created_at}</div>
-                        </div>
+            {hit.map((obj: any) => (
+                <RankingList key={obj.idx}>
+                    <div>
+                        <span>1: </span>
+                        <span>{obj.idx}</span>
+                        <span onClick={() => router.push(`/community/post/${obj.idx}`)}>{obj.title}</span>
+                        <span>{obj.created_at}</span>
                     </div>
-                ))}
-            </div>
+                </RankingList>
+            ))}
         </RankingArea>
     )
 }

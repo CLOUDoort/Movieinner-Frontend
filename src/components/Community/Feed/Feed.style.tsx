@@ -9,16 +9,6 @@ export const FeedContainer = styled.div`
     margin-top: 40px;
     margin-bottom: 40px;
 `
-export const RankingArea = styled.div`
-    width: 700px;
-    border: 1px solid gray;
-    height: 250px;
-    border-radius: 5px;
-`
-export const RankingSubtitle = styled.p`
-    font-size: 20px;
-    padding: 16px 24px;
-`
 
 export const FeedListArea = styled.div`
     width: 700px;
