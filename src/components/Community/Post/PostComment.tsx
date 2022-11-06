@@ -11,8 +11,6 @@ const PostComment = (props) => {
     const [comment, setComment] = useState('')
     const accessToken = useSelector((state: RootState) => state.token.token)
     const nickname = useSelector((state: RootState) => state.nickname.nickname)
-    const current = moment().format('YYYY-MM-DD HH:mm:ss')
-    const [commentedAt, setCommentedAt] = useState('')
 
     const handleChange = (e) => {
         const { value } = e.target
@@ -21,12 +19,10 @@ const PostComment = (props) => {
     const handleClick = async () => {
         if (accessToken) {
             try {
-                setCommentedAt(current)
                 const postComment = await apiInstance.post('/community/comment', {
                     contentIdx: idx,
                     comment: comment,
                     nickname: nickname,
-                    commentedAt: commentedAt,
                 })
                 toast.success('댓글 작성 완료!')
                 console.log('댓글 작성', postComment.data.success)
