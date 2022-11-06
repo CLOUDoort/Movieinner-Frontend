@@ -28,6 +28,7 @@ export const PostModalBox = styled.div`
     display: flex;
     background: rgb(0, 0, 0, 0.9);
     flex-direction: column;
+    /* transition:  */
     @keyframes fadeInUp {
         0% {
             opacity: 0;
