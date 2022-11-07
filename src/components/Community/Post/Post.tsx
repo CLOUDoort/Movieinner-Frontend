@@ -4,7 +4,7 @@ import Loading from '../../Loading'
 import { PostContainer } from './Post.style'
 import PostModifyModal from './PostModifyModal'
 import useGetPostData from '../../react-query/PostData'
-import PostComment from './PostComment'
+import PostComment from './Comment/PostComment'
 import PostContent from './PostContent'
 import { apiInstance } from '../../../apis/setting'
 

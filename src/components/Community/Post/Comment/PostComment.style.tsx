@@ -1,11 +1,11 @@
 import styled from '@emotion/styled'
 
-export const PostCommentArea = styled.div`
+export const CommentArea = styled.div`
     width: 100%;
     height: 10rem;
 `
 
-export const PostCommentWrite = styled.div`
+export const CommentWrite = styled.div`
     > textarea {
         width: 100%;
         resize: none;
@@ -29,7 +29,7 @@ export const PostCommentWrite = styled.div`
     }
 `
 
-export const PostCommentList = styled.div`
+export const CommentList = styled.div`
     display: flex;
     flex-direction: column;
 `
