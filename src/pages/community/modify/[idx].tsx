@@ -1,7 +1,7 @@
-import ModifyPost from '../../../components/Community/Post/ModifyPost'
+import PostModify from '../../../components/Community/Post/PostModify'
 
-const modifyPost = () => {
-    return <ModifyPost />
+const postModify = () => {
+    return <PostModify />
 }
 
-export default modifyPost
+export default PostModify

@@ -4,7 +4,6 @@ import { apiInstance } from '../../../apis/setting'
 import { useSelector } from 'react-redux'
 import { RootState } from '../../../store/store'
 import { toast } from 'react-toastify'
-import moment from 'moment'
 
 const PostComment = (props) => {
     const { idx } = props
