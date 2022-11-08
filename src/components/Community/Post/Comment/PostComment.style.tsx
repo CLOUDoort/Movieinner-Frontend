@@ -33,3 +33,7 @@ export const CommentList = styled.div`
     display: flex;
     flex-direction: column;
 `
+
+export const CommentUser = styled.div`
+    display: flex;
+`
