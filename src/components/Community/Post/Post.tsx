@@ -13,14 +13,15 @@ const Post = () => {
     const { idx } = router.query
     const [showModal, setShowModal] = useState(false)
     const { data, isLoading } = useGetPostData(idx ? idx : null)
+    const [commentList, setCommentList] = useState([])
 
     useEffect(() => {
         const getResponse = async () => {
             try {
                 const hitResponse = await apiInstance.put(`/community/content/hit/${idx}`)
                 console.log('hit', hitResponse.data)
-                // const getCommentList = await apiInstance.get(`/community/comment/${idx}`)
-                // console.log('comment', getCommentList.data)
+                const getCommentList = await apiInstance.get(`/community/comment/${idx}`)
+                console.log('comment', getCommentList.data.contents)
             } catch (e) {
                 console.error(e.response)
             }
@@ -29,8 +30,11 @@ const Post = () => {
     }, [])
 
     const clickModify = () => {
-        if (showModal) setShowModal(false)
-        else setShowModal(true)
+        setShowModal(!showModal)
+    }
+
+    const refreshFunction = (newComment) => {
+        setCommentList(commentList.concat(newComment))
     }
 
     return (
@@ -38,7 +42,7 @@ const Post = () => {
             {idx && !isLoading ? (
                 <PostContainer>
                     <PostContent data={data?.data?.content} clickModify={clickModify} />
-                    <PostComment idx={idx} />
+                    <PostComment refreshFunction={refreshFunction} commentList={commentList} idx={idx} />
                     {showModal ? <PostModifyModal idx={idx} clickModify={clickModify} /> : null}
                 </PostContainer>
             ) : (

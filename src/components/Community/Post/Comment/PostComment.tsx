@@ -5,14 +5,14 @@ import { CommentArea } from './PostComment.style'
 import PostCommentList from './PostCommentLists'
 
 const PostComment = (props) => {
-    const { idx } = props
+    const { idx, commentList, refreshFunction } = props
     const accessToken = useSelector((state: RootState) => state.token.token)
     const nickname = useSelector((state: RootState) => state.nickname.nickname)
 
     return (
         <CommentArea>
-            <PostCommentList />
-            <PostCommentWrite accessToken={accessToken} idx={idx} nickname={nickname} />
+            <PostCommentList refreshFunction={refreshFunction} commentList={commentList} accessToken={accessToken} idx={idx} nickname={nickname} />
+            <PostCommentWrite refreshFunction={refreshFunction} accessToken={accessToken} idx={idx} nickname={nickname} />
         </CommentArea>
     )
 }
