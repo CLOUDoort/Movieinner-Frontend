@@ -6,6 +6,7 @@ export const CommentArea = styled.div`
 `
 
 export const CommentWrite = styled.div`
+    margin-top: 20px;
     > textarea {
         width: 100%;
         resize: none;
@@ -32,6 +33,9 @@ export const CommentWrite = styled.div`
 export const CommentList = styled.div`
     display: flex;
     flex-direction: column;
+    > div {
+        margin-top: 20px;
+    }
 `
 
 export const CommentUser = styled.div`
@@ -41,5 +45,12 @@ export const CommentUser = styled.div`
 export const CommentReply = styled.div`
     > span {
         cursor: pointer;
+        width: 80%;
+        margin-left: 40px;
+    }
+    > div {
+        width: 80%;
+        margin-left: 40px;
+        margin-top: 20px;
     }
 `
