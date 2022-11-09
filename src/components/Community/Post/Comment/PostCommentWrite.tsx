@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router'
-import { useRef, useState } from 'react'
+import { useState } from 'react'
 import { toast } from 'react-toastify'
 import { apiInstance } from '../../../../apis/setting'
 import { CommentWrite } from './PostComment.style'
@@ -8,7 +8,6 @@ const PostCommentWrite = (props) => {
     const { accessToken, idx, nickname, refreshFunction } = props
     const [comment, setComment] = useState('')
     const router = useRouter()
-    const textRef = useRef(null)
 
     const handleChange = (e) => {
         const { value } = e.target
@@ -24,9 +23,8 @@ const PostCommentWrite = (props) => {
                 })
                 toast.success('댓글 작성 완료!')
                 router.replace(router.asPath)
-                console.log('댓글 작성', postComment.data)
-                textRef.current.value = '' // teaxarea value 초기화
-                refreshFunction(postComment.data.comment) // 작성 댓글 업데이트
+                setComment('') // teaxarea value 초기화
+                refreshFunction(postComment.data.comments) // 작성 댓글 업데이트
             } catch (e) {
                 console.error(e.response)
                 toast.error('댓글 작성 실패!')
@@ -35,7 +33,7 @@ const PostCommentWrite = (props) => {
     }
     return (
         <CommentWrite>
-            <textarea ref={textRef} onChange={handleChange} placeholder='댓글 작성해주세요!'></textarea>
+            <textarea value={comment} onChange={handleChange} placeholder='댓글 작성해주세요!'></textarea>
             <div>
                 <button type='reset' onClick={handleClick}>
                     작성하기

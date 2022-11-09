@@ -3,21 +3,22 @@ import PostReplyComment from './PostReplyComment'
 import PostSingleComment from './PostSingleComment'
 
 const PostCommentLists = (props) => {
-    const { accessToken, idx, nickname, commentList, refreshFcuntion } = props
+    const { accessToken, commentList, refreshFunction } = props
     return (
         <CommentList>
             {commentList &&
                 commentList.map(
                     (comment: any) =>
-                        !comment.resposeTo && (
-                            <PostSingleComment
-                                key={comment.idx}
-                                comment={comment}
-                                accessToken={accessToken}
-                                idx={idx}
-                                nickname={nickname}
-                                refreshFcuntion={refreshFcuntion}
-                            />
+                        !comment?.response_to && (
+                            <div key={comment.idx}>
+                                <PostSingleComment
+                                    comment={comment}
+                                    accessToken={accessToken}
+                                    idx={comment?.content_idx}
+                                    nickname={comment?.nickname}
+                                    refreshFunction={refreshFunction}
+                                />
+                            </div>
                         )
                 )}
             <PostReplyComment />

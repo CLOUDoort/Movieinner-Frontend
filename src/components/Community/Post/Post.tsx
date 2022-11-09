@@ -21,13 +21,14 @@ const Post = () => {
                 const hitResponse = await apiInstance.put(`/community/content/hit/${idx}`)
                 console.log('hit', hitResponse.data)
                 const getCommentList = await apiInstance.get(`/community/comment/${idx}`)
-                console.log('comment', getCommentList.data.contents)
+                setCommentList(getCommentList.data.contents)
+                console.log('comment', getCommentList.data)
             } catch (e) {
                 console.error(e.response)
             }
         }
         getResponse()
-    }, [])
+    }, [idx])
 
     const clickModify = () => {
         setShowModal(!showModal)
@@ -36,7 +37,7 @@ const Post = () => {
     const refreshFunction = (newComment) => {
         setCommentList(commentList.concat(newComment))
     }
-
+    console.log('commentList', commentList)
     return (
         <>
             {idx && !isLoading ? (
