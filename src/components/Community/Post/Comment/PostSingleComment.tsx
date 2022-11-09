@@ -1,22 +1,73 @@
 import Avatar from '@mui/material/Avatar'
-import { CommentUser } from './PostComment.style'
+import { CommentUser, CommentWrite } from './PostComment.style'
 import { useState } from 'react'
 import PostReplyWrite from './PostReplyWrite'
+import { apiInstance } from '../../../../apis/setting'
+import { toast } from 'react-toastify'
+import { useRouter } from 'next/router'
 
 const PostSingleComment = (props) => {
     const [openReply, setOpenReply] = useState(false)
     const { comment, accessToken, idx, nickname, refreshFunction, clickView } = props
+    const [modify, setModify] = useState(false)
+    const [modifyComment, setModifyComment] = useState(comment.comment)
+    const deleteComment = '삭제된 댓글입니다.'
+    const [deleteState, setDeleteState] = useState(false)
+    const router = useRouter()
 
     const clickReply = () => {
         setOpenReply(!openReply)
+    }
+    const clickModify = async () => {
+        try {
+            const getResponse = await apiInstance.put('/community/comment', { idx: idx, comment: modifyComment })
+            toast.success('수정 완료')
+            setModify(false)
+        } catch (e) {
+            console.error(e.response)
+        }
+    }
+    const handleChange = (e) => {
+        setModifyComment(e.target.value)
+    }
+    const handleModify = () => {
+        setModify(!modify)
+    }
+    const clickDelete = async () => {
+        try {
+            alert('삭제하시겠습니까?')
+            setDeleteState(true)
+            const getResponse = await apiInstance.put('/community/comment', { idx: idx, comment: deleteComment })
+            router.replace(router.asPath)
+        } catch (e) {
+            console.error(e.response)
+        }
     }
     return (
         <>
             <CommentUser>
                 <Avatar alt='User Image' src='/topgun.jpeg' />
-                <span>이름: {nickname}</span>
-                <span>내용: {comment?.comment}</span>
-                <button onClick={clickReply}>Reply to</button>
+                {!modify ? (
+                    !deleteState ? (
+                        <div>
+                            <span>이름: {nickname}</span>
+                            <span>내용: {modifyComment}</span>
+                            <button onClick={clickReply}>Reply to</button>
+                            <button onClick={handleModify}>수정하기</button>
+                            <button onClick={clickDelete}>삭제하기</button>
+                        </div>
+                    ) : (
+                        <div>{deleteComment}</div>
+                    )
+                ) : (
+                    <CommentWrite>
+                        <textarea value={modifyComment} onChange={handleChange} placeholder='댓글 작성해주세요!'></textarea>
+                        <div>
+                            <button onClick={handleModify}>취소하기</button>
+                            <button onClick={clickModify}>수정하기</button>
+                        </div>
+                    </CommentWrite>
+                )}
             </CommentUser>
             {openReply && (
                 <PostReplyWrite
