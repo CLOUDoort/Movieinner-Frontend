@@ -1,5 +1,9 @@
 const PostReplyComment = () => {
-    return <></>
+    return (
+        <>
+            <p>View more comments</p>
+        </>
+    )
 }
 
 export default PostReplyComment

@@ -18,9 +18,7 @@ const PostSingleComment = (props) => {
                 <span>내용: {comment?.comment}</span>
                 <button onClick={clickReply}>Reply to</button>
             </CommentUser>
-            {openReply && (
-                <PostCommentReply refreshFunction={refreshFunction} reply={comment?.resposneTo} accessToken={accessToken} idx={idx} nickname={nickname} />
-            )}
+            {openReply && <PostCommentReply refreshFunction={refreshFunction} reply={comment?.idx} accessToken={accessToken} idx={idx} nickname={nickname} />}
         </>
     )
 }
