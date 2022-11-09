@@ -40,6 +40,10 @@ export const CommentList = styled.div`
 
 export const CommentUser = styled.div`
     display: flex;
+    > div > button {
+        border: none;
+        margin-left: 10px;
+    }
 `
 
 export const CommentReply = styled.div`
