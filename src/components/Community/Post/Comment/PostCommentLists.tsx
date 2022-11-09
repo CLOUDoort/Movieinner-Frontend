@@ -18,7 +18,13 @@ const PostCommentLists = (props) => {
                                     nickname={nickname}
                                     refreshFunction={refreshFunction}
                                 />
-                                <PostReplyComment commentList={commentList} parentComment={comment.idx} nickname={nickname} />
+                                <PostReplyComment
+                                    commentList={commentList}
+                                    accessToken={accessToken}
+                                    refreshFunction={refreshFunction}
+                                    parentComment={comment.idx}
+                                    nickname={nickname}
+                                />
                             </div>
                         )
                 )}

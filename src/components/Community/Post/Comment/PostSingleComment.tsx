@@ -5,7 +5,7 @@ import PostReplyWrite from './PostReplyWrite'
 
 const PostSingleComment = (props) => {
     const [openReply, setOpenReply] = useState(false)
-    const { comment, accessToken, idx, nickname, refreshFunction } = props
+    const { comment, accessToken, idx, nickname, refreshFunction, clickView } = props
 
     const clickReply = () => {
         setOpenReply(!openReply)
@@ -18,7 +18,17 @@ const PostSingleComment = (props) => {
                 <span>내용: {comment?.comment}</span>
                 <button onClick={clickReply}>Reply to</button>
             </CommentUser>
-            {openReply && <PostReplyWrite refreshFunction={refreshFunction} reply={comment?.idx} accessToken={accessToken} idx={idx} nickname={nickname} />}
+            {openReply && (
+                <PostReplyWrite
+                    clickReply={clickReply}
+                    refreshFunction={refreshFunction}
+                    reply={comment?.idx}
+                    accessToken={accessToken}
+                    idx={idx}
+                    nickname={nickname}
+                    clickView={clickView}
+                />
+            )}
         </>
     )
 }
