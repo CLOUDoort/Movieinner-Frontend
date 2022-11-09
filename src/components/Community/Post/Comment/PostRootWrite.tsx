@@ -4,7 +4,7 @@ import { toast } from 'react-toastify'
 import { apiInstance } from '../../../../apis/setting'
 import { CommentWrite } from './PostComment.style'
 
-const PostCommentWrite = (props) => {
+const PostRootWrite = (props) => {
     const { accessToken, idx, nickname, refreshFunction } = props
     const [comment, setComment] = useState('')
     const router = useRouter()
@@ -43,4 +43,4 @@ const PostCommentWrite = (props) => {
     )
 }
 
-export default PostCommentWrite
+export default PostRootWrite

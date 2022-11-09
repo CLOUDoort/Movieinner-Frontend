@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux'
 import { RootState } from '../../../../store/store'
-import PostCommentWrite from './PostCommentWrite'
+import PostRootWrite from './PostRootWrite'
 import { CommentArea } from './PostComment.style'
 import PostCommentList from './PostCommentLists'
 
@@ -12,7 +12,7 @@ const PostComment = (props) => {
     return (
         <CommentArea>
             <PostCommentList nickname={nickname} refreshFunction={refreshFunction} commentList={commentList} accessToken={accessToken} />
-            <PostCommentWrite refreshFunction={refreshFunction} accessToken={accessToken} idx={idx} nickname={nickname} />
+            <PostRootWrite refreshFunction={refreshFunction} accessToken={accessToken} idx={idx} nickname={nickname} />
         </CommentArea>
     )
 }
