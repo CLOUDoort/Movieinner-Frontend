@@ -37,3 +37,9 @@ export const CommentList = styled.div`
 export const CommentUser = styled.div`
     display: flex;
 `
+
+export const CommentReply = styled.div`
+    > span {
+        cursor: pointer;
+    }
+`
