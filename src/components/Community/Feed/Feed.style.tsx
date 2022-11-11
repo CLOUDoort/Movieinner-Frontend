@@ -51,7 +51,7 @@ export const FeedListLastType = styled.div`
     }
 `
 
-export const FeedRemote = styled.div`
+export const FeedRemoteBox = styled.div`
     display: flex;
     flex-direction: column;
     position: fixed;

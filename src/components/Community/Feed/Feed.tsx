@@ -2,7 +2,7 @@ import { useSelector } from 'react-redux'
 import { RootState } from '../../../store/store'
 import { toast } from 'react-toastify'
 import { useRouter } from 'next/router'
-import { FeedContainer, FeedRemote } from './Feed.style'
+import { FeedContainer, FeedRemoteBox } from './Feed.style'
 import FeedList from './FeedList'
 import FeedRanking from './FeedRanking'
 import { BsPencilFill } from 'react-icons/bs'
@@ -12,6 +12,7 @@ import Loading from '../../Loading'
 import FeedNavigation from './FeedNavigation'
 import { apiInstance } from '../../../apis/setting'
 import useGetFeedData from '../../react-query/FeedData'
+import FeedRemote from './FeedRemote'
 
 const Feed = () => {
     const accessToken = useSelector((state: RootState) => state.token.token)
@@ -56,10 +57,7 @@ const Feed = () => {
                 <FeedContainer>
                     <FeedRanking hit={hit} />
                     <FeedList feedPost={data} />
-                    <FeedRemote>
-                        <BsPencilFill onClick={clickWrite} size={50}></BsPencilFill>
-                        <AiOutlineSearch size={50}></AiOutlineSearch>
-                    </FeedRemote>
+                    <FeedRemote clickWrite={clickWrite} />
                     <FeedNavigation totalPage={data} page={pageValue} handleChange={handlePaginationChange} />
                 </FeedContainer>
             ) : (
