@@ -25,7 +25,8 @@ export const CommentWrite = styled.div`
         > button {
             border: none;
             padding: 8px 16px;
-            background-color: skyblue;
+            margin-left: 10px;
+            background-color: #adf8f8;
         }
     }
 `
@@ -43,6 +44,8 @@ export const CommentUser = styled.div`
     > div > button {
         border: none;
         margin-left: 10px;
+        padding: 8px 16px;
+        background-color: #adf8f8;
     }
 `
 

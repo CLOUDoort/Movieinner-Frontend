@@ -7,7 +7,6 @@ import { CommentWrite } from './PostComment.style'
 const PostReplyWrite = (props) => {
     const { accessToken, idx, nickname, reply, refreshFunction, clickReply, clickView } = props
     const [comment, setComment] = useState('')
-    const router = useRouter()
 
     const handleChange = (e) => {
         const { value } = e.target
@@ -23,7 +22,6 @@ const PostReplyWrite = (props) => {
                     responseTo: reply,
                 })
                 toast.success('댓글 작성 완료!')
-                router.replace(router.asPath)
                 console.log('댓글 작성', postComment.data.success)
                 setComment('') // teaxarea value 초기화
                 refreshFunction(postComment.data.comments) // 작성 댓글 업데이트
