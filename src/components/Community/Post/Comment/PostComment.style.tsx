@@ -41,6 +41,13 @@ export const CommentList = styled.div`
 
 export const CommentUser = styled.div`
     display: flex;
+    > div > span {
+        ::after {
+            padding-left: 5px;
+            content: '|';
+        }
+        margin-left: 10px;
+    }
     > div > button {
         border: none;
         margin-left: 10px;
