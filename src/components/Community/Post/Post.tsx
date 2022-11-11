@@ -37,7 +37,7 @@ const Post = () => {
     const refreshFunction = (newComment) => {
         setCommentList(commentList.concat(newComment))
     }
-    console.log('commentList', commentList)
+
     return (
         <>
             {idx && !isLoading ? (
