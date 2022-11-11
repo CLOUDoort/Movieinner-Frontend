@@ -19,7 +19,8 @@ const PostSingleComment = (props) => {
     }
     const clickModify = async () => {
         try {
-            const getResponse = await apiInstance.put('/community/comment', { idx: idx, comment: modifyComment })
+            const getResponse = await apiInstance.put('/community/comment', { idx: comment.idx, comment: modifyComment })
+            console.log('modi', getResponse.data)
             toast.success('수정 완료')
             setModify(false)
         } catch (e) {
@@ -38,7 +39,7 @@ const PostSingleComment = (props) => {
                 alert('삭제되었습니다.')
                 setDeleteState(true)
             }
-            const getResponse = await apiInstance.put('/community/comment', { idx: idx, comment: deleteComment })
+            const getResponse = await apiInstance.put('/community/comment', { idx: comment.idx, comment: deleteComment })
         } catch (e) {
             console.error(e.response)
         }
