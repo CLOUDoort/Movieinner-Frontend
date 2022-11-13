@@ -6,6 +6,7 @@ import { useState } from 'react'
 import { apiInstance } from '../../../apis/setting'
 import { SearchModalBox } from './FeedSearchModal.style'
 import { toast } from 'react-toastify'
+import router from 'next/router'
 
 const FeedSearchModal = (props) => {
     const { clickModal } = props
@@ -28,6 +29,7 @@ const FeedSearchModal = (props) => {
                         page: 1, // page는 1을 default값으로
                     },
                 })
+                router.push('/community/feed/search/1')
                 console.log('search', getResponse.data)
             } catch (e) {
                 console.error(e.response)
