@@ -6,15 +6,7 @@ const FeedNavigation = (props) => {
 
     return (
         <FeedPaginationContainer>
-            <Pagination
-                count={totalPage?.data?.contents?.totalPage}
-                variant='outlined'
-                shape='rounded'
-                color='primary'
-                page={page}
-                onChange={handleChange}
-                size='medium'
-            />
+            <Pagination count={totalPage} variant='outlined' shape='rounded' color='primary' page={page} onChange={handleChange} size='medium' />
         </FeedPaginationContainer>
     )
 }

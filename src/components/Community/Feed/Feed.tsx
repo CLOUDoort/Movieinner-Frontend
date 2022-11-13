@@ -5,12 +5,12 @@ import { useRouter } from 'next/router'
 import { FeedContainer } from './Feed.style'
 import FeedList from './FeedList'
 import FeedRanking from './FeedRanking'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import Loading from '../../Loading'
 import FeedNavigation from './FeedNavigation'
-import { apiInstance } from '../../../apis/setting'
 import useGetFeedData from '../../react-query/FeedData'
 import FeedRemote from './FeedRemote'
+import useGetHitFeed from '../../react-query/HitFeedData'
 
 const Feed = () => {
     const accessToken = useSelector((state: RootState) => state.token.token)
@@ -18,18 +18,7 @@ const Feed = () => {
     const { page } = router.query
     const [pageValue, setPageValue] = useState(1)
     const { data, isLoading } = useGetFeedData(page ? page : 1)
-    const [hit, setHit] = useState([])
-
-    useEffect(() => {
-        const getResponse = async () => {
-            const hitResponse = await apiInstance.get(`/community/content/hit`)
-            console.log('hit', hitResponse.data)
-            setHit(hitResponse.data.top5Contents)
-        }
-        getResponse()
-    }, [])
-
-    console.log('feedPost', data)
+    const hitData = useGetHitFeed().data
 
     const clickWrite = () => {
         if (accessToken) {
@@ -53,10 +42,10 @@ const Feed = () => {
         <>
             {page && !isLoading ? (
                 <FeedContainer>
-                    <FeedRanking hit={hit} />
+                    <FeedRanking hit={hitData?.data?.top5Contents} />
                     <FeedList feedPost={data} />
                     <FeedRemote clickWrite={clickWrite} />
-                    <FeedNavigation totalPage={data} page={pageValue} handleChange={handlePaginationChange} />
+                    <FeedNavigation totalPage={data?.data?.contents?.totalPage} page={pageValue} handleChange={handlePaginationChange} />
                 </FeedContainer>
             ) : (
                 <Loading />
