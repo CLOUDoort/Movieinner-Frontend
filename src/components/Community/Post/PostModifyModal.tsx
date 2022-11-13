@@ -11,8 +11,7 @@ const PostModifyModal = (props) => {
 
     console.log('modify post: ', post)
     const clickCheck = () => {
-        if (confirmModal) setConfirmModal(false)
-        else setConfirmModal(true)
+        setConfirmModal(!confirmModal)
     }
     return (
         <PostModal onClick={clickModify}>
