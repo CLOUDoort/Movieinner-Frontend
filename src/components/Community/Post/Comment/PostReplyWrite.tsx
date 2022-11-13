@@ -1,4 +1,3 @@
-import { useRouter } from 'next/router'
 import { useState } from 'react'
 import { toast } from 'react-toastify'
 import { apiInstance } from '../../../../apis/setting'
@@ -22,10 +21,8 @@ const PostReplyWrite = (props) => {
                     responseTo: reply,
                 })
                 toast.success('댓글 작성 완료!')
-                console.log('댓글 작성', postComment.data.success)
                 setComment('') // teaxarea value 초기화
                 refreshFunction(postComment.data.comments) // 작성 댓글 업데이트
-                console.log('대댓글작성', postComment.data.comments)
                 clickReply()
                 // clickView()
             } catch (e) {

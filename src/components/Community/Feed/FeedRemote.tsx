@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { AiOutlineSearch } from 'react-icons/ai'
 import { BsPencilFill } from 'react-icons/bs'
 import { FeedRemoteBox } from './Feed.style'
-import FeedSearchModal from './FeedSearchModal'
+import FeedSearchModal from './Search/FeedSearchModal'
 
 const FeedRemote = (props) => {
     const { clickWrite } = props

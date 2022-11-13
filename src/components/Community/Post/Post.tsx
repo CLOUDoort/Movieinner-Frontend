@@ -38,6 +38,8 @@ const Post = () => {
         setCommentList(commentList.concat(newComment))
     }
 
+    // react-query reset
+
     return (
         <>
             {idx && !isLoading ? (

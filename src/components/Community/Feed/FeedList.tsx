@@ -1,7 +1,7 @@
 import { FeedListArea, FeedListContainer, FeedListFirstType, FeedListLastType } from './Feed.style'
 import Link from 'next/link'
 
-const FeedPost = (props) => {
+const FeedList = (props) => {
     const { feedPost } = props
     console.log('feed', feedPost)
 
@@ -38,4 +38,4 @@ const FeedPost = (props) => {
     )
 }
 
-export default FeedPost
+export default FeedList
