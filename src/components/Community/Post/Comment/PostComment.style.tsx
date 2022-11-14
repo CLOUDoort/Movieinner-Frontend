@@ -2,7 +2,8 @@ import styled from '@emotion/styled'
 
 export const CommentArea = styled.div`
     width: 100%;
-    height: 10rem;
+    height: auto;
+    overflow-y: auto;
 `
 
 export const CommentWrite = styled.div`

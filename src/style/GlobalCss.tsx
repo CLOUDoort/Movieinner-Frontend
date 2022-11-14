@@ -144,19 +144,20 @@ const GlobalCss = css`
     }
     body {
         font-family: 'Roboto';
+        height: 100vh;
         width: 100%;
-        height: 100%;
         background-color: #2e2e2e;
         color: white;
     }
     #__next {
-        min-height: 100vh;
         display: flex;
         flex-direction: column;
+        min-height: 100vh;
         justify-content: space-between;
+        flex-shrink: 0;
         > main {
             flex: 1;
-            height: 100vh - 90px;
+            overflow: hidden;
             display: flex;
             flex-direction: column;
             justify-content: space-between;

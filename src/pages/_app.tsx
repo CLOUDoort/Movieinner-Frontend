@@ -46,9 +46,10 @@ const MyApp: NextComponentType<AppContext, AppInitialProps, AppProps> = ({ Compo
                     <meta charSet='utf-8' />
                     <meta name='viewport' content='width=device-width, initial-scale=1.0' />
                 </Head>
-                <Header />
                 <main>
+                    <Header />
                     <Component {...pageProps} />
+                    <div></div>
                 </main>
                 <Footer />
                 <ToastContainer />
