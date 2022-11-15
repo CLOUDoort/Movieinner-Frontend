@@ -22,7 +22,7 @@ const PostReplyWrite = (props) => {
                 })
                 toast.success('댓글 작성 완료!')
                 setComment('') // teaxarea value 초기화
-                refreshFunction(postComment.data.comments) // 작성 댓글 업데이트
+                refreshFunction() // 작성 댓글 업데이트
                 clickReply()
                 // clickView()
             } catch (e) {

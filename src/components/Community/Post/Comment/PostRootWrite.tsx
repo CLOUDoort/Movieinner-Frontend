@@ -2,6 +2,7 @@ import { useRouter } from 'next/router'
 import { useState } from 'react'
 import { toast } from 'react-toastify'
 import { apiInstance } from '../../../../apis/setting'
+import UseGetPostData from '../../../react-query/PostData'
 import { CommentWrite } from './PostComment.style'
 
 const PostRootWrite = (props) => {
@@ -22,7 +23,8 @@ const PostRootWrite = (props) => {
                 })
                 toast.success('댓글 작성 완료!')
                 setComment('') // teaxarea value 초기화
-                refreshFunction(postComment.data.comments) // 작성 댓글 업데이트
+                refreshFunction() // 작성 댓글 업데이트
+                // UseGetPostData(idx ? idx : null).remove()
             } catch (e) {
                 console.error(e.response)
                 toast.error('댓글 작성 실패!')
