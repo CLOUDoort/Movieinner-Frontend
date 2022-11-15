@@ -19,6 +19,7 @@ const Feed = () => {
     const [pageValue, setPageValue] = useState(1)
     const { data, isLoading } = useGetFeedData(page ? page : 1)
     const hitData = useGetHitFeed().data
+    const hitLoading = useGetHitFeed().isLoading
 
     const clickWrite = () => {
         if (accessToken) {
@@ -40,7 +41,7 @@ const Feed = () => {
 
     return (
         <>
-            {page && !isLoading ? (
+            {page && !isLoading && !hitLoading ? (
                 <FeedContainer>
                     <FeedRanking hit={hitData?.data?.top5Contents} />
                     <FeedList feedPost={data} />
