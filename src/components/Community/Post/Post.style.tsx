@@ -5,16 +5,18 @@ export const PostContainer = styled.div`
     grid-template-rows: 700px 250px;
     row-gap: 50px;
     justify-content: center;
-    margin-top: 40px;
-    margin-bottom: 40px;
+    margin-top: 5px;
+    margin-bottom: 20px;
     position: relative;
+    height: auto;
+    overflow-y: auto;
 `
 export const PostContentArea = styled.div`
     width: 700px;
     display: flex;
     flex-direction: column;
-    border: 1px solid gray;
-    border-radius: 5px;
+    border: 1px solid white;
+    border-radius: 10px;
 `
 export const PostInfo = styled.div`
     display: flex;

@@ -2,8 +2,7 @@ import styled from '@emotion/styled'
 
 export const CommentArea = styled.div`
     width: 100%;
-    height: auto;
-    overflow-y: auto;
+    border-top: 1px solid rgba(210, 208, 208, 0.4);
 `
 
 export const CommentWrite = styled.div`
@@ -35,7 +34,11 @@ export const CommentWrite = styled.div`
 export const CommentList = styled.div`
     display: flex;
     flex-direction: column;
+    margin: 20px;
     > div {
+        border-bottom: 1px solid rgba(210, 208, 208, 0.4);
+        margin: 16px;
+        padding: 8px;
         margin-top: 20px;
     }
 `
