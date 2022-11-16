@@ -1,19 +1,21 @@
 import styled from '@emotion/styled'
 
 export const CommentArea = styled.div`
-    width: 100%;
+    min-width: 750px;
     border-top: 1px solid rgba(210, 208, 208, 0.4);
 `
 
 export const CommentWrite = styled.div`
     margin-top: 20px;
+    padding-right: 20px;
+    padding-left: 20px;
     > textarea {
         width: 100%;
         resize: none;
         border: none;
         outline: none;
         height: 6.25rem;
-        border-radius: 5px;
+        border-radius: 2px;
         padding: 5px 8px;
         font-size: 15px;
     }
@@ -37,9 +39,8 @@ export const CommentList = styled.div`
     margin: 20px;
     > div {
         border-bottom: 1px solid rgba(210, 208, 208, 0.4);
-        margin: 16px;
-        padding: 8px;
-        margin-top: 20px;
+        padding-top: 20px;
+        padding-bottom: 20px;
     }
 `
 

@@ -1,5 +1,16 @@
 import styled from '@emotion/styled'
 
+export const PostBox = styled.div`
+    width: 750px;
+    min-width: 750px;
+    margin: auto;
+    background-color: #545454;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    border-radius: 5px;
+    overflow: hidden;
+`
+
 export const PostContainer = styled.div`
     display: grid;
     grid-template-rows: 700px 250px;
@@ -12,10 +23,9 @@ export const PostContainer = styled.div`
     overflow-y: auto;
 `
 export const PostContentArea = styled.div`
-    width: 700px;
+    width: 750px;
     display: flex;
     flex-direction: column;
-    border: 1px solid white;
     border-radius: 10px;
 `
 export const PostInfo = styled.div`
@@ -23,7 +33,6 @@ export const PostInfo = styled.div`
     justify-content: space-between;
     padding: 16px 24px;
     > div {
-        margin-right: 10px;
         display: flex;
         > svg {
             cursor: pointer;
@@ -31,9 +40,6 @@ export const PostInfo = styled.div`
     }
     > :first-of-type {
         width: 60px;
-    }
-    > :last-of-type {
-        max-width: 400px;
     }
 `
 

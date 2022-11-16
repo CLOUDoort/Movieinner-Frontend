@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import Loading from '../../Loading'
-import { PostContainer } from './Post.style'
+import { PostBox, PostContainer } from './Post.style'
 import PostModifyModal from './PostModifyModal'
 import UseGetPostData from '../../react-query/PostData'
 import PostComment from './Comment/PostComment'
@@ -35,17 +35,17 @@ const Post = () => {
 
     const refreshFunction = (newComment) => {
         commentRefetch()
-            .then((data) => console.log('refecth', data))
-            .catch((e) => console.error(e.response))
     }
     return (
         <>
             {idx && !isLoading ? (
-                <PostContainer>
-                    <PostContent data={data?.data?.content} clickModify={clickModify} />
-                    <PostComment refreshFunction={refreshFunction} commentList={commentList?.data?.contents} idx={idx} />
-                    {showModal ? <PostModifyModal idx={idx} clickModify={clickModify} /> : null}
-                </PostContainer>
+                <PostBox>
+                    <PostContainer>
+                        <PostContent data={data?.data?.content} clickModify={clickModify} />
+                        <PostComment refreshFunction={refreshFunction} commentList={commentList?.data?.contents} idx={idx} />
+                        {showModal ? <PostModifyModal idx={idx} clickModify={clickModify} /> : null}
+                    </PostContainer>
+                </PostBox>
             ) : (
                 <Loading />
             )}
