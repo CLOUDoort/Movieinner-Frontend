@@ -5,6 +5,8 @@ const FeedRanking = (props) => {
     const { hit } = props
     const router = useRouter()
 
+    // number랑 조회수 필요
+
     return (
         <RankingArea>
             <RankingSubtitle>인기 게시글</RankingSubtitle>
@@ -12,7 +14,6 @@ const FeedRanking = (props) => {
                 <RankingList key={obj.idx}>
                     <div>
                         <span>1: </span>
-                        <span>{obj.idx}</span>
                         <span onClick={() => router.push(`/community/post/${obj.idx}`)}>{obj.title}</span>
                         <span>{obj.created_at}</span>
                     </div>

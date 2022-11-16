@@ -49,7 +49,6 @@ const MyApp: NextComponentType<AppContext, AppInitialProps, AppProps> = ({ Compo
                 <main>
                     <Header />
                     <Component {...pageProps} />
-                    <div></div>
                 </main>
                 <Footer />
                 <ToastContainer />

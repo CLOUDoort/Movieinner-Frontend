@@ -4,7 +4,6 @@ import { useState } from 'react'
 import PostReplyWrite from './PostReplyWrite'
 import { apiInstance } from '../../../../apis/setting'
 import { toast } from 'react-toastify'
-import { useRouter } from 'next/router'
 
 const PostSingleComment = (props) => {
     const [openReply, setOpenReply] = useState(false)
