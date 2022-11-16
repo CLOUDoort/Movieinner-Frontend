@@ -1,13 +1,13 @@
 import Link from 'next/link'
 import Router from 'next/router'
 import { useEffect, useState } from 'react'
-import { MdNightlight } from 'react-icons/md'
 import { useDispatch, useSelector } from 'react-redux'
 import { apiInstance } from '../../apis/setting'
 import { setToken, setNickname } from '../../store/reducers/logintokenSlice'
 import { RootState } from '../../store/store'
-import { FirstHeaderDiv, HeaderContainer, NavDiv, SecondHearderDiv, SecondHearderNav, SecondHearderSearchDiv, TitleDiv } from './Header.style'
+import { FirstHeaderDiv, HeaderContainer, NavDiv, SecondHearderDiv, SecondHearderNav, TitleDiv } from './Header.style'
 import { toast } from 'react-toastify'
+import HearderSearch from './HearderSearch'
 
 const Header = () => {
     const loginToken = useSelector((state: RootState) => state.token.token)
@@ -88,18 +88,7 @@ const Header = () => {
                         {nickname ? <Link href={`/user/${nickname}`}>마이페이지</Link> : <Link href='/login'>마이페이지</Link>}
                     </NavDiv>
                 </SecondHearderNav>
-                <SecondHearderSearchDiv>
-                    <button>
-                        <MdNightlight />
-                    </button>
-                    <svg xmlns='http://www.w3.org/2000/svg' fill='none' stroke='currentColor' viewBox='0 0 24 24' className='humbleicons hi-search'>
-                        <g xmlns='http://www.w3.org/2000/svg' stroke='currentColor' strokeWidth='2'>
-                            <path strokeLinecap='round' d='M20 20l-6-6' />
-                            <path d='M15 9.5a5.5 5.5 0 11-11 0 5.5 5.5 0 0111 0z' />
-                        </g>
-                    </svg>
-                    <input type='button' value='검색하기' />
-                </SecondHearderSearchDiv>
+                <HearderSearch />
             </SecondHearderDiv>
         </HeaderContainer>
     )
