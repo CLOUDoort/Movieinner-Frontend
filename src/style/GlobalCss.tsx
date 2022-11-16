@@ -162,12 +162,12 @@ const GlobalCss = css`
         display: none;
     }
     > main {
-        min-height: 100vh;
-        flex: 1;
-        overflow: hidden;
+        /* min-height: 100vh;
+        /* flex: 1; */
+        /* overflow: hidden;
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
+        justify-content: space-between; */
     }
 
     a {
