@@ -146,23 +146,29 @@ const GlobalCss = css`
         font-family: 'Roboto';
         height: 100vh;
         width: 100%;
-        background-color: #2e2e2e;
-        color: white;
     }
     #__next {
         display: flex;
+        color: white;
+        background-color: #2e2e2e;
         flex-direction: column;
         min-height: 100vh;
         justify-content: space-between;
         flex-shrink: 0;
-        > main {
-            flex: 1;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
+        -ms-overflow-style: none;
     }
+
+    ::-webkit-scrollbar {
+        display: none;
+    }
+    > main {
+        flex: 1;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
     a {
         text-decoration-line: none;
         color: white;
