@@ -7,7 +7,7 @@ export const PostBox = styled.div`
     background-color: #545454;
     margin-bottom: 5px;
     margin-top: 5px;
-    border-radius: 5px;
+    border-radius: 20px;
     overflow: hidden;
 `
 
@@ -23,10 +23,10 @@ export const PostContainer = styled.div`
     overflow-y: auto;
 `
 export const PostContentArea = styled.div`
+    padding: 20px;
     width: 750px;
     display: flex;
     flex-direction: column;
-    border-radius: 10px;
 `
 export const PostInfo = styled.div`
     display: flex;
@@ -37,9 +37,6 @@ export const PostInfo = styled.div`
         > svg {
             cursor: pointer;
         }
-    }
-    > :first-of-type {
-        width: 60px;
     }
 `
 
