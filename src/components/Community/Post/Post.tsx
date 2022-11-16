@@ -33,7 +33,7 @@ const Post = () => {
         setShowModal(!showModal)
     }
 
-    const refreshFunction = (newComment) => {
+    const refreshFunction = () => {
         commentRefetch()
     }
     return (
