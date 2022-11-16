@@ -15,11 +15,9 @@ import FeedSearchList from './FeedSearchList'
 const FeedSearchResult = () => {
     const accessToken = useSelector((state: RootState) => state.token.token)
     const router = useRouter()
-    const [menu, search, page] = router.query.slug
-    console.log('page', page)
+    const { type, search, page } = router.query
     const hitData = useGetHitFeed().data
-    const { data } = useGetFeedSearchData(menu, search, page)
-    console.log('data', data?.data?.searchResult)
+    const { data } = useGetFeedSearchData(type, search, page)
     const [pageValue, setPageValue] = useState(1)
 
     const clickWrite = () => {
@@ -32,7 +30,13 @@ const FeedSearchResult = () => {
     const handlePaginationChange = (value) => {
         try {
             setPageValue(value)
-            router.push(`/community/feed/search/${menu}/${search}/${value}`, undefined, { shallow: true })
+            router.push({
+                pathname: `/community/feed/search/${type}`,
+                query: {
+                    search: search,
+                    page: page,
+                },
+            })
         } catch (e) {
             console.error(e.response)
         }

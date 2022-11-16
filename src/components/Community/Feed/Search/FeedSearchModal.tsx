@@ -10,22 +10,28 @@ import router from 'next/router'
 const FeedSearchModal = (props) => {
     const { clickModal } = props
     const [search, setSearch] = useState('')
-    const [menu, setMenu] = useState('')
+    const [type, setType] = useState('')
     const handleChange = (e) => {
         setSearch(e.target.value)
     }
-    const menuChange = (e: SelectChangeEvent) => {
-        setMenu(e.target.value)
+    const typeChange = (e: SelectChangeEvent) => {
+        setType(e.target.value)
     }
 
     const clickSearch = async () => {
-        if (menu && search) {
+        if (type && search) {
             try {
-                router.push(`/community/feed/search/${menu}/${search}/1`)
+                router.push({
+                    pathname: `/community/feed/search/${type}`,
+                    query: {
+                        search: search,
+                        page: 1,
+                    },
+                })
             } catch (e) {
                 console.error(e.response)
             }
-        } else if (!menu) toast.error('검색 조건 설정해주세요')
+        } else if (!type) toast.error('검색 조건 설정해주세요')
         else toast.error('검색어 입력해주세요')
     }
     return (
@@ -34,7 +40,7 @@ const FeedSearchModal = (props) => {
                 <div onClick={(e) => e.stopPropagation()}>
                     <FormControl size='small'>
                         <InputLabel id='demo-select-small'>검색</InputLabel>
-                        <Select labelId='demo-select-small' id='demo-select-small' value={menu} label='menu' onChange={menuChange}>
+                        <Select labelId='demo-select-small' id='demo-select-small' value={type} label='type' onChange={typeChange}>
                             <MenuItem value={'title'}>제목</MenuItem>
                             <MenuItem value={'content'}>내용</MenuItem>
                             <MenuItem value={'titleAndContent'}>제목+내용</MenuItem>
