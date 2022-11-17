@@ -1,4 +1,4 @@
-import { Search } from '@mui/icons-material'
+import Search from "../../components/Search/Search"
 
 const search = () => {
     return <Search />
