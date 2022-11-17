@@ -153,6 +153,7 @@ const GlobalCss = css`
         background-color: #2e2e2e;
         flex-direction: column;
         min-height: 100vh;
+        height: 100%;
         justify-content: space-between;
         flex-shrink: 0;
         -ms-overflow-style: none;
@@ -162,12 +163,12 @@ const GlobalCss = css`
         display: none;
     }
     > main {
-        /* min-height: 100vh;
-        /* flex: 1; */
-        /* overflow: hidden;
+        min-height: 100vh;
+        flex: 1; 
+        overflow: hidden;
         display: flex;
         flex-direction: column;
-        justify-content: space-between; */
+        justify-content: space-between;
     }
 
     a {

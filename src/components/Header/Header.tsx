@@ -8,6 +8,7 @@ import { RootState } from '../../store/store'
 import { FirstHeaderDiv, HeaderContainer, NavDiv, SecondHearderDiv, SecondHearderNav, TitleDiv } from './Header.style'
 import { toast } from 'react-toastify'
 import HearderSearch from './HearderSearch'
+import HeaderNav from './HeaderNav'
 
 const Header = () => {
     const loginToken = useSelector((state: RootState) => state.token.token)
@@ -77,17 +78,7 @@ const Header = () => {
                 <button onClick={() => Router.push('/signup')}>회원가입</button>
             </FirstHeaderDiv>
             <SecondHearderDiv>
-                <SecondHearderNav>
-                    <TitleDiv>Movie Inner</TitleDiv>
-                    <NavDiv>
-                        <Link href='/'>홈</Link>
-                        <Link href='/'>카테고리</Link>
-                        <Link href='/community'>리뷰</Link>
-                        <Link href='/community/feed/1'>커뮤니티</Link>
-                        <Link href='/theme'>테마</Link>
-                        {nickname ? <Link href={`/user/${nickname}`}>마이페이지</Link> : <Link href='/login'>마이페이지</Link>}
-                    </NavDiv>
-                </SecondHearderNav>
+                <HeaderNav nickname={nickname} />
                 <HearderSearch />
             </SecondHearderDiv>
         </HeaderContainer>

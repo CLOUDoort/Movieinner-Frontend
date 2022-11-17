@@ -13,6 +13,7 @@ const HearderSearch = () => {
     const clickSearch = () => {
         router.push('/search')
     }
+    
 
     return (
         <>
