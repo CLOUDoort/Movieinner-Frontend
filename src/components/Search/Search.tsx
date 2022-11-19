@@ -1,5 +1,5 @@
 import { useRouter } from "next/router"
-import { useState } from "react"
+import { useCallback, useEffect, useState } from "react"
 import { apiInstance } from "../../apis/setting"
 import { SearchBox, SearchContainer } from "./Search.style"
 import SearchResult from "./SearchResult"
@@ -8,24 +8,40 @@ import { IoIosArrowRoundBack } from 'react-icons/io'
 const Search = () => {
     const router = useRouter()
     const [search, setSearch] = useState('')
-    const [searchList, setSearchList] = useState([])
-    const handleChange = async (e) => {
+    const [searchList, setSearchList] = useState({
+        movie: [],
+        actor: []
+    })
+
+    const handleChange = useCallback((e) => {
         setSearch(e.target.value)
-        try {
-            if (search) {
-                const getSearch = await apiInstance.get(`/search/movie`, {
-                    params: {
-                        search: search,
-                        searchPage: 1
-                    }
-                })
-                setSearchList(getSearch.data.search)
-                console.log('get', getSearch)
+    }, [search])
+
+    useEffect(() => {
+        const getResponse = async () => {
+            try {
+                if (search) {
+                    const movieSearch = await apiInstance.get(`/search/movie`, {
+                        params: {
+                            search: search,
+                            searchPage: 1
+                        }
+                    })
+                    const actorSearch = await apiInstance.get(`/search/actor`, {
+                        params: {
+                            search: search,
+                            searchPage: 1
+                        }
+                    })
+                    console.log('actor', actorSearch.data.search)
+                    setSearchList({ ...searchList, movie: movieSearch.data.search, actor: actorSearch.data.search })
+                }
+            } catch (e) {
+                console.error(e.response)
             }
-        } catch (e) {
-            console.error(e.response)
         }
-    }
+        getResponse()
+    }, [search])
     const clickBack = () => {
         router.back()
     }
