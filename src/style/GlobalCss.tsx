@@ -153,7 +153,6 @@ const GlobalCss = css`
         background-color: #2e2e2e;
         flex-direction: column;
         min-height: 100vh;
-        height: 100%;
         justify-content: space-between;
         flex-shrink: 0;
         -ms-overflow-style: none;

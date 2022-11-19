@@ -82,11 +82,10 @@ export const SecondHearderSearchDiv = styled.div`
         width: 36px;
     }
     > input {
-        border: none;
+        border: 1px solid gray;
         color: white;
         background-color: #4b4242;
         margin-right: 50px;
         font-size: 20px;
-        cursor: pointer;
     }
 `
