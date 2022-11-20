@@ -16,9 +16,9 @@ export const SearchBox = styled.div`
 export const SearchContainer = styled.div`
     width: 100%;
     max-width: 700px;
-    min-width: 600px;
+    min-width: 00px;
     max-height: 800px;
-    height: 800px;
+    height: 600px;
     background-color: #09365e;
     display: flex;
     flex-direction: column;
@@ -48,6 +48,15 @@ export const SearchContainer = styled.div`
         overflow-y: auto;
     }
 `
+export const SearchListTitle = styled.div`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+    margin-top: 20px;
+    margin-bottom: 20px;
+`
+
 export const SearchListItem = styled.div`
     min-width: 500px;
     > div {
@@ -64,7 +73,10 @@ export const SearchListItem = styled.div`
             flex-direction: column;
             > :first-of-type {
             cursor: pointer;
-        }
+            }
+            > :last-of-type {
+                font-size: 9px;
+            }
         }
     }
 `
