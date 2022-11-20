@@ -3,7 +3,7 @@ import { useCallback, useEffect, useState } from "react"
 import { apiInstance } from "../../apis/setting"
 import { SearchBox, SearchContainer } from "./Search.style"
 import SearchResult from "./SearchResult"
-import { IoIosArrowRoundBack } from 'react-icons/io'
+import { IoIosArrowBack } from 'react-icons/io'
 
 const Search = () => {
     const router = useRouter()
@@ -27,6 +27,8 @@ const Search = () => {
                             searchPage: 1
                         }
                     })
+                    console.log('movie', movieSearch.data.search)
+
                     const actorSearch = await apiInstance.get(`/search/actor`, {
                         params: {
                             search: search,
@@ -49,7 +51,7 @@ const Search = () => {
         <SearchBox onClick={clickBack}>
             <SearchContainer onClick={(e) => e.stopPropagation()}>
                 <div>
-                    <IoIosArrowRoundBack size={35} onClick={clickBack} />
+                    <IoIosArrowBack size={35} onClick={clickBack} />
                     <input type="text" placeholder="검색" value={search} onChange={handleChange} autoComplete='off' autoFocus />
                 </div>
                 <SearchResult searchList={searchList} />
