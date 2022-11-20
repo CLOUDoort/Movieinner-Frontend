@@ -27,16 +27,14 @@ const Search = () => {
                             searchPage: 1
                         }
                     })
-                    console.log('movie', movieSearch.data.search)
-
                     const actorSearch = await apiInstance.get(`/search/actor`, {
                         params: {
                             search: search,
                             searchPage: 1
                         }
                     })
-                    console.log('actor', actorSearch.data.search)
-                    setSearchList({ ...searchList, movie: movieSearch.data.search, actor: actorSearch.data.search })
+                    console.log('movie', movieSearch.data)
+                    setSearchList({ ...searchList, movie: movieSearch.data, actor: actorSearch.data })
                 }
             } catch (e) {
                 console.error(e.response)
