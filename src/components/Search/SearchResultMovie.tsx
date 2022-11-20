@@ -8,12 +8,12 @@ const SearchResultMovie = (props) => {
     const { movieList } = props
     return <>
         <SearchListTitle>
-            Movie {movieList.length}<IoIosArrowForward size={35} /></SearchListTitle>
-        {movieList?.map((list) => (
+            Movie {movieList?.total_results}<IoIosArrowForward size={35} /></SearchListTitle>
+        {movieList?.search?.map((list) => (
             <SearchListItem key={list.id}>
                 <div>
                     <Link href={`/movie/${list.id}`}>
-                        <Image src={`https://image.tmdb.org/t/p/w780${list.poster_path}`} alt={list?.title}
+                        <Image src={list.poster_path ? `https://image.tmdb.org/t/p/w780${list.poster_path}` : '/blank.png'} alt={list?.title}
                             width={46}
                             height={62}
                             objectFit='contain'
