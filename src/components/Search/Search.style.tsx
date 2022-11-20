@@ -36,17 +36,15 @@ export const SearchContainer = styled.div`
         padding: 8px 16px;
         }
         >svg {
-        z-index: 10000;
-        color: black;
         margin-right: 5px;
         }
     } 
     > :last-of-type {
-        margin-top: 20px;
         margin-bottom: 10px;
         height: auto;
         overflow-y: auto;
     }
+    
 `
 export const SearchListTitle = styled.div`
     display: flex;

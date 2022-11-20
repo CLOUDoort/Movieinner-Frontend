@@ -155,11 +155,6 @@ const GlobalCss = css`
         min-height: 100vh;
         justify-content: space-between;
         flex-shrink: 0;
-        -ms-overflow-style: none;
-    }
-
-    ::-webkit-scrollbar {
-        display: none;
     }
     > main {
         min-height: 100vh;
