@@ -9,8 +9,8 @@ const SearchResultActor = (props) => {
 
     return <>
         <SearchListTitle>
-            Creator &#38; Actor {actorList.length} <IoIosArrowForward size={35} /></SearchListTitle>
-        {actorList?.map((list) => (
+            Creator &#38; Actor {actorList?.total_results} <IoIosArrowForward size={35} /></SearchListTitle>
+        {actorList?.search?.map((list) => (
             <SearchListItem key={list.id}>
                 <div>
                     <Image src={list.profile_path ? `https://image.tmdb.org/t/p/w185${list.profile_path}` : '/blank.png'} alt={list?.name}
