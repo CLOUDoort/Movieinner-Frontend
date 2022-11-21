@@ -16,9 +16,9 @@ export const SearchBox = styled.div`
 export const SearchContainer = styled.div`
     width: 100%;
     max-width: 700px;
-    min-width: 00px;
+    min-width: 700px;
     max-height: 800px;
-    height: 600px;
+    height: 700px;
     background-color: #09365e;
     display: flex;
     flex-direction: column;

@@ -178,6 +178,9 @@ const GlobalCss = css`
         border-radius: 5px;
         outline: none;
     }
+    svg {
+        cursor: pointer;
+    }
 `
 
 export default GlobalCss
