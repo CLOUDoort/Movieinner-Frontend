@@ -1,6 +1,4 @@
 import { useRouter } from 'next/router'
-import { useState } from 'react'
-import { AiOutlineSearch } from 'react-icons/ai'
 import { MdNightlight } from 'react-icons/md'
 import { SecondHearderSearchDiv } from './Header.style'
 

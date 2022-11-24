@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import Router from 'next/router'
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
