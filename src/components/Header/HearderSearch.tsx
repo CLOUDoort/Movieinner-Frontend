@@ -1,20 +1,25 @@
 import { useRouter } from 'next/router'
-import { MdNightlight } from 'react-icons/md'
-import { SecondHearderSearchDiv } from './Header.style'
+import { useState } from 'react'
+import { BsSearch } from 'react-icons/bs'
+import { SearchContainer, SecondHearderSearchDiv } from './Header.style'
 
 const HearderSearch = () => {
     const router = useRouter()
+    const [click, setClick] = useState(false)
 
-    const clickSearch = () => {
+    const handleSearch = () => {
         router.push('/search')
     }
-
-
+    const clickSearchImg = () => {
+        setClick(!click)
+    }
     return (
         <>
             <SecondHearderSearchDiv>
-                <MdNightlight size={35} />
-                <input type='text' placeholder='검색' onClick={clickSearch} />
+                <SearchContainer click={click}>
+                    <BsSearch onClick={clickSearchImg} size={30} />
+                    <input type='text' placeholder='제목, 사람' autoFocus onKeyDown={handleSearch} autoComplete='off' />
+                </SearchContainer>
             </SecondHearderSearchDiv>
         </>
     )

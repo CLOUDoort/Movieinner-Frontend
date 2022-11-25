@@ -30,7 +30,7 @@ export const SecondHearderDiv = styled.div`
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    background-color: #4b4242;
+    background-color: black;
     color: white;
     padding: 10px;
 `
@@ -62,30 +62,28 @@ export const NavDiv = styled.div`
         content: '';
     }
 `
+type SearchProps = {
+    click: boolean
+}
 
 export const SecondHearderSearchDiv = styled.div`
-    justify-content: end;
     display: flex;
-    flex-direction: row;
-    flex-shrink: 0;
-    > button {
-        border: none;
-        background-color: white;
-        width: 36px;
-        margin-right: 10px;
-        transition: background-color, 0.2s;
-    }
-    > button:hover {
-        background-color: #a2a1a1;
-    }
-    > svg {
-        width: 36px;
-    }
+`
+
+export const SearchContainer = styled.div<SearchProps>`
+    display: flex;
+    border: ${(props) => (props.click ? '1px solid white;' : 'none')};
+    background-color: ${(props) => (props.click ? 'black' : 'none')};
+    padding: 5px;
     > input {
-        border: 1px solid gray;
+        width: ${(props) => (props.click ? '275px' : 0)};
+        background-color: ${(props) => (props.click ? 'black' : 'none')};
         color: white;
-        background-color: #4b4242;
-        margin-right: 50px;
-        font-size: 20px;
+        transition: 0.7s width linear;
+        border: none;
+        outline: none;
+        opacity: ${(props) => (props.click ? '1' : 0)};
+        margin-left: 10px;
+        padding: 5px;
     }
 `
