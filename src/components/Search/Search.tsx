@@ -45,7 +45,7 @@ const Search = () => {
     const clickBack = () => {
         router.back()
     }
-    return <>
+    return (
         <SearchBox onClick={clickBack}>
             <SearchContainer onClick={(e) => e.stopPropagation()}>
                 <div>
@@ -55,7 +55,7 @@ const Search = () => {
                 <SearchResult searchList={searchList} />
             </SearchContainer>
         </SearchBox>
-    </>
+    )
 }
 
 export default Search
