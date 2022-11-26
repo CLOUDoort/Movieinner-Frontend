@@ -1,29 +1,17 @@
 import styled from '@emotion/styled'
 
 export const SearchBox = styled.div`
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-color: rgba(0,0,0,0.8);
-    z-index: 9999;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-`
-export const SearchContainer = styled.div`
     width: 100%;
-    max-width: 700px;
-    min-width: 700px;
-    max-height: 800px;
-    height: 300px;
+    height: 100vh;
+    `
+export const SearchContainer = styled.div`
+    transition: all 1s;  
+    width: 100%;
+    height: 100vh;
     background-color: #09365e;
     display: flex;
     flex-direction: column;
     align-items: center;
-    border-radius: 10px;
     > :first-of-type {
         display: flex;
         justify-content: center;
