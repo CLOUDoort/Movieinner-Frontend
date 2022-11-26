@@ -1,26 +1,22 @@
 import { useRouter } from "next/router"
-import { useCallback, useEffect, useState } from "react"
+import { useEffect, useState } from "react"
 import { apiInstance } from "../../apis/setting"
-import { SearchBox, SearchContainer } from "./Search.style"
+import { SearchContainer } from "./Search.style"
 import SearchResult from "./SearchResult"
 import { IoIosArrowBack } from 'react-icons/io'
 
 const Search = () => {
     const router = useRouter()
-    const [search, setSearch] = useState('')
+    const { search } = router.query
+    console.log('ro', router.query)
     const [searchList, setSearchList] = useState({
         movie: [],
         actor: []
     })
-
-    const handleChange = useCallback((e) => {
-        setSearch(e.target.value)
-    }, [search])
-
     useEffect(() => {
         const getResponse = async () => {
             try {
-                if (search) {
+                if (router.isReady) {
                     const movieSearch = await apiInstance.get(`/search/movie`, {
                         params: {
                             search: search,
@@ -35,7 +31,7 @@ const Search = () => {
                     })
                     console.log('movie', movieSearch.data)
                     setSearchList({ ...searchList, movie: movieSearch.data, actor: actorSearch.data })
-                }
+                } else return
             } catch (e) {
                 console.error(e.response)
             }
@@ -46,15 +42,12 @@ const Search = () => {
         router.back()
     }
     return (
-        <SearchBox onClick={clickBack}>
-            <SearchContainer onClick={(e) => e.stopPropagation()}>
-                <div>
-                    <IoIosArrowBack size={35} onClick={clickBack} />
-                    <input type="text" placeholder="검색" value={search} onChange={handleChange} autoComplete='off' autoFocus />
-                </div>
-                <SearchResult searchList={searchList} />
-            </SearchContainer>
-        </SearchBox>
+        <SearchContainer onClick={(e) => e.stopPropagation()}>
+            <div>
+                <IoIosArrowBack size={35} onClick={clickBack} />
+            </div>
+            <SearchResult searchList={searchList} />
+        </SearchContainer>
     )
 }
 
