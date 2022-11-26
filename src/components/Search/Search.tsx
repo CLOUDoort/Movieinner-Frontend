@@ -13,9 +13,11 @@ const Search = () => {
         movie: [],
         actor: []
     })
+    const [darkmode, setDarkmode] = useState(false)
     useEffect(() => {
         const getResponse = async () => {
             try {
+                setDarkmode(true)
                 if (router.isReady) {
                     const movieSearch = await apiInstance.get(`/search/movie`, {
                         params: {
@@ -42,7 +44,7 @@ const Search = () => {
         router.back()
     }
     return (
-        <SearchContainer onClick={(e) => e.stopPropagation()}>
+        <SearchContainer darkmode={darkmode} onClick={(e) => e.stopPropagation()}>
             <div>
                 <IoIosArrowBack size={35} onClick={clickBack} />
             </div>

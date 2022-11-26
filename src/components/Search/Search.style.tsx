@@ -1,17 +1,19 @@
 import styled from '@emotion/styled'
 
-export const SearchBox = styled.div`
+type SearchContainerType = {
+    darkmode: Boolean
+}
+
+export const SearchContainer = styled.div<SearchContainerType>`
     width: 100%;
     height: 100vh;
-    `
-export const SearchContainer = styled.div`
-    transition: all 1s;  
-    width: 100%;
-    height: 100vh;
-    background-color: #09365e;
+    z-index: -1;
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: black;
+    opacity: ${(props) => props.darkmode ? 1 : 0};
+    transition: opacity 1s;
     > :first-of-type {
         display: flex;
         justify-content: center;
