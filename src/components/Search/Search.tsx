@@ -15,6 +15,8 @@ const Search = () => {
     const [darkmode, setDarkmode] = useState(false)
     useEffect(() => {
         const getResponse = async () => {
+            const getGenreId = new URL(window.location.href).searchParams.get('genre')
+            console.log('genreId', getGenreId)
             try {
                 setDarkmode(true)
                 if (router.isReady) {

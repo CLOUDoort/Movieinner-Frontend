@@ -49,9 +49,9 @@ const MyApp: NextComponentType<AppContext, AppInitialProps, AppProps> = ({ Compo
                 <main>
                     <Header />
                     <Component {...pageProps} />
+                    <ToastContainer />
                 </main>
                 <Footer />
-                <ToastContainer />
                 <Global styles={GlobalCss} />
             </Provider>
         </QueryClientProvider>

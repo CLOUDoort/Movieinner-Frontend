@@ -138,13 +138,8 @@ const GlobalCss = css`
         font-family: 'Roboto';
         box-sizing: border-box;
     }
-    html {
-        width: 100%;
-        height: 100%;
-    }
     body {
         font-family: 'Roboto';
-        height: 100vh;
         width: 100%;
     }
     #__next {
@@ -152,14 +147,14 @@ const GlobalCss = css`
         color: white;
         background-color: black;
         flex-direction: column;
-        min-height: 100vh;
+        min-height: 100%;
         justify-content: space-between;
         flex-shrink: 0;
     }
     > main {
-        min-height: 100vh;
+        height: 100vh;
         flex: 1; 
-        overflow: hidden;
+        /* overflow: hidden; */
         display: flex;
         flex-direction: column;
         justify-content: space-between;

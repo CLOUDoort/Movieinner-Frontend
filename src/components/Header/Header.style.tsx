@@ -5,6 +5,7 @@ export const HeaderContainer = styled.header`
     display: flex;
     flex-direction: column;
     overflow: hidden;
+    border-bottom: 1px solid red;
 `
 
 export const FirstHeaderDiv = styled.div`
@@ -48,18 +49,19 @@ export const TitleDiv = styled.div`
 `
 
 export const NavDiv = styled.div`
-    > a {
+    >button, a {
         float: left;
     }
-    > a::after {
+    > a::after{
         content: '|';
         float: right;
         color: #ccc;
         margin-right: 17px;
         margin-left: 17px;
     }
-    > a:last-child::after {
-        content: '';
+    > button {
+        all: unset;
+        cursor: pointer;
     }
 `
 type SearchProps = {
