@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { RootState } from '../store/store'
+import { IndexBox } from './Index.style'
 import IndexSlider from './IndexSlider'
 
 const Index = () => {
@@ -9,7 +10,12 @@ const Index = () => {
     // const verifyEmail = await apiInstance.get('/verify')
     // if (verifyEmail) toast.success('메일 인증에 성공하셨습니다!')
 
-    return <IndexSlider />
+    return (
+        <IndexBox>
+            <IndexSlider />
+        </IndexBox>
+
+    )
 }
 
 export default Index
