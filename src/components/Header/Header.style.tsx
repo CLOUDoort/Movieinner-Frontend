@@ -79,7 +79,7 @@ export const SearchContainer = styled.div<SearchProps>`
         width: ${(props) => (props.click ? '275px' : 0)};
         background-color: ${(props) => (props.click ? 'black' : 'none')};
         color: white;
-        transition: 0.7s width linear;
+        transition: 0.3s width linear;
         border: none;
         outline: none;
         opacity: ${(props) => (props.click ? '1' : 0)};
