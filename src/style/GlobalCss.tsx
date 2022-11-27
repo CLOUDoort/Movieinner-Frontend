@@ -150,7 +150,7 @@ const GlobalCss = css`
     #__next {
         display: flex;
         color: white;
-        background-color: #545353;
+        background-color: black;
         flex-direction: column;
         min-height: 100vh;
         justify-content: space-between;
