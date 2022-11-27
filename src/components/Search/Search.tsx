@@ -8,7 +8,6 @@ import { IoIosArrowBack } from 'react-icons/io'
 const Search = () => {
     const router = useRouter()
     const { search } = router.query
-    console.log('ro', router.query)
     const [searchList, setSearchList] = useState({
         movie: [],
         actor: []

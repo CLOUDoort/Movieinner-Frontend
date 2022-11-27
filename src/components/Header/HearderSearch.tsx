@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router'
 import { useCallback, useEffect, useState } from 'react'
-import { BsSearch } from 'react-icons/bs'
+import { BsFillEraserFill, BsSearch } from 'react-icons/bs'
 import { SearchContainer, SecondHearderSearchDiv } from './Header.style'
 
 const HearderSearch = () => {
@@ -11,23 +11,29 @@ const HearderSearch = () => {
     const handleSearchValue = useCallback((e) => {
         setSearch(e.target.value)
     }, [search])
+
     useEffect(() => {
         try {
-            router.push({
-                pathname: `/search`,
-                query: {
-                    search: search
-                }
-            })
-            window.history.pushState(window.history.state,
-                '',
-                window.location.pathname + '?' + `/search?search=${search}`,)
-        } catch (e) {
+            if (search) {
+                router.replace({
+                    pathname: '/search',
+                    query: {
+                        search: search
+                    }
+                }, undefined, { shallow: true })
+                window.history.replaceState('', '', `/search?search=${search}`)
+            }
+        }
+        catch (e) {
             console.error(e.response)
         }
     }, [search])
     const clickSearchImg = () => {
         setClick(!click)
+    }
+    const backPage = () => {
+        router.replace('/')
+        setSearch('')
     }
     return (
         <>
@@ -35,6 +41,7 @@ const HearderSearch = () => {
                 <SearchContainer click={click}>
                     <BsSearch onClick={clickSearchImg} size={30} />
                     <input type='text' placeholder='제목, 사람' autoFocus autoComplete='off' value={search} onChange={handleSearchValue} />
+                    {search && <BsFillEraserFill onClick={backPage} size={30} />}
                 </SearchContainer>
             </SecondHearderSearchDiv>
         </>
