@@ -1,55 +1,34 @@
 import { useRouter } from "next/router"
 import { useEffect, useState } from "react"
-import { apiInstance } from "../../apis/setting"
 import { SearchContainer } from "./Search.style"
 import SearchResult from "./SearchResult"
 import { IoIosArrowBack } from 'react-icons/io'
+import useGetMovieSearch from "../react-query/MovieSearch"
+import useGetActorSearch from "../react-query/ActorSearch"
 
 const Search = () => {
     const router = useRouter()
-    const { search } = router.query
-    const [searchList, setSearchList] = useState({
-        movie: [],
-        actor: []
-    })
+    const { search, page, genre } = router.query
+    const movieSearch = useGetMovieSearch(search, page ? page : 1).data
+    const actorSearch = useGetActorSearch(search, page ? page : 1).data
     const [darkmode, setDarkmode] = useState(false)
+    const [message, setMessage] = useState(false)
+    console.log('movie', movieSearch)
     useEffect(() => {
-        const getResponse = async () => {
-            const getGenreId = new URL(window.location.href).searchParams.get('genre')
-            console.log('genreId', getGenreId)
-            try {
-                setDarkmode(true)
-                if (router.isReady) {
-                    const movieSearch = await apiInstance.get(`/search/movie`, {
-                        params: {
-                            search: search,
-                            searchPage: 1
-                        }
-                    })
-                    const actorSearch = await apiInstance.get(`/search/actor`, {
-                        params: {
-                            search: search,
-                            searchPage: 1
-                        }
-                    })
-                    console.log('movie', movieSearch.data)
-                    setSearchList({ ...searchList, movie: movieSearch.data, actor: actorSearch.data })
-                } else return
-            } catch (e) {
-                console.error(e.response)
-            }
-        }
-        getResponse()
-    }, [search])
+        setDarkmode(true)
+        // if (movieSearch?.data?.total_results === 0 && actorSearch?.data?.total_results === 0) setMessage(true)
+        // else setMessage(false)
+    })
     const clickBack = () => {
-        router.back()
+        router.replace('/')
     }
+    // if (searchList.movie.total_results === 0 && searchList.actor.total_pages === 0) setMessage(true)
     return (
         <SearchContainer darkmode={darkmode} onClick={(e) => e.stopPropagation()}>
             <div>
                 <IoIosArrowBack size={35} onClick={clickBack} />
             </div>
-            <SearchResult searchList={searchList} />
+            {message ? <div>결과가 없습니다</div> : <SearchResult movieSearch={movieSearch?.data} actorSearch={actorSearch?.data} />}
         </SearchContainer>
     )
 }
