@@ -5,11 +5,11 @@ import SearchResultActor from "./SearchResultActor"
 import SearchResultMovie from "./SearchResultMovie"
 
 const SearchResult = (props) => {
-    const { searchList } = props
+    const { movieSearch, actorSearch } = props
     return <>
         <div>
-            <SearchResultMovie movieList={searchList?.movie} />
-            <SearchResultActor actorList={searchList?.actor} />
+            <SearchResultMovie movieSearch={movieSearch} />
+            <SearchResultActor actorSearch={actorSearch} />
         </div>
     </>
 }
