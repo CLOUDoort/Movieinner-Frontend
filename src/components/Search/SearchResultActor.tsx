@@ -5,12 +5,12 @@ import { IoIosArrowForward } from "react-icons/io"
 
 
 const SearchResultActor = (props) => {
-    const { actorList } = props
+    const { actorSearch } = props
 
     return <>
         <SearchListTitle>
-            Creator &#38; Actor {actorList?.total_results} <IoIosArrowForward size={35} /></SearchListTitle>
-        {actorList?.search?.map((list) => (
+            Creator &#38; Actor {actorSearch?.total_results} <IoIosArrowForward size={35} /></SearchListTitle>
+        {actorSearch?.search?.map((list) => (
             <SearchListItem key={list.id}>
                 <div>
                     <Image src={list.profile_path ? `https://image.tmdb.org/t/p/w185${list.profile_path}` : '/blank.png'} alt={list?.name}
