@@ -5,11 +5,11 @@ import { IoIosArrowForward } from "react-icons/io"
 
 
 const SearchResultMovie = (props) => {
-    const { movieList } = props
+    const { movieSearch } = props
     return <>
         <SearchListTitle>
-            Movie {movieList?.total_results}<IoIosArrowForward size={35} /></SearchListTitle>
-        {movieList?.search?.map((list) => (
+            Movie {movieSearch?.total_results}<IoIosArrowForward size={35} /></SearchListTitle>
+        {movieSearch?.search?.map((list) => (
             <SearchListItem key={list.id}>
                 <div>
                     <Link href={`/movie/${list.id}`}>
