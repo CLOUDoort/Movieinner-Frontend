@@ -18,7 +18,8 @@ const HearderSearch = () => {
                 router.replace({
                     pathname: '/search',
                     query: {
-                        search: search
+                        search: search,
+                        page: 1
                     }
                 }, undefined, { shallow: true })
                 window.history.replaceState('', '', `/search?search=${search}`)
