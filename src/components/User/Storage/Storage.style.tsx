@@ -40,6 +40,14 @@ export const StorageMovieContainer = styled.div`
     overflow: hidden;
     padding: 0 0 1px;
     overflow-x: scroll;
+    overflow-y: auto;
+  &::-webkit-scrollbar {
+    width: 2px;
+  }
+  &::-webkit-scrollbar-thumb {
+    border-radius: 2px;
+    background: red;
+  }
 `
 
 export const StorageMovieList = styled.ul`

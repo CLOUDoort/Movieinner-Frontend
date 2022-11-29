@@ -1,7 +1,7 @@
 import styled from '@emotion/styled'
 
 type SearchContainerType = {
-    darkmode: Boolean
+  darkmode: Boolean
 }
 
 export const SearchContainer = styled.div<SearchContainerType>`
@@ -33,7 +33,14 @@ export const SearchContainer = styled.div<SearchContainerType>`
         margin-bottom: 10px;
         height: auto;
         overflow-y: auto;
+    &::-webkit-scrollbar {
+      width: 4px;
     }
+    &::-webkit-scrollbar-thumb {
+     border-radius: 2px;
+      background: red;
+    }
+  }
     
 `
 export const SearchListTitle = styled.div`
@@ -68,3 +75,14 @@ export const SearchListItem = styled.div`
         }
     }
 `
+
+export const ScrollDiv = styled.div`
+  overflow-y: auto;
+  &::-webkit-scrollbar {
+    width: 4px;
+  }
+  &::-webkit-scrollbar-thumb {
+    border-radius: 2px;
+    background: #ccc;
+  }
+`;
