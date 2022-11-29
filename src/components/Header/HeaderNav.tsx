@@ -14,7 +14,7 @@ const HeaderNav = (props) => {
     useEffect(() => {
         const getResponse = async () => {
             const getGenreList = await apiInstance.get(`/movies/genre`)
-            setList(getGenreList.data.genres)
+            setList(getGenreList.data)
         }
         getResponse()
     })
