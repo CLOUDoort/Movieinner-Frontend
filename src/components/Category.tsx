@@ -9,8 +9,8 @@ const Category = (props) => {
                 <CategoryList>
                     {list.map((obj) => (
                         <div key={obj.id}>
-                            <Link href={`/search?genre=${obj.id}`}>
-                                <a>
+                            <Link href={`/search?genre=${obj.id}&name=${obj.name}`}>
+                                <a onClick={clickModal}>
                                     {obj.name}
                                 </a>
                             </Link>
