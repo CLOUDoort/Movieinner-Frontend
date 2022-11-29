@@ -22,8 +22,7 @@ const HearderSearch = () => {
                         page: 1
                     }
                 }, undefined, { shallow: true })
-                window.history.replaceState('', '', `/search?search=${search}`)
-            }
+            } else router.replace('/')
         }
         catch (e) {
             console.error(e.response)
@@ -35,6 +34,7 @@ const HearderSearch = () => {
     const backPage = () => {
         router.replace('/')
         setSearch('')
+        setClick(false)
     }
     return (
         <>
