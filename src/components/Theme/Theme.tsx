@@ -4,6 +4,7 @@ import { ThemeContainer } from './Theme.style'
 import { useState, useEffect } from 'react'
 import ThemeModal from './ThemeModal'
 import { apiInstance } from '../../apis/setting'
+import useGetThemeMovie from '../react-query/ThemeMovie'
 
 const Theme = () => {
     // 페이지가 렌더링된 이후에 useEffect가 되기 때문에, useEffect안에서 state를 변화하는 setState함수를 사용하면 페이지는 상태 변화를 알아차리지 못 한다. 그래서 한 번 더 렌더링 해줘야 상태 변화를 알아차린다.
@@ -11,6 +12,9 @@ const Theme = () => {
     const [themeInfo, setThemeInfo] = useState({})
     const [sliderImage, setSliderImage] = useState([])
     const [modalInfo, setModalInfo] = useState([])
+
+    const themeMovie = useGetThemeMovie().data
+    const { music, horror, action, romance, animation, sf } = themeMovie?.data
 
     useEffect(() => {
         const getImages = async () => {
