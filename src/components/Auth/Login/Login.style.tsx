@@ -30,7 +30,7 @@ export const FormContainer = styled.form`
         font-size: 20px;
         padding: 8px 16px;
         background-color: black;
-        border: none;
+        border: 1px solid gray;
         margin-bottom: 10px;
         border-radius: 5px;
         color: white;
@@ -73,7 +73,8 @@ export const LoginSecondDiv = styled.div`
         font-size: 18px;
         background-color: #2e2e2e;
         color: #b0aeae;
-        border: none;
+        border: 1px solid gray;
+        margin-left: 10px;
         border-radius: 5px;
         padding: 8px 16px;
         width: 213px;
