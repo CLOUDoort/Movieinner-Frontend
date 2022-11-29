@@ -1,13 +1,12 @@
-import Image from "next/image"
-import Link from "next/link"
-import { SearchListItem } from "./Search.style"
 import SearchResultActor from "./SearchResultActor"
+import SearchResultGenre from "./SearchResultGenre"
 import SearchResultMovie from "./SearchResultMovie"
 
 const SearchResult = (props) => {
-    const { movieSearch, actorSearch } = props
+    const { movieSearch, actorSearch, genreSearch, genreName } = props
     return <>
         <div>
+            <SearchResultGenre genreSearch={genreSearch} genreName={genreName} />
             <SearchResultMovie movieSearch={movieSearch} />
             <SearchResultActor actorSearch={actorSearch} />
         </div>
