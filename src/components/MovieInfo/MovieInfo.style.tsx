@@ -99,43 +99,48 @@ export const MovieActorScroll = styled.div`
 `
 
 export const MovieActorContainer = styled.div`
-    width: 800px;
+    width: 730px;
     position: relative;
     overflow: hidden;
     padding: 0 0 1px;
     overflow-x: scroll;
-`
+    overflow-y: auto;
+    &::-webkit-scrollbar {
+      width: 1px;
+      height: 4px;
+    }
+    &::-webkit-scrollbar-thumb {
+     border-radius: 2px;
+      background: red;
+    }
+    `
 
 export const MovieActorList = styled.ul`
     display: table;
     margin-top: 10px;
-    margin-bottom: 10px;
     border-spacing: 9px 0;
     border-collapse: separate;
     table-layout: fixed;
     white-space: nowrap;
     font-size: 0;
     line-height: 0;
-    overflow: hidden;
-    overflow: scroll;
-`
+    `
 export const ActorAreaCard = styled.li`
     width: 145px !important;
     display: table-cell;
     position: relative;
     white-space: normal;
     vertical-align: top;
-    background-color: white;
     z-index: 2;
     border-spacing: 9px 0;
     border-collapse: separate;
     border-radius: 10px;
     > div {
         height: 100%;
-        background-color: #fff;
         width: inherit;
         border-radius: 6px;
         ::before {
+            background-color: black;
             content: '';
             display: block;
             position: absolute;
@@ -153,7 +158,8 @@ export const ActorImageBox = styled.div`
     display: block;
     position: relative;
     width: 145px !important;
-    height: 150px !important;
+    height: 170px !important;
+    
     ::before {
         display: block;
         position: absolute;
@@ -168,7 +174,7 @@ export const ActorImageBox = styled.div`
     > span {
         border-radius: 6px 6px 0 0;
     }
-`
+    `
 
 export const ActorTitleBox = styled.div`
     padding: 4px 6px 5px !important;
@@ -176,14 +182,13 @@ export const ActorTitleBox = styled.div`
     display: block;
     > strong {
         max-height: 4.8rem;
+        color: white;
         overflow: hidden;
         text-overflow: ellipsis;
         word-break: break-all;
         word-wrap: break-word;
-
         position: relative;
         z-index: 5;
-        color: #242424;
         font-size: 1rem;
         font-weight: normal;
         line-height: 1.8rem;
@@ -196,8 +201,7 @@ export const ActorTitleBox = styled.div`
         word-wrap: break-word;
         position: relative;
         z-index: 5;
-        color: #242424;
-        color: gray;
+        color: white;
         line-height: 1.8rem;
         font-size: 1rem;
         white-space: normal;
