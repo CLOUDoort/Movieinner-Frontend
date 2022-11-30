@@ -11,7 +11,6 @@ const ThemeItem = (props) => {
                     <Image
                         src={`https://image.tmdb.org/t/p/w1280${obj.backdrop_path}`}
                         id={obj.theme_name}
-                        alt={obj.theme_name}
                         onClick={openModal}
                         layout='fill'
                         objectFit='contain'

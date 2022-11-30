@@ -7,7 +7,6 @@ import { Autoplay, Pagination, Navigation } from 'swiper'
 
 const ThemeSlider = (props) => {
     const { openModal, sliderImage } = props
-    console.log(sliderImage)
     return (
         <Swiper
             cssMode={true}

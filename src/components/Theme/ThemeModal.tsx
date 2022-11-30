@@ -20,7 +20,6 @@ const ThemeModal = (props) => {
                                         <a>
                                             <Image
                                                 src={`https://image.tmdb.org/t/p/w500/${obj.poster_path}`}
-                                                alt={obj.movie_name}
                                                 id={obj.movie_name}
                                                 width={180}
                                                 height={200}
