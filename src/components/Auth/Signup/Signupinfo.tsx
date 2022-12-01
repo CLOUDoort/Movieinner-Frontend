@@ -39,7 +39,7 @@ const Signupinfo = () => {
     useEffect(() => {
         const check = async () => {
             try {
-                const response = await apiInstance.post('/users/nickname', { nickname: info.nickname })
+                const response = await apiInstance.post('/users/check/nickname', { nickname: info.nickname })
                 if (response.data.isNicknameExisted)
                     setCheckNickname({
                         ...checkNickname,
