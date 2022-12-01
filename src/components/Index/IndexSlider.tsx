@@ -4,10 +4,12 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 
 // import required modules
 import { Autoplay, Pagination, Navigation } from 'swiper'
+import { useRouter } from 'next/router'
 
 
 const IndexSlider = (props) => {
     const { sliderImage } = props
+    const router = useRouter()
     return (
 
         <Swiper
@@ -27,11 +29,10 @@ const IndexSlider = (props) => {
             className='mySwiper'
         >
             {sliderImage.map((obj) => (
-                <SwiperSlide key={obj.movie_id}>
+                <SwiperSlide key={obj.movie_id} onClick={() => router.push(`/movie/${obj.movie_id}`)}>
                     <Image
                         src={`https://image.tmdb.org/t/p/w1280${obj.backdrop_path}`}
                         id={obj.movie_name}
-                        // onClick={openModal}
                         layout='fill'
                         priority={true}
                     />
