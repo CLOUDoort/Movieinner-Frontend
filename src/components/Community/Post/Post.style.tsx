@@ -1,14 +1,25 @@
 import styled from '@emotion/styled'
 
 export const PostBox = styled.div`
-    width: 750px;
+    width: 850px;
     min-width: 750px;
     margin: auto;
-    background-color: #545454;
-    margin-bottom: 5px;
-    margin-top: 5px;
-    border-radius: 20px;
-    overflow: hidden;
+    background-color: #313131;
+    color: white;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    border-radius: 10px;
+    overflow: auto;
+    height: 100vh;
+    &::-webkit-scrollbar {
+      width: 5px;
+      height: 20px;
+    }
+    &::-webkit-scrollbar-thumb {
+     border-radius: 2px;
+      background: gray;
+      max-height: 95%;
+    }
 `
 
 export const PostContainer = styled.div`
@@ -19,8 +30,7 @@ export const PostContainer = styled.div`
     margin-top: 5px;
     margin-bottom: 20px;
     position: relative;
-    height: auto;
-    overflow-y: auto;
+    height: 100%;
 `
 export const PostContentArea = styled.div`
     padding: 20px;
