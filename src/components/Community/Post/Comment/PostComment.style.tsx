@@ -3,6 +3,7 @@ import styled from '@emotion/styled'
 export const CommentArea = styled.div`
     min-width: 750px;
     border-top: 1px solid rgba(210, 208, 208, 0.4);
+    margin-bottom: 20px;
 `
 
 export const CommentWrite = styled.div`
