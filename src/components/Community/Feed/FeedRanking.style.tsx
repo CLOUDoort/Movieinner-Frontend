@@ -1,7 +1,7 @@
 import styled from '@emotion/styled'
 
 export const RankingArea = styled.div`
-    width: 700px;
+    width: 750px;
     border: 1px solid gray;
     height: 250px;
     border-radius: 5px;
@@ -14,7 +14,7 @@ export const RankingSubtitle = styled.p`
 export const RankingList = styled.div`
     width: 100%;
     display: flex;
-    > div > :nth-of-type(3) {
+    > div > :nth-of-type(2) {
         cursor: pointer;
     }
     > div > span {
