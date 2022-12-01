@@ -1,7 +1,7 @@
 import Link from "next/link"
 import { useEffect, useState } from "react"
 import { apiInstance } from "../../apis/setting"
-import Kategorie from "../Category"
+import Category from "../Category"
 import { NavDiv, SecondHearderNav, TitleDiv } from "./Header.style"
 
 const HeaderNav = (props) => {
@@ -24,7 +24,7 @@ const HeaderNav = (props) => {
             <NavDiv>
                 <Link href='/'>홈</Link>
                 <button onClick={clickModal}>카테고리</button>
-                {modal && <Kategorie clickModal={clickModal} list={list} />}
+                {modal && <Category clickModal={clickModal} list={list} />}
                 <Link href='/community/feed/1'>커뮤니티</Link>
                 <Link href='/theme'>테마</Link>
                 {nickname ? <Link href={`/user/${nickname}`}>마이페이지</Link> : <Link href='/login'>마이페이지</Link>}
