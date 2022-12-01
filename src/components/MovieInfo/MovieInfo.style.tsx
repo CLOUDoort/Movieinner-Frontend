@@ -104,10 +104,9 @@ export const MovieActorContainer = styled.div`
     overflow: hidden;
     padding: 0 0 1px;
     overflow-x: scroll;
-    overflow-y: auto;
     &::-webkit-scrollbar {
       width: 1px;
-      height: 4px;
+      height: 8px;
     }
     &::-webkit-scrollbar-thumb {
      border-radius: 2px;
