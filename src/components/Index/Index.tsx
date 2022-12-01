@@ -4,13 +4,15 @@ import useGetThemeMovie from '../react-query/ThemeMovie'
 import { IndexBox } from './Index.style'
 import IndexSlider from './IndexSlider'
 import IndexPopularList from './IndexPopularList'
+import useGetHitFeed from '../react-query/HitFeedData'
+import FeedRanking from '../Community/Feed/FeedRanking'
 
 const Index = () => {
     const popularMovie = useGetPopularMovie().data
     const themeMovie = useGetThemeMovie().data
     const isLoading = useGetThemeMovie().isLoading
     const [sliderImage, setSliderImage] = useState([])
-    console.log('po', popularMovie?.data)
+    const hitFeed = useGetHitFeed().data
     useEffect(() => {
         const getResponse = () => {
             if (!isLoading) {
@@ -31,6 +33,7 @@ const Index = () => {
             {!isLoading && <IndexBox>
                 <IndexSlider sliderImage={sliderImage} />
                 <IndexPopularList popularMovie={popularMovie?.data} />
+                <FeedRanking hit={hitFeed?.data?.top5Contents} />
             </IndexBox>}
         </>
     )
