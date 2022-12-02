@@ -11,13 +11,16 @@ export const RankingSubtitle = styled.p`
     padding: 16px 24px;
 `
 
-export const RankingList = styled.div`
+export const RankingList = styled.ul`
     width: 100%;
     display: flex;
-    > div > :nth-of-type(2) {
+    > li > :nth-of-type(1) {
+        font-style: italic;
+    }
+    > li > :nth-of-type(2) {
         cursor: pointer;
     }
-    > div > span {
+    > li > span {
         padding-left: 20px;
     }
 `
