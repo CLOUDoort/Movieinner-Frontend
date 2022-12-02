@@ -1,8 +1,9 @@
-import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
 import { apiInstance } from '../../apis/setting'
-import StorageWatched from './Storage/StorageWatched'
+import { UserBox } from './User.style'
+import UserData from './UserData'
+import UserProfile from './UserProfile'
 
 const User = () => {
     const router = useRouter()
@@ -28,11 +29,10 @@ const User = () => {
 
     console.log(nickname)
     return (
-        <>
-            <p>mypage</p>
-            <Link href={`/user/${nickname}/storage`}>저장소</Link>
-            <StorageWatched />
-        </>
+        <UserBox>
+            <UserProfile nickname={nickname} />
+            <UserData nickname={nickname} />
+        </UserBox>
     )
 }
 
