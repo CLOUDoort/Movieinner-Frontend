@@ -91,7 +91,7 @@ const MovieInfo = () => {
                                     poster_path: movieInfoBox.poster_path,
                                 })
                                 addReq.onsucces = (e: any) => {
-                                    toast.success('중복 삭제 후 추가 성공')
+                                    console.log('중복 삭제 후 추가 성공')
                                 }
                             }
                         }
@@ -104,7 +104,7 @@ const MovieInfo = () => {
                                 poster_path: movieInfoBox.poster_path,
                             })
                             addReq.onsucces = (e: any) => {
-                                toast.success('추가 성공')
+                                console.log('추가 성공')
                             }
                         }
                         // 항목 10개 넘어가면 앞의 항목 하나씩 삭제
@@ -113,7 +113,7 @@ const MovieInfo = () => {
                             const id = watchedMovieList[0].id
                             let deleteMovie = store.delete(id)
                             deleteMovie.onsuccess = (e) => {
-                                toast.error('삭제 성공')
+                                console.error('삭제 성공')
                             }
                         }
                     }
