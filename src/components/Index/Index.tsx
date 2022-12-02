@@ -6,6 +6,7 @@ import IndexSlider from './IndexSlider'
 import IndexPopularList from './IndexPopularList'
 import useGetHitFeed from '../react-query/HitFeedData'
 import FeedRanking from '../Community/Feed/FeedRanking'
+import IndexThemeList from './IndexThemeList'
 
 const Index = () => {
     const popularMovie = useGetPopularMovie().data
@@ -13,6 +14,10 @@ const Index = () => {
     const isLoading = useGetThemeMovie().isLoading
     const [sliderImage, setSliderImage] = useState([])
     const hitFeed = useGetHitFeed().data
+    let rankingNum = 1;
+    const hitDataList = hitFeed?.data?.top5Contents.map((obj) => ({
+        ...obj, rankingNum: rankingNum++
+    }))
     useEffect(() => {
         const getResponse = () => {
             if (!isLoading) {
@@ -33,7 +38,8 @@ const Index = () => {
             {!isLoading && <IndexBox>
                 <IndexSlider sliderImage={sliderImage} />
                 <IndexPopularList popularMovie={popularMovie?.data} />
-                <FeedRanking hit={hitFeed?.data?.top5Contents} />
+                <FeedRanking hit={hitDataList} />
+                <IndexThemeList />
             </IndexBox>}
         </>
     )

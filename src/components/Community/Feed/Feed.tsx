@@ -21,6 +21,11 @@ const Feed = () => {
     const hitData = useGetHitFeed().data
     const hitLoading = useGetHitFeed().isLoading
 
+    let rankingNum = 1;
+    const hitDataList = hitData?.data?.top5Contents.map((obj) => ({
+        ...obj, rankingNum: rankingNum++
+    }))
+
     const clickWrite = () => {
         if (accessToken) {
             router.push('/community/write')
@@ -43,7 +48,7 @@ const Feed = () => {
         <>
             {page && !isLoading && !hitLoading ? (
                 <FeedContainer>
-                    <FeedRanking hit={hitData?.data?.top5Contents} />
+                    <FeedRanking hit={hitDataList} />
                     <FeedList feedPost={data} />
                     <FeedRemote clickWrite={clickWrite} />
                     <FeedNavigation totalPage={data?.data?.contents?.totalPage} page={pageValue} handleChange={handlePaginationChange} />
