@@ -1,4 +1,4 @@
-import { UserProfileBox, UserProfileContainer, UserProfileData, UserProfileInfo } from "../User.style"
+import { UserProfileBox, UserProfileContainer, UserProfileData, UserProfileInfo } from '../UserProfile/UserProfile.style'
 import Image from "next/image"
 import { BsFillPencilFill } from "react-icons/bs"
 
