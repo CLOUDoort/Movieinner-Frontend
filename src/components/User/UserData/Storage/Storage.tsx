@@ -4,7 +4,7 @@ import { apiInstance } from '../../../../apis/setting'
 import { StorageContainer } from './Storage.style'
 import StorageTheme from './StorageTheme'
 import StorageMovie from './StorageMovie'
-import StorageWatched from './StorageWatched'
+import StorageWatched from './UserWatched'
 
 const Storage = () => {
     const [liked, setLiked] = useState({
