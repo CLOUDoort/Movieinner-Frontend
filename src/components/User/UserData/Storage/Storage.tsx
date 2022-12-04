@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
-import { apiInstance } from '../../../apis/setting'
+import { apiInstance } from '../../../../apis/setting'
 import { StorageContainer } from './Storage.style'
 import StorageTheme from './StorageTheme'
 import StorageMovie from './StorageMovie'

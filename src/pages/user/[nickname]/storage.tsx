@@ -1,4 +1,4 @@
-import Storage from '../../../components/User/Storage/Storage'
+import Storage from '../../../components/User/UserData/Storage/Storage'
 
 const storage = () => {
     return <Storage />

@@ -2,8 +2,8 @@ import { useRouter } from 'next/router'
 import { useEffect } from 'react'
 import { apiInstance } from '../../apis/setting'
 import { UserBox } from './User.style'
-import UserData from './UserData'
-import UserProfile from './UserProfile'
+import UserData from './UserData/UserData'
+import UserProfile from './UserProfile/UserProfile'
 
 const User = () => {
     const router = useRouter()
