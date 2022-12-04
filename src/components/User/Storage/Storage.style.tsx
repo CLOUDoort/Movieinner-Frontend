@@ -42,7 +42,7 @@ export const StorageMovieContainer = styled.div`
     overflow-x: scroll;
     overflow-y: auto;
   &::-webkit-scrollbar {
-    width: 2px;
+    height: 8px;
   }
   &::-webkit-scrollbar-thumb {
     border-radius: 2px;
