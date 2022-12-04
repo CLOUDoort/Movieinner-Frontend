@@ -13,7 +13,7 @@ export const UserDataContainer = styled.div`
     min-width: 380px;
     border: 1px solid gray;
     border-radius: 10px;
-    > :nth-child(1) {
+    > :nth-of-type(1) {
         margin: 20px;
     }
 `
