@@ -39,22 +39,24 @@ declare global {
 const MyApp: NextComponentType<AppContext, AppInitialProps, AppProps> = ({ Component, pageProps }: AppProps) => {
     const [queryClient] = useState(() => new QueryClient())
     return (
-        <QueryClientProvider client={queryClient}>
-            <Provider store={store}>
-                <Head>
-                    <title>Movie Inner</title>
-                    <meta charSet='utf-8' />
-                    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
-                </Head>
-                <main>
-                    <Header />
-                    <Component {...pageProps} />
-                    <ToastContainer />
-                </main>
-                <Footer />
-                <Global styles={GlobalCss} />
-            </Provider>
-        </QueryClientProvider>
+        <>
+            <QueryClientProvider client={queryClient}>
+                <Provider store={store}>
+                    <Head>
+                        <title>Movie Inner</title>
+                        <meta charSet='utf-8' />
+                        <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+                    </Head>
+                    <main>
+                        <Header />
+                        <Component {...pageProps} />
+                    </main>
+                    <Footer />
+                    <Global styles={GlobalCss} />
+                </Provider>
+            </QueryClientProvider>
+            <ToastContainer />
+        </>
     )
 }
 
