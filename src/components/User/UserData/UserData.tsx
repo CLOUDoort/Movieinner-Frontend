@@ -4,10 +4,10 @@ import UserNotifications from "./UserNotifications"
 import UserPostList from "./UserPostList"
 
 const UserData = (props) => {
-    const { nickname } = props
+    const { nickname, userPostList } = props
     return <>
         <UserDataBox>
-            <UserPostList />
+            <UserPostList userPostList={userPostList} />
             <UserNotifications />
             <Link href={`/user/${nickname}/storage`}>저장소</Link>
         </UserDataBox>
