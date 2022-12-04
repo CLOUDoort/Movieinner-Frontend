@@ -6,9 +6,10 @@ const SearchResult = (props) => {
     const { movieSearch, actorSearch, genreSearch, genreName } = props
     return <>
         <div>
-            <SearchResultGenre genreSearch={genreSearch} genreName={genreName} />
-            <SearchResultMovie movieSearch={movieSearch} />
-            <SearchResultActor actorSearch={actorSearch} />
+            {
+                genreSearch && genreName ? <SearchResultGenre genreSearch={genreSearch} genreName={genreName} /> : <><SearchResultMovie movieSearch={movieSearch} />
+                    <SearchResultActor actorSearch={actorSearch} /></>
+            }
         </div>
     </>
 }

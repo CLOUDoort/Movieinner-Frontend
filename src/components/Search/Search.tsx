@@ -10,11 +10,9 @@ import useGetGenreData from "../react-query/GenreData"
 const Search = () => {
     const router = useRouter()
     const { search, page, genre, name } = router.query
-    const genrePage = 1
     const movieSearch = useGetMovieSearch(search, page ? page : 1).data
     const actorSearch = useGetActorSearch(search, page ? page : 1).data
-    const genreSearch = useGetGenreData(genre, genrePage).data
-    console.log('genredata', genreSearch?.data)
+    const genreSearch = useGetGenreData(genre, 1).data
     const [darkmode, setDarkmode] = useState(false)
     const [message, setMessage] = useState(false)
     useEffect(() => {
