@@ -1,15 +1,21 @@
-import Link from "next/link"
 import { UserDataBox } from "./UserData.style"
+import UserLikedMovie from "./UserLikedMovie"
+import UserLikedTheme from "./UserLikedTheme"
 import UserNotifications from "./UserNotifications"
 import UserPostList from "./UserPostList"
+import UserWatched from "./UserWatched"
 
 const UserData = (props) => {
-    const { nickname, userPostList } = props
+    const { userPostList, userLikedTheme, userLikedMovie } = props
     return <>
         <UserDataBox>
-            <UserPostList userPostList={userPostList} />
-            <UserNotifications />
-            <Link href={`/user/${nickname}/storage`}>저장소</Link>
+            <div>
+                <UserPostList userPostList={userPostList} />
+                <UserNotifications />
+            </div>
+            <UserLikedMovie userLikedMovie={userLikedMovie} />
+            <UserLikedTheme userLikedTheme={userLikedTheme} />
+            <UserWatched />
         </UserDataBox>
     </>
 }
