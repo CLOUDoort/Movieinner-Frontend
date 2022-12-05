@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { StorageMovieScroll, StorageMovieContainer, StorageMovieList, StorageMovieAreaCard, StorageMovieImgBox, StorageMovieTitleBox } from './Storage/Storage.style'
+import { StorageMovieScroll, StorageMovieContainer, StorageMovieList, StorageMovieAreaCard, StorageMovieImgBox, StorageMovieTitleBox } from './Storage.style'
 import Router from 'next/router'
 import Image from 'next/image'
 
