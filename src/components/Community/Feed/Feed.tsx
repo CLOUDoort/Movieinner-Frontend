@@ -22,7 +22,7 @@ const Feed = () => {
     const hitLoading = useGetHitFeed().isLoading
 
     let rankingNum = 1;
-    const hitDataList = hitData?.data?.top5Contents.map((obj) => ({
+    const hitDataList = hitData?.data?.top5Contents?.map((obj) => ({
         ...obj, rankingNum: rankingNum++
     }))
 
@@ -46,7 +46,7 @@ const Feed = () => {
 
     return (
         <>
-            {page && !isLoading && !hitLoading ? (
+            {page && !isLoading && !hitLoading && hitDataList ? (
                 <FeedContainer>
                     <FeedRanking hit={hitDataList} />
                     <FeedList feedPost={data} />

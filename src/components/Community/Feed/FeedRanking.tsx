@@ -4,9 +4,6 @@ import { RankingList, RankingArea, RankingSubtitle } from './FeedRanking.style'
 const FeedRanking = (props) => {
     const { hit } = props
     const router = useRouter()
-
-    // number랑 조회수 필요
-
     return (
         <RankingArea>
             <RankingSubtitle>인기 게시글</RankingSubtitle>
