@@ -5,13 +5,15 @@ const UserPostList = (props) => {
     return (
         <UserDataContainer>
             <div>작성한 게시물</div>
-            <UserDataList>
+            {/* <UserDataList>
                 {userPostList.map((obj) => (
-                    <div>
+                    <div key={obj.id}>
+                        <div>
 
+                        </div>
                     </div>
-                ))}
-            </UserDataList>
+                ))} */}
+            {/* </UserDataList> */}
         </UserDataContainer>
     )
 }
