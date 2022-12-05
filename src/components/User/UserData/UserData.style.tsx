@@ -3,10 +3,15 @@ import styled from '@emotion/styled'
 export const UserDataBox = styled.div`
     margin-top: 20px;
     min-width: 800px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    column-gap: 40px;
-    row-gap: 40px;
+    display: flex;
+    flex-direction: column;
+    > :nth-of-type(1) {
+        display: flex;
+        justify-content: space-between;
+    }
+    > :last-of-type {
+        margin-bottom: 20px;
+    }
 `
 
 export const UserDataContainer = styled.div`
