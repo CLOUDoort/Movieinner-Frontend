@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Router from 'next/router'
-import { StorageMovieScroll, StorageMovieContainer, StorageMovieList, StorageMovieAreaCard, StorageMovieImgBox, StorageMovieTitleBox } from './Storage.style'
+import { StorageMovieScroll, StorageMovieContainer, StorageMovieList, StorageMovieAreaCard, StorageMovieImgBox, StorageMovieTitleBox } from './UserStorage.style'
 
 const UserLikedMovie = (props) => {
     const { userLikedMovie } = props
