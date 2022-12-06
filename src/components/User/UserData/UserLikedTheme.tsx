@@ -1,9 +1,10 @@
 import Image from 'next/image'
-import Router from 'next/router'
+import { useRouter } from 'next/router'
 import { StorageMovieAreaCard, StorageMovieContainer, StorageMovieImgBox, StorageMovieList, StorageMovieScroll, StorageMovieTitleBox } from './UserStorage.style'
 
 
 const UserLikedTheme = (props) => {
+    const router = useRouter()
     const { userLikedTheme } = props
     return (
         <StorageMovieScroll>
@@ -14,11 +15,11 @@ const UserLikedTheme = (props) => {
                         {userLikedTheme.map((obj) => (
                             <StorageMovieAreaCard key={obj.idx}>
                                 <div>
-                                    <StorageMovieImgBox >
+                                    <StorageMovieImgBox onClick={() => router.push(`/theme`)}>
                                         <Image src={`https://image.tmdb.org/t/p/original${obj.backdrop_path}`} layout='fill' alt={obj.name} />
                                     </StorageMovieImgBox>
                                     <StorageMovieTitleBox>
-                                        <strong >{obj.name}</strong>
+                                        <strong onClick={() => router.push(`/theme`)}>{obj.name}</strong>
                                     </StorageMovieTitleBox>
                                 </div>
                             </StorageMovieAreaCard>
