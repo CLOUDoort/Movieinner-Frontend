@@ -16,12 +16,10 @@ const UserWatched = (props) => {
                 let getAllList = store.getAll()
                 getAllList.onsuccess = (e) => {
                     setWatched(e.target.result)
-                    console.info(e.target.result)
                 }
             }
             previousWatchedReq.onerror = (e: any) => {
                 const error = e.target.error
-                console.error('error: ', error)
             }
         } catch (e) {
             console.error(e.response)
