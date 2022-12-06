@@ -27,4 +27,30 @@ export const UserDataList = styled.div`
     min-width: 250px;
     border-radius: 10px;
     border: 1px solid gray;
+    margin: 20px;
+    > div {
+        display: flex;
+        flex-direction: column;
+        padding: 8px;
+        margin-left: 10px;
+        > div{
+            display: flex;
+            text-align: center;
+            > :first-of-type {
+                width: 30px;
+            }
+            > :nth-of-type(2) {
+                flex: 1;
+            }
+            > :last-of-type {
+                width: 130px;
+            }
+        }
+        > :nth-of-type(2) {
+            margin-top: 10px;
+            >:nth-of-type(2) {
+                cursor: pointer;
+            }
+        }
+    }
 `
