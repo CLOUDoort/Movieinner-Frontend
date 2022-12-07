@@ -33,7 +33,7 @@ const UserWatched = (props) => {
                 <div>
                     <StorageMovieList>
                         {watched.map((obj) => (
-                            <StorageMovieAreaCard key={obj.idx}>
+                            <StorageMovieAreaCard key={obj.id}>
                                 <div>
                                     <StorageMovieImgBox onClick={() => Router.push(`/movie/${obj.movieId}`)}>
                                         <Image src={`https://image.tmdb.org/t/p/original${obj.poster_path}`} layout='fill' alt={obj.name} />
