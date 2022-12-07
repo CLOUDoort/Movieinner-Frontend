@@ -28,7 +28,6 @@ export const FirstHeaderDiv = styled.div`
 export const SecondHearderDiv = styled.div`
     height: 60px;
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
     align-items: center;
     background-color: black;
@@ -37,7 +36,6 @@ export const SecondHearderDiv = styled.div`
 `
 export const SecondHearderNav = styled.nav`
     display: flex;
-    flex-direction: row;
     align-items: center;
     margin-left: 50px;
 `
@@ -49,17 +47,19 @@ export const TitleDiv = styled.div`
 `
 
 export const NavDiv = styled.div`
-    >button, a {
+    display: flex;
+    > div {
         float: left;
+        display: flex;
     }
-    > a::after{
+    > div > div::after{
         content: '|';
         float: right;
         color: #ccc;
         margin-right: 17px;
         margin-left: 17px;
     }
-    > button {
+    > div > button {
         all: unset;
         cursor: pointer;
     }
