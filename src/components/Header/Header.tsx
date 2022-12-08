@@ -8,10 +8,12 @@ import { FirstHeaderDiv, HeaderContainer, SecondHearderDiv } from './Header.styl
 import { toast } from 'react-toastify'
 import HearderSearch from './HearderSearch'
 import HeaderNav from './HeaderNav'
+import { setSocialEmail } from '../../store/reducers/socialSlice'
 
 const Header = () => {
     const loginToken = useSelector((state: RootState) => state.token.token)
     const nickname = useSelector((state: RootState) => state.nickname.nickname)
+    const email = useSelector((state: RootState) => state.socialEmail.socialEmail)
     const dispatch = useDispatch()
     const [loginToggle, setLoginToggle] = useState('로그인')
 
@@ -22,7 +24,9 @@ const Header = () => {
                 setLoginToggle('로그아웃')
                 const tokenPayload = await apiInstance.post('/auth/verify', { token: loginToken })
                 const nicknameResponse = tokenPayload.data.payload.nickname
+                const emailResponse = tokenPayload.data.payload.email
                 dispatch(setNickname(nicknameResponse))
+                dispatch(setSocialEmail(emailResponse))
             }
         }
         getResponse()
@@ -60,6 +64,7 @@ const Header = () => {
                 if (response.data.logout) {
                     dispatch(setToken(''))
                     dispatch(setNickname(''))
+                    dispatch(setSocialEmail(''))
                     setLoginToggle('로그인')
                     Router.replace('/')
                     toast.success('로그아웃되었습니다!')
