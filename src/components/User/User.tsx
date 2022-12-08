@@ -1,4 +1,6 @@
 import { useRouter } from 'next/router'
+import { useSelector } from 'react-redux'
+import { RootState } from '../../store/store'
 import Loading from '../Loading'
 import useGetUserLiked from '../react-query/UserLiked'
 import useGetUserPosts from '../react-query/UserPosts'
@@ -9,6 +11,8 @@ import UserProfile from './UserProfile/UserProfile'
 const User = () => {
     const router = useRouter()
     const { nickname } = router.query
+    const email = useSelector((state: RootState) => state.socialEmail.socialEmail)
+
     const userPosts = useGetUserPosts(nickname).data
     const userLikedMovie = useGetUserLiked('movie', nickname).data
     const userLikedTheme = useGetUserLiked('theme', nickname).data
@@ -24,7 +28,7 @@ const User = () => {
     return (
         <>
             {!movieLoading && !themeLoading && !postsLoading ? <UserBox>
-                <UserProfile nickname={nickname} />
+                <UserProfile nickname={nickname} email={email} />
                 <UserData nickname={nickname} userPostList={userPostsList} userLikedMovie={userLikedMovie?.data?.liked} userLikedTheme={userLikedTheme?.data?.liked} />
             </UserBox> : <Loading />}
         </>

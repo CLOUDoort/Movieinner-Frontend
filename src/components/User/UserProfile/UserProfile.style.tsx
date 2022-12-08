@@ -16,12 +16,16 @@ export const UserProfileContainer = styled.div`
 export const UserProfileInfo = styled.div`
     display: flex;
     align-items: center;
-    > :first-of-type {
+    > span {
         border-radius: 50%;
+        >img {
+            margin-right: 20px;
+        }
     }
     > :nth-of-type(2) {
-        margin-left: 20px;
+        margin-left: 10px;
         font-weight: bold;
+        cursor: pointer;
     }
     > :nth-of-type(3) {
         margin-left: 10px;
@@ -30,6 +34,21 @@ export const UserProfileInfo = styled.div`
         :hover {
             color: red;
         }
+    }
+`
+export const UserModifyNickname = styled.div`
+    margin-left: 10px;
+    >input {
+        border: 1px solid gray;
+        padding: 5px;
+    }
+    >button {
+        margin-left: 5px;
+        border: none;
+        background-color: black;
+        color: white;
+        font-size: 16px;
+        font-weight: bold;
     }
 `
 export const UserProfileData = styled.div`
