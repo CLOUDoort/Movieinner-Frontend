@@ -8,12 +8,14 @@ import useGetHitFeed from '../react-query/HitFeedData'
 import FeedRanking from '../Community/Feed/FeedRanking'
 import IndexUpComingList from './IndexUpComingList'
 import useGetUpComing from '../react-query/UpComing'
+import Loading from '../Loading'
 
 const Index = () => {
     const popularMovie = useGetPopularMovie().data
     const themeMovie = useGetThemeMovie().data
     const isLoading = useGetThemeMovie().isLoading
     const hitFeed = useGetHitFeed().data
+    const hitLoading = useGetHitFeed().isLoading
     const [sliderImage, setSliderImage] = useState([])
     const upComing = useGetUpComing(1).data
 
@@ -38,12 +40,12 @@ const Index = () => {
 
     return (
         <>
-            {!isLoading && <IndexBox>
+            {!isLoading && !hitLoading ? <IndexBox>
                 <IndexSlider sliderImage={sliderImage} />
                 <IndexPopularList popularMovie={popularMovie?.data} />
                 <IndexUpComingList upComingList={upComing?.data?.resultArray} />
-                <FeedRanking hit={hitDataList} />
-            </IndexBox>}
+                {/* <FeedRanking hit={hitDataList} /> */}
+            </IndexBox> : <Loading />}
         </>
     )
 }
