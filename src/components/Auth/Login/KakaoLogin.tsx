@@ -18,7 +18,7 @@ const KakaoLogin = () => {
             try {
                 const response = await apiInstance.post('/auth/kakao', null, { params: { authorizationCode: KAKAO_CODE } })
                 const userEmail = response.data.success.kakao_account.email
-                const checkUser = await apiInstance.post('/users/email', { email: userEmail })
+                const checkUser = await apiInstance.post('/users/check/email', { email: userEmail })
                 dispatch(setSocialEmail(userEmail))
                 if (checkUser.data.isEmailExisted) {
                     // 이미 있는 계정

@@ -20,7 +20,7 @@ const GoogleLogin = () => {
                 console.log(response)
                 const userEmail = response.data.success.email
                 dispatch(setSocialEmail(userEmail))
-                const checkUser = await apiInstance.post('/users/email', { email: userEmail })
+                const checkUser = await apiInstance.post('/users/check/email', { email: userEmail })
                 if (checkUser.data.isEmailExisted) {
                     // 이미 있는 이메일이라면
                     try {
@@ -33,8 +33,10 @@ const GoogleLogin = () => {
                     } catch (e) {
                         console.log(e.response)
                     }
+                } else {
+
+                    setValid(true)
                 }
-                setValid(true)
             } catch (e) {
                 console.log(e.response)
             }

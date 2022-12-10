@@ -23,7 +23,7 @@ const NaverLogin = () => {
                     },
                 })
                 const userEmail = response.data.success.response.email
-                const checkUser = await apiInstance.post('/users/email', { email: userEmail })
+                const checkUser = await apiInstance.post('/users/check/email', { email: userEmail })
                 dispatch(setSocialEmail(userEmail))
                 if (checkUser.data.isEmailExisted) {
                     // 이미 있는 계정
