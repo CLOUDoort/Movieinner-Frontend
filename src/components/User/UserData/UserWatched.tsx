@@ -3,7 +3,7 @@ import { StorageMovieScroll, StorageMovieContainer, StorageMovieList, StorageMov
 import Router from 'next/router'
 import Image from 'next/image'
 
-const UserWatched = (props) => {
+const UserWatched = () => {
     const [watched, setWatched] = useState([])
 
     useEffect(() => {
@@ -20,6 +20,7 @@ const UserWatched = (props) => {
             }
             previousWatchedReq.onerror = (e: any) => {
                 const error = e.target.error
+                console.error(error)
             }
         } catch (e) {
             console.error(e.response)
