@@ -15,7 +15,7 @@ export const getServerSidePropsUserPosts: GetServerSideProps = async (context) =
     }
 }
 
-export const getUserPosts = (nickname: any) => apiInstance.get(`/community`, {
+export const getUserPosts = (nickname: any) => apiInstance.get(`/community/content/user`, {
     params: {
         nickname: nickname
     },
