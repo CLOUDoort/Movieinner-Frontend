@@ -18,7 +18,9 @@ const User = () => {
     const userLikedTheme = useGetUserLiked('theme', nickname).data
     const movieLoading = useGetUserLiked('movie', nickname).isLoading
     const themeLoading = useGetUserLiked('theme', nickname).isLoading
-    const postsLoading = useGetUserLiked('movie', nickname).isLoading
+    const postsLoading = useGetUserPosts(nickname).isLoading
+
+    console.log('post', userPosts?.data)
 
     let number = 1;
     const userPostsList = userPosts?.data?.response.map((obj) => ({
@@ -27,7 +29,7 @@ const User = () => {
 
     return (
         <>
-            {!movieLoading && !themeLoading && !postsLoading ? <UserBox>
+            {!movieLoading && !themeLoading && userPostsList ? <UserBox>
                 <UserProfile nickname={nickname} email={email} />
                 <UserData nickname={nickname} userPostList={userPostsList} userLikedMovie={userLikedMovie?.data?.liked} userLikedTheme={userLikedTheme?.data?.liked} />
             </UserBox> : <Loading />}
