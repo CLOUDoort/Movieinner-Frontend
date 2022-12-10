@@ -12,7 +12,7 @@ export const CategoryContainer = styled.div`
 export const CategoryBox = styled.div`
     position: absolute;
     top: 80px;
-    left: 450px;
+    left: 300px;
     right: 0;
     bottom: 0;
     background-color: #ff0000;
