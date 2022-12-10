@@ -54,4 +54,7 @@ export const UserModifyNickname = styled.div`
 export const UserProfileData = styled.div`
     display: flex;
     flex-direction: column;
+    > div {
+        cursor: pointer;
+    }
 `
