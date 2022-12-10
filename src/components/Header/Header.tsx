@@ -53,7 +53,7 @@ const Header = () => {
             }
         }
         refreshTokenCheck()
-    }, [dispatch])
+    }, [dispatch, loginToggle])
 
     // 클릭시 로그아웃이면 accessToken 없앰, 로그인UI로 변경
     // 클릭시 로그인이면 accessToken이 없다는 것이니
