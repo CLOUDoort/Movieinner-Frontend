@@ -45,7 +45,7 @@ const Signup = () => {
                 valid: true,
             })
             try {
-                const response = await apiInstance.post('/users/email', { email: email })
+                const response = await apiInstance.post('/users/check/email', { email: email })
                 if (response.data.isEmailExisted) setCheckEmail(true)
                 else setCheckEmail(false)
                 console.log(response)
