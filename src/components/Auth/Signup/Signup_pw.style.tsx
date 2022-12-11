@@ -22,7 +22,7 @@ export const EmailDiv = styled.div`
         font-size: 20px;
         padding: 8px 16px;
         background-color: black;
-        border: none;
+        border: 1px solid gray;
         margin-bottom: 10px;
         color: white;
         :hover {
