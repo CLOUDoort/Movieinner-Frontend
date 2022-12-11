@@ -7,7 +7,7 @@ import CurrentStatusFirst from '../CurrentStatus/CurrentStatusFirst'
 import Signupinfo from './Signupinfo'
 import Signuppw from './Signuppw'
 import SignupVerify from './SignupVerify'
-import { EmailDiv, GreenText, ProgressBtn, RedText, SignupContainerDiv } from './Signup_pw.style'
+import { EmailDiv, GreenText, ProgressBtn, RedText, SignupContainerDiv } from './Signup.style'
 import { emailRegExp } from '../../../Lib/EmailRegExp'
 import SocialLogin from '../Login/SocialLogin'
 

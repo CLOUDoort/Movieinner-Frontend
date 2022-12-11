@@ -2,7 +2,7 @@ import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 import { apiInstance } from '../../../apis/setting'
 import { EmailForm, ForgotContainer } from './Forgot.style'
-import { GreenText, ProgressBtn, RedText } from '../Signup/Signup_pw.style'
+import { GreenText, ProgressBtn, RedText } from '../Signup/Signup.style'
 
 const Forgotvalid = () => {
     const router = useRouter()

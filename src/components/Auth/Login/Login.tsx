@@ -7,7 +7,7 @@ import axios from 'axios'
 import { useDispatch } from 'react-redux'
 import { setToken } from '../../../store/reducers/logintokenSlice'
 import Router from 'next/router'
-import { RedText } from '../Signup/Signup_pw.style'
+import { RedText } from '../Signup/Signup.style'
 import SocialLogin from './SocialLogin'
 import { toast } from 'react-toastify'
 

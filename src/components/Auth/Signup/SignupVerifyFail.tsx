@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { useState } from 'react'
 import { apiInstance } from '../../../apis/setting'
 import { Container, ContainerBtn, ContainerTitle, VerifyFailText } from './SignupVerify.style'
-import { GreenText, RedText } from './Signup_pw.style'
+import { GreenText, RedText } from './Signup.style'
 
 const SignupVerifyFail = (props) => {
     const [sendEmail, setSendEmail] = useState({

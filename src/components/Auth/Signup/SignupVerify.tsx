@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux'
 import { RootState } from '../../../store/store'
 import { Container, ContainerBtn, ContainerProfile, ContainerText, ContainerTitle, FailText } from './SignupVerify.style'
 import { apiInstance } from '../../../apis/setting'
-import { GreenText, RedText } from './Signup_pw.style'
+import { GreenText, RedText } from './Signup.style'
 
 const SignupVerify = () => {
     const userData: UserDataState = useSelector((state: RootState) => state.user.user)

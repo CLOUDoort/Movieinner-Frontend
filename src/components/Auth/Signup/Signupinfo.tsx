@@ -10,7 +10,7 @@ import { setSignup, setUser } from '../../../store/reducers/signupSlice'
 import { Calendar } from 'react-date-range'
 import moment from 'moment'
 import ko from 'date-fns/locale/ko'
-import { GreenText, RedText } from './Signup_pw.style'
+import { GreenText, RedText } from './Signup.style'
 import Router from 'next/router'
 
 const Signupinfo = () => {

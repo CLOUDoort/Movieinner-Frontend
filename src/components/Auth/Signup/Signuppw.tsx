@@ -1,7 +1,7 @@
 import { useMemo, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { setSignup, setUser } from '../../../store/reducers/signupSlice'
-import { EmailDiv, GreenText, ProgressBtn, RedText, SignupContainerDiv } from './Signup_pw.style'
+import { EmailDiv, GreenText, ProgressBtn, RedText, SignupContainerDiv } from './Signup.style'
 import CurrentStatusSecond from '../CurrentStatus/CurrentStatusSecond'
 
 const Signuppw = () => {
