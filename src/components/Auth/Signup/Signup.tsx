@@ -12,7 +12,6 @@ import { emailRegExp } from '../../../Lib/EmailRegExp'
 import SocialLogin from '../Login/SocialLogin'
 
 const Signup = () => {
-    const signupComponent = useSelector((state: RootState) => state.signup.component)
     const dispatch = useDispatch()
     const [emailValid, setEmailValid] = useState({
         // 이메일 정규식 확인
@@ -61,46 +60,39 @@ const Signup = () => {
         }
     }
     return (
-        <>
-            {signupComponent === 'Signup' && (
-                <SignupContainerDiv>
-                    <CurrentStatusFirst />
-                    <p>이메일 입력</p>
-                    <EmailDiv>
-                        <label htmlFor='email'>Email</label>
-                        <input
-                            type='email'
-                            name='email'
-                            id='email'
-                            value={email}
-                            placeholder='example@company.com'
-                            onChange={handleChange}
-                            onFocus={handleFocus}
-                        />
-                        <div>
-                            {emailValid.touch === true &&
-                                email.length > 0 &&
-                                (emailValid.valid === true ? (
-                                    checkEmail === true ? (
-                                        <RedText>존재하는 이메일입니다.</RedText>
-                                    ) : (
-                                        <GreenText>올바른 이메일 형식입니다.</GreenText>
-                                    )
-                                ) : (
-                                    <RedText>올바르지 않은 이메일 형식입니다.</RedText>
-                                ))}
-                        </div>
-                    </EmailDiv>
-                    <ProgressBtn disabled={email === '' || !email.match(emailRegExp) || checkEmail} onClick={handleClick}>
-                        다음
-                    </ProgressBtn>
-                    <SocialLogin />
-                </SignupContainerDiv>
-            )}
-            {signupComponent === 'Signuppw' && <Signuppw />}
-            {signupComponent === 'Signupinfo' && <Signupinfo />}
-            {signupComponent === 'SignupVerify' && <SignupVerify />}
-        </>
+        <SignupContainerDiv>
+            <CurrentStatusFirst />
+            <p>이메일 입력</p>
+            <EmailDiv>
+                <label htmlFor='email'>Email</label>
+                <input
+                    type='email'
+                    name='email'
+                    id='email'
+                    value={email}
+                    placeholder='example@company.com'
+                    onChange={handleChange}
+                    onFocus={handleFocus}
+                />
+                <div>
+                    {emailValid.touch === true &&
+                        email.length > 0 &&
+                        (emailValid.valid === true ? (
+                            checkEmail === true ? (
+                                <RedText>존재하는 이메일입니다.</RedText>
+                            ) : (
+                                <GreenText>올바른 이메일 형식입니다.</GreenText>
+                            )
+                        ) : (
+                            <RedText>올바르지 않은 이메일 형식입니다.</RedText>
+                        ))}
+                </div>
+            </EmailDiv>
+            <ProgressBtn disabled={email === '' || !email.match(emailRegExp) || checkEmail} onClick={handleClick}>
+                다음
+            </ProgressBtn>
+            <SocialLogin />
+        </SignupContainerDiv>
     )
 }
 
