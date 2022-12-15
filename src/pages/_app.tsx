@@ -24,6 +24,8 @@ import 'tui-color-picker/dist/tui-color-picker.css'
 import '@toast-ui/editor-plugin-color-syntax/dist/toastui-editor-plugin-color-syntax.css'
 import { NextComponentType } from 'next'
 import { useState } from 'react'
+import dynamic from 'next/dynamic'
+
 
 declare global {
     interface UserDataState {
@@ -38,6 +40,7 @@ declare global {
 }
 const MyApp: NextComponentType<AppContext, AppInitialProps, AppProps> = ({ Component, pageProps }: AppProps) => {
     const [queryClient] = useState(() => new QueryClient())
+    // const NoSSRToastContainer = dynamic(import('react-toastify').then((module) => module.ToastContainer), { ssr: false })
     return (
         <>
             <QueryClientProvider client={queryClient}>
