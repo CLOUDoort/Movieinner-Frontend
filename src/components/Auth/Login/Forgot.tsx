@@ -1,8 +1,8 @@
 import { useState } from 'react'
-import { apiInstance } from '../../apis/setting'
+import { apiInstance } from '../../../apis/setting'
 import { EmailForm, ForgotContainer } from './Forgot.style'
-import { ContainerText } from './Signup/SignupVerify.style'
-import { GreenText, RedText } from './Signup/Signup_pw.style'
+import { ContainerText } from './../Signup/SignupVerify.style'
+import { GreenText, RedText } from '../Signup/Signup.style'
 
 const Forgot = () => {
     const [email, setEmail] = useState('')

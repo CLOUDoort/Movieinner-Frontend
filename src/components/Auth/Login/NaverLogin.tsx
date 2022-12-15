@@ -1,4 +1,3 @@
-import axios from 'axios'
 import Router from 'next/router'
 import { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
