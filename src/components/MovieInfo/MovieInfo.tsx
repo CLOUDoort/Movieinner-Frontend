@@ -8,7 +8,6 @@ import { useSelector } from 'react-redux'
 import MovieReview from './MovieReview'
 import MovieInfoText from './MovieInfoText'
 import MovieBackdropImg from './MovieBackdropImg'
-import { toast } from 'react-toastify'
 
 interface MovieInfoDataList {
     title?: string
