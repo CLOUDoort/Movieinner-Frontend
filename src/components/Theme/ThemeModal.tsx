@@ -1,4 +1,4 @@
-import { ThemeModalBox, ThemeModalContainer, ThemeModalItemContainer, ThemeModalItem, ThemeModalContent, ThemeCloseBtn, ThemeLikeBtn } from './Theme.style'
+import { ThemeModalBox, ThemeModalContainer, ThemeModalItemContainer, ThemeModalItem, ThemeModalContent, ThemeCloseBtn } from './Theme.style'
 import Image from 'next/image'
 import Link from 'next/link'
 import { AiFillCloseSquare } from 'react-icons/ai'
