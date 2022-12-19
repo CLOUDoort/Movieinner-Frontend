@@ -1,7 +1,7 @@
-import { useMemo, useState } from 'react'
+import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { setSignup, setUser } from '../../../store/reducers/signupSlice'
-import { EmailDiv, GreenText, ProgressBtn, RedText, SignupContainerDiv } from './Signup.style'
+import { CheckText, EmailDiv, ProgressBtn, SignupContainerDiv } from './Signup.style'
 import CurrentStatusSecond from '../CurrentStatus/CurrentStatusSecond'
 
 const Signuppw = () => {
@@ -50,7 +50,7 @@ const Signuppw = () => {
                         onFocus={handleFocus}
                     />
                     {touchedPw.first === true &&
-                        (password.first.length >= 6 ? <GreenText>알맞은 비밀번호 입니다.</GreenText> : <RedText>아직 6자리가 아니에요.</RedText>)}
+                        (password.first.length >= 6 ? <CheckText check={true}>알맞은 비밀번호 입니다.</CheckText> : <CheckText check={false}>아직 6자리가 아니에요.</CheckText>)}
                     <label>비밀번호 확인</label>
                     <input
                         type='password'
@@ -62,7 +62,7 @@ const Signuppw = () => {
                         onFocus={handleFocus}
                     />
                     {touchedPw.second === true &&
-                        (password.first !== password.second ? <RedText>두 비밀번호가 달라요&#33;</RedText> : <GreenText>일치합니다.</GreenText>)}
+                        (password.first !== password.second ? <CheckText check={false}>두 비밀번호가 달라요&#33;</CheckText> : <CheckText check={true}>일치합니다.</CheckText>)}
                 </EmailDiv>
                 <ProgressBtn disabled={password.first === '' || password.first !== password.second} onClick={handleClick}>
                     다음

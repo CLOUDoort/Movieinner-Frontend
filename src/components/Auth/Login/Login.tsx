@@ -7,9 +7,9 @@ import axios from 'axios'
 import { useDispatch } from 'react-redux'
 import { setToken } from '../../../store/reducers/logintokenSlice'
 import Router from 'next/router'
-import { RedText } from '../Signup/Signup.style'
 import SocialLogin from './SocialLogin'
 import { toast } from 'react-toastify'
+import { CheckText } from '../Signup/Signup.style'
 
 const JWT_EXPIRY_TIME = 3600 * 1000
 const Login = () => {
@@ -108,8 +108,8 @@ const Login = () => {
                             <div>로그인 유지하기</div>
                         </div>
                         <LoginFailText>
-                            {!check.login && check.user && <RedText>잘못된 비밀번호 입니다. </RedText>}
-                            {!check.user && !check.login && <RedText>존재하지 않는 이메일입니다.</RedText>}
+                            {!check.login && check.user && <CheckText check={false}>잘못된 비밀번호 입니다. </CheckText>}
+                            {!check.user && !check.login && <CheckText check={false}>존재하지 않는 이메일입니다.</CheckText>}
                         </LoginFailText>
                     </LoginSustainDiv>
                     <SubmitInput type='submit' value='로그인' />

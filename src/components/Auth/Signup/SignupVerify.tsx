@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux'
 import { RootState } from '../../../store/store'
 import { Container, ContainerBtn, ContainerProfile, ContainerText, ContainerTitle, FailText } from './SignupVerify.style'
 import { apiInstance } from '../../../apis/setting'
-import { GreenText, RedText } from './Signup.style'
+import { CheckText } from './Signup.style'
 
 const SignupVerify = () => {
     const userData: UserDataState = useSelector((state: RootState) => state.user.user)
@@ -59,8 +59,8 @@ const SignupVerify = () => {
                         <button onClick={handleClick}>인증 메일 다시 보내기</button>
                     </div>
                     <div>
-                        {email.click === true && email.send === true && <GreenText>다시 보내기 성공!</GreenText>}
-                        {email.click === true && <RedText>이메일을 보내지 못했습니다.</RedText>}
+                        {email.click === true && email.send === true && <CheckText check={true}>다시 보내기 성공!</CheckText>}
+                        {email.click === true && <CheckText check={false}>이메일을 보내지 못했습니다.</CheckText>}
                     </div>
                 </ContainerBtn>
             </Container>

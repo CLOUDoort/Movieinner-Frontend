@@ -1,8 +1,8 @@
 import Link from 'next/link'
 import { useState } from 'react'
 import { apiInstance } from '../../../apis/setting'
+import { CheckText } from './Signup.style'
 import { Container, ContainerBtn, ContainerTitle, VerifyFailText } from './SignupVerify.style'
-import { GreenText, RedText } from './Signup.style'
 
 const SignupVerifyFail = (props) => {
     const [sendEmail, setSendEmail] = useState({
@@ -42,8 +42,8 @@ const SignupVerifyFail = (props) => {
                         <button onClick={handleClick}>인증 메일 다시 보내기</button>
                     </div>
                     <div>
-                        {sendEmail.click === true && sendEmail.send === true && <GreenText>다시 보내기 성공!</GreenText>}
-                        {sendEmail.click === true && sendEmail.send === false && <RedText>에러 발생!</RedText>}
+                        {sendEmail.click === true && sendEmail.send === true && <CheckText check={true}>다시 보내기 성공!</CheckText>}
+                        {sendEmail.click === true && sendEmail.send === false && <CheckText check={false}>에러 발생!</CheckText>}
                     </div>
                 </ContainerBtn>
             </Container>
