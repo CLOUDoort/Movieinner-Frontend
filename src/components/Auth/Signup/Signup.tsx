@@ -9,20 +9,22 @@ import SocialLogin from '../Login/SocialLogin'
 
 const Signup = () => {
     const dispatch = useDispatch()
+    // 이메일 정규식 확인
     const [emailValid, setEmailValid] = useState({
-        // 이메일 정규식 확인
         touch: false,
         valid: false,
     })
     const [checkEmail, setCheckEmail] = useState(false) // 이메일 중복 여부
     const [email, setEmail] = useState('')
 
+    // email 작성 완료
     const handleClick = async (e) => {
         e.preventDefault()
         dispatch(setUser({ key: 'email', value: email }))
         dispatch(setSignup('Signuppw'))
     }
 
+    // 이메일 정규식 확인, 중복여부 확인 focus
     const handleFocus = () => {
         setEmailValid({
             ...emailValid,
@@ -30,7 +32,7 @@ const Signup = () => {
         })
     }
 
-    // 이메일 정규식 부합하면 DB에서 이메일 중복 여부 확인
+    // 이메일 정규식 확인, 이메일 중복 여부 확인
     const handleChange = async (e) => {
         const { value } = e.target
         setEmail(value)
@@ -43,7 +45,6 @@ const Signup = () => {
                 const response = await apiInstance.post('/users/check/email', { email: email })
                 if (response.data.isEmailExisted) setCheckEmail(true)
                 else setCheckEmail(false)
-                console.log(response)
             } catch (e) {
                 console.log(e.response)
                 setCheckEmail(false)
@@ -69,6 +70,7 @@ const Signup = () => {
                     placeholder='example@company.com'
                     onChange={handleChange}
                     onFocus={handleFocus}
+                    autoComplete='off'
                 />
                 <div>
                     {emailValid.touch === true &&
