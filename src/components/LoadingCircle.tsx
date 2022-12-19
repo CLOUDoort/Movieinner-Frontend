@@ -1,6 +1,6 @@
-import { LoadingContainer, LoadingPage, LoadingText, LoadingView } from './Loading.style'
+import { LoadingContainer, LoadingPage, LoadingText, LoadingView } from './LoadingCircle.style'
 
-const Loading = () => {
+const LoadingCircle = () => {
     return (
         <LoadingPage>
             <LoadingContainer>
@@ -11,4 +11,4 @@ const Loading = () => {
     )
 }
 
-export default Loading
+export default LoadingCircle
