@@ -10,7 +10,7 @@ import FeedNavigation from './FeedNavigation'
 import useGetFeedData from '../../react-query/FeedData'
 import FeedRemote from './FeedRemote'
 import useGetHitFeed from '../../react-query/HitFeedData'
-import LoadingLogo from '../../LoadingLogo'
+import LoadingLogo from '../../Common/Loading/LoadingLogo'
 
 const Feed = () => {
     const accessToken = useSelector((state: RootState) => state.token.token)

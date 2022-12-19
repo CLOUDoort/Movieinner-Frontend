@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router'
 import { useSelector } from 'react-redux'
 import { RootState } from '../../store/store'
-import LoadingLogo from '../LoadingLogo'
+import LoadingLogo from '../Common/Loading/LoadingLogo'
 import useGetUserLiked from '../react-query/UserLiked'
 import useGetUserPosts from '../react-query/UserPosts'
 import { UserBox } from './User.style'

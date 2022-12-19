@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 import { apiInstance } from '../../../apis/setting'
-import LoadingLogo from '../../LoadingLogo'
+import LoadingLogo from '../../Common/Loading/LoadingLogo'
 import SignupVerifyFail from './SignupVerifyFail'
 
 const SignupVerifyReturn = () => {

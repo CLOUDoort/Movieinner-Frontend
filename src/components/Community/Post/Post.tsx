@@ -7,7 +7,7 @@ import PostComment from './Comment/PostComment'
 import PostContent from './PostContent'
 import { apiInstance } from '../../../apis/setting'
 import useGetPostCommentData from '../../react-query/PostCommentData'
-import LoadingLogo from '../../LoadingLogo'
+import LoadingLogo from '../../Common/Loading/LoadingLogo'
 
 const Post = () => {
     const router = useRouter()

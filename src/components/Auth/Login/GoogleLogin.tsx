@@ -6,7 +6,7 @@ import { setToken } from '../../../store/reducers/logintokenSlice'
 import { setSocialEmail } from '../../../store/reducers/socialSlice'
 import Signupinfo from '../Signup/Signupinfo'
 import { toast } from 'react-toastify'
-import LoadingLogo from '../../LoadingLogo'
+import LoadingLogo from '../../Common/Loading/LoadingLogo'
 
 const GoogleLogin = () => {
     const [valid, setValid] = useState(false)
