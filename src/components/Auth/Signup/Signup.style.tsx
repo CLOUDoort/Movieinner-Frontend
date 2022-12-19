@@ -54,13 +54,11 @@ export const SubmitInput = styled.input`
         background-color: white;
     }
 `
+type CheckTextType = {
+    check: boolean
+}
 
-export const RedText = styled.p`
-    color: red;
-    margin-top: 10px;
-    margin-bottom: 10px;
-`
-export const GreenText = styled.p`
-    color: #08cf08;
-    margin-bottom: 10px;
+export const CheckText = styled.p<CheckTextType>`
+    margin: 10px 0;
+    color: ${(props) => props.check ? '#08cf08' : 'red'};
 `

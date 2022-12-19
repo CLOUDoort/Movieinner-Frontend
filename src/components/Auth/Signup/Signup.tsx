@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux'
 import { apiInstance } from '../../../apis/setting'
 import { setSignup, setUser } from '../../../store/reducers/signupSlice'
 import CurrentStatusFirst from '../CurrentStatus/CurrentStatusFirst'
-import { EmailDiv, GreenText, ProgressBtn, RedText, SignupContainerDiv } from './Signup.style'
+import { CheckText, EmailDiv, ProgressBtn, SignupContainerDiv } from './Signup.style'
 import { emailRegExp } from '../../../Lib/EmailRegExp'
 import SocialLogin from '../Login/SocialLogin'
 
@@ -77,12 +77,12 @@ const Signup = () => {
                         email.length > 0 &&
                         (emailValid.valid === true ? (
                             checkEmail === true ? (
-                                <RedText>존재하는 이메일입니다.</RedText>
+                                <CheckText check={false}>존재하는 이메일입니다.</CheckText>
                             ) : (
-                                <GreenText>올바른 이메일 형식입니다.</GreenText>
+                                <CheckText check={true}>올바른 이메일 형식입니다.</CheckText>
                             )
                         ) : (
-                            <RedText>올바르지 않은 이메일 형식입니다.</RedText>
+                            <CheckText check={false}>올바르지 않은 이메일 형식입니다.</CheckText>
                         ))}
                 </div>
             </EmailDiv>
