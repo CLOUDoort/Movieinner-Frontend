@@ -12,12 +12,12 @@ export const LoadingLogoContainer = styled.div<LoadingLogoContainer>`
     justify-content: center;
     background-color: black;
     opacity: ${(props) => props.darkTransition ? 1 : 0};
-    transition: opacity 1s;
+    transition: opacity 0.3s;
 `
 
 export const LoadingLogoDiv = styled.div`
     color: white;
     font-weight: bold;
-    transition: all 0.5s;
+    transition: all 0.3s;
     font-size: 20px;
 `
