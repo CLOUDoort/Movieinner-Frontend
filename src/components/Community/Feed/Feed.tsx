@@ -6,11 +6,11 @@ import { FeedContainer } from './Feed.style'
 import FeedList from './FeedList'
 import FeedRanking from './FeedRanking'
 import { useState } from 'react'
-import Loading from '../../Loading'
 import FeedNavigation from './FeedNavigation'
 import useGetFeedData from '../../react-query/FeedData'
 import FeedRemote from './FeedRemote'
 import useGetHitFeed from '../../react-query/HitFeedData'
+import LoadingLogo from '../../LoadingLogo'
 
 const Feed = () => {
     const accessToken = useSelector((state: RootState) => state.token.token)
@@ -54,7 +54,7 @@ const Feed = () => {
                     <FeedNavigation totalPage={data?.data?.contents?.totalPage} page={pageValue} handleChange={handlePaginationChange} />
                 </FeedContainer>
             ) : (
-                <Loading />
+                <LoadingLogo />
             )}
         </>
     )

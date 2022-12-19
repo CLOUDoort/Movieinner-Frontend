@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 import { apiInstance } from '../../../apis/setting'
-import Loading from '../../Loading'
+import LoadingLogo from '../../LoadingLogo'
 import SignupVerifyFail from './SignupVerifyFail'
 
 const SignupVerifyReturn = () => {
@@ -35,7 +35,7 @@ const SignupVerifyReturn = () => {
             getRequest()
         }
     }, [key, router.isReady])
-    if (!verification.success) return <Loading />
+    if (!verification.success) return <LoadingLogo />
     else if (verification.isVerified) router.replace('/welcome') // return 금지
     else return <SignupVerifyFail email={email} />
 }

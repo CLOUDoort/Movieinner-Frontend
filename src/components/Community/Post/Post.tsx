@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
-import Loading from '../../Loading'
 import { PostBox, PostContainer } from './Post.style'
 import PostModifyModal from './PostModifyModal'
 import UseGetPostData from '../../react-query/PostData'
@@ -8,6 +7,7 @@ import PostComment from './Comment/PostComment'
 import PostContent from './PostContent'
 import { apiInstance } from '../../../apis/setting'
 import useGetPostCommentData from '../../react-query/PostCommentData'
+import LoadingLogo from '../../LoadingLogo'
 
 const Post = () => {
     const router = useRouter()
@@ -47,7 +47,7 @@ const Post = () => {
                     </PostContainer>
                 </PostBox>
             ) : (
-                <Loading />
+                <LoadingLogo />
             )}
         </>
     )

@@ -8,7 +8,7 @@ import useGetHitFeed from '../react-query/HitFeedData'
 import FeedRanking from '../Community/Feed/FeedRanking'
 import IndexUpComingList from './IndexUpComingList'
 import useGetUpComing from '../react-query/UpComing'
-import Loading from '../Loading'
+import LoadingLogo from '../LoadingLogo'
 
 const Index = () => {
     const popularMovie = useGetPopularMovie().data
@@ -45,7 +45,7 @@ const Index = () => {
                 <IndexPopularList popularMovie={popularMovie?.data} />
                 <IndexUpComingList upComingList={upComing?.data?.resultArray} />
                 {/* <FeedRanking hit={hitDataList} /> */}
-            </IndexBox> : <Loading />}
+            </IndexBox> : <LoadingLogo />}
         </>
     )
 }

@@ -4,9 +4,9 @@ import { useDispatch } from 'react-redux'
 import { apiInstance } from '../../../apis/setting'
 import { setToken } from '../../../store/reducers/logintokenSlice'
 import { setSocialEmail } from '../../../store/reducers/socialSlice'
-import Loading from '../../Loading'
 import Signupinfo from '../Signup/Signupinfo'
 import { toast } from 'react-toastify'
+import LoadingLogo from '../../LoadingLogo'
 
 const KakaoLogin = () => {
     const [valid, setValid] = useState(false)
@@ -41,7 +41,7 @@ const KakaoLogin = () => {
         postCode()
     }, [dispatch])
 
-    return <>{valid ? <Signupinfo /> : <Loading />}</>
+    return <>{valid ? <Signupinfo /> : <LoadingLogo />}</>
 }
 
 export default KakaoLogin

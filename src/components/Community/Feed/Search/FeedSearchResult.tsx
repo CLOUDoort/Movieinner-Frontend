@@ -3,7 +3,7 @@ import { useState } from 'react'
 import { useSelector } from 'react-redux'
 import { toast } from 'react-toastify'
 import { RootState } from '../../../../store/store'
-import Loading from '../../../Loading'
+import LoadingLogo from '../../../LoadingLogo'
 import useGetFeedSearchData from '../../../react-query/FeedSearchData'
 import useGetHitFeed from '../../../react-query/HitFeedData'
 import { FeedContainer } from '../Feed.style'
@@ -54,7 +54,7 @@ const FeedSearchResult = () => {
                     </>
                 </FeedContainer>
             ) : (
-                <Loading />
+                <LoadingLogo />
             )}
         </>
     )
