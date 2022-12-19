@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { apiInstance } from '../../../apis/setting'
 import { EmailForm, ForgotContainer } from './Forgot.style'
 import { ContainerText } from './../Signup/SignupVerify.style'
-import { GreenText, RedText } from '../Signup/Signup.style'
+import { CheckText } from '../Signup/Signup.style'
 
 const Forgot = () => {
     const [email, setEmail] = useState('')
@@ -43,13 +43,13 @@ const Forgot = () => {
                     (valid.send ? (
                         <div>
                             <ContainerText>
-                                <GreenText>인증 메일이 {email}&#40;으&#41;로 전송되었습니다&#33;</GreenText>
-                                <GreenText>받으신 이메일을 열어 링크로 접속하시면 비밀번호 재성성 창으로 이동합니다.</GreenText>
+                                <CheckText check={true}>인증 메일이 {email}&#40;으&#41;로 전송되었습니다&#33;</CheckText>
+                                <CheckText check={true}>받으신 이메일을 열어 링크로 접속하시면 비밀번호 재성성 창으로 이동합니다.</CheckText>
                             </ContainerText>
                         </div>
                     ) : (
                         <div>
-                            <RedText>인증 메일 발송 실패&#33;</RedText>
+                            <CheckText check={false}>인증 메일 발송 실패&#33;</CheckText>
                         </div>
                     ))}
             </ForgotContainer>
