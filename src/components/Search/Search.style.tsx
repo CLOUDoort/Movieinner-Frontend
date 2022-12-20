@@ -1,7 +1,7 @@
 import styled from '@emotion/styled'
 
 type SearchContainerType = {
-  darkmode: Boolean
+  darktransition: Boolean
 }
 
 export const SearchContainer = styled.div<SearchContainerType>`
@@ -12,7 +12,7 @@ export const SearchContainer = styled.div<SearchContainerType>`
     flex-direction: column;
     align-items: center;
     background-color: black;
-    opacity: ${(props) => props.darkmode ? 1 : 0};
+    opacity: ${(props) => props.darktransition ? 1 : 0};
     transition: opacity 1s;
     > :first-of-type {
         display: flex;

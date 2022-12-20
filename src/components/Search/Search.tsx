@@ -13,16 +13,16 @@ const Search = () => {
     const movieSearch = useGetMovieSearch(search, page ? page : 1).data
     const actorSearch = useGetActorSearch(search, page ? page : 1).data
     const genreSearch = useGetGenreData(genre, 1).data
-    const [darkmode, setDarkmode] = useState(false)
+    const [darktransition, setDarktransition] = useState(false)
     const [message, setMessage] = useState(false)
     useEffect(() => {
-        setDarkmode(true)
+        setDarktransition(true)
     })
     const clickBack = () => {
         router.replace('/')
     }
     return (
-        <SearchContainer darkmode={darkmode} onClick={(e) => e.stopPropagation()}>
+        <SearchContainer darktransition={darktransition} onClick={(e) => e.stopPropagation()}>
             <div>
                 <IoIosArrowBack size={35} onClick={clickBack} />
             </div>
