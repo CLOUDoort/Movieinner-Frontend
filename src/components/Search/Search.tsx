@@ -14,7 +14,6 @@ const Search = () => {
     const actorSearch = useGetActorSearch(search, page ? page : 1).data
     const genreSearch = useGetGenreData(genre, 1).data
     const [darktransition, setDarktransition] = useState(false)
-    const [message, setMessage] = useState(false)
     useEffect(() => {
         setDarktransition(true)
     })
