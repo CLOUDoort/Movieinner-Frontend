@@ -23,9 +23,6 @@ const Search = () => {
     }
     return (
         <SearchContainer darktransition={darktransition} onClick={(e) => e.stopPropagation()}>
-            <div>
-                <IoIosArrowBack size={35} onClick={clickBack} />
-            </div>
             <SearchResult movieSearch={movieSearch?.data} actorSearch={actorSearch?.data} genreSearch={genreSearch?.data} genreName={name} />
         </SearchContainer>
     )

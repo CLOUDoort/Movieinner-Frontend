@@ -14,22 +14,7 @@ export const SearchContainer = styled.div<SearchContainerType>`
     background-color: black;
     opacity: ${(props) => props.darktransition ? 1 : 0};
     transition: opacity 1s;
-    > :first-of-type {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-top: 20px;
-       > input {
-        min-width: 500px;
-        border: 1px solid gray;
-        border-radius: 5px;
-        padding: 8px 16px;
-        }
-        >svg {
-        margin-right: 5px;
-        }
-    } 
-    > :last-of-type {
+    > div {
         margin-bottom: 10px;
         height: auto;
         overflow-y: auto;
