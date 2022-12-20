@@ -18,9 +18,6 @@ const Search = () => {
     useEffect(() => {
         setDarktransition(true)
     })
-    const clickBack = () => {
-        router.replace('/')
-    }
     return (
         <SearchContainer darktransition={darktransition} onClick={(e) => e.stopPropagation()}>
             <SearchResult movieSearch={movieSearch?.data} actorSearch={actorSearch?.data} genreSearch={genreSearch?.data} genreName={name} />
