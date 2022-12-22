@@ -11,7 +11,6 @@ const Forgotvalid = () => {
         first: '',
         second: '',
     })
-    // const [verification, setVeri]
 
     useEffect(() => {
         const checkEmailKey = async () => {
