@@ -88,14 +88,17 @@ export const UserSex = styled.div`
         margin-right: 20px;
     }
 `
-export const BirthInfo = styled.div`
+type BirthInfoType = {
+    select: Boolean
+}
+export const BirthInfo = styled.div<BirthInfoType>`
     display: flex;
     flex-direction: row;
     align-items: center;
     > button {
         font-size: 15px;
         padding: 8px 16px;
-        background-color: powderblue;
+        background-color: ${(props) => props.select ? 'green' : 'white'};
         border: none;
         border-radius: 5px;
         margin-right: 10px;
