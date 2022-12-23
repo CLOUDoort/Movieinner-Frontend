@@ -10,10 +10,10 @@ const SignupLayout = () => {
     const signupComponent = useSelector((state: RootState) => state.signup.component)
 
     return <>
-        {signupComponent === 'Signup' ? <Signup /> : <LoadingLogo />}
-        {signupComponent === 'Signuppw' ? <Signuppw /> : <LoadingLogo />}
-        {signupComponent === 'Signupinfo' ? <Signupinfo /> : <LoadingLogo />}
-        {signupComponent === 'SignupVerify' ? <SignupVerify /> : <LoadingLogo />}
+        {signupComponent === 'Signup' && <Signup />}
+        {signupComponent === 'Signuppw' && <Signuppw />}
+        {signupComponent === 'Signupinfo' && <Signupinfo />}
+        {signupComponent === 'SignupVerify' && <SignupVerify />}
     </>
 }
 
