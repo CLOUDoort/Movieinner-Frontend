@@ -1,6 +1,5 @@
 import { useSelector } from "react-redux"
 import { RootState } from "../../../store/store"
-import LoadingLogo from "../../Common/Loading/LoadingLogo"
 import Signup from "./Signup"
 import Signupinfo from "./Signupinfo"
 import Signuppw from "./Signuppw"
