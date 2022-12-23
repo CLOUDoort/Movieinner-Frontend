@@ -21,9 +21,9 @@ export const UserProfile = styled.div`
     justify-content: center;
     align-items: center;
     > a > span {
-        z-index: -1;
         border-radius: 50%;
         margin: 20px;
+        object-fit: scale-down;
     }
 `
 
@@ -36,17 +36,19 @@ export const UserInfoDiv = styled.div`
         width: 200px;
         display: inline-block;
         padding: 8px;
-        background-color: #3b3939;
+        border: 1px solid gray;
         color: white;
         cursor: pointer;
         font-size: 20px;
+        border-radius: 3px;
     }
     > input {
         width: 400px;
         border: none;
         font-size: 20px;
         padding: 10px;
-        background-color: #3b3939;
+        border: 1px solid gray;
+        background-color: black;
         margin-bottom: 20px;
         color: white;
     }
@@ -67,7 +69,7 @@ export const UserInfo = styled.div`
         font-size: 20px;
         padding: 8px 16px;
         background-color: black;
-        border: none;
+        border: 1px solid gray;
         color: white;
         margin-bottom: 20px;
     }
@@ -76,7 +78,7 @@ export const UserSex = styled.div`
     display: flex;
     align-items: center;
     > label {
-        border: none;
+        border: 1px solid gray;
         color: white;
         background-color: black;
         padding: 8px 12px;

@@ -7,7 +7,6 @@ import CurrentStatusThird from '../CurrentStatus/CurrentStatusThird'
 import { useDispatch, useSelector } from 'react-redux'
 import { RootState } from '../../../store/store'
 import { setSignup, setUser } from '../../../store/reducers/signupSlice'
-
 import Router from 'next/router'
 import { CheckText } from './Signup.style'
 import SignupBirth from './SignupBirth'
@@ -106,7 +105,7 @@ const Signupinfo = () => {
                 await apiInstance.post('/users', userData)
                 Router.replace('/welcome')
             } catch (e) {
-                console.log(e.response)
+                console.error(e.response)
             }
         }
         // 이메일, 패스워드 입력 받는 일반 로그인 + 인증 이메일
@@ -133,7 +132,7 @@ const Signupinfo = () => {
                         fileInput.current.click()
                     }}
                 >
-                    {image && <Image src={image} width={150} height={150} alt='프로필 이미지입니다.' />}
+                    <Image src={image} width={150} height={150} alt='프로필 이미지입니다.' />
                 </a>
                 <UserInfoDiv>
                     <input
