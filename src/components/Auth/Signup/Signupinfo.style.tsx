@@ -41,6 +41,7 @@ export const UserInfoDiv = styled.div`
         cursor: pointer;
         font-size: 20px;
         border-radius: 3px;
+        border-top: none;
     }
     > input {
         width: 400px;
@@ -49,7 +50,6 @@ export const UserInfoDiv = styled.div`
         padding: 10px;
         border: 1px solid gray;
         background-color: black;
-        margin-bottom: 20px;
         color: white;
     }
 `

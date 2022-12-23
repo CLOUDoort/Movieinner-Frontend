@@ -154,7 +154,7 @@ const Signupinfo = () => {
             </UserProfile>
             <UserInfo>
                 <div>이름</div>
-                <input type='text' name='name' value={info.name} placeholder='이름을 입력하세요' onChange={handleChange} />
+                <input type='text' name='name' value={info.name} placeholder='이름을 입력하세요' onChange={handleChange} autoComplete='off' />
                 <div>성별</div>
                 <UserSex>
                     <label>
