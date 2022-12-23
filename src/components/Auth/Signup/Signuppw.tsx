@@ -30,7 +30,6 @@ const Signuppw = () => {
     }
     const handleClick = (e) => {
         dispatch(setUser({ key: 'password', value: password.first }))
-        e.preventDefault()
         dispatch(setSignup('Signupinfo'))
     }
     return (
