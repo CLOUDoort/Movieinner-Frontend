@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
 
-export const SignupInfo = styled.div`
+export const SignupInfoContainer = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -16,7 +16,7 @@ export const TitleDiv = styled.div`
     margin-top: 20px;
 `
 
-export const UserProfile = styled.div`
+export const UserProfileContainer = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
@@ -27,7 +27,7 @@ export const UserProfile = styled.div`
     }
 `
 
-export const UserInfoDiv = styled.div`
+export const UserProfileBox = styled.div`
     display: flex;
     flex-direction: column;
     align-items: baseline;
@@ -54,7 +54,7 @@ export const UserInfoDiv = styled.div`
     }
 `
 
-export const UserInfo = styled.div`
+export const UserInfoContainer = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
