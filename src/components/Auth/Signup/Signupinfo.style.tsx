@@ -41,7 +41,6 @@ export const UserProfileBox = styled.div`
         cursor: pointer;
         font-size: 20px;
         border-radius: 3px;
-        border-top: none;
     }
     > input {
         width: 400px;

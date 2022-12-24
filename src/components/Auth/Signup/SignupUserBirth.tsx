@@ -6,9 +6,8 @@ import { Calendar } from 'react-date-range'
 import ko from 'date-fns/locale/ko'
 
 const SignupUserBirth = (props) => {
-    const { setUserBirth, dispatch } = props
+    const { dispatch, select, setSelect } = props
     const [birth, setBirth] = useState('')
-    const [select, setSelect] = useState(false)
 
     // birth calendar
     const [showCalendar, setShowCalendar] = useState<boolean>(false) // 캘린더 토글
@@ -30,7 +29,6 @@ const SignupUserBirth = (props) => {
     }
     useEffect(() => {
         dispatch(setUser({ key: 'birth', value: birth }))
-        setUserBirth(true)
     }, [showCalendar])
     return (
         <>

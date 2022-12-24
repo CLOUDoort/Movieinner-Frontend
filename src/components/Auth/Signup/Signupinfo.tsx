@@ -12,7 +12,7 @@ import SignupUserInfo from './SignupUserInfo'
 const Signupinfo = (props) => {
     const { dispatch } = props
     const userData: UserDataState = useSelector((state: RootState) => state.user.user)
-    const [userBirth, setUserBirth] = useState(false)
+    const [select, setSelect] = useState(false)
     const socialEmail = useSelector((state: RootState) => state.socialEmail.socialEmail)
 
     // 소셜 로그인일 경우 이메일 입력받음
@@ -69,9 +69,9 @@ const Signupinfo = (props) => {
             {/* 닉네임, 이미지 입력 */}
             <SignupUserProfile info={info} handleChange={handleChange} dispatch={dispatch} />
             {/* 이름, 성별, 생일 입력 */}
-            <SignupUserInfo dispatch={dispatch} info={info} setUserBirth={setUserBirth} handleChange={handleChange} />
+            <SignupUserInfo dispatch={dispatch} info={info} select={select} setSelect={setSelect} handleChange={handleChange} />
 
-            <ProgressBtn disabled={info.nickname === '' || info.name === '' || info.gender === '' || userBirth} onClick={handleClick}>
+            <ProgressBtn disabled={info.nickname === '' || info.name === '' || info.gender === '' || !select} onClick={handleClick}>
                 완료
             </ProgressBtn>
         </SignupInfoContainer>

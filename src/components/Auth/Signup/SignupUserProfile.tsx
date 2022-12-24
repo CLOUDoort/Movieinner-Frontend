@@ -88,6 +88,7 @@ const SignupUserProfile = (props) => {
                     name='nickname'
                     value={info.nickname}
                     onChange={handleChange}
+                    autoComplete='off'
                     onFocus={() => {
                         setCheckNickname({ ...checkNickname, click: true })
                     }}
