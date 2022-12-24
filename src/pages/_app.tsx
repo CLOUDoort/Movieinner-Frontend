@@ -1,6 +1,6 @@
 import type { AppContext, AppInitialProps, AppProps } from 'next/app'
 import * as React from 'react'
-import { ToastContainer, toast } from 'react-toastify'
+import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import Head from 'next/head'
 import GlobalCss from '../style/GlobalCss'
@@ -16,15 +16,13 @@ import 'react-date-range/dist/styles.css'
 import 'react-date-range/dist/theme/default.css'
 import { store } from '../store/store'
 import { Provider } from 'react-redux'
-import { Hydrate, QueryClient, QueryClientProvider } from 'react-query'
-
+import { QueryClient, QueryClientProvider } from 'react-query'
 import '@toast-ui/editor/dist/toastui-editor.css'
 import '@toast-ui/editor/dist/theme/toastui-editor-dark.css'
 import 'tui-color-picker/dist/tui-color-picker.css'
 import '@toast-ui/editor-plugin-color-syntax/dist/toastui-editor-plugin-color-syntax.css'
 import { NextComponentType } from 'next'
 import { useState } from 'react'
-import dynamic from 'next/dynamic'
 
 
 declare global {
