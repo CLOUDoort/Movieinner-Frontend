@@ -2,7 +2,6 @@ import { useRouter } from "next/router"
 import { useEffect, useState } from "react"
 import { SearchContainer } from "./Search.style"
 import SearchResult from "./SearchResult"
-import { IoIosArrowBack } from 'react-icons/io'
 import useGetMovieSearch from "../react-query/MovieSearch"
 import useGetActorSearch from "../react-query/ActorSearch"
 import useGetGenreData from "../react-query/GenreData"

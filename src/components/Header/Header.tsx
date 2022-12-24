@@ -13,7 +13,6 @@ import { setSocialEmail } from '../../store/reducers/socialSlice'
 const Header = () => {
     const loginToken = useSelector((state: RootState) => state.token.token)
     const nickname = useSelector((state: RootState) => state.nickname.nickname)
-    const email = useSelector((state: RootState) => state.socialEmail.socialEmail)
     const dispatch = useDispatch()
     const [loginToggle, setLoginToggle] = useState('로그인')
 
