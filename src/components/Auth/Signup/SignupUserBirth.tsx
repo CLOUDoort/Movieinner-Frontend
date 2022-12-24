@@ -6,7 +6,7 @@ import { Calendar } from 'react-date-range'
 import ko from 'date-fns/locale/ko'
 import { useDispatch } from "react-redux"
 
-const UserBirth = (props) => {
+const SignupUserBirth = (props) => {
     const { setUserBirth } = props
     const [birth, setBirth] = useState('')
     const dispatch = useDispatch()
@@ -49,5 +49,5 @@ const UserBirth = (props) => {
     )
 }
 
-export default UserBirth
+export default SignupUserBirth
 
