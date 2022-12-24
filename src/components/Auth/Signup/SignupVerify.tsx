@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { RootState } from '../../../store/store'
-import { SignupVerifyContainer, ContainerBtn, ContainerProfile, ContainerText, ContainerTitle, FailText } from './SignupVerify.style'
+import { SignupVerifyContainer, ContainerBtn, ContainerProfile, ContainerText, ContainerTitle } from './SignupVerify.style'
 import { apiInstance } from '../../../apis/setting'
 import { CheckText } from './Signup.style'
 
