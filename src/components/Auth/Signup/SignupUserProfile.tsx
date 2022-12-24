@@ -3,20 +3,17 @@ import Image from "next/image"
 import { CheckText } from "./Signup.style"
 import { useEffect, useRef, useState } from "react"
 import { apiInstance } from "../../../apis/setting"
-import { useDispatch } from "react-redux"
 import { setUser } from "../../../store/reducers/signupSlice"
 import { toast } from "react-toastify"
 
 // 닉네임, 이미지 입력
-
 const SignupUserProfile = (props) => {
-    const { info, handleChange } = props
+    const { info, handleChange, dispatch } = props
     // 닉네임 중복 여부
     const [checkNickname, setCheckNickname] = useState({
         click: false,
         valid: false,
     })
-    const dispatch = useDispatch()
     useEffect(() => {
         const check = async () => {
             try {

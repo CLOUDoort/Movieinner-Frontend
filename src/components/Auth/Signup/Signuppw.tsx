@@ -4,8 +4,8 @@ import { setSignup, setUser } from '../../../store/reducers/signupSlice'
 import { CheckText, EmailDiv, ProgressBtn, SignupContainerDiv } from './Signup.style'
 import CurrentStatusSecond from '../CurrentStatus/CurrentStatusSecond'
 
-const Signuppw = () => {
-    const dispatch = useDispatch()
+const Signuppw = (props) => {
+    const { dispatch } = props
     const [password, setPassword] = useState({
         first: '',
         second: '',

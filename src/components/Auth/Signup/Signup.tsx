@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import { useDispatch } from 'react-redux'
 import { apiInstance } from '../../../apis/setting'
 import { setSignup, setUser } from '../../../store/reducers/signupSlice'
 import CurrentStatusFirst from '../CurrentStatus/CurrentStatusFirst'
@@ -7,8 +6,8 @@ import { CheckText, EmailDiv, ProgressBtn, SignupContainerDiv } from './Signup.s
 import { emailRegExp } from '../../../Lib/EmailRegExp'
 import SocialLogin from '../Login/SocialLogin'
 
-const Signup = () => {
-    const dispatch = useDispatch()
+const Signup = (props) => {
+    const { dispatch } = props
     // 이메일 정규식 확인
     const [emailValid, setEmailValid] = useState({
         touch: false,

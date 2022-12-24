@@ -2,7 +2,7 @@ import { UserInfoContainer, UserSex } from "./Signupinfo.style"
 import SignupUserBirth from "./SignupUserBirth"
 
 const SignupUserInfo = (props) => {
-    const { handleChange, setUserBirth, info } = props
+    const { handleChange, setUserBirth, info, dispatch } = props
 
     return (
         <UserInfoContainer>
@@ -19,7 +19,7 @@ const SignupUserInfo = (props) => {
                     <input type='radio' value='여성' name='gender' onChange={handleChange} checked={info.gender === '여성'} />
                 </label>
             </UserSex>
-            <SignupUserBirth setUserBirth={setUserBirth} />
+            <SignupUserBirth dispatch={dispatch} setUserBirth={setUserBirth} />
         </UserInfoContainer>
     )
 }
