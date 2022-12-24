@@ -1,6 +1,14 @@
 import styled from '@emotion/styled'
 
+export const SignupVerifyBox = styled.div`
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+`
+
 export const SignupVerifyContainer = styled.div`
+color: black;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -8,7 +16,7 @@ export const SignupVerifyContainer = styled.div`
     margin: auto;
     width: 700px;
     height: 500px;
-    background-color: #907171;
+    background-color: #e4e2e2;
     border-radius: 12px;
     > div > span {
         border-radius: 50%;

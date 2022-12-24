@@ -3,13 +3,14 @@ import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { RootState } from '../../../store/store'
-import { SignupVerifyContainer, ContainerBtn, ContainerProfile, ContainerText, ContainerTitle } from './SignupVerify.style'
+import { SignupVerifyContainer, ContainerBtn, ContainerProfile, ContainerText, ContainerTitle, SignupVerifyBox } from './SignupVerify.style'
 import { apiInstance } from '../../../apis/setting'
 import { CheckText } from './Signup.style'
 
 const SignupVerify = () => {
     const userData: UserDataState = useSelector((state: RootState) => state.user.user)
 
+    console.log('인증성공')
     // 이메일 다시 보내기
     const [email, setEmail] = useState({
         click: false,
@@ -40,29 +41,32 @@ const SignupVerify = () => {
         }
     }
     return (
-        <SignupVerifyContainer>
-            <ContainerTitle>인증 이메일 전송 완료</ContainerTitle>
-            <ContainerProfile>
-                <Image src={image} width={150} height={150} alt='프로필 이미지입니다.' />
-                <div>{userData.nickname}님 환영합니다 &#33;</div>
-            </ContainerProfile>
-            <ContainerText>
-                <div>인증 메일이 {userData.email}&#40;으&#41;로 전송되었습니다.</div>
-                <div>받으신 이메일을 열어 링크로 접속하시면 가입이 완료됩니다.</div>
-            </ContainerText>
-            <ContainerBtn>
-                <div>
-                    <Link href='/'>
-                        <button>Home</button>
-                    </Link>
-                    <button onClick={handleClick}>인증 메일 다시 보내기</button>
-                </div>
-                <div>
-                    {email.click === true && email.send === true && <CheckText check={true}>다시 보내기 성공!</CheckText>}
-                    {email.click === true && <CheckText check={false}>이메일을 보내지 못했습니다.</CheckText>}
-                </div>
-            </ContainerBtn>
-        </SignupVerifyContainer>
+        <SignupVerifyBox>
+            <SignupVerifyContainer>
+                <ContainerTitle>인증 이메일 전송 완료</ContainerTitle>
+                <ContainerProfile>
+                    <Image src={image} width={150} height={150} alt='프로필 이미지입니다.' />
+                    <div>{userData.nickname}님 환영합니다 &#33;</div>
+                </ContainerProfile>
+                <ContainerText>
+                    <div>인증 메일이 {userData.email}&#40;으&#41;로 전송되었습니다.</div>
+                    <div>받으신 이메일을 열어 링크로 접속하시면 가입이 완료됩니다.</div>
+                </ContainerText>
+                <ContainerBtn>
+                    <div>
+                        <Link href='/'>
+                            <button>Home</button>
+                        </Link>
+                        <button onClick={handleClick}>인증 메일 다시 보내기</button>
+                    </div>
+                    <div>
+                        {email.click === true && email.send === true && <CheckText check={true}>다시 보내기 성공!</CheckText>}
+                        {email.click === true && <CheckText check={false}>이메일을 보내지 못했습니다.</CheckText>}
+                    </div>
+                </ContainerBtn>
+            </SignupVerifyContainer>
+        </SignupVerifyBox>
+
     )
 }
 
