@@ -44,7 +44,7 @@ const Index = () => {
                 <IndexSlider sliderImage={sliderImage} />
                 <IndexPopularList popularMovie={popularMovie?.data} />
                 <IndexUpComingList upComingList={upComing?.data?.resultArray} />
-                {/* <FeedRanking hit={hitDataList} /> */}
+                <FeedRanking hit={hitDataList} />
             </IndexBox> : <LoadingLogo />}
         </>
     )
