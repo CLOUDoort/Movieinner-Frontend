@@ -15,13 +15,13 @@ const SignupVerify = () => {
         click: false,
         send: false,
     })
-    console.log(userData)
 
     const [image, setImage] = useState('/blank.png')
     useEffect(() => {
         if (userData.image_URL) setImage(userData.image_URL)
     }, [image, userData.image_URL])
 
+    // 이메일 다시 보내기
     const handleClick = async () => {
         try {
             await apiInstance.post('/verify', { email: userData.email })
