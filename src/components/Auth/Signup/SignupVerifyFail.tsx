@@ -9,6 +9,8 @@ const SignupVerifyFail = (props) => {
         click: false,
         send: false,
     })
+    console.log('인증실패')
+
     const { email } = props
     const handleClick = async () => {
         try {

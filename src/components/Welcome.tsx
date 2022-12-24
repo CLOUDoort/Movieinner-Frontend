@@ -2,6 +2,7 @@ import { WelcomeContainer, WelcomeText, WelcomeTitle } from './Welcome.style'
 import Link from 'next/link'
 
 const Welcome = () => {
+    console.log('welcome!')
     return (
         <WelcomeContainer>
             <WelcomeTitle>Movie-inner 가입 완료&#33;</WelcomeTitle>

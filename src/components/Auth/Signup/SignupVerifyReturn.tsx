@@ -11,7 +11,7 @@ const SignupVerifyReturn = () => {
         success: false,
         isVerified: false,
     })
-
+    console.log('리턴성공')
     //라우터 필드가 클라이언트 측에서 업데이트되고 사용할 준비가 되었는지 여부.
     //useEffect 메소드 내에서만 사용해야하며 서버에서 조건부로 렌더링 하는 데에 사용해야한다.
     useEffect(() => {
