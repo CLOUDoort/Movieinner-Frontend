@@ -9,7 +9,7 @@ import { RootState } from '../../../store/store'
 import { setSignup, setUser } from '../../../store/reducers/signupSlice'
 import Router from 'next/router'
 import { CheckText } from './Signup.style'
-import SignupBirth from './SignupBirth'
+import UserBirth from './UserBirth'
 
 const Signupinfo = () => {
     const userData: UserDataState = useSelector((state: RootState) => state.user.user)
@@ -166,7 +166,7 @@ const Signupinfo = () => {
                         <input type='radio' value='여성' name='gender' onChange={handleChange} checked={info.gender === '여성'} />
                     </label>
                 </UserSex>
-                <SignupBirth setUserBirth={setUserBirth} />
+                <UserBirth setUserBirth={setUserBirth} />
             </UserInfo>
             <ProgressBtn disabled={info.nickname === '' || info.name === '' || info.gender === '' || userBirth} onClick={handleClick}>
                 완료
