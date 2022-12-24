@@ -18,7 +18,6 @@ const User = () => {
     const userLikedTheme = useGetUserLiked('theme', nickname).data
     const movieLoading = useGetUserLiked('movie', nickname).isLoading
     const themeLoading = useGetUserLiked('theme', nickname).isLoading
-    const postsLoading = useGetUserPosts(nickname).isLoading
 
     console.log('post', userPosts?.data)
 
