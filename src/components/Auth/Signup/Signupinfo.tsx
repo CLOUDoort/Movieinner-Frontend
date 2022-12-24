@@ -1,25 +1,28 @@
-import { TitleDiv, ProgressBtn, UserInfoContainer, UserSex, SignupInfoContainer } from './Signupinfo.style'
-import { useEffect, useRef, useState } from 'react'
-import { toast } from 'react-toastify'
+import { TitleDiv, ProgressBtn, SignupInfoContainer } from './Signupinfo.style'
+import { useEffect, useState } from 'react'
 import { apiInstance } from '../../../apis/setting'
 import CurrentStatusThird from '../CurrentStatus/CurrentStatusThird'
 import { useDispatch, useSelector } from 'react-redux'
 import { RootState } from '../../../store/store'
 import { setSignup, setUser } from '../../../store/reducers/signupSlice'
 import Router from 'next/router'
-import SignupUserBirth from './SignupUserBirth'
 import SignupUserProfile from './SignupUserProfile'
+import SignupUserInfo from './SignupUserInfo'
 
 const Signupinfo = () => {
     const userData: UserDataState = useSelector((state: RootState) => state.user.user)
     const [userBirth, setUserBirth] = useState(false)
     const dispatch = useDispatch()
     const socialEmail = useSelector((state: RootState) => state.socialEmail.socialEmail)
+
+    // 소셜 로그인일 경우 이메일 입력받음
     useEffect(() => {
         if (socialEmail) {
             dispatch(setUser({ key: 'email', value: socialEmail }))
         }
     })
+
+    // 유저 정보 입력
     const [info, setInfo] = useState({
         nickname: '',
         name: '',
@@ -53,8 +56,7 @@ const Signupinfo = () => {
                 dispatch(setSignup('SignupVerify'))
                 await apiInstance.post('/users', userData)
             } catch (e) {
-                toast.error(e.response.data)
-                console.log(e)
+                console.error(e.response.data)
             }
         }
     }
@@ -64,25 +66,11 @@ const Signupinfo = () => {
             <CurrentStatusThird />
             <TitleDiv>회원 정보 입력</TitleDiv>
 
-            {/* 닉네임과 이미지 입력 */}
+            {/* 닉네임, 이미지 입력 */}
             <SignupUserProfile info={info} handleChange={handleChange} />
+            {/* 이름, 성별, 생일 입력 */}
+            <SignupUserInfo info={info} setUserBirth={setUserBirth} handleChange={handleChange} />
 
-            <UserInfoContainer>
-                <div>이름</div>
-                <input type='text' name='name' value={info.name} placeholder='이름을 입력하세요' onChange={handleChange} autoComplete='off' />
-                <div>성별</div>
-                <UserSex>
-                    <label>
-                        남성
-                        <input type='radio' value='남성' name='gender' onChange={handleChange} checked={info.gender === '남성'} />
-                    </label>
-                    <label>
-                        여성
-                        <input type='radio' value='여성' name='gender' onChange={handleChange} checked={info.gender === '여성'} />
-                    </label>
-                </UserSex>
-                <SignupUserBirth setUserBirth={setUserBirth} />
-            </UserInfoContainer>
             <ProgressBtn disabled={info.nickname === '' || info.name === '' || info.gender === '' || userBirth} onClick={handleClick}>
                 완료
             </ProgressBtn>
