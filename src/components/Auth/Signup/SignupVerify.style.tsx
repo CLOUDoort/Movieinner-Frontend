@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
 
-export const Container = styled.div`
+export const SignupVerifyContainer = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;

@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { RootState } from '../../../store/store'
-import { Container, ContainerBtn, ContainerProfile, ContainerText, ContainerTitle, FailText } from './SignupVerify.style'
+import { SignupVerifyContainer, ContainerBtn, ContainerProfile, ContainerText, ContainerTitle, FailText } from './SignupVerify.style'
 import { apiInstance } from '../../../apis/setting'
 import { CheckText } from './Signup.style'
 
@@ -41,7 +41,7 @@ const SignupVerify = () => {
     }
     return (
         <>
-            <Container>
+            <SignupVerifyContainer>
                 <ContainerTitle>인증 이메일 전송 완료</ContainerTitle>
                 <ContainerProfile>
                     <Image src={image} width={150} height={150} alt='프로필 이미지입니다.' />
@@ -63,7 +63,7 @@ const SignupVerify = () => {
                         {email.click === true && <CheckText check={false}>이메일을 보내지 못했습니다.</CheckText>}
                     </div>
                 </ContainerBtn>
-            </Container>
+            </SignupVerifyContainer>
         </>
     )
 }
