@@ -55,7 +55,7 @@ const WysiwygEditor = (props) => {
         // 작성글 서버로 보내기
         try {
             const postContent = await apiInstance.post('/community/content', { nickname: nickname, title: title, content: output, file: image })
-            router.replace('/community/feed')
+            router.replace('/community/feed/1')
             toast.success(`${postContent.data.idx} 번 글 작성 완료!`)
         } catch (e) {
             console.error(e.response)
