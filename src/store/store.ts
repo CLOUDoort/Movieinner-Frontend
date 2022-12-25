@@ -4,6 +4,7 @@ import userReducer from './reducers/signupSlice'
 import tokenReducer from './reducers/logintokenSlice'
 import socialEmailReducer from './reducers/socialSlice'
 import nicknameReducer from './reducers/logintokenSlice'
+import emailReducer from './reducers/logintokenSlice'
 
 export const store = configureStore({
     reducer: {
@@ -11,6 +12,7 @@ export const store = configureStore({
         user: userReducer,
         token: tokenReducer,
         nickname: nicknameReducer,
+        email : emailReducer,
         socialEmail: socialEmailReducer,
     },
 })
