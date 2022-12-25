@@ -2,7 +2,7 @@ import Router from 'next/router'
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { apiInstance } from '../../apis/setting'
-import { setToken, setNickname } from '../../store/reducers/logintokenSlice'
+import { setToken, setNickname, setEmail } from '../../store/reducers/logintokenSlice'
 import { RootState } from '../../store/store'
 import { FirstHeaderDiv, HeaderContainer, SecondHearderDiv } from './Header.style'
 import { toast } from 'react-toastify'
@@ -13,6 +13,8 @@ import { setSocialEmail } from '../../store/reducers/socialSlice'
 const Header = () => {
     const loginToken = useSelector((state: RootState) => state.token.token)
     const nickname = useSelector((state: RootState) => state.nickname.nickname)
+    const email = useSelector((state: RootState) => state.email.email)
+    console.log('email', email)
     const dispatch = useDispatch()
     const [loginToggle, setLoginToggle] = useState('로그인')
 
@@ -26,6 +28,7 @@ const Header = () => {
                 const emailResponse = tokenPayload.data.payload.email
                 dispatch(setNickname(nicknameResponse))
                 dispatch(setSocialEmail(emailResponse))
+                dispatch(setEmail(emailResponse))
             }
         }
         getResponse()
@@ -52,7 +55,7 @@ const Header = () => {
             }
         }
         refreshTokenCheck()
-    }, [dispatch, loginToggle])
+    }, [dispatch, loginToggle, loginToken])
 
     // 클릭시 로그아웃이면 accessToken 없앰, 로그인UI로 변경
     // 클릭시 로그인이면 accessToken이 없다는 것이니
@@ -64,6 +67,7 @@ const Header = () => {
                     dispatch(setToken(''))
                     dispatch(setNickname(''))
                     dispatch(setSocialEmail(''))
+                    dispatch(setEmail(''))
                     setLoginToggle('로그인')
                     Router.replace('/')
                     toast.success('로그아웃되었습니다!')
