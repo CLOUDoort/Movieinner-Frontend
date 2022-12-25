@@ -14,7 +14,6 @@ const Header = () => {
     const loginToken = useSelector((state: RootState) => state.token.token)
     const nickname = useSelector((state: RootState) => state.nickname.nickname)
     const email = useSelector((state: RootState) => state.email.email)
-    console.log('email', email)
     const dispatch = useDispatch()
     const [loginToggle, setLoginToggle] = useState('로그인')
 
@@ -55,7 +54,7 @@ const Header = () => {
             }
         }
         refreshTokenCheck()
-    }, [dispatch, loginToggle, loginToken])
+    }, [loginToggle, loginToken])
 
     // 클릭시 로그아웃이면 accessToken 없앰, 로그인UI로 변경
     // 클릭시 로그인이면 accessToken이 없다는 것이니
