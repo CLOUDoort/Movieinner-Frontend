@@ -66,7 +66,7 @@ const UserProfile = (props) => {
                     {modify ? <span onClick={clickModifyImg}>취소</span> : null}
                 </UserProfileInfo>
                 <UserProfileData>
-                    <div>개인정보 수정</div>
+                    <div onClick={() => router.push('/setting')}>개인정보 수정</div>
                     <div onClick={clickLogout}>로그아웃</div>
                 </UserProfileData>
             </UserProfileContainer>
