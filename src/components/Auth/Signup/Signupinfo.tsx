@@ -2,7 +2,7 @@ import { TitleDiv, ProgressBtn, SignupInfoContainer } from './Signupinfo.style'
 import { useEffect, useState } from 'react'
 import { apiInstance } from '../../../apis/setting'
 import CurrentStatusThird from '../CurrentStatus/CurrentStatusThird'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { RootState } from '../../../store/store'
 import { setSignup, setUser } from '../../../store/reducers/signupSlice'
 import Router from 'next/router'
@@ -10,11 +10,11 @@ import SignupUserProfile from './SignupUserProfile'
 import SignupUserInfo from './SignupUserInfo'
 
 const Signupinfo = (props) => {
-    const { dispatch } = props
     const userData: UserDataState = useSelector((state: RootState) => state.user.user)
     const [select, setSelect] = useState(false)
     const socialEmail = useSelector((state: RootState) => state.socialEmail.socialEmail)
 
+    const dispatch = useDispatch()
     // 소셜 로그인일 경우 이메일 입력받음
     useEffect(() => {
         if (socialEmail) {

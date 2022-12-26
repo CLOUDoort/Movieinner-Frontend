@@ -95,7 +95,7 @@ const SignupUserProfile = (props) => {
                 />
                 {checkNickname.click &&
                     info.nickname.length > 0 &&
-                    (checkNickname.valid ? <CheckText check={false}>중복된 닉네임입니다.</CheckText> : <CheckText check={true}>사용 가능한 닉네임입니다.</CheckText>)}
+                    (checkNickname.valid ? <CheckText check={true}>사용 가능한 닉네임입니다.</CheckText> : <CheckText check={false}>중복된 닉네임입니다.</CheckText>)}
                 <label htmlFor='input-file'>이미지 선택</label>
                 <input type='file' name='image_URL' id='input-file' accept='image/*' style={{ display: 'none' }} ref={fileInput} onChange={handleImage} />
             </UserProfileBox>

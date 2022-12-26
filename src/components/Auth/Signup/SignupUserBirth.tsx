@@ -4,10 +4,12 @@ import { setUser } from "../../../store/reducers/signupSlice"
 import { BirthInfo } from "./Signupinfo.style"
 import { Calendar } from 'react-date-range'
 import ko from 'date-fns/locale/ko'
+import { useDispatch } from "react-redux"
 
 const SignupUserBirth = (props) => {
-    const { dispatch, select, setSelect } = props
+    const { select, setSelect } = props
     const [birth, setBirth] = useState('')
+    const dispatch = useDispatch()
 
     // birth calendar
     const [showCalendar, setShowCalendar] = useState<boolean>(false) // 캘린더 토글
