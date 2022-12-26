@@ -11,13 +11,27 @@ export const SettingContainer = styled.div`
 export const SettingBox = styled.div`
     display: flex;
     flex-direction: column;
-    min-width: 800px;
+    /* min-width: 800px; */
     margin-top: 10px;
+    > div {
+        margin-bottom: 30px;
+    }
 `
 
 export const SettingDeleteUser = styled.div`
-    background-color: red;
-    padding: 8px 16px;
-    border-radius: 5px;
-    cursor: pointer;
+    > span {
+        margin-right: 10px;
+    }
+    >:first-of-type {
+        ::after {
+            margin-left: 10px;
+            content: '|';
+        }
+    }
+    >:last-of-type {
+        background-color: red;
+        padding: 8px 16px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
 `

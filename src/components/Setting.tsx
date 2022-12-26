@@ -3,7 +3,7 @@ import { useSelector } from "react-redux"
 import { toast } from "react-toastify"
 import { apiInstance } from "../apis/setting"
 import { RootState } from "../store/store"
-import { SettingContainer, SettingDeleteUser } from "./Setting.style"
+import { SettingBox, SettingContainer, SettingDeleteUser } from "./Setting.style"
 
 const Setting = () => {
     const email = useSelector((state: RootState) => state.email.email)
@@ -24,7 +24,17 @@ const Setting = () => {
     }
     return (
         <SettingContainer>
-            <SettingDeleteUser onClick={deleteUser}>회원탈퇴</SettingDeleteUser>
+            <SettingBox>
+                <div>
+                    <div>이미지</div>
+                    <div>닉네임</div>
+                </div>
+                <div>비밀번호 변경</div>
+                <SettingDeleteUser>
+                    <span>회원 탈퇴</span>
+                    <span onClick={deleteUser}>회원 탈퇴</span>
+                </SettingDeleteUser>
+            </SettingBox>
         </SettingContainer>
     )
 }
