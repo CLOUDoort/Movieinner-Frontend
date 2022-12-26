@@ -35,26 +35,24 @@ const FeedSearchModal = (props) => {
         else toast.error('검색어 입력해주세요')
     }
     return (
-        <>
-            <SearchModalBox onClick={clickModal}>
-                <div onClick={(e) => e.stopPropagation()}>
-                    <FormControl size='small'>
-                        <InputLabel id='demo-select-small'>검색</InputLabel>
-                        <Select labelId='demo-select-small' id='demo-select-small' value={type} label='type' onChange={typeChange}>
-                            <MenuItem value={'title'}>제목</MenuItem>
-                            <MenuItem value={'content'}>내용</MenuItem>
-                            <MenuItem value={'titleAndContent'}>제목+내용</MenuItem>
-                            <MenuItem value={'writer'}>작성자</MenuItem>
-                        </Select>
-                    </FormControl>
-                    <input type='text' placeholder='검색' onChange={handleChange} />
-                    <div>
-                        <button onClick={clickModal}>뒤로가기</button>
-                        <button onClick={clickSearch}>검색</button>
-                    </div>
+        <SearchModalBox onClick={clickModal}>
+            <div onClick={(e) => e.stopPropagation()}>
+                <FormControl size='small'>
+                    <InputLabel id='demo-select-small'>검색</InputLabel>
+                    <Select labelId='demo-select-small' id='demo-select-small' value={type} label='type' onChange={typeChange}>
+                        <MenuItem value={'title'}>제목</MenuItem>
+                        <MenuItem value={'content'}>내용</MenuItem>
+                        <MenuItem value={'titleAndContent'}>제목+내용</MenuItem>
+                        <MenuItem value={'writer'}>작성자</MenuItem>
+                    </Select>
+                </FormControl>
+                <input type='text' placeholder='검색' onChange={handleChange} />
+                <div>
+                    <button onClick={clickModal}>뒤로가기</button>
+                    <button onClick={clickSearch}>검색</button>
                 </div>
-            </SearchModalBox>
-        </>
+            </div>
+        </SearchModalBox>
     )
 }
 
