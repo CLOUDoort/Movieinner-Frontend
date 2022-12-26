@@ -19,4 +19,5 @@ export const SettingDeleteUser = styled.div`
     background-color: red;
     padding: 8px 16px;
     border-radius: 5px;
+    cursor: pointer;
 `
