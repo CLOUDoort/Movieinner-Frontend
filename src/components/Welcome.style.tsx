@@ -1,6 +1,14 @@
 import styled from '@emotion/styled'
 
 export const WelcomeContainer = styled.div`
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+`
+
+export const WelcomeBox = styled.div`
     margin: 30px;
     display: flex;
     flex-direction: column;
@@ -10,6 +18,8 @@ export const WelcomeContainer = styled.div`
         width: 600px;
     }
     > div > button {
+        margin-right: 5px;
+        margin-left: 5px;
         margin-top: 20px;
         padding: 8px 16px;
         font-size: 15px;
