@@ -4,12 +4,14 @@ export interface LoginState {
     token: string
     nickname: string
     email: string
+    idx: number
 }
 
 const initialState: LoginState = {
     token: '',
     nickname: '',
-    email: ''
+    email: '',
+    idx: 0
 }
 
 export const logintokenSlice = createSlice({
@@ -24,6 +26,9 @@ export const logintokenSlice = createSlice({
         },
         setEmail:(state, action) => {
             state.email = action.payload
+        },
+        setIdx:(state, action) => {
+            state.idx = action.payload
         }
     },
 })
