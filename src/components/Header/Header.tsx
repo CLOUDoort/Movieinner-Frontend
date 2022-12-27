@@ -2,7 +2,7 @@ import Router from 'next/router'
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { apiInstance } from '../../apis/setting'
-import { setToken, setNickname, setEmail } from '../../store/reducers/logintokenSlice'
+import { setToken, setNickname, setEmail, setIdx } from '../../store/reducers/logintokenSlice'
 import { RootState } from '../../store/store'
 import { FirstHeaderDiv, HeaderContainer, SecondHearderDiv } from './Header.style'
 import { toast } from 'react-toastify'
@@ -13,7 +13,6 @@ import { setSocialEmail } from '../../store/reducers/socialSlice'
 const Header = () => {
     const loginToken = useSelector((state: RootState) => state.token.token)
     const nickname = useSelector((state: RootState) => state.nickname.nickname)
-    const email = useSelector((state: RootState) => state.email.email)
     const dispatch = useDispatch()
     const [loginToggle, setLoginToggle] = useState('로그인')
 
@@ -23,11 +22,10 @@ const Header = () => {
             if (loginToken) {
                 setLoginToggle('로그아웃')
                 const tokenPayload = await apiInstance.post('/auth/verify', { token: loginToken })
-                const nicknameResponse = tokenPayload.data.payload.nickname
-                const emailResponse = tokenPayload.data.payload.email
-                dispatch(setNickname(nicknameResponse))
-                dispatch(setSocialEmail(emailResponse))
-                dispatch(setEmail(emailResponse))
+                dispatch(setNickname(tokenPayload.data.payload.nickname))
+                dispatch(setSocialEmail(tokenPayload.data.payload.email))
+                dispatch(setEmail(tokenPayload.data.payload.email))
+                dispatch(setIdx(tokenPayload.data.payload.idx))
             }
         }
         getResponse()
@@ -67,6 +65,7 @@ const Header = () => {
                     dispatch(setNickname(''))
                     dispatch(setSocialEmail(''))
                     dispatch(setEmail(''))
+                    dispatch(setIdx(0))
                     setLoginToggle('로그인')
                     Router.replace('/')
                     toast.success('로그아웃되었습니다!')
