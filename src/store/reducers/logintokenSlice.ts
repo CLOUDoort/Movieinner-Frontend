@@ -33,5 +33,5 @@ export const logintokenSlice = createSlice({
     },
 })
 
-export const { setToken, setNickname, setEmail } = logintokenSlice.actions
+export const { setToken, setNickname, setEmail, setIdx } = logintokenSlice.actions
 export default logintokenSlice.reducer
