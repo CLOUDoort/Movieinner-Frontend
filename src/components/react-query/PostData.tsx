@@ -17,7 +17,7 @@ export const getServerSidePropsPostData: GetServerSideProps = async (context) =>
     }
 }
 
-export const getPostData = (idx: PostData) => apiInstance.get(`/community/${idx}`, { withCredentials: true })
+export const getPostData = (idx: PostData) => apiInstance.get(`/community/content/user/${idx}`, { withCredentials: true })
 
 const useGetPostData = (idx: any) => {
     const queryFn = () => getPostData(idx)

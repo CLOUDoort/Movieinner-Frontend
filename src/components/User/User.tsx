@@ -11,7 +11,7 @@ import UserProfile from './UserProfile/UserProfile'
 const User = () => {
     const router = useRouter()
     const { nickname } = router.query
-    const email = useSelector((state: RootState) => state.socialEmail.socialEmail)
+    const email = useSelector((state: RootState) => state.email.email)
 
     const userPosts = useGetUserPosts(nickname).data
     const userLikedMovie = useGetUserLiked('movie', nickname).data
