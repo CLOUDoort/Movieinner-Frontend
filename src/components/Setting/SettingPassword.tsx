@@ -1,5 +1,59 @@
+import { useState } from "react"
+import { toast } from "react-toastify"
+import { apiInstance } from "../../apis/setting"
+import { SettingPwInput, SettingPwModalBox, SettingPwModalContainer } from "./SettingPassword.style"
+
 const SettingPassword = (props) => {
-    return <></>
+    const { userIdx } = props
+    const [modal, setModal] = useState(false)
+    const [pw, setPw] = useState({
+        current: '',
+        new: '',
+        check: ''
+    })
+    const clickModal = () => {
+        setModal(!modal)
+    }
+    const handleChange = (e) => {
+        const { value, name } = e.target
+        setPw({
+            ...pw, [name]: value
+        })
+    }
+    const clickModifyPw = async () => {
+        try {
+            const response = await apiInstance.put(`/users/change/password`, { userIdx: userIdx, crtPassword: pw.current, newPassword: pw.new })
+            if (response.data.success) {
+                toast.success('변경 성공!')
+                setModal(!modal)
+            } else toast.error('변경 실패')
+        } catch (e) {
+            console.error(e.response)
+        }
+    }
+
+    return (
+        <>
+            <div onClick={clickModal}>비밀번호 변경</div>
+            {modal && <SettingPwModalContainer onClick={clickModal}>
+                <SettingPwModalBox onClick={(e) => e.stopPropagation()}>
+                    <SettingPwInput>
+                        <span>현재 비밀번호</span>
+                        <input type="password" name="current" placeholder="현재 비밀번호 입력" autoComplete="off" onChange={handleChange} />
+                    </SettingPwInput>
+                    <SettingPwInput>
+                        <span>새로운 비밀번호</span>
+                        <input type="password" name="new" placeholder="새로운 비밀번호 입력" autoComplete="off" onChange={handleChange} />
+                    </SettingPwInput>
+                    <SettingPwInput>
+                        <span>새로운 비밀번호 확인</span>
+                        <input type="password" name="check" placeholder="새로운 비밀번호 확인 입력" autoComplete="off" onChange={handleChange} />
+                    </SettingPwInput>
+                </SettingPwModalBox>
+                <button onClick={clickModifyPw}>비밀번호 변경</button>
+            </SettingPwModalContainer>}
+        </>
+    )
 }
 
 export default SettingPassword

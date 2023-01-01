@@ -17,7 +17,7 @@ const Setting = () => {
         <SettingContainer>
             <SettingBox>
                 <SettingNickname email={email} userIdx={userIdx} nickname={nickname} />
-                <SettingPassword />
+                <SettingPassword userIdx={userIdx} />
                 <SettingDelete email={email} userIdx={userIdx} />
             </SettingBox>
         </SettingContainer>
