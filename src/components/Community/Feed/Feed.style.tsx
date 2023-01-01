@@ -55,8 +55,8 @@ export const FeedRemoteBox = styled.div`
     display: flex;
     flex-direction: column;
     position: fixed;
-    right: 5%;
-    bottom: 5%;
+    right: 30%;
+    bottom: 45%;
     z-index: 1;
     > svg {
         cursor: pointer;
