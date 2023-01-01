@@ -75,7 +75,6 @@ const MovieReview = (props) => {
                 <MovieLikeBtn like={like} onClick={clickLikeBtn}>
                     <BsFillHandThumbsUpFill size={30} />
                 </MovieLikeBtn>
-                <button onClick={() => router.push('/community')}>리뷰 쓰기</button>
             </MovieBtnContainer>
             <HorizontalRule />
         </>
