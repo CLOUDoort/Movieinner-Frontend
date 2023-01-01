@@ -5,9 +5,9 @@ import { apiInstance } from "../../apis/setting";
 
 
 export const getServerSidePropsUserLiked: GetServerSideProps = async (context) => {
-    const { type, nickname } = context.query as any
+    const { type, userIdx } = context.query as any
     const queryClient = new QueryClient()
-    await queryClient.prefetchQuery(['userLiked', type, nickname], () => useGetUserLiked(type, nickname))
+    await queryClient.prefetchQuery(['userLiked', type, userIdx], () => useGetUserLiked(type, userIdx))
     return {
         props: {
             dehydratedState: dehydrate(queryClient)
@@ -15,16 +15,16 @@ export const getServerSidePropsUserLiked: GetServerSideProps = async (context) =
     }
 }
 
-export const getUserLiked = (type: any, nickname: any) => apiInstance.get(`/movies/liked/${type}`, {
+export const getUserLiked = (type: any, userIdx: any) => apiInstance.get(`/movies/liked/${type}`, {
     params: {
-        nickname: nickname
+        userIdx: userIdx
     },
     withCredentials: true
 })
 
-const useGetUserLiked = (type: any, nickname: any) => {
-    const queryFn = () => getUserLiked(type, nickname)
-    return useQuery<AxiosResponse<any>, AxiosError>(['userLiked', type, nickname], queryFn)
+const useGetUserLiked = (type: any, userIdx: any) => {
+    const queryFn = () => getUserLiked(type, userIdx)
+    return useQuery<AxiosResponse<any>, AxiosError>(['userLiked', type, userIdx], queryFn)
 }
 
 export default useGetUserLiked

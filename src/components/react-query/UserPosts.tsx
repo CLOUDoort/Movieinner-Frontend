@@ -5,9 +5,9 @@ import { apiInstance } from "../../apis/setting";
 
 
 export const getServerSidePropsUserPosts: GetServerSideProps = async (context) => {
-    const { nickname } = context.query as any
+    const { userIdx } = context.query as any
     const queryClient = new QueryClient()
-    await queryClient.prefetchQuery(['userPosts', nickname], () => useGetUserPosts(nickname))
+    await queryClient.prefetchQuery(['userPosts', userIdx], () => useGetUserPosts(userIdx))
     return {
         props: {
             dehydratedState: dehydrate(queryClient)
@@ -15,16 +15,16 @@ export const getServerSidePropsUserPosts: GetServerSideProps = async (context) =
     }
 }
 
-export const getUserPosts = (nickname: any) => apiInstance.get(`/community/content/user`, {
+export const getUserPosts = (userIdx: any) => apiInstance.get(`/community/content/user`, {
     params: {
-        nickname: nickname
+        userIdx: userIdx
     },
     withCredentials: true
 })
 
-const useGetUserPosts = (nickname: any) => {
-    const queryFn = () => getUserPosts(nickname)
-    return useQuery<AxiosResponse<any>, AxiosError>(['userPosts', nickname], queryFn)
+const useGetUserPosts = (userIdx: any) => {
+    const queryFn = () => getUserPosts(userIdx)
+    return useQuery<AxiosResponse<any>, AxiosError>(['userPosts', userIdx], queryFn)
 }
 
 export default useGetUserPosts

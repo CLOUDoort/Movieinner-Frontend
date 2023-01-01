@@ -11,13 +11,14 @@ import UserProfile from './UserProfile/UserProfile'
 const User = () => {
     const router = useRouter()
     const { nickname } = router.query
+    const userIdx = useSelector((state: RootState) => state.idx.idx)
     const email = useSelector((state: RootState) => state.email.email)
 
-    const userPosts = useGetUserPosts(nickname).data
-    const userLikedMovie = useGetUserLiked('movie', nickname).data
-    const userLikedTheme = useGetUserLiked('theme', nickname).data
-    const movieLoading = useGetUserLiked('movie', nickname).isLoading
-    const themeLoading = useGetUserLiked('theme', nickname).isLoading
+    const userPosts = useGetUserPosts(userIdx).data
+    const userLikedMovie = useGetUserLiked('movie', userIdx).data
+    const userLikedTheme = useGetUserLiked('theme', userIdx).data
+    const movieLoading = useGetUserLiked('movie', userIdx).isLoading
+    const themeLoading = useGetUserLiked('theme', userIdx).isLoading
 
     console.log('post', userPosts?.data)
 
@@ -30,7 +31,7 @@ const User = () => {
         <>
             {!movieLoading && !themeLoading && userPostsList ? <UserBox>
                 <UserProfile nickname={nickname} email={email} />
-                <UserData nickname={nickname} userPostList={userPostsList} userLikedMovie={userLikedMovie?.data?.liked} userLikedTheme={userLikedTheme?.data?.liked} />
+                <UserData userPostList={userPostsList} userLikedMovie={userLikedMovie?.data?.liked} userLikedTheme={userLikedTheme?.data?.liked} />
             </UserBox> : <LoadingLogo />}
         </>
     )
