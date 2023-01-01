@@ -26,8 +26,6 @@ const UserProfile = (props) => {
         try {
             // 결과값으로 중복값 확인
             const modifyNickname = await apiInstance.put(`/users/change/nickname`, { nickname: nickname, email: email, newNickname: newNickname })
-            console.log(modifyNickname.data.success)
-            console.log('nickname', newNickname)
             // 닉네임 변경 시 리프레시 토큰 재발급
             await apiInstance.post(`/auth`, { email: email })
             // dispatch(setNickname(newNickname))
