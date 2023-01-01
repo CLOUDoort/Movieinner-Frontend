@@ -7,10 +7,12 @@ import { useRouter } from 'next/router'
 import { toast } from 'react-toastify'
 import { setNickname, setToken } from '../../../store/reducers/logintokenSlice'
 import { setSocialEmail } from '../../../store/reducers/socialSlice'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { RootState } from '../../../store/store'
 
 const UserProfile = (props) => {
     const { nickname, email } = props
+    const userIdx = useSelector((state: RootState) => state.idx.idx)
     const [modify, setModify] = useState(false)
     const [newNickname, setnewNickname] = useState(nickname)
     const router = useRouter()
@@ -25,7 +27,7 @@ const UserProfile = (props) => {
     const clickModify = async () => {
         try {
             // 결과값으로 중복값 확인
-            const modifyNickname = await apiInstance.put(`/users/change/nickname`, { nickname: nickname, email: email, newNickname: newNickname })
+            const modifyNickname = await apiInstance.put(`/users/change/nickname`, { userIdx: userIdx, newNickname: newNickname })
             // 닉네임 변경 시 리프레시 토큰 재발급
             await apiInstance.post(`/auth`, { email: email })
             // dispatch(setNickname(newNickname))
