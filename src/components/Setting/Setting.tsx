@@ -1,10 +1,10 @@
 import { useRouter } from "next/router"
 import { useSelector } from "react-redux"
 import { toast } from "react-toastify"
-import { apiInstance } from "../apis/setting"
-import { RootState } from "../store/store"
+import { apiInstance } from "../../apis/setting"
+import { RootState } from "../../store/store"
 import { SettingBox, SettingContainer, SettingDeleteUser } from "./Setting.style"
-import { UserModifyNickname, UserProfileInfo } from "./User/UserProfile/UserProfile.style"
+import { UserModifyNickname, UserProfileInfo } from "../User/UserProfile/UserProfile.style"
 import Image from "next/image"
 import { useState } from "react"
 import { BsFillPencilFill } from "react-icons/bs"
@@ -29,14 +29,14 @@ const Setting = () => {
             console.log('deleteResponse', response.data)
         }
     }
-    const clickModifyImg = () => {
+    const clickNicknameModifyImg = () => {
         setModify(!modify)
         setnewNickname(nickname)
     }
     const handleChange = (e) => {
         setnewNickname(e.target.value)
     }
-    const clickModify = async () => {
+    const clickNicknameModify = async () => {
         try {
             // 결과값으로 중복값 확인
             const modifyNickname = await apiInstance.put(`/users/change/nickname`, { userIdx: userIdx, newNickname: newNickname })
@@ -60,10 +60,10 @@ const Setting = () => {
                         <Image src={`/blank.png`} width={60} height={60} />
                         {modify ?
                             <UserModifyNickname><input type='text' value={newNickname} onChange={handleChange} />
-                                <button onClick={clickModify}>수정</button></UserModifyNickname>
+                                <button onClick={clickNicknameModify}>수정</button></UserModifyNickname>
                             : <span>{nickname}</span>}
-                        {!modify ? <span onClick={clickModifyImg}><BsFillPencilFill size={20} /></span> : null}
-                        {modify ? <span onClick={clickModifyImg}>취소</span> : null}
+                        {!modify ? <span onClick={clickNicknameModifyImg}><BsFillPencilFill size={20} /></span> : null}
+                        {modify ? <span onClick={clickNicknameModifyImg}>취소</span> : null}
                     </UserProfileInfo>
                 </div>
                 <div>비밀번호 변경</div>
