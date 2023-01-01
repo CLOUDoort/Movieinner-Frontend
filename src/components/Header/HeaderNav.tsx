@@ -17,7 +17,7 @@ const HeaderNav = (props) => {
             setList(getGenreList.data)
         }
         getResponse()
-    })
+    }, [modal])
     return (
         <SecondHearderNav>
             <TitleDiv>Movie Inner</TitleDiv>
