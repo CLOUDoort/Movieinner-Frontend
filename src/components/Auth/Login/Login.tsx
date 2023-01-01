@@ -2,7 +2,6 @@ import Link from 'next/link'
 import { FormContainer, FormDiv, LoginContainerDiv, LoginDiv, LoginFailText, LoginSecondDiv, LoginSustainDiv, SubmitInput } from './Login.style'
 import { useState } from 'react'
 import { apiInstance } from '../../../apis/setting'
-
 import axios from 'axios'
 import { useDispatch } from 'react-redux'
 import { setToken } from '../../../store/reducers/logintokenSlice'
@@ -58,6 +57,7 @@ const Login = () => {
                 if (response.data.isPasswordEqual) {
                     try {
                         const tokenResponse = await apiInstance.post('/auth', { email: values.email })
+                        console.log('token', tokenResponse)
                         onLoginSuccess(tokenResponse)
                         Router.replace('/')
                         toast.success('로그인되었습니다!')
