@@ -22,7 +22,7 @@ const HearderSearch = () => {
                         page: 1
                     }
                 }, undefined, { shallow: true })
-            } //else router.replace('/')
+            }
         }
         catch (e) {
             console.error(e.response)
