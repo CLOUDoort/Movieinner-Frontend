@@ -1,4 +1,4 @@
-import Setting from "../components/Setting"
+import Setting from "../components/Setting/Setting"
 
 const setting = () => {
     return <Setting />
