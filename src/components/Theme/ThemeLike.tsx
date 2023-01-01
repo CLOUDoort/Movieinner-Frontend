@@ -8,7 +8,7 @@ import { BsFillHandThumbsUpFill } from 'react-icons/bs'
 
 const ThemeLike = (props) => {
     const accessToken = useSelector((state: RootState) => state.token.token)
-    const nickname = useSelector((state: RootState) => state.nickname.nickname)
+    const userIdx = useSelector((state: RootState) => state.idx.idx)
     const [like, setLike] = useState(false)
     const { modalInfo } = props
 
@@ -17,7 +17,7 @@ const ThemeLike = (props) => {
             try {
                 if (accessToken) {
                     const checkLiked = await apiInstance.post('movies/liked/theme', {
-                        nickname: nickname,
+                        userIdx: userIdx,
                         name: modalInfo[0].theme_name,
                     })
                     if (checkLiked.data.isExisted) {
@@ -39,7 +39,7 @@ const ThemeLike = (props) => {
                     const deleteResponse = await apiInstance.delete('movies/liked', {
                         data: {
                             type: 'theme',
-                            nickname: nickname,
+                            userIdx: userIdx,
                             name: modalInfo[0].theme_name,
                         },
                     })
@@ -53,7 +53,7 @@ const ThemeLike = (props) => {
                 try {
                     const clickLikeResponse = await apiInstance.post('movies/liked', {
                         type: 'theme',
-                        nickname: nickname,
+                        userIdx: userIdx,
                         name: modalInfo[0].theme_name,
                         backdrop_path: modalInfo[0].backdrop_path,
                     })

@@ -8,13 +8,14 @@ import { SettingBox, SettingContainer, SettingDeleteUser } from "./Setting.style
 const Setting = () => {
     const email = useSelector((state: RootState) => state.email.email)
     const nickname = useSelector((state: RootState) => state.nickname.nickname)
+    const userIdx = useSelector((state: RootState) => state.idx.idx)
     const router = useRouter()
 
     const deleteUser = async () => {
         if (confirm("정말 탈퇴하시겠습니까?")) {
             const response = await apiInstance.delete(`/users/delete`, {
                 params: {
-                    email: email, nickname: nickname
+                    email: email, userIdx: userIdx
                 }
             })
             toast.success('탈퇴 성공')

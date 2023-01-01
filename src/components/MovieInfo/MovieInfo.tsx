@@ -130,7 +130,7 @@ const MovieInfo = () => {
                 <MovieInfoContainer>
                     <MovieBackdropImg movieInfo={movieInfo} />
                     <MovieInfoText movieInfo={movieInfo} />
-                    <MovieReview accessToken={accessToken} movieId={movieId} nickname={nickname} movieInfo={movieInfo} />
+                    <MovieReview accessToken={accessToken} movieId={movieId} movieInfo={movieInfo} />
                     <MovieActorInfo actorInfo={actorInfo} />
                 </MovieInfoContainer>
             )}

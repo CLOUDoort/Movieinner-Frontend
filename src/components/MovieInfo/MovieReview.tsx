@@ -3,20 +3,20 @@ import { useState, useEffect } from 'react'
 import { BsFillHandThumbsUpFill } from 'react-icons/bs'
 import { apiInstance } from '../../apis/setting'
 import { toast } from 'react-toastify'
-import { useRouter } from 'next/router'
+import { useSelector } from 'react-redux'
+import { RootState } from '../../store/store'
 
 const MovieReview = (props) => {
-    const router = useRouter()
-
     const [like, setLike] = useState(false)
-    const { accessToken, nickname, movieId, movieInfo } = props
+    const { accessToken, movieId, movieInfo } = props
+    const userIdx = useSelector((state: RootState) => state.idx.idx)
 
     useEffect(() => {
         const getResponse = async () => {
             // 로그인 되어 있을 경우
             if (accessToken) {
                 // 좋아요 목록 확인
-                const checkLiked = await apiInstance.post('movies/liked/movie', { nickname: nickname, movieId: movieId })
+                const checkLiked = await apiInstance.post('movies/liked/movie', { userIdx: userIdx, movieId: movieId })
                 console.log(checkLiked.data.isExisted)
                 if (checkLiked.data.isExisted) {
                     setLike(true)
@@ -24,7 +24,7 @@ const MovieReview = (props) => {
             }
         }
         getResponse()
-    }, [accessToken, nickname, movieId])
+    }, [accessToken, userIdx, movieId])
 
     const clickLikeBtn = async () => {
         // 로그인 되어있을 경우
@@ -35,7 +35,7 @@ const MovieReview = (props) => {
                     const deleteResponse = await apiInstance.delete('movies/liked', {
                         data: {
                             type: 'movie',
-                            nickname: nickname,
+                            userIdx: userIdx,
                             name: movieInfo.title,
                         },
                     })
@@ -51,7 +51,7 @@ const MovieReview = (props) => {
                 try {
                     const likeResponse = await apiInstance.post('movies/liked', {
                         type: 'movie',
-                        nickname: nickname,
+                        userIdx: userIdx,
                         movieId: movieId,
                         name: movieInfo.title,
                         poster_path: movieInfo.poster_path,
