@@ -16,6 +16,9 @@ export const SettingBox = styled.div`
     > div {
         margin-bottom: 30px;
     }
+    >:nth-of-type(2) {
+        cursor: pointer;
+    }
 `
 
 export const SettingDeleteUser = styled.div`
