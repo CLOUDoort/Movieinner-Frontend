@@ -7,7 +7,7 @@ import { toast } from 'react-toastify'
 
 const PostSingleComment = (props) => {
     const [openReply, setOpenReply] = useState(false)
-    const { comment, accessToken, idx, nickname, refreshFunction, clickView } = props
+    const { comment, accessToken, idx, nickname, refreshFunction, clickView, userIdx } = props
     const [modify, setModify] = useState(false)
     const [modifyComment, setModifyComment] = useState(comment.comment)
     const deleteComment = '삭제된 댓글입니다.'
@@ -80,6 +80,7 @@ const PostSingleComment = (props) => {
                     idx={idx}
                     nickname={nickname}
                     clickView={clickView}
+                    userIdx={userIdx}
                 />
             )}
         </>

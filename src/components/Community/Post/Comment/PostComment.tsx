@@ -7,12 +7,14 @@ import PostCommentLists from './PostCommentLists'
 const PostComment = (props) => {
     const { idx, commentList, refreshFunction } = props
     const accessToken = useSelector((state: RootState) => state.token.token)
+    const userIdx = useSelector((state: RootState) => state.idx.idx)
     const nickname = useSelector((state: RootState) => state.nickname.nickname)
+    console.log('userIDx', userIdx)
 
     return (
         <CommentArea>
-            <PostCommentLists nickname={nickname} refreshFunction={refreshFunction} commentList={commentList} accessToken={accessToken} />
-            <PostRootWrite refreshFunction={refreshFunction} accessToken={accessToken} idx={idx} nickname={nickname} />
+            <PostCommentLists nickname={nickname} refreshFunction={refreshFunction} commentList={commentList} accessToken={accessToken} userIdx={userIdx} />
+            <PostRootWrite refreshFunction={refreshFunction} accessToken={accessToken} idx={idx} nickname={nickname} userIdx={userIdx} />
         </CommentArea>
     )
 }

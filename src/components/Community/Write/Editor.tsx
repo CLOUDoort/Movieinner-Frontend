@@ -5,6 +5,8 @@ import { WriteContainer, WriteTitle, WriteBtn } from './Write.style'
 import { useRouter } from 'next/router'
 import { apiInstance } from '../../../apis/setting'
 import { toast } from 'react-toastify'
+import { useSelector } from 'react-redux'
+import { RootState } from '../../../store/store'
 
 const WysiwygEditor = (props) => {
     const [image, setImage] = useState('')
@@ -13,6 +15,7 @@ const WysiwygEditor = (props) => {
     const [title, setTitle] = useState('')
     const editorRef = useRef(null)
     const toolbarItems = [['heading', 'bold', 'italic', 'strike'], ['hr'], ['ul', 'ol', 'task'], ['table', 'link'], ['image'], ['code'], ['scrollSync']]
+    const userIdx = useSelector((state: RootState) => state.idx.idx)
 
     const handleChange = (e) => {
         const { value } = e.target
@@ -54,7 +57,7 @@ const WysiwygEditor = (props) => {
         console.log('output', output)
         // 작성글 서버로 보내기
         try {
-            const postContent = await apiInstance.post('/community/content', { nickname: nickname, title: title, content: output, file: image })
+            const postContent = await apiInstance.post('/community/content', { userIdx: userIdx, title: title, content: output, file: image })
             router.replace('/community/feed/1')
             toast.success(`${postContent.data.idx} 번 글 작성 완료!`)
         } catch (e) {

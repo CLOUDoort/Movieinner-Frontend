@@ -4,7 +4,7 @@ import { apiInstance } from '../../../../apis/setting'
 import { CommentWrite } from './PostComment.style'
 
 const PostReplyWrite = (props) => {
-    const { accessToken, idx, nickname, reply, refreshFunction, clickReply, clickView } = props
+    const { accessToken, idx, nickname, reply, refreshFunction, clickReply, userIdx } = props
     const [comment, setComment] = useState('')
 
     const handleChange = (e) => {
@@ -17,7 +17,7 @@ const PostReplyWrite = (props) => {
                 const postComment = await apiInstance.post('/community/comment', {
                     contentIdx: idx,
                     comment: comment,
-                    nickname: nickname,
+                    userIdx: userIdx,
                     responseTo: reply,
                 })
                 toast.success('댓글 작성 완료!')

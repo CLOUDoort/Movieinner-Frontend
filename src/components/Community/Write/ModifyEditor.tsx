@@ -5,6 +5,8 @@ import { WriteContainer, WriteTitle, WriteBtn } from './Write.style'
 import { useRouter } from 'next/router'
 import { apiInstance } from '../../../apis/setting'
 import { toast } from 'react-toastify'
+import { RootState } from '../../../store/store'
+import { useSelector } from 'react-redux'
 
 const ModifyEditor = (props) => {
     const { modifyPost, idx } = props
@@ -14,6 +16,7 @@ const ModifyEditor = (props) => {
     const router = useRouter()
     const editorRef = useRef(null)
     const toolbarItems = [['heading', 'bold', 'italic', 'strike'], ['hr'], ['ul', 'ol', 'task'], ['table', 'link'], ['image'], ['code'], ['scrollSync']]
+    const userIdx = useSelector((state: RootState) => state.idx.idx)
 
     const handleChange = (e) => {
         const { value } = e.target
@@ -55,7 +58,7 @@ const ModifyEditor = (props) => {
         console.log('output', output)
         // 작성글 서버로 보내기
         try {
-            const putContent = await apiInstance.put(`/community/content/${idx}`, { nickname: nickname, title: title, content: output, file: image })
+            const putContent = await apiInstance.put(`/community/content/${idx}`, { title: title, content: output, file: image })
             router.replace('/community/feed/1')
             toast.success(`${idx} 번 글 수정 완료!`)
         } catch (e) {
