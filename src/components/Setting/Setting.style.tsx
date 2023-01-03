@@ -17,7 +17,21 @@ export const SettingBox = styled.div`
         margin-bottom: 30px;
     }
     >:nth-of-type(2) {
-        cursor: pointer;
+        >:first-of-type {
+            ::after {
+                margin-left: 10px;
+                content: '|';
+            }
+        }
+        >span {
+            margin-right: 10px;
+        }
+        >:last-of-type {
+            background-color: red;
+            padding: 8px 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
     }
 `
 
