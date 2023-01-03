@@ -9,7 +9,7 @@ import Router from 'next/router'
 import SignupUserProfile from './SignupUserProfile'
 import SignupUserInfo from './SignupUserInfo'
 
-const Signupinfo = (props) => {
+const Signupinfo = () => {
     const userData: UserDataState = useSelector((state: RootState) => state.user.user)
     const [select, setSelect] = useState(false)
     const socialEmail = useSelector((state: RootState) => state.socialEmail.socialEmail)
