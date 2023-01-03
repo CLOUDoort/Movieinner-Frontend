@@ -21,20 +21,25 @@ const SettingPassword = (props) => {
         })
     }
     const clickModifyPw = async () => {
-        try {
-            const response = await apiInstance.put(`/users/change/password`, { userIdx: userIdx, crtPassword: pw.current, newPassword: pw.new })
-            if (response.data.success) {
-                toast.success('변경 성공!')
-                setModal(!modal)
-            } else toast.error('변경 실패')
-        } catch (e) {
-            console.error(e.response)
-        }
+        if (pw.new == pw.check) {
+            try {
+                const response = await apiInstance.put(`/users/change/password`, { userIdx: userIdx, crtPassword: pw.current, newPassword: pw.new })
+                if (response.data.success) {
+                    toast.success('변경 성공!')
+                    setModal(!modal)
+                } else toast.error('변경 실패')
+            } catch (e) {
+                console.error(e.response)
+            }
+        } else toast.error("확인 비밀번호가 다릅니다!")
     }
 
     return (
         <>
-            <div onClick={clickModal}>비밀번호 변경</div>
+            <div>
+                <span>비밀번호 변경</span>
+                <span onClick={clickModal}>비밀번호 변경</span>
+            </div>
             {modal && <SettingPwModalContainer onClick={clickModal}>
                 <SettingPwModalBox onClick={(e) => e.stopPropagation()}>
                     <SettingPwInput>
@@ -49,8 +54,8 @@ const SettingPassword = (props) => {
                         <span>새로운 비밀번호 확인</span>
                         <input type="password" name="check" placeholder="새로운 비밀번호 확인 입력" autoComplete="off" onChange={handleChange} />
                     </SettingPwInput>
+                    <button onClick={clickModifyPw}>비밀번호 변경</button>
                 </SettingPwModalBox>
-                <button onClick={clickModifyPw}>비밀번호 변경</button>
             </SettingPwModalContainer>}
         </>
     )
