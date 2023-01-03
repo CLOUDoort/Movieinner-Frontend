@@ -22,9 +22,16 @@ export const SettingPwModalBox = styled.div`
     min-width: 600px;
     min-height: 400px;
     border: 1px solid gray;
+    border-radius: 5px;
+    > button {
+        padding: 8px 16px;
+        font-size: 15px;
+        background-color: #03d103;
+        border: none;
+    }
 `
 export const SettingPwInput = styled.div`
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     > span {
         margin-right: 10px;
     }
