@@ -1,10 +1,10 @@
-import { UserDataContainer, UserNotiDataList } from "./UserData.style"
+import { UserDataContainer, UserDataList } from "./UserData.style"
 
 const UserNotifications = (props) => {
     return (
         <UserDataContainer>
             <div>알림</div>
-            <UserNotiDataList></UserNotiDataList>
+            <UserDataList></UserDataList>
         </UserDataContainer>
     )
 }

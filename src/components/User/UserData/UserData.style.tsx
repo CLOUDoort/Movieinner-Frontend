@@ -23,7 +23,7 @@ export const UserDataContainer = styled.div`
     }
 `
 
-export const UserPostDataList = styled.div`
+export const UserDataList = styled.div`
     min-width: 250px;
     border-radius: 10px;
     border: 1px solid gray;
@@ -53,8 +53,4 @@ export const UserPostDataList = styled.div`
             }
         }
     }
-`
-
-export const UserNotiDataList = styled.div`
-    
 `
