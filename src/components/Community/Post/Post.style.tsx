@@ -33,10 +33,18 @@ export const PostContainer = styled.div`
     height: 100%;
 `
 export const PostContentArea = styled.div`
+    margin-top: 30px;
     padding: 20px;
     width: 750px;
     display: flex;
     flex-direction: column;
+    border: 3px solid black;
+    border-radius: 5px;
+    > hr {
+        width: 700px;
+        border: none;
+        border-top: 3px solid black;
+    }
 `
 export const PostInfo = styled.div`
     display: flex;

@@ -12,6 +12,7 @@ const PostContent = (props) => {
                     <AiOutlineMore size={30} onClick={clickModify} />
                 </div>
             </PostInfo>
+            <hr />
             <PostContents>
                 <div>{data.title}</div>
                 <div dangerouslySetInnerHTML={{ __html: data.content }} />
