@@ -36,6 +36,7 @@ export const SettingPwInput = styled.div`
         margin-right: 10px;
     }
     > input {
-        padding: 4px 8px;
+        padding: 5px 10px;
+        border: none;
     }
 `
