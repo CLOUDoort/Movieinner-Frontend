@@ -18,22 +18,11 @@ export const UserProfileInfo = styled.div`
     align-items: center;
     > span {
         border-radius: 50%;
-        >img {
-            margin-right: 20px;
-        }
     }
-    > :nth-of-type(2) {
-        margin-left: 10px;
+    > div {
+        margin-left: 20px;
         font-weight: bold;
-        cursor: pointer;
-    }
-    > :nth-of-type(3) {
-        margin-left: 10px;
-        margin-top: 5px;
-        transition: color 0.5s;
-        :hover {
-            color: red;
-        }
+        font-size: 20px;
     }
 `
 export const UserModifyNickname = styled.div`
