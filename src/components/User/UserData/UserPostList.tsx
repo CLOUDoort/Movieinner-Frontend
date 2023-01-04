@@ -8,13 +8,15 @@ const UserPostList = (props) => {
         <UserDataContainer>
             <div>작성한 게시물</div>
             <UserDataList>
+                <div>
+                    <div>
+                        <span>번호</span>
+                        <span>제목</span>
+                        <span>날짜</span>
+                    </div>
+                </div>
                 {userPostList.map((obj) => (
                     <div key={obj.idx}>
-                        <div>
-                            <span>번호</span>
-                            <span>제목</span>
-                            <span>날짜</span>
-                        </div>
                         <div>
                             <div>{obj.number}</div>
                             <div onClick={() => router.push(`/community/post/${obj.idx}`)}>{obj.title}</div>
