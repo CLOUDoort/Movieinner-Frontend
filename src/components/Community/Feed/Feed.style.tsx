@@ -46,7 +46,10 @@ export const FeedListLastType = styled.div`
         width: 50px;
         text-align: center;
     }
-    > div:nth-of-type(2) {
+    > :first-of-type {
+        width: 100px;
+    }
+    > :nth-of-type(2) {
         width: 200px;
     }
 `
