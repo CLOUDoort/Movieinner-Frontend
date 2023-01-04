@@ -7,7 +7,7 @@ import UserWatched from "./UserWatched"
 
 const UserData = (props) => {
     const { userPostList, userLikedTheme, userLikedMovie } = props
-    return <>
+    return (
         <UserDataBox>
             <div>
                 <UserPostList userPostList={userPostList} />
@@ -17,7 +17,7 @@ const UserData = (props) => {
             <UserLikedTheme userLikedTheme={userLikedTheme} />
             <UserWatched />
         </UserDataBox>
-    </>
+    )
 }
 
 export default UserData
