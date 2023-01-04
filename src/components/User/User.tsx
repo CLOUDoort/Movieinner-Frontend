@@ -20,8 +20,6 @@ const User = () => {
     const movieLoading = useGetUserLiked('movie', userIdx).isLoading
     const themeLoading = useGetUserLiked('theme', userIdx).isLoading
 
-    console.log('post', userPosts?.data)
-
     let number = 1;
     const userPostsList = userPosts?.data?.response.map((obj) => ({
         ...obj, number: number++
