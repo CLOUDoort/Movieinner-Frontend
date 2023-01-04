@@ -1,4 +1,4 @@
-import { AiOutlineMore } from 'react-icons/ai'
+import { GiHamburgerMenu } from 'react-icons/gi'
 import { PostContentArea, PostContents, PostInfo } from './Post.style'
 
 const PostContent = (props) => {
@@ -6,15 +6,15 @@ const PostContent = (props) => {
     return (
         <PostContentArea>
             <PostInfo>
-                <div>{data.nickname}</div>
+                <div>제목 : {data.title}</div>
                 <div>
+                    <div>{data.nickname}</div>
                     <div>{data.created_at}</div>
-                    <AiOutlineMore size={30} onClick={clickModify} />
+                    <GiHamburgerMenu size={30} onClick={clickModify} />
                 </div>
             </PostInfo>
             <hr />
             <PostContents>
-                <div>{data.title}</div>
                 <div dangerouslySetInnerHTML={{ __html: data.content }} />
             </PostContents>
         </PostContentArea>

@@ -50,10 +50,15 @@ export const PostInfo = styled.div`
     display: flex;
     justify-content: space-between;
     padding: 16px 24px;
+    font-size: 17px;
     > div {
         display: flex;
         > svg {
+            margin-right: 10px;
             cursor: pointer;
+        }
+        > div {
+            margin-right: 10px;
         }
     }
 `
