@@ -1,5 +1,5 @@
 import { useRouter } from "next/router"
-import { UserDataContainer, UserDataList } from "./UserData.style"
+import { UserDataContainer, UserPostDataList } from "./UserData.style"
 
 const UserPostList = (props) => {
     const { userPostList } = props
@@ -7,7 +7,7 @@ const UserPostList = (props) => {
     return (
         <UserDataContainer>
             <div>작성한 게시물</div>
-            <UserDataList>
+            <UserPostDataList>
                 <div>
                     <div>
                         <span>번호</span>
@@ -24,7 +24,7 @@ const UserPostList = (props) => {
                         </div>
                     </div>
                 ))}
-            </UserDataList>
+            </UserPostDataList>
         </UserDataContainer>
     )
 }
