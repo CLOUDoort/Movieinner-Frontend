@@ -4,7 +4,7 @@ import { apiInstance } from "../../apis/setting"
 import { SettingPwInput, SettingPwModalBox, SettingPwModalContainer } from "./SettingPassword.style"
 
 const SettingPassword = (props) => {
-    const { userIdx } = props
+    const { userIdx, socialEmail } = props
     const [modal, setModal] = useState(false)
     const [pw, setPw] = useState({
         current: '',
@@ -12,7 +12,8 @@ const SettingPassword = (props) => {
         check: ''
     })
     const clickModal = () => {
-        setModal(!modal)
+        if (!socialEmail) setModal(!modal)
+        else toast.error('소셜 로그인은 비밀번호 변경이 없습니다!')
     }
     const handleChange = (e) => {
         const { value, name } = e.target
