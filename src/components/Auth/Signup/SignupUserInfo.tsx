@@ -19,7 +19,7 @@ const SignupUserInfo = (props) => {
                     <input type='radio' value='여성' name='gender' onChange={handleChange} checked={info.gender === '여성'} />
                 </label>
             </UserSex>
-            <SignupUserBirth dispatch={dispatch} setSelect={setSelect} select={select} />
+            <SignupUserBirth setSelect={setSelect} select={select} />
         </UserInfoContainer>
     )
 }

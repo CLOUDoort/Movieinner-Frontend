@@ -1,7 +1,7 @@
-import SignupLayout from "../../components/Auth/Signup/SignupLayout"
+import Signup from "../../components/Auth/Signup/Signup"
 
 const signup = () => {
-    return <SignupLayout />
+    return <Signup />
 }
 
 export default signup

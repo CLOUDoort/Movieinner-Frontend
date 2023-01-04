@@ -6,7 +6,7 @@ export interface SignupState {
 }
 
 const initialState: SignupState = {
-    component: 'Signup',
+    component: 'SignupEmail',
     user: {},
 }
 
