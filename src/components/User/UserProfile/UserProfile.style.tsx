@@ -19,7 +19,7 @@ export const UserProfileInfo = styled.div`
     font-weight: bold;
     > span {
         border-radius: 50%;
-        /* margin-right: 20px; */
+        cursor: pointer;
         margin-left: 20px;
     }
     > div {
