@@ -16,12 +16,14 @@ export const UserProfileContainer = styled.div`
 export const UserProfileInfo = styled.div`
     display: flex;
     align-items: center;
+    font-weight: bold;
     > span {
         border-radius: 50%;
+        /* margin-right: 20px; */
+        margin-left: 20px;
     }
     > div {
         margin-left: 20px;
-        font-weight: bold;
         font-size: 20px;
     }
 `
