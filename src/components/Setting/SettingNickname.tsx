@@ -76,7 +76,7 @@ const SettingNickname = (props) => {
                 {modify ? <span onClick={clickNicknameModifyImg}>취소</span> : null}
             </UserProfileInfo>
             <div>
-                {modify ?
+                {modify && newNickname ?
                     <>
                         {checkNickname.click && newNickname != nickname && (checkNickname.valid ? <CheckText check={true}>사용 가능한 닉네임입니다.</CheckText> : <CheckText check={false}>중복된 닉네임입니다.</CheckText>)}
                     </> : null}
