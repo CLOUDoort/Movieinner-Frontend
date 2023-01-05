@@ -7,12 +7,16 @@ import { setNickname, setToken } from '../../../store/reducers/logintokenSlice'
 import { setSocialEmail } from '../../../store/reducers/socialSlice'
 import { useDispatch, useSelector } from 'react-redux'
 import { RootState } from '../../../store/store'
+import useGetUserImage from '../../react-query/UserImage'
+import LoadingLogo from '../../Common/Loading/LoadingLogo'
 
 const UserProfile = (props) => {
     const { nickname, email } = props
     const userIdx = useSelector((state: RootState) => state.idx.idx)
     const router = useRouter()
     const dispatch = useDispatch()
+    const userImage = useGetUserImage(userIdx).data
+    const isLoading = useGetUserImage(userIdx).isLoading
 
 
     const clickLogout = async () => {
@@ -30,18 +34,21 @@ const UserProfile = (props) => {
         }
     }
     return (
-        <UserProfileBox>
-            <UserProfileContainer>
-                <UserProfileInfo>
-                    <Image src={`/blank.png`} width={60} height={60} />
-                    <div>{nickname}</div>
-                </UserProfileInfo>
-                <UserProfileData>
-                    <div onClick={() => router.push('/setting')}>개인정보 수정</div>
-                    <div onClick={clickLogout}>로그아웃</div>
-                </UserProfileData>
-            </UserProfileContainer>
-        </UserProfileBox>
+        <>
+            {!isLoading ? <UserProfileBox>
+                <UserProfileContainer>
+                    <UserProfileInfo>
+                        <Image src={userImage?.data.image_URL ? userImage?.data.image_URL : `/blank.png`} width={60} height={60} />
+                        <div>{nickname}</div>
+                    </UserProfileInfo>
+                    <UserProfileData>
+                        <div onClick={() => router.push('/setting')}>개인정보 수정</div>
+                        <div onClick={clickLogout}>로그아웃</div>
+                    </UserProfileData>
+                </UserProfileContainer>
+            </UserProfileBox> : <LoadingLogo />}
+        </>
+
     )
 }
 
