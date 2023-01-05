@@ -52,3 +52,26 @@ export const SettingDeleteUser = styled.div`
         cursor: pointer;
     }
 `
+
+export const SettingModifyImage = styled.div`
+    display: flex;
+    flex-direction: column;
+    > span {
+        border-radius: 50%;
+        margin: 20px;
+        object-fit: scale-down;
+    }
+    > label {
+        background-color: #05ce05;
+        padding: 8px 16px;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-bottom: 10px;
+        margin-top: 10px;
+        text-align: center;
+    }
+    >:last-of-type {
+        background-color: red;
+        text-align: center;
+    }
+`
