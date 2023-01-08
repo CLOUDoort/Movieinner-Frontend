@@ -4,7 +4,7 @@ import { apiInstance } from '../../../../apis/setting'
 import { CommentWrite } from './PostComment.style'
 
 const PostReplyWrite = (props) => {
-    const { accessToken, idx, nickname, reply, refreshFunction, clickReply, userIdx } = props
+    const { accessToken, contentIdx, reply, refreshFunction, clickReply, userIdx } = props
     const [comment, setComment] = useState('')
 
     const handleChange = (e) => {
@@ -15,10 +15,18 @@ const PostReplyWrite = (props) => {
         if (accessToken) {
             try {
                 const postComment = await apiInstance.post('/community/comment', {
-                    contentIdx: idx,
+                    contentIdx: contentIdx,
                     comment: comment,
                     userIdx: userIdx,
                     responseTo: reply,
+                })
+                const { content_writer_idx, comment_writer_idx, content_idx, idx } = postComment.data.comments
+                const postNoti = await apiInstance.post(`/community/notification`, {
+                    userIdx: content_writer_idx,
+                    writerIdx: comment_writer_idx,
+                    contentIdx: content_idx,
+                    notType: "reply",
+                    notTypeIdx: idx
                 })
                 toast.success('댓글 작성 완료!')
                 setComment('') // teaxarea value 초기화
