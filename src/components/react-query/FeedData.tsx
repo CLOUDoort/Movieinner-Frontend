@@ -7,10 +7,10 @@ export interface FeedPage {
     page: string | string[] | number
 }
 
-export const getServerSidePropsFeedPost: GetServerSideProps = async (context) => {
+export const getServerSidePropsfeedData: GetServerSideProps = async (context) => {
     const { page } = context.query as any
     const queryClient = new QueryClient()
-    await queryClient.prefetchQuery(['feedPost', page], () => useGetFeedData(page))
+    await queryClient.prefetchQuery(['feedData', page], () => useGetFeedData(page))
     return {
         props: {
             dehydratedState: dehydrate(queryClient),

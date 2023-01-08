@@ -14,7 +14,7 @@ const PostComment = (props) => {
     return (
         <CommentArea>
             <PostCommentLists nickname={nickname} refreshFunction={refreshFunction} commentList={commentList} accessToken={accessToken} userIdx={userIdx} />
-            <PostRootWrite refreshFunction={refreshFunction} accessToken={accessToken} idx={idx} nickname={nickname} userIdx={userIdx} />
+            <PostRootWrite refreshFunction={refreshFunction} accessToken={accessToken} contentIdx={idx} nickname={nickname} userIdx={userIdx} />
         </CommentArea>
     )
 }

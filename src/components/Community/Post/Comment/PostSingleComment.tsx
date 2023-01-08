@@ -77,7 +77,7 @@ const PostSingleComment = (props) => {
                     refreshFunction={refreshFunction}
                     reply={comment?.idx}
                     accessToken={accessToken}
-                    idx={idx}
+                    contentIdx={idx}
                     nickname={nickname}
                     clickView={clickView}
                     userIdx={userIdx}

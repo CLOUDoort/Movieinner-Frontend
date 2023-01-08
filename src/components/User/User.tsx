@@ -29,7 +29,7 @@ const User = () => {
         <>
             {!movieLoading && !themeLoading && userPostsList ? <UserBox>
                 <UserProfile nickname={nickname} email={email} />
-                <UserData userPostList={userPostsList} userLikedMovie={userLikedMovie?.data?.liked} userLikedTheme={userLikedTheme?.data?.liked} />
+                <UserData userPostList={userPostsList} userLikedMovie={userLikedMovie?.data?.liked} userLikedTheme={userLikedTheme?.data?.liked} userIdx={userIdx} />
             </UserBox> : <LoadingLogo />}
         </>
     )
