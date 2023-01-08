@@ -2,6 +2,7 @@ import { useRouter } from 'next/router'
 import { useCallback, useEffect, useState } from 'react'
 import { BsFillEraserFill, BsSearch } from 'react-icons/bs'
 import { SearchContainer, SecondHearderSearchDiv } from './Header.style'
+import HeaderNoti from './HeaderNofi'
 
 const HearderSearch = () => {
     const router = useRouter()
@@ -39,6 +40,7 @@ const HearderSearch = () => {
     return (
         <>
             <SecondHearderSearchDiv>
+                <HeaderNoti />
                 <SearchContainer click={click}>
                     <BsSearch onClick={clickSearchImg} size={30} />
                     <input type='text' placeholder='제목, 사람' autoFocus autoComplete='off' value={search} onChange={handleSearchValue} />
