@@ -5,7 +5,7 @@ import UserPostList from "./UserPostList"
 import UserWatched from "./UserWatched"
 
 const UserData = (props) => {
-    const { userPostList, userLikedTheme, userLikedMovie, userIdx } = props
+    const { userPostList, userLikedTheme, userLikedMovie } = props
     return (
         <UserDataBox>
             <UserPostList userPostList={userPostList} />
