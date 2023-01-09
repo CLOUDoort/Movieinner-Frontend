@@ -7,7 +7,7 @@ export const HeaderContainer = styled.header`
     overflow: hidden;
     border-bottom: 1px solid red;
     padding-bottom: 15px;
-    margin: 15px;
+    padding: 15px;
     button {
         margin-right: 20px;
         background-color: black;
@@ -28,6 +28,10 @@ export const HearderNaveSecondBox = styled.nav`
     display: flex;
     margin-left: 15px;
     align-items: center;
+    >:hover {
+        transition: color, 0.2s;
+        color: gray;
+    }
     > div {
         margin-left: 10px;
         > span {
@@ -43,21 +47,18 @@ export const TitleDiv = styled.div`
 `
 
 export const NavDiv = styled.div`
-    display: flex;
-    > div {
-        float: left;
-        display: flex;
-    }
-    > div > div::after{
-        content: '|';
-        float: right;
-        color: #ccc;
-        margin-right: 17px;
-        margin-left: 17px;
-    }
-    > div > button {
+    display: flex; 
+    > button {
         all: unset;
+        margin-left: 20px;
         cursor: pointer;
+    }
+    > * {
+        margin-left: 20px;
+    }
+    >:hover {
+        transition: color, 0.2s;
+        color: gray;
     }
 `
 type SearchProps = {
