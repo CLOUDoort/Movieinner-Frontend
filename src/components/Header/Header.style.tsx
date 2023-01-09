@@ -3,20 +3,10 @@ import styled from '@emotion/styled'
 export const HeaderContainer = styled.header`
     width: 100%;
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
     overflow: hidden;
     border-bottom: 1px solid red;
-`
-
-export const FirstHeaderDiv = styled.div`
-    background-color: black;
-    height: 30px;
-    color: white;
-    font-size: 12px;
-    display: flex;
-    flex-direction: row;
-    justify-content: end;
-    align-items: center;
+    margin: 20px;
     button {
         margin-right: 20px;
         background-color: black;
@@ -24,20 +14,14 @@ export const FirstHeaderDiv = styled.div`
         border: none;
     }
 `
-
-export const SecondHearderDiv = styled.div`
-    height: 60px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: black;
-    color: white;
-    padding: 10px;
-`
-export const SecondHearderNav = styled.nav`
+export const HearderNavFirstBox = styled.nav`
     display: flex;
     align-items: center;
     margin-left: 50px;
+`
+
+export const HearderNaveSecondBox = styled.nav`
+    display: flex;
 `
 
 export const TitleDiv = styled.div`
@@ -68,9 +52,6 @@ type SearchProps = {
     click: boolean
 }
 
-export const SecondHearderSearchDiv = styled.div`
-    display: flex;
-`
 
 export const SearchContainer = styled.div<SearchProps>`
     display: flex;
