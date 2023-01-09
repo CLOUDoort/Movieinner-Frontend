@@ -5,21 +5,15 @@ export const UserDataBox = styled.div`
     min-width: 800px;
     display: flex;
     flex-direction: column;
-    > :nth-of-type(1) {
-        display: flex;
-        justify-content: space-between;
-    }
-    > :last-of-type {
-        margin-bottom: 20px;
-    }
 `
 
 export const UserDataContainer = styled.div`
     min-width: 380px;
     border: 1px solid gray;
     border-radius: 10px;
-    > :nth-of-type(1) {
+    > :first-of-type {
         margin: 20px;
+        font-weight: bold;
     }
 `
 
