@@ -1,3 +1,4 @@
+import { IoIosNotificationsOutline } from "react-icons/io"
 import { useSelector } from "react-redux"
 import { toast } from "react-toastify"
 import { apiInstance } from "../../apis/setting"
@@ -27,8 +28,8 @@ const HeaderNoti = () => {
     console.log('notiheader', commentNotiData?.data)
     console.log('replyheader', replytNotiData?.data)
     return (
-
-        <div onClick={deleteNoti}>삭제</div>)
+        <IoIosNotificationsOutline size={40} />
+    )
 
 }
 
