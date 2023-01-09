@@ -8,6 +8,7 @@ import HeaderNoti from './HeaderNofi'
 import { setToken, setNickname, setEmail, setIdx } from '../../store/reducers/logintokenSlice'
 import { setSocialEmail } from '../../store/reducers/socialSlice'
 import { toast } from 'react-toastify'
+import HeaderSearch from './HeaderSearch'
 
 
 const HearderSecondNav = (props) => {
@@ -15,8 +16,6 @@ const HearderSecondNav = (props) => {
     const dispatch = useDispatch()
     const [loginToggle, setLoginToggle] = useState('로그인')
     const router = useRouter()
-    const [click, setClick] = useState(false)
-    const [search, setSearch] = useState('')
 
     // 브라우저에 refreshToken이 있으면 무조건 액세스 토큰이 재발급되니 UI는 로그아웃으로 변경
     // 브라우저에 refreshToken이 있으면 액세스 토큰 재발급
@@ -78,45 +77,11 @@ const HearderSecondNav = (props) => {
         getResponse()
     }, [loginToken])
 
-
-    const handleSearchValue = useCallback((e) => {
-        setSearch(e.target.value)
-    }, [search])
-
-    useEffect(() => {
-        try {
-            if (search) {
-                router.replace({
-                    pathname: '/search',
-                    query: {
-                        search: search,
-                        page: 1
-                    }
-                }, undefined, { shallow: true })
-            }
-        }
-        catch (e) {
-            console.error(e.response)
-        }
-    }, [search])
-    const clickSearchImg = () => {
-        setClick(!click)
-    }
-    const backPage = () => {
-        router.replace('/')
-        setSearch('')
-        setClick(false)
-    }
     return (
         <HearderNaveSecondBox>
-            <button onClick={clickLogin}>{loginToggle}</button>
-            {!loginToken ? <button onClick={() => router.push('/signup')}>회원가입</button> : null}
+            {!loginToken ? <button onClick={() => router.push('/signup')}>회원가입</button> : <button onClick={clickLogin}>{loginToggle}</button>}
             <HeaderNoti />
-            <SearchContainer click={click}>
-                <BsSearch onClick={clickSearchImg} size={30} />
-                <input type='text' placeholder='제목, 사람' autoFocus autoComplete='off' value={search} onChange={handleSearchValue} />
-                {search && <BsFillEraserFill onClick={backPage} size={30} />}
-            </SearchContainer>
+            <HeaderSearch />
         </HearderNaveSecondBox>
     )
 }
