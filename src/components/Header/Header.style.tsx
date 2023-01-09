@@ -6,7 +6,8 @@ export const HeaderContainer = styled.header`
     justify-content: space-between;
     overflow: hidden;
     border-bottom: 1px solid red;
-    margin: 20px;
+    padding-bottom: 15px;
+    margin: 15px;
     button {
         margin-right: 20px;
         background-color: black;
