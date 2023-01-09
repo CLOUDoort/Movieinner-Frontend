@@ -41,6 +41,7 @@ export const UserDataList = styled.div`
             }
             > :nth-of-type(2) {
                 flex: 1;
+                cursor: pointer;
             }
             > :last-of-type {
                 width: 130px;
