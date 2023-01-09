@@ -20,7 +20,6 @@ const HearderSecondNav = (props) => {
     const [loginToggle, setLoginToggle] = useState('로그인')
     const router = useRouter()
     const userImage = useGetUserImage(userIdx).data?.data
-    console.log('image', userImage)
     // 브라우저에 refreshToken이 있으면 무조건 액세스 토큰이 재발급되니 UI는 로그아웃으로 변경
     // 브라우저에 refreshToken이 있으면 액세스 토큰 재발급
     useEffect(() => {
@@ -83,10 +82,10 @@ const HearderSecondNav = (props) => {
 
     return (
         <HearderNaveSecondBox>
-            <HeaderNoti />
             <HeaderSearch />
+            <HeaderNoti />
             <div>
-                <Image src={userImage?.image_URL} width={40} height={40} />
+                <Image src={userImage?.image_URL} width={45} height={45} />
                 {/* {!loginToken ? <button onClick={() => router.push('/signup')}>회원가입</button> : <button onClick={clickLogin}>{loginToggle}</button>} */}
             </div>
         </HearderNaveSecondBox>

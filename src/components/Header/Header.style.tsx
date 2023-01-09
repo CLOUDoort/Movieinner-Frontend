@@ -28,12 +28,27 @@ export const HearderNaveSecondBox = styled.nav`
     display: flex;
     margin-left: 15px;
     align-items: center;
-    >:hover {
-        transition: color, 0.2s;
-        color: gray;
+    > * {
+        margin-right: 10px;
     }
-    > div {
+    > svg {
+        justify-content: center;
+        transition: color 0.2s;
+        margin-left: -10px;
+        :hover {
+            color: gray;
+        }
+    }
+    > :first-of-type > svg {
+        transition: color 0.2s;
+        :hover {
+            color: gray;
+        }
+    }
+    > :last-child {
         margin-left: 10px;
+        display: flex;
+        align-items: center;
         > span {
             border-radius: 50%;
         }
@@ -68,14 +83,17 @@ type SearchProps = {
 
 export const SearchContainer = styled.div<SearchProps>`
     display: flex;
-    box-shadow: ${(props) => (props.click ? '2px 2px 2px 2px red;' : 'none')};
+    align-items: center;
+    justify-content: center;
+    border-bottom: ${(props) => (props.click ? '1px solid red;' : 'none')};
     background-color: ${(props) => (props.click ? 'black' : 'none')};
     padding: 5px;
+    margin-right: ${(props) => (props.click ? '20px' : 0)};
     > input {
+        transition: 0.3s width linear !important;
         width: ${(props) => (props.click ? '200px' : 0)};
         background-color: ${(props) => (props.click ? 'black' : 'none')};
         color: white;
-        transition: 0.3s width linear;
         border: none;
         outline: none;
         opacity: ${(props) => (props.click ? '1' : 0)};
