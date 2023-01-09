@@ -11,7 +11,7 @@ export const CategoryContainer = styled.div`
 
 export const CategoryBox = styled.div`
     position: absolute;
-    top: 80px;
+    top: 60px;
     left: 300px;
     right: 0;
     bottom: 0;
