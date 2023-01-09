@@ -26,6 +26,14 @@ export const HearderNavFirstBox = styled.nav`
 
 export const HearderNaveSecondBox = styled.nav`
     display: flex;
+    margin-left: 15px;
+    align-items: center;
+    > div {
+        margin-left: 10px;
+        > span {
+            border-radius: 50%;
+        }
+    }
 `
 
 export const TitleDiv = styled.div`
@@ -59,7 +67,7 @@ type SearchProps = {
 
 export const SearchContainer = styled.div<SearchProps>`
     display: flex;
-    border: ${(props) => (props.click ? '1px solid white;' : 'none')};
+    box-shadow: ${(props) => (props.click ? '2px 2px 2px 2px red;' : 'none')};
     background-color: ${(props) => (props.click ? 'black' : 'none')};
     padding: 5px;
     > input {
