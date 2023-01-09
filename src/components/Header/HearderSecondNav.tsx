@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { apiInstance } from '../../apis/setting'
 import { HearderNaveSecondBox } from './Header.style'
 import HeaderNoti from './HeaderNofi'
@@ -8,14 +8,19 @@ import { setToken, setNickname, setEmail, setIdx } from '../../store/reducers/lo
 import { setSocialEmail } from '../../store/reducers/socialSlice'
 import { toast } from 'react-toastify'
 import HeaderSearch from './HeaderSearch'
+import useGetUserImage from '../react-query/UserImage'
+import { RootState } from '../../store/store'
+import Image from 'next/image'
 
 
 const HearderSecondNav = (props) => {
     const { loginToken } = props
+    const userIdx = useSelector((state: RootState) => state.idx.idx)
     const dispatch = useDispatch()
     const [loginToggle, setLoginToggle] = useState('로그인')
     const router = useRouter()
-
+    const userImage = useGetUserImage(userIdx).data?.data
+    console.log('image', userImage)
     // 브라우저에 refreshToken이 있으면 무조건 액세스 토큰이 재발급되니 UI는 로그아웃으로 변경
     // 브라우저에 refreshToken이 있으면 액세스 토큰 재발급
     useEffect(() => {
@@ -78,9 +83,12 @@ const HearderSecondNav = (props) => {
 
     return (
         <HearderNaveSecondBox>
-            {!loginToken ? <button onClick={() => router.push('/signup')}>회원가입</button> : <button onClick={clickLogin}>{loginToggle}</button>}
             <HeaderNoti />
             <HeaderSearch />
+            <div>
+                <Image src={userImage?.image_URL} width={40} height={40} />
+                {/* {!loginToken ? <button onClick={() => router.push('/signup')}>회원가입</button> : <button onClick={clickLogin}>{loginToggle}</button>} */}
+            </div>
         </HearderNaveSecondBox>
     )
 }
