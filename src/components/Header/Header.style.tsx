@@ -78,7 +78,7 @@ export const SearchContainer = styled.div<SearchProps>`
     background-color: ${(props) => (props.click ? 'black' : 'none')};
     padding: 5px;
     > input {
-        width: ${(props) => (props.click ? '275px' : 0)};
+        width: ${(props) => (props.click ? '200px' : 0)};
         background-color: ${(props) => (props.click ? 'black' : 'none')};
         color: white;
         transition: 0.3s width linear;
