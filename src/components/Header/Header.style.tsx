@@ -14,6 +14,9 @@ export const HeaderContainer = styled.header`
         color: white;
         border: none;
     }
+    > :last-of-type {
+        margin-right: 30px;
+    }
 `
 export const HearderNavFirstBox = styled.nav`
     display: flex;
