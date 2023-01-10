@@ -42,6 +42,8 @@ export const SearchContainer = styled.div<SearchProps>`
     }
 `
 export const HeaderNotiBox = styled.div`
+    display: flex;
+    align-items: center;
     > svg {
         justify-content: center;
         transition: color 0.2s;
