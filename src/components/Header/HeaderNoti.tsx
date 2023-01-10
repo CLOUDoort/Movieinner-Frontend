@@ -13,6 +13,7 @@ const HeaderNoti = () => {
     const commentNotiData = useGetNotiData(userIdx, "comment").data
     const replytNotiData = useGetNotiData(userIdx, "reply").data
     const [modal, setModal] = useState(false)
+    const controlModal = () => setModal(!modal)
     const deleteNoti = async () => {
         try {
             const response = await apiInstance.delete(`/community/notification`, {
@@ -31,9 +32,9 @@ const HeaderNoti = () => {
     console.log('notiheader', commentNotiData?.data)
     console.log('replyheader', replytNotiData?.data)
     return (
-        <HeaderNotiBox>
-            <IoIosNotificationsOutline onClick={() => setModal(!modal)} size={40} />
-            {modal ? <HeaderNotiModal /> : null}
+        <HeaderNotiBox modal={modal}>
+            <IoIosNotificationsOutline onClick={controlModal} size={40} />
+            {modal ? <HeaderNotiModal modal={modal} controlModal={controlModal} /> : null}
         </HeaderNotiBox>
     )
 

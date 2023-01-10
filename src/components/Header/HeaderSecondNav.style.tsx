@@ -41,13 +41,18 @@ export const SearchContainer = styled.div<SearchProps>`
         padding: 5px;
     }
 `
-export const HeaderNotiBox = styled.div`
+
+type modalProps = {
+    modal: boolean
+}
+export const HeaderNotiBox = styled.div<modalProps>`
     display: flex;
     align-items: center;
     > svg {
         justify-content: center;
         transition: color 0.2s;
         margin-left: -10px;
+        color: ${(props) => props.modal ? 'red' : null};
         :hover {
             color: gray;
         }
