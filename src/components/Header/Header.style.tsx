@@ -8,23 +8,11 @@ export const HeaderContainer = styled.header`
     border-bottom: 1px solid red;
     padding-bottom: 15px;
     padding: 15px;
-    button {
-        margin-right: 20px;
-        background-color: black;
-        color: white;
-        border: none;
-    }
-    > :last-of-type {
-        margin-right: 20px;
-    }
-`
-export const HearderNavFirstBox = styled.nav`
-    display: flex;
-    align-items: center;
-    margin-left: 50px;
+    
 `
 
 export const HearderNaveSecondBox = styled.nav`
+    margin-right: 20px;
     display: flex;
     margin-left: 10px;
     align-items: center;
@@ -57,27 +45,6 @@ export const HearderNaveSecondBox = styled.nav`
     }
 `
 
-export const TitleDiv = styled.div`
-    width: 150px;
-    margin-left: 50px;
-    flex-shrink: 0;
-`
-
-export const NavDiv = styled.div`
-    display: flex; 
-    > button {
-        all: unset;
-        margin-left: 20px;
-        cursor: pointer;
-    }
-    > * {
-        margin-left: 20px;
-    }
-    >:hover {
-        transition: color, 0.2s;
-        color: gray;
-    }
-`
 type SearchProps = {
     click: boolean
 }

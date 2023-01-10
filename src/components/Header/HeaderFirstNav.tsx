@@ -2,7 +2,8 @@ import Link from "next/link"
 import { useEffect, useState } from "react"
 import { apiInstance } from "../../apis/setting"
 import Category from "../Category"
-import { NavDiv, HearderNavFirstBox, TitleDiv } from "./Header.style"
+import { HeaderFirstNavList, HeaderFirstNavTitle, HearderFirstNavBox } from "./HeaderFirstNav.style"
+
 
 const HeaderFirstNav = (props) => {
     const { nickname } = props
@@ -18,18 +19,19 @@ const HeaderFirstNav = (props) => {
         }
         getResponse()
     }, [modal])
+
     return (
-        <HearderNavFirstBox>
-            <TitleDiv>Movie Inner</TitleDiv>
-            <NavDiv>
+        <HearderFirstNavBox>
+            <HeaderFirstNavTitle>Movie Inner</HeaderFirstNavTitle>
+            <HeaderFirstNavList>
                 <Link href='/'>홈</Link>
                 <button onClick={clickModal}>카테고리</button>
                 {modal && <Category clickModal={clickModal} list={list} />}
                 <Link href='/community/feed/1'>커뮤니티</Link>
                 <Link href='/theme'>테마</Link>
                 {nickname ? <Link href={`/user/${nickname}`}>마이페이지</Link> : <Link href='/login'>마이페이지</Link>}
-            </NavDiv>
-        </HearderNavFirstBox>
+            </HeaderFirstNavList>
+        </HearderFirstNavBox>
     )
 }
 
