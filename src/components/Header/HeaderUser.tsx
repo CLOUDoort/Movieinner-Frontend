@@ -6,6 +6,7 @@ import { apiInstance } from '../../apis/setting'
 import { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { useRouter } from 'next/router'
+import { HeaderUserBox } from './HeaderSecondNav.style'
 
 const HeaderUser = (props) => {
     const { loginToken, userImage } = props
@@ -76,9 +77,9 @@ const HeaderUser = (props) => {
 
 
     return (
-        <div>
+        <HeaderUserBox>
             {!loginToken ? <><button onClick={clickLogin}>{loginToggle ? '로그아웃' : '로그인'}</button><button onClick={() => router.push('/signup')}>회원가입</button></> : <Image src={userImage?.image_URL} width={45} height={45} />}
-        </div>
+        </HeaderUserBox>
     )
 }
 

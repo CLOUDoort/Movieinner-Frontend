@@ -1,7 +1,7 @@
 import { useRouter } from "next/router"
 import { useCallback, useEffect, useState } from "react"
 import { BsFillEraserFill, BsSearch } from "react-icons/bs"
-import { SearchContainer } from "./Header.style"
+import { SearchContainer } from "./HeaderSecondNav.style"
 
 const HeaderSearch = () => {
     const router = useRouter()

@@ -6,6 +6,7 @@ import { apiInstance } from "../../apis/setting"
 import { RootState } from "../../store/store"
 import useGetNotiData from "../react-query/NotificationData"
 import HeaderNotiModal from "./HeaderNotiModal"
+import { HeaderNotiBox } from "./HeaderSecondNav.style"
 
 const HeaderNoti = () => {
     const userIdx = useSelector((state: RootState) => state.idx.idx)
@@ -30,10 +31,10 @@ const HeaderNoti = () => {
     console.log('notiheader', commentNotiData?.data)
     console.log('replyheader', replytNotiData?.data)
     return (
-        <>
+        <HeaderNotiBox>
             <IoIosNotificationsOutline onClick={() => setModal(!modal)} size={40} />
             {modal ? <HeaderNotiModal /> : null}
-        </>
+        </HeaderNotiBox>
     )
 
 }
