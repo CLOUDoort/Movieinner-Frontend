@@ -15,7 +15,7 @@ export const HeaderContainer = styled.header`
         border: none;
     }
     > :last-of-type {
-        margin-right: 30px;
+        margin-right: 20px;
     }
 `
 export const HearderNavFirstBox = styled.nav`
@@ -26,7 +26,7 @@ export const HearderNavFirstBox = styled.nav`
 
 export const HearderNaveSecondBox = styled.nav`
     display: flex;
-    margin-left: 15px;
+    margin-left: 10px;
     align-items: center;
     > * {
         margin-right: 10px;
@@ -49,9 +49,11 @@ export const HearderNaveSecondBox = styled.nav`
         margin-left: 10px;
         display: flex;
         align-items: center;
+        justify-content: center;
         > span {
             border-radius: 50%;
         }
+        >button {font-size: 15px;}
     }
 `
 

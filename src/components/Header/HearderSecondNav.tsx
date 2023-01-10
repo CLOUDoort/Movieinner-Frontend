@@ -85,8 +85,7 @@ const HearderSecondNav = (props) => {
             <HeaderSearch />
             <HeaderNoti />
             <div>
-                <Image src={userImage?.image_URL} width={45} height={45} />
-                {/* {!loginToken ? <button onClick={() => router.push('/signup')}>회원가입</button> : <button onClick={clickLogin}>{loginToggle}</button>} */}
+                {!loginToken ? <><button onClick={clickLogin}>{loginToggle}</button><button onClick={() => router.push('/signup')}>회원가입</button></> : <Image src={userImage?.image_URL} width={45} height={45} />}
             </div>
         </HearderNaveSecondBox>
     )
