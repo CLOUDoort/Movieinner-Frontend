@@ -20,5 +20,5 @@ export const HeaderNotiModalBox = styled.div<transitionProps>`
     right: 8%;
     border-radius: 5px;
     opacity: ${(props) => props.transition ? 1 : 0};
-    transition: opacity 1s;
+    transition: opacity 0.5s;
 `

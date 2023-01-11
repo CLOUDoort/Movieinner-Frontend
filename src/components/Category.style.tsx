@@ -22,7 +22,7 @@ export const CategoryBox = styled.div<CategoryProps>`
     height: 31%;
     border-radius: 5px;
     opacity: ${(props) => props.transition ? 1 : 0};
-    transition: opacity 1s;
+    transition: opacity 0.5s;
 `
 
 export const CategoryList = styled.div`
