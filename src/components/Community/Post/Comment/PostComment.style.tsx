@@ -47,13 +47,21 @@ export const CommentList = styled.div`
 
 export const CommentUser = styled.div`
     display: flex;
-    > div > span {
-        ::after {
-            padding-left: 5px;
-            content: '|';
-        }
+    justify-content: space-between;
+    align-items: center;
+    > div {
+        display: flex;
+        > span {
         margin-left: 10px;
-    }
+        font-weight: bold;
+        }
+        > div {
+            margin-left: 10px;
+            > :first-of-type {
+                font-weight: bold;
+            }
+        }   
+    } 
     > div > button {
         border: none;
         margin-left: 10px;
@@ -66,7 +74,7 @@ export const CommentReply = styled.div`
     > span {
         cursor: pointer;
         width: 80%;
-        margin-left: 40px;
+        margin-left: 60px;
     }
     > div {
         width: 80%;

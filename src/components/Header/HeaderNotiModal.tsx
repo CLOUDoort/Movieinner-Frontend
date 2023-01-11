@@ -7,6 +7,7 @@ const HeaderNotiModal = (props) => {
     useEffect(() => {
         setTransition(!transition)
     }, [modal])
+
     return (
         <HeaderNotiModalContainer onClick={controlModal}>
             <HeaderNotiModalBox transition={transition} onClick={(e) => e.stopPropagation()}>

@@ -22,3 +22,8 @@ export const HeaderNotiModalBox = styled.div<transitionProps>`
     opacity: ${(props) => props.transition ? 1 : 0};
     transition: opacity 0.5s;
 `
+
+export const HeaderNotiModalList = styled.div`
+    display: flex;
+    
+`

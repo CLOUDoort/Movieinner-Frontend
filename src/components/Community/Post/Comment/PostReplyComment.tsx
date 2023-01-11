@@ -19,34 +19,32 @@ const PostReplyComment = (props) => {
         setViewComments(!viewComments)
     }
     return (
-        <>
-            <CommentReply>
-                {childCommentNumber > 0 && <span onClick={clickView}>댓글 {childCommentNumber}개</span>}
-                {viewComments &&
-                    commentList.map(
-                        (comment: any) =>
-                            parentComment === comment.response_to && (
-                                <div key={comment.idx}>
-                                    <PostSingleComment
-                                        comment={comment}
-                                        accessToken={accessToken}
-                                        idx={comment?.content_idx}
-                                        nickname={nickname}
-                                        refreshFunction={refreshFunction}
-                                        clickView={clickView}
-                                    />
-                                    <PostReplyComment
-                                        commentList={commentList}
-                                        accessToken={accessToken}
-                                        refreshFunction={refreshFunction}
-                                        parentComment={comment.idx}
-                                        nickname={nickname}
-                                    />
-                                </div>
-                            )
-                    )}
-            </CommentReply>
-        </>
+        <CommentReply>
+            {childCommentNumber > 0 && <span onClick={clickView}>댓글 {childCommentNumber}개</span>}
+            {viewComments &&
+                commentList.map(
+                    (comment: any) =>
+                        parentComment === comment.response_to && (
+                            <div key={comment.idx}>
+                                <PostSingleComment
+                                    comment={comment}
+                                    accessToken={accessToken}
+                                    idx={comment?.content_idx}
+                                    nickname={nickname}
+                                    refreshFunction={refreshFunction}
+                                    clickView={clickView}
+                                />
+                                <PostReplyComment
+                                    commentList={commentList}
+                                    accessToken={accessToken}
+                                    refreshFunction={refreshFunction}
+                                    parentComment={comment.idx}
+                                    nickname={nickname}
+                                />
+                            </div>
+                        )
+                )}
+        </CommentReply>
     )
 }
 
