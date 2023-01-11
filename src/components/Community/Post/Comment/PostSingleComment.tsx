@@ -4,8 +4,6 @@ import { useState } from 'react'
 import PostReplyWrite from './PostReplyWrite'
 import { apiInstance } from '../../../../apis/setting'
 import { toast } from 'react-toastify'
-import { HiOutlineDotsVertical } from 'react-icons/hi'
-import PostCommentSetting from './PostCommentSetting'
 
 const PostSingleComment = (props) => {
     const [openReply, setOpenReply] = useState(false)
@@ -62,8 +60,8 @@ const PostSingleComment = (props) => {
                                 </div>
                             </div>
                             <div>
-                                <HiOutlineDotsVertical onClick={handleSetting} size={30} />
-                                {setting ? <PostCommentSetting handleModify={handleModify} clickDelete={clickDelete} /> : null}
+                                <button onClick={handleModify}>수정하기</button>
+                                <button onClick={clickDelete}>삭제하기</button>
                             </div>
                         </CommentUser>
                     </>

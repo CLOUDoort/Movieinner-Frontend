@@ -65,8 +65,12 @@ export const CommentUser = styled.div`
     > div > button {
         border: none;
         margin-left: 10px;
-        padding: 8px 16px;
-        background-color: #adf8f8;
+        padding: 5px 10px;
+        margin-bottom: 5px;
+    }
+    > :last-of-type {
+        display: flex;
+        flex-direction: column;
     }
 `
 
