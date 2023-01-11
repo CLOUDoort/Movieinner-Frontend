@@ -51,14 +51,21 @@ export const CommentUser = styled.div`
     align-items: center;
     > div {
         display: flex;
-        > span {
-        margin-left: 10px;
-        font-weight: bold;
+        > :first-of-type {
+            margin-left: 10px;
+            font-weight: bold;
         }
         > div {
             margin-left: 10px;
+            margin-top: 10px;
             > :first-of-type {
                 font-weight: bold;
+            }
+            > button {
+                border: none;
+                margin-left: 10px;
+                padding: 5px 10px;
+                margin-bottom: 5px;
             }
         }   
     } 
