@@ -4,15 +4,19 @@ import { useState } from 'react'
 import PostReplyWrite from './PostReplyWrite'
 import { apiInstance } from '../../../../apis/setting'
 import { toast } from 'react-toastify'
+import { HiOutlineDotsVertical } from 'react-icons/hi'
+import PostCommentSetting from './PostCommentSetting'
 
 const PostSingleComment = (props) => {
     const [openReply, setOpenReply] = useState(false)
     const { comment, accessToken, idx, nickname, refreshFunction, clickView, userIdx } = props
     const [modify, setModify] = useState(false)
+    const [setting, clickSetting] = useState(false)
     const [modifyComment, setModifyComment] = useState(comment.comment)
     const deleteComment = '삭제된 댓글입니다.'
     const [deleteState, setDeleteState] = useState(false)
 
+    const handleSetting = () => clickSetting(!setting)
     const clickReply = () => {
         setOpenReply(!openReply)
     }
@@ -49,13 +53,17 @@ const PostSingleComment = (props) => {
                 !deleteState ? (
                     <>
                         <CommentUser>
-                            <Avatar alt='User Image' src='/topgun.jpeg' />
                             <div>
-                                <span>이름: {nickname}</span>
-                                <span>내용: {modifyComment}</span>
-                                <button onClick={clickReply}>Reply to</button>
-                                <button onClick={handleModify}>수정하기</button>
-                                <button onClick={clickDelete}>삭제하기</button>
+                                <Avatar alt='User Image' src='/topgun.jpeg' />
+                                <div>
+                                    <div>{nickname}</div>
+                                    <div>{modifyComment}</div>
+                                    <button onClick={clickReply}>Reply to</button>
+                                </div>
+                            </div>
+                            <div>
+                                <HiOutlineDotsVertical onClick={handleSetting} size={30} />
+                                {setting ? <PostCommentSetting handleModify={handleModify} clickDelete={clickDelete} /> : null}
                             </div>
                         </CommentUser>
                     </>
