@@ -24,7 +24,6 @@ import '@toast-ui/editor-plugin-color-syntax/dist/toastui-editor-plugin-color-sy
 import { NextComponentType } from 'next'
 import { useState } from 'react'
 
-
 declare global {
     interface UserDataState {
         email?: string
