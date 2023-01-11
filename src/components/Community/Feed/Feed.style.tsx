@@ -57,9 +57,9 @@ export const FeedListLastType = styled.div`
 export const FeedRemoteBox = styled.div`
     display: flex;
     flex-direction: column;
-    position: fixed;
-    right: 10%;
-    bottom: 10%;
+    position: absolute;
+    right: 21%;
+    bottom: 25%;
     z-index: 1;
     > svg {
         cursor: pointer;
