@@ -66,5 +66,11 @@ export const HeaderUserBox = styled.div`
     > span {
         border-radius: 50%;
     }
-    >button {font-size: 15px;}
+    > button {
+        font-size: 15px;
+        margin-right: 10px;
+        border: none;
+        background-color: black;
+        color: white;
+    }
 `
