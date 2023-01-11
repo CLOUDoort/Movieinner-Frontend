@@ -1,11 +1,16 @@
 import Link from "next/link"
+import { useEffect, useState } from "react"
 import { CategoryBox, CategoryContainer, CategoryList } from "./Category.style"
 
 const Category = (props) => {
-    const { clickModal, list } = props
-    return <>
+    const { modal, clickModal, list } = props
+    const [transition, setTransition] = useState(false)
+    useEffect(() => {
+        setTransition(!transition)
+    }, [modal])
+    return (
         <CategoryContainer onClick={clickModal}>
-            <CategoryBox onClick={(e) => e.stopPropagation()}>
+            <CategoryBox onClick={(e) => e.stopPropagation()} transition={transition}>
                 <CategoryList>
                     {list.map((obj) => (
                         <div key={obj.id}>
@@ -19,7 +24,7 @@ const Category = (props) => {
                 </CategoryList>
             </CategoryBox>
         </CategoryContainer>
-    </>
+    )
 }
 
 export default Category

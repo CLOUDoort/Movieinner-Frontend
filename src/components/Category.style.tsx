@@ -1,7 +1,7 @@
 import styled from '@emotion/styled'
 
 export const CategoryContainer = styled.div`
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     right: 0;
@@ -9,21 +9,28 @@ export const CategoryContainer = styled.div`
     z-index: 1000;
 `
 
-export const CategoryBox = styled.div`
+type CategoryProps = {
+    transition: boolean;
+}
+
+export const CategoryBox = styled.div<CategoryProps>`
     position: absolute;
-    top: 60px;
-    left: 300px;
-    right: 0;
-    bottom: 0;
+    top: 8%;
+    left: 21%;
     background-color: #ff0000;
-    width: 300px;
-    height: 200px;
+    width: 21%;
+    height: 31%;
     border-radius: 5px;
+    opacity: ${(props) => props.transition ? 1 : 0};
+    transition: opacity 1s;
 `
 
 export const CategoryList = styled.div`
     display: grid;
+    column-gap: 3px;
+    row-gap: 3px;
     grid-template-columns: 1fr 1fr 1fr;
     margin-left: 20px;
     margin-top: 15px;
+    font-size: 17px;
 `
