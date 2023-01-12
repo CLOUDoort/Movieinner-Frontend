@@ -27,8 +27,6 @@ const HeaderNotiModal = (props) => {
             console.error(e.response)
         }
     }
-    console.log("delete", deleteIdx)
-
     return (
         <HeaderNotiModalContainer onClick={controlModal}>
             <HeaderNotiModalBox transition={transition} onClick={(e) => e.stopPropagation()}>
