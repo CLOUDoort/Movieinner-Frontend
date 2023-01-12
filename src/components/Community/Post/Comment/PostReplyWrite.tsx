@@ -1,11 +1,18 @@
 import { useState } from 'react'
 import { toast } from 'react-toastify'
 import { apiInstance } from '../../../../apis/setting'
+import useGetNotiData from '../../../react-query/NotificationData'
 import { CommentWrite } from './PostComment.style'
 
 const PostReplyWrite = (props) => {
     const { accessToken, contentIdx, reply, refreshFunction, clickReply, userIdx } = props
     const [comment, setComment] = useState('')
+    const refetchCommentNotiData = useGetNotiData(userIdx, "comment").refetch
+    const refetchReplytNotiData = useGetNotiData(userIdx, "reply").refetch
+    const refetchNoti = () => {
+        refetchCommentNotiData()
+        refetchReplytNotiData()
+    }
 
     const handleChange = (e) => {
         const { value } = e.target
@@ -28,9 +35,9 @@ const PostReplyWrite = (props) => {
                     notType: "reply",
                     notTypeIdx: idx
                 })
-                toast.success('댓글 작성 완료!')
                 setComment('') // teaxarea value 초기화
                 refreshFunction() // 작성 댓글 업데이트
+                refetchNoti()
                 clickReply()
                 // clickView()
             } catch (e) {
