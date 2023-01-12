@@ -9,7 +9,7 @@ import SettingImage from "./SettingImage"
 
 
 const SettingProfile = (props) => {
-    const { email, userIdx, nickname, userImage, loading } = props
+    const { email, userIdx, nickname, userImage, loading, refetchImage } = props
     const [modify, setModify] = useState(false)
     const [newNickname, setnewNickname] = useState(nickname)
     const [checkNickname, setCheckNickname] = useState({
@@ -57,6 +57,7 @@ const SettingProfile = (props) => {
             await apiInstance.post(`/auth`, { email: email })
             setModify(!modify)
             router.reload()
+            refetchImage()
         } catch (e) {
             toast.error('영어 대소문, 한글, 숫자, 특수기호(-,_,.) 포함 2~12글자만 허용됩니다.')
         }

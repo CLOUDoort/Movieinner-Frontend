@@ -56,7 +56,7 @@ const SettingImage = (props) => {
         <>
             {!loading ?
                 <SettingModifyImage>
-                    <Image src={image} width={100} height={100} alt='프로필 이미지입니다' />
+                    <Image src={image ? image : '/blank.png'} width={100} height={100} alt='프로필 이미지입니다' />
                     <label htmlFor="input-file">이미지 업로드</label>
                     <input type='file' name='image_URL' id='input-file' accept='image/*' style={{ display: 'none' }} ref={fileInput} onChange={handleImage} />
                     <label onClick={deleteImage}>이미지 제거</label>

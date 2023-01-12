@@ -12,12 +12,15 @@ const Setting = () => {
     const userIdx = useSelector((state: RootState) => state.idx.idx)
     const socialEmail = useSelector((state: RootState) => state.socialEmail.socialEmail)
     const userImage = useGetUserImage(userIdx).data
+    const userImageRefetch = useGetUserImage(userIdx).refetch
     const imageLoading = useGetUserImage(userIdx).isLoading
+
+    const refetchImage = () => userImageRefetch()
 
     return (
         <SettingContainer>
             <SettingBox>
-                <SettingProfile userImage={userImage?.data.image_URL} loading={imageLoading} email={email} userIdx={userIdx} nickname={nickname} />
+                <SettingProfile refetchImage={refetchImage} userImage={userImage?.data.image_URL} loading={imageLoading} email={email} userIdx={userIdx} nickname={nickname} />
                 <SettingPassword socialEmail={socialEmail} userIdx={userIdx} />
                 <SettingDelete email={email} userIdx={userIdx} />
             </SettingBox>
