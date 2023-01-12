@@ -3,10 +3,9 @@ import { HeaderNotiModalBox, HeaderNotiModalContainer, HeaderNotiModalList } fro
 import Image from "next/image"
 import { MdDelete } from "react-icons/md"
 import { apiInstance } from "../../apis/setting"
-import { toast } from "react-toastify"
 
 const HeaderNotiModal = (props) => {
-    const { modal, controlModal, commentNotiData, replyNotiData, userIdx } = props
+    const { modal, controlModal, commentNotiData, replyNotiData, userIdx, refetchNoti } = props
     const [transition, setTransition] = useState(false)
     const [deleteIdx, setDeleteIdx] = useState(0);
     useEffect(() => {
@@ -21,8 +20,7 @@ const HeaderNotiModal = (props) => {
                     notIdx: deleteIdx
                 }
             })
-            console.log('delete response', response.data)
-            toast.success('알람 삭제 성공')
+            refetchNoti()
         } catch (e) {
             console.error(e.response)
         }
