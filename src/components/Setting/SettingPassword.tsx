@@ -36,11 +36,10 @@ const SettingPassword = (props) => {
     }
 
     return (
-        <>
-            <div>
-                <span>비밀번호 변경</span>
-                <span onClick={clickModal}>비밀번호 변경</span>
-            </div>
+        <div>
+            <span>비밀번호 변경</span>
+            <span onClick={clickModal}>비밀번호 변경</span>
+
             {modal && <SettingPwModalContainer onClick={clickModal}>
                 <SettingPwModalBox onClick={(e) => e.stopPropagation()}>
                     <SettingPwInput>
@@ -58,7 +57,7 @@ const SettingPassword = (props) => {
                     <button onClick={clickModifyPw}>비밀번호 변경</button>
                 </SettingPwModalBox>
             </SettingPwModalContainer>}
-        </>
+        </div>
     )
 }
 

@@ -17,18 +17,18 @@ export const SettingBox = styled.div`
         margin-bottom: 30px;
     }
     >:nth-of-type(2) {
-        >:first-of-type {
-            ::after {
-                margin-left: 10px;
-                content: '|';
-            }
-        }
+        display: flex;
+        justify-content: center;
+        align-items: center;
         >span {
             margin-right: 10px;
+            width: 120px;
+            text-align: center;
         }
         >:last-of-type {
             background-color: red;
-            padding: 8px 16px;
+            font-size: 15px;
+            padding: 3px 6px;
             border-radius: 5px;
             cursor: pointer;
         }
@@ -36,18 +36,18 @@ export const SettingBox = styled.div`
 `
 
 export const SettingDeleteUser = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
     > span {
         margin-right: 10px;
-    }
-    >:first-of-type {
-        ::after {
-            margin-left: 10px;
-            content: '|';
-        }
+        width: 120px;
+        text-align: center;
     }
     >:last-of-type {
         background-color: red;
-        padding: 8px 16px;
+        font-size: 15px;
+        padding: 3px 6px;
         border-radius: 5px;
         cursor: pointer;
     }
@@ -56,6 +56,10 @@ export const SettingDeleteUser = styled.div`
 export const SettingModifyImage = styled.div`
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-right: 1px solid gray;
+    padding-right: 15px;
     > span {
         border-radius: 50%;
         margin: 20px;
@@ -63,15 +67,16 @@ export const SettingModifyImage = styled.div`
     }
     > label {
         background-color: #05ce05;
-        padding: 8px 16px;
+        font-size: 13px;
+        padding: 3px 6px;
+        width: 85px;
         border-radius: 5px;
         cursor: pointer;
-        margin-bottom: 10px;
-        margin-top: 10px;
+        margin-bottom: 5px;
+        margin-top: 5px;
         text-align: center;
     }
     >:last-of-type {
         background-color: red;
-        text-align: center;
     }
 `

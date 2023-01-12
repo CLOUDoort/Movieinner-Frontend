@@ -21,6 +21,9 @@ export const UserProfileInfo = styled.div`
         border-radius: 50%;
         cursor: pointer;
         margin-left: 20px;
+        > svg {
+            margin-top: 6px;
+        }
     }
     > div {
         margin-left: 20px;
