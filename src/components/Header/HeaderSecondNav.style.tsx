@@ -67,15 +67,6 @@ export const HeaderNotiBox = styled.div<modalProps>`
         }
     }
 `
-export const HeaderNotiNum = styled.div`
-    position: absolute;
-    background-color: #ff3232;
-    border-radius: 50%;
-    padding: 1px 10px;
-    top: 15px;
-    right: 190px;
-`
-
 export const HeaderUserBox = styled.div`
     margin-left: 10px;
     display: flex;
