@@ -86,7 +86,7 @@ const HeaderUser = (props) => {
             {!loginToken
                 ?
                 <>
-                    <button onClick={clickLogin}>{loginToggle ? '로그아웃' : '로그인'}</button><button onClick={() => router.push('/signup')}>회원가입</button>
+                    <button onClick={clickLogin}>{loginToken ? '로그아웃' : '로그인'}</button><button onClick={() => router.push('/signup')}>회원가입</button>
                 </>
                 :
                 <>
