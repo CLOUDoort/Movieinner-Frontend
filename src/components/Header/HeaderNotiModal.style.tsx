@@ -56,9 +56,14 @@ export const HeaderNotiModalList = styled.div`
     }
     
 `
-export const HeaderNotiNum = styled.div`
+type HeaderNotiProps = {
+    number: number
+}
+
+export const HeaderNotiNum = styled.div<HeaderNotiProps>`
+display: ${(props) => props.number ? 'block' : 'none'};
 position: absolute;
-background-color: #ff3232;
+background-color: ${(props) => props.number ? "#ff3232" : null} ;
 border-radius: 50%;
 padding: 1px 10px;
 top: 15px;
