@@ -15,7 +15,7 @@ const PostCommentLists = (props) => {
                                     comment={comment}
                                     accessToken={accessToken}
                                     idx={comment?.content_idx}
-                                    nickname={nickname}
+                                    nickname={comment.nickname}
                                     refreshFunction={refreshFunction}
                                     userIdx={userIdx}
                                 />
@@ -24,7 +24,7 @@ const PostCommentLists = (props) => {
                                     accessToken={accessToken}
                                     refreshFunction={refreshFunction}
                                     parentComment={comment.idx}
-                                    nickname={nickname}
+                                    nickname={comment.nickname}
                                 />
                             </div>
                         )
