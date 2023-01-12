@@ -20,7 +20,7 @@ export const HeaderNotiModalBox = styled.div<transitionProps>`
     right: 200px;
     border-radius: 5px;
     opacity: ${(props) => props.transition ? 1 : 0};
-    transition: opacity 0.5s;
+    transition: opacity 0.3s;
 `
 
 export const HeaderNotiModalList = styled.div`
