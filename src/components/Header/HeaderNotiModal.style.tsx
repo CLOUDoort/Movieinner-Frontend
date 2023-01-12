@@ -56,3 +56,11 @@ export const HeaderNotiModalList = styled.div`
     }
     
 `
+export const HeaderNotiNum = styled.div`
+position: absolute;
+background-color: #ff3232;
+border-radius: 50%;
+padding: 1px 10px;
+top: 15px;
+right: 190px;
+`
