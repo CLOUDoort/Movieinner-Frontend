@@ -90,7 +90,7 @@ const HeaderUser = (props) => {
                 <>
                     <Image src={userImage?.image_URL} width={45} height={45} />
                     <div>
-                        {nickname}
+                        <div>{nickname}</div>
                         <RiArrowDownSLine size={20} />
                     </div>
                 </>

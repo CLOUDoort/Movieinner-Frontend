@@ -1,5 +1,6 @@
 import Link from "next/link"
 import { useEffect, useState } from "react"
+import { GiHamburgerMenu } from "react-icons/gi"
 import { apiInstance } from "../../apis/setting"
 import Category from "../Category"
 import { HeaderFirstNavList, HeaderFirstNavTitle, HearderFirstNavBox } from "./HeaderFirstNav.style"
@@ -23,6 +24,7 @@ const HeaderFirstNav = (props) => {
     return (
         <HearderFirstNavBox>
             <HeaderFirstNavTitle>Movie Inner</HeaderFirstNavTitle>
+            <GiHamburgerMenu size={30} />
             <HeaderFirstNavList>
                 <Link href='/'>홈</Link>
                 <button onClick={clickModal}>카테고리</button>

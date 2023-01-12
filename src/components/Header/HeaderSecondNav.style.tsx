@@ -72,6 +72,7 @@ export const HeaderUserBox = styled.div`
     }
     > span {
         border-radius: 50%;
+        cursor: pointer;
     }
     > button {
         font-size: 15px;
@@ -80,4 +81,9 @@ export const HeaderUserBox = styled.div`
         background-color: black;
         color: white;
     }
-`
+    @media screen and (max-width: 470px) {
+        > div > div {
+            display: none;
+        }
+    }
+    `
