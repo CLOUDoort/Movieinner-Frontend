@@ -16,7 +16,7 @@ type CategoryProps = {
 export const CategoryBox = styled.div<CategoryProps>`
     position: absolute;
     top: 60px;
-    left: 290px;
+    left: 250px;
     background-color: #ff0000;
     width: 300px;
     height: 250px;
