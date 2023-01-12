@@ -53,7 +53,7 @@ export const CommentUser = styled.div`
         display: flex;
         > :first-of-type {
             margin-left: 10px;
-            font-weight: bold;
+            /* font-weight: bold; */
         }
         > div {
             margin-left: 10px;
@@ -74,6 +74,7 @@ export const CommentUser = styled.div`
         margin-left: 10px;
         padding: 5px 10px;
         margin-bottom: 5px;
+        background-color: white
     }
     > :last-of-type {
         display: flex;
