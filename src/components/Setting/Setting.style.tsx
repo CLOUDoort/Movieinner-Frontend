@@ -11,7 +11,6 @@ export const SettingContainer = styled.div`
 export const SettingBox = styled.div`
     display: flex;
     flex-direction: column;
-    /* min-width: 800px; */
     margin-top: 10px;
     > div {
         margin-bottom: 30px;
@@ -19,6 +18,7 @@ export const SettingBox = styled.div`
     >:nth-of-type(2) {
         display: flex;
         justify-content: center;
+        flex-shrink: 0;
         align-items: center;
         >span {
             margin-right: 10px;
