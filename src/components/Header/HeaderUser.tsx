@@ -9,15 +9,17 @@ import { useRouter } from 'next/router'
 import { HeaderUserBox } from './HeaderSecondNav.style'
 import { RootState } from '../../store/store'
 import { RiArrowDownSLine } from 'react-icons/ri'
+import HeaderSettingModal from './HeaderSettingModal'
 
 const HeaderUser = (props) => {
     const { loginToken, userImage } = props
     const [loginToggle, setLoginToggle] = useState(false)
+    const [showSetting, setShowSetting] = useState(false)
     const nickname = useSelector((state: RootState) => state.nickname.nickname)
     const dispatch = useDispatch()
     const router = useRouter()
 
-
+    const clickSetting = () => setShowSetting(!showSetting)
     // 브라우저에 refreshToken이 있으면 무조건 액세스 토큰이 재발급되니 UI는 로그아웃으로 변경
     // 브라우저에 refreshToken이 있으면 액세스 토큰 재발급
     useEffect(() => {
@@ -89,10 +91,11 @@ const HeaderUser = (props) => {
                 :
                 <>
                     <Image src={userImage?.image_URL} width={45} height={45} />
-                    <div>
-                        <div>{nickname}</div>
+                    <div onClick={clickSetting}>
+                        {nickname}
                         <RiArrowDownSLine size={20} />
                     </div>
+                    {showSetting ? <HeaderSettingModal clickSetting={clickSetting} /> : null}
                 </>
             }
         </HeaderUserBox>

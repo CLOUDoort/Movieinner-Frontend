@@ -77,7 +77,7 @@ export const HeaderUserBox = styled.div`
         font-size: 14px;
         display: flex;
         align-items: center;
-        cursor: pointer;
+        /* cursor: pointer; */
     }
     > span {
         border-radius: 50%;
@@ -93,6 +93,29 @@ export const HeaderUserBox = styled.div`
     @media screen and (max-width: 520px) {
         > div > div {
             display: none;
+        }
+    }
+`
+
+export const HeaderSettingBox = styled.div`
+    position: absolute;
+    background-color: white;
+    min-width: 100px;
+    height: 80px;
+    top: 65px;
+    right: 50px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    > div {
+        display: flex;
+        flex-direction: column;
+        > button {
+            padding: 5px 10px;
+            margin-bottom: 5px;
+            border: none;
+            background-color: white;
         }
     }
 `

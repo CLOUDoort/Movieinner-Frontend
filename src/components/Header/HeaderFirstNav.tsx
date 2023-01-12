@@ -24,7 +24,7 @@ const HeaderFirstNav = (props) => {
 
     return (
         <HearderFirstNavBox>
-            <HeaderFirstNavTitle onClick={clickMenu}>Movie Inner</HeaderFirstNavTitle>
+            <HeaderFirstNavTitle>Movie Inner</HeaderFirstNavTitle>
             <GiHamburgerMenu onClick={clickMenu} size={30} />
             {menuModal ? <HeaderMenuModal clickModal={clickModal} modal={modal} clickMenu={clickMenu} list={list} nickname={nickname} /> : null}
             <HeaderFirstNavList>
