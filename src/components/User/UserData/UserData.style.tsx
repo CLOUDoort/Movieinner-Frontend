@@ -2,13 +2,22 @@ import styled from '@emotion/styled'
 
 export const UserDataBox = styled.div`
     margin-top: 20px;
-    min-width: 800px;
+    width: 800px;
     display: flex;
     flex-direction: column;
+    @media screen and ( max-width: 850px) {
+        width: 600px;
+    }
+    @media screen and ( max-width: 660px) {
+        width: 450px;
+    }
+    @media screen and ( max-width: 470px) {
+        width: 320px;
+    }
 `
 
 export const UserDataContainer = styled.div`
-    min-width: 380px;
+    /* min-width: 380px; */
     border: 1px solid gray;
     border-radius: 10px;
     > :first-of-type {
@@ -18,7 +27,7 @@ export const UserDataContainer = styled.div`
 `
 
 export const UserDataList = styled.div`
-    min-width: 250px;
+    /* min-width: 250px; */
     border-radius: 10px;
     border: 1px solid gray;
     margin: 20px;

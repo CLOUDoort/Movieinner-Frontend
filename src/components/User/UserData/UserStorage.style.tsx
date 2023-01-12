@@ -34,6 +34,18 @@ export const StorageMovieScroll = styled.div`
 
 export const StorageMovieContainer = styled.div`
     width: 750px;
+    width: 800px;
+    display: flex;
+    flex-direction: column;
+    @media screen and ( max-width: 850px) {
+        width: 600px;
+    }
+    @media screen and ( max-width: 660px) {
+        width: 450px;
+    }
+    @media screen and ( max-width: 470px) {
+        width: 320px;
+    }
     position: relative;
     overflow: hidden;
     padding: 0 0 1px;

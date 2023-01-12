@@ -2,12 +2,21 @@ import styled from '@emotion/styled'
 
 export const UserProfileBox = styled.div`
     margin-top: 20px;
-    min-width: 800px;
-    `
+    width: 800px;
+    @media screen and ( max-width: 850px) {
+        width: 600px;
+    }
+    @media screen and ( max-width: 660px) {
+        width: 450px;
+    }
+    @media screen and ( max-width: 470px) {
+        width: 320px;
+    }
+`
 export const UserProfileContainer = styled.div`
     border-radius: 10px;
     padding: 30px 24px;
-    min-width: 800px;
+    /* min-width: 800px; */
     border: 1px solid gray;
     display: flex;
     justify-content: space-between;
