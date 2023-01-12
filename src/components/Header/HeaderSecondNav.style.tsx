@@ -63,6 +63,13 @@ export const HeaderUserBox = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+    > div {
+        margin-left : 7px;
+        font-size: 14px;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+    }
     > span {
         border-radius: 50%;
     }

@@ -4,13 +4,16 @@ import { toast } from 'react-toastify'
 import Image from 'next/image'
 import { apiInstance } from '../../apis/setting'
 import { useEffect, useState } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { useRouter } from 'next/router'
 import { HeaderUserBox } from './HeaderSecondNav.style'
+import { RootState } from '../../store/store'
+import { RiArrowDownSLine } from 'react-icons/ri'
 
 const HeaderUser = (props) => {
     const { loginToken, userImage } = props
     const [loginToggle, setLoginToggle] = useState(false)
+    const nickname = useSelector((state: RootState) => state.nickname.nickname)
     const dispatch = useDispatch()
     const router = useRouter()
 
@@ -78,7 +81,20 @@ const HeaderUser = (props) => {
 
     return (
         <HeaderUserBox>
-            {!loginToken ? <><button onClick={clickLogin}>{loginToggle ? '로그아웃' : '로그인'}</button><button onClick={() => router.push('/signup')}>회원가입</button></> : <Image src={userImage?.image_URL} width={45} height={45} />}
+            {!loginToken
+                ?
+                <>
+                    <button onClick={clickLogin}>{loginToggle ? '로그아웃' : '로그인'}</button><button onClick={() => router.push('/signup')}>회원가입</button>
+                </>
+                :
+                <>
+                    <Image src={userImage?.image_URL} width={45} height={45} />
+                    <div>
+                        {nickname}
+                        <RiArrowDownSLine size={20} />
+                    </div>
+                </>
+            }
         </HeaderUserBox>
     )
 }
