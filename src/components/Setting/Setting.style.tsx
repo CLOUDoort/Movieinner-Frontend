@@ -10,6 +10,8 @@ export const SettingContainer = styled.div`
 
 export const SettingBox = styled.div`
     display: flex;
+    justify-content: center;
+    width: 800px;
     flex-direction: column;
     margin-top: 10px;
     > div {

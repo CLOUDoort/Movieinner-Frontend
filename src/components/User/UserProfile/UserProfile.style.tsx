@@ -16,7 +16,6 @@ export const UserProfileBox = styled.div`
 export const UserProfileContainer = styled.div`
     border-radius: 10px;
     padding: 30px 24px;
-    /* min-width: 800px; */
     border: 1px solid gray;
     display: flex;
     justify-content: space-between;
@@ -25,6 +24,7 @@ export const UserProfileContainer = styled.div`
 export const UserProfileInfo = styled.div`
     display: flex;
     align-items: center;
+    justify-content: center;
     font-weight: bold;
     > span {
         border-radius: 50%;
