@@ -3,7 +3,7 @@ import Image from "next/image"
 import { apiInstance } from '../../../apis/setting'
 import { useRouter } from 'next/router'
 import { toast } from 'react-toastify'
-import { setNickname, setToken } from '../../../store/reducers/logintokenSlice'
+import { setEmail, setIdx, setNickname, setToken } from '../../../store/reducers/logintokenSlice'
 import { setSocialEmail } from '../../../store/reducers/socialSlice'
 import { useDispatch, useSelector } from 'react-redux'
 import { RootState } from '../../../store/store'
@@ -11,7 +11,7 @@ import useGetUserImage from '../../react-query/UserImage'
 import LoadingLogo from '../../Common/Loading/LoadingLogo'
 
 const UserProfile = (props) => {
-    const { nickname, email } = props
+    const { nickname } = props
     const userIdx = useSelector((state: RootState) => state.idx.idx)
     const router = useRouter()
     const dispatch = useDispatch()
@@ -26,6 +26,8 @@ const UserProfile = (props) => {
                 dispatch(setToken(''))
                 dispatch(setNickname(''))
                 dispatch(setSocialEmail(''))
+                dispatch(setEmail(''))
+                dispatch(setIdx(0))
                 router.replace('/')
                 toast.success('로그아웃되었습니다!')
             }

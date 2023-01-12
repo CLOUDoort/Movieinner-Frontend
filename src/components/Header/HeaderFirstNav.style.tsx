@@ -4,6 +4,9 @@ export const HearderFirstNavBox = styled.nav`
     display: flex;
     align-items: center;
     margin-left: 50px;
+    > svg {
+        width: 50px;
+    }
     @media screen and (min-width: 1000px) {
         > svg {
             display: none;
@@ -50,7 +53,7 @@ export const HeaderFirstNavList = styled.div`
 `
 
 export const HeaderMenuModalContainer = styled.div`
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     right: 0;

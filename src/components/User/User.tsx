@@ -28,7 +28,7 @@ const User = () => {
     return (
         <>
             {!movieLoading && !themeLoading && userPostsList ? <UserBox>
-                <UserProfile nickname={nickname} email={email} />
+                <UserProfile nickname={nickname} />
                 <UserData userPostList={userPostsList} userLikedMovie={userLikedMovie?.data?.liked} userLikedTheme={userLikedTheme?.data?.liked} userIdx={userIdx} />
             </UserBox> : <LoadingLogo />}
         </>
