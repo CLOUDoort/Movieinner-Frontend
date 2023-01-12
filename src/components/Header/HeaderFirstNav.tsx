@@ -4,15 +4,16 @@ import { GiHamburgerMenu } from "react-icons/gi"
 import { apiInstance } from "../../apis/setting"
 import Category from "../Category"
 import { HeaderFirstNavList, HeaderFirstNavTitle, HearderFirstNavBox } from "./HeaderFirstNav.style"
+import HeaderMenuModal from "./HeaderMenuModal"
 
 
 const HeaderFirstNav = (props) => {
     const { nickname } = props
     const [modal, showModal] = useState(false)
+    const [menuModal, showMenuModal] = useState(false)
     const [list, setList] = useState([])
-    const clickModal = () => {
-        showModal(!modal)
-    }
+    const clickModal = () => showModal(!modal)
+    const clickMenu = () => showMenuModal(!menuModal)
     useEffect(() => {
         const getResponse = async () => {
             const getGenreList = await apiInstance.get(`/movies/genre`)
@@ -23,8 +24,9 @@ const HeaderFirstNav = (props) => {
 
     return (
         <HearderFirstNavBox>
-            <HeaderFirstNavTitle>Movie Inner</HeaderFirstNavTitle>
-            <GiHamburgerMenu size={30} />
+            <HeaderFirstNavTitle onClick={clickMenu}>Movie Inner</HeaderFirstNavTitle>
+            <GiHamburgerMenu onClick={clickMenu} size={30} />
+            {menuModal ? <HeaderMenuModal clickModal={clickModal} modal={modal} clickMenu={clickMenu} list={list} nickname={nickname} /> : null}
             <HeaderFirstNavList>
                 <Link href='/'>홈</Link>
                 <button onClick={clickModal}>카테고리</button>
