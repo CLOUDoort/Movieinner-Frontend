@@ -1,5 +1,4 @@
 import Link from "next/link"
-import { useEffect, useState } from "react"
 import Category from "../Category"
 import { HeaderMenuModalBox, HeaderMenuModalContainer } from "./HeaderFirstNav.style"
 
