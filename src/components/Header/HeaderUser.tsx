@@ -72,7 +72,7 @@ const HeaderUser = (props) => {
                 setLoginToggle(true)
                 const tokenPayload = await apiInstance.post('/auth/verify', { token: loginToken })
                 dispatch(setNickname(tokenPayload.data.payload.nickname))
-                dispatch(setSocialEmail(tokenPayload.data.payload.email))
+                // dispatch(setSocialEmail(tokenPayload.data.payload.email))
                 dispatch(setEmail(tokenPayload.data.payload.email))
                 dispatch(setIdx(tokenPayload.data.payload.idx))
             }
