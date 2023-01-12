@@ -15,11 +15,11 @@ type CategoryProps = {
 
 export const CategoryBox = styled.div<CategoryProps>`
     position: absolute;
-    top: 8%;
-    left: 21%;
+    top: 60px;
+    left: 290px;
     background-color: #ff0000;
-    width: 21%;
-    height: 31%;
+    width: 300px;
+    height: 250px;
     border-radius: 5px;
     opacity: ${(props) => props.transition ? 1 : 0};
     transition: opacity 0.5s;

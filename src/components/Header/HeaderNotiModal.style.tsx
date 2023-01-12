@@ -13,11 +13,11 @@ export const HeaderNotiModalContainer = styled.div`
 `
 export const HeaderNotiModalBox = styled.div<transitionProps>`
     position: absolute;
-    width: 25%;
-    height: 60%;
+    width: 300px;
+    height: 350px;
     background-color: white;
-    top: 9%;
-    right: 14%;
+    top: 65px;
+    right: 200px;
     border-radius: 5px;
     opacity: ${(props) => props.transition ? 1 : 0};
     transition: opacity 0.5s;
