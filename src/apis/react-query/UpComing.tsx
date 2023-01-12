@@ -1,7 +1,7 @@
 import { AxiosError, AxiosResponse } from "axios";
 import { GetServerSideProps } from "next";
 import { dehydrate, QueryClient, useQuery } from "react-query";
-import { apiInstance } from "../../apis/setting";
+import { apiInstance } from "../setting";
 
 export const getServerSidePropsUpComing: GetServerSideProps = async (context) => {
     const { page } = context.query as any

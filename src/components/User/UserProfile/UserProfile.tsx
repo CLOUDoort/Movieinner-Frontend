@@ -7,7 +7,7 @@ import { setEmail, setIdx, setNickname, setToken } from '../../../store/reducers
 import { setSocialEmail } from '../../../store/reducers/socialSlice'
 import { useDispatch, useSelector } from 'react-redux'
 import { RootState } from '../../../store/store'
-import useGetUserImage from '../../react-query/UserImage'
+import useGetUserImage from '../../../apis/react-query/UserImage'
 import LoadingLogo from '../../Common/Loading/LoadingLogo'
 
 const UserProfile = (props) => {

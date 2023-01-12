@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux'
 import HeaderNoti from './HeaderNoti'
 import HeaderSearch from './HeaderSearch'
-import useGetUserImage from '../react-query/UserImage'
+import useGetUserImage from '../../apis/react-query/UserImage'
 import { RootState } from '../../store/store'
 import HeaderUser from './HeaderUser'
 import { HearderSecondNavBox } from './HeaderSecondNav.style'

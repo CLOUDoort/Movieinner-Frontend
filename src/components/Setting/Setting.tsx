@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux"
 import { RootState } from "../../store/store"
-import useGetUserImage from "../react-query/UserImage"
+import useGetUserImage from "../../apis/react-query/UserImage"
 import { SettingBox, SettingContainer } from "./Setting.style"
 import SettingDelete from "./SettingDelete"
 import SettingProfile from "./SettingProfile"

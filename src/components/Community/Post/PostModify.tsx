@@ -1,6 +1,6 @@
 import dynamic from 'next/dynamic'
 import { useRouter } from 'next/router'
-import useGetPostData from '../../react-query/PostData'
+import useGetPostData from '../../../apis/react-query/PostData'
 
 const PostModify = () => {
     const NoSsrModifyEditor = dynamic(() => import('../Write/ModifyEditor'), { ssr: false })

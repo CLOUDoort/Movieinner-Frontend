@@ -7,9 +7,9 @@ import FeedList from './FeedList'
 import FeedRanking from './FeedRanking'
 import { useState } from 'react'
 import FeedNavigation from './FeedNavigation'
-import useGetFeedData from '../../react-query/FeedData'
+import useGetFeedData from '../../../apis/react-query/FeedData'
 import FeedRemote from './FeedRemote'
-import useGetHitFeed from '../../react-query/HitFeedData'
+import useGetHitFeed from '../../../apis/react-query/HitFeedData'
 import LoadingLogo from '../../Common/Loading/LoadingLogo'
 
 const Feed = () => {

@@ -2,11 +2,11 @@ import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import { PostBox, PostContainer } from './Post.style'
 import PostModifyModal from './PostModifyModal'
-import UseGetPostData from '../../react-query/PostData'
+import UseGetPostData from '../../../apis/react-query/PostData'
 import PostComment from './Comment/PostComment'
 import PostContent from './PostContent'
 import { apiInstance } from '../../../apis/setting'
-import useGetPostCommentData from '../../react-query/PostCommentData'
+import useGetPostCommentData from '../../../apis/react-query/PostCommentData'
 import LoadingLogo from '../../Common/Loading/LoadingLogo'
 
 const Post = () => {

@@ -3,7 +3,7 @@ import ThemeItem from './ThemeItem'
 import { ThemeContainer } from './Theme.style'
 import { useEffect, useState } from 'react'
 import ThemeModal from './ThemeModal'
-import useGetThemeMovie from '../react-query/ThemeMovie'
+import useGetThemeMovie from '../../apis/react-query/ThemeMovie'
 import LoadingLogo from '../Common/Loading/LoadingLogo'
 
 const Theme = () => {
