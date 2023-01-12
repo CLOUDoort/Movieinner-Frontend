@@ -32,6 +32,15 @@ export const SearchContainer = styled.div<SearchProps>`
     > input {
         transition: 0.3s width linear !important;
         width: ${(props) => (props.click ? '200px' : 0)};
+        @media screen and (max-width: 1100px) {
+            width: ${(props) => (props.click ? '150px' : 0)};
+        }
+        @media screen and (max-width: 630px) {
+            width: ${(props) => (props.click ? '100px' : 0)};
+        }
+        @media screen and (max-width: 570px) {
+            width: ${(props) => (props.click ? '50px' : 0)};
+        }
         background-color: ${(props) => (props.click ? 'black' : 'none')};
         color: white;
         border: none;
@@ -81,9 +90,9 @@ export const HeaderUserBox = styled.div`
         background-color: black;
         color: white;
     }
-    @media screen and (max-width: 470px) {
+    @media screen and (max-width: 520px) {
         > div > div {
             display: none;
         }
     }
-    `
+`
