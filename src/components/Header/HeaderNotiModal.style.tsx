@@ -48,7 +48,7 @@ export const HeaderNotiModalList = styled.div`
         > div {
         font-size: 13px;
         display: flex;
-        align-items: flex-start;
+        align-items: center;
         > div {
             margin-left: 5px;
         }
