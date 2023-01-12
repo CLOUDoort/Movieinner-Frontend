@@ -4,9 +4,9 @@ import { dehydrate, QueryClient, useQuery } from 'react-query'
 import { GetServerSideProps } from 'next'
 
 export const getServerSidePropsNotiData: GetServerSideProps = async (context) => {
-    const { userIdx, notType } = context.query as any
+    const { userIdx } = context.query as any
     const queryClient = new QueryClient()
-    await queryClient.prefetchQuery(['NotiData', userIdx, notType], () => useGetNotiData(userIdx, notType))
+    await queryClient.prefetchQuery(['NotiData', userIdx], () => useGetNotiData(userIdx))
     return {
         props: {
             dehydratedState: dehydrate(queryClient),
@@ -14,15 +14,13 @@ export const getServerSidePropsNotiData: GetServerSideProps = async (context) =>
     }
 }
 
-export const getNotiData = (userIdx: any, notType: any) => apiInstance.get(`/community/notification/${userIdx}`, {
-    params: {
-        notType: notType
-    }, withCredentials: true
+export const getNotiData = (userIdx: any) => apiInstance.get(`/community/notification/${userIdx}`, {
+    withCredentials: true
 })
 
-const useGetNotiData = (userIdx: any, notType: any) => {
-    const queryFn = () => getNotiData(userIdx, notType)
-    return useQuery<AxiosResponse<any>, AxiosError>(['NotiData', userIdx, notType], queryFn)
+const useGetNotiData = (userIdx: any) => {
+    const queryFn = () => getNotiData(userIdx,)
+    return useQuery<AxiosResponse<any>, AxiosError>(['NotiData', userIdx,], queryFn)
 }
 
 export default useGetNotiData

@@ -7,12 +7,8 @@ import { CommentWrite } from './PostComment.style'
 const PostReplyWrite = (props) => {
     const { accessToken, contentIdx, reply, refreshFunction, clickReply, userIdx } = props
     const [comment, setComment] = useState('')
-    const refetchCommentNotiData = useGetNotiData(userIdx, "comment").refetch
-    const refetchReplytNotiData = useGetNotiData(userIdx, "reply").refetch
-    const refetchNoti = () => {
-        refetchCommentNotiData()
-        refetchReplytNotiData()
-    }
+    const refetchNotiData = useGetNotiData(userIdx).refetch
+    const refetchNoti = () => refetchNotiData()
 
     const handleChange = (e) => {
         const { value } = e.target
