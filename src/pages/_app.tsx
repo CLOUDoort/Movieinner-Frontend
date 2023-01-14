@@ -23,6 +23,7 @@ import 'tui-color-picker/dist/tui-color-picker.css'
 import '@toast-ui/editor-plugin-color-syntax/dist/toastui-editor-plugin-color-syntax.css'
 import { NextComponentType } from 'next'
 import { useState } from 'react'
+import { ReactQueryDevtools } from 'react-query/devtools'
 
 declare global {
     interface UserDataState {
@@ -55,6 +56,7 @@ const MyApp: NextComponentType<AppContext, AppInitialProps, AppProps> = ({ Compo
                     <Footer />
                     <Global styles={GlobalCss} />
                 </Provider>
+                <ReactQueryDevtools />
             </QueryClientProvider>
         </>
     )
