@@ -52,11 +52,11 @@ const MyApp: NextComponentType<AppContext, AppInitialProps, AppProps> = ({ Compo
                         <Header />
                         <Component {...pageProps} />
                         <ToastContainer />
+                        <ReactQueryDevtools />
                     </main>
                     <Footer />
                     <Global styles={GlobalCss} />
                 </Provider>
-                <ReactQueryDevtools />
             </QueryClientProvider>
         </>
     )
