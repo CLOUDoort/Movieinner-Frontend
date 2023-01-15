@@ -1,8 +1,8 @@
 import Link from "next/link"
 import { useEffect, useState } from "react"
-import { CategoryBox, CategoryContainer, CategoryList } from "./Category.style"
+import { CategoryBox, CategoryContainer, CategoryList } from "./HeaderCategory.style"
 
-const Category = (props) => {
+const HeaderCategory = (props) => {
     const { modal, clickModal, list } = props
     const [transition, setTransition] = useState(false)
     useEffect(() => {
@@ -27,4 +27,4 @@ const Category = (props) => {
     )
 }
 
-export default Category
+export default HeaderCategory
