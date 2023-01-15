@@ -13,18 +13,18 @@ export const HeaderNotiModalContainer = styled.div`
 `
 export const HeaderNotiModalBox = styled.div<transitionProps>`
     position: absolute;
-    width: 400px;
-    height: 500px;
+    width: 25rem;
+    height: 31.2rem;
     background-color: white;
-    top: 65px;
-    right: 200px;
-    border-radius: 5px;
+    top: 4.3rem;
+    right: 15.1rem;
+    border-radius: 0.3rem;
     opacity: ${(props) => props.transition ? 1 : 0};
     transition: opacity 0.3s;
     color: black;
-    padding: 5px;
+    padding: 0.3rem;
     > :first-of-type {
-        margin: 10px;
+        margin: 0.7rem;
     }
 `
 
@@ -32,9 +32,9 @@ export const HeaderNotiModalList = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 20px;
-    padding: 10px;
-    border-radius: 5px;
+    margin-top: 1.25rem;
+    padding: 0.7rem;
+    border-radius: 0.3rem;
     :hover {
         background-color: rgba(128, 128, 128, 0.4);
     }
@@ -46,11 +46,11 @@ export const HeaderNotiModalList = styled.div`
     > div {
         display: flex;
         > div {
-        font-size: 13px;
+        font-size: 0.8rem;
         display: flex;
         align-items: center;
         > div {
-            margin-left: 5px;
+            margin-left: 0.3rem;
         }
     }
     }
@@ -65,7 +65,7 @@ display: ${(props) => props.number ? 'block' : 'none'};
 position: absolute;
 background-color: ${(props) => props.number ? "#ff3232" : null} ;
 border-radius: 50%;
-padding: 1px 10px;
-top: 15px;
-right: 190px;
+padding: 1px 0.6rem;
+top: 1rem;
+right: 14.9rem;
 `
