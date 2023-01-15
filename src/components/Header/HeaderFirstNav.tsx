@@ -28,11 +28,11 @@ const HeaderFirstNav = (props) => {
         <HearderFirstNavBox>
             <HeaderFirstNavTitle>Movie Inner</HeaderFirstNavTitle>
             <GiHamburgerMenu onClick={clickMenu} size={30} />
-            {menuModal ? <HeaderMenuModal showMenuModal={showMenuModal} nickname={nickname} /> : null}
+            {menuModal ? <HeaderMenuModal clickMenu={clickMenu} nickname={nickname} /> : null}
             <HeaderFirstNavList>
                 <Link href='/'>홈</Link>
                 <button onClick={clickCategory}>카테고리</button>
-                {categoryModal && <HeaderCategory clickModal={categoryModal} list={list} modal={categoryModal} />}
+                {categoryModal && <HeaderCategory clickModal={clickCategory} list={list} modal={categoryModal} />}
                 <Link href='/community/feed/1'>커뮤니티</Link>
                 <Link href='/theme'>테마</Link>
                 {nickname ? <Link href={`/user/${nickname}`}>마이페이지</Link> : <Link href='/login'>마이페이지</Link>}
