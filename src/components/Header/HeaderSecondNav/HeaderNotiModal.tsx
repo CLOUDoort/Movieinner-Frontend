@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import { HeaderNotiModalBox, HeaderNotiModalContainer, HeaderNotiModalList } from "./HeaderNotiModal.style"
 import Image from "next/image"
 import { MdDelete } from "react-icons/md"
-import { apiInstance } from "../../apis/setting"
+import { apiInstance } from "../../../apis/setting"
 
 const HeaderNotiModal = (props) => {
     const { modal, controlModal, notiData, userIdx, refetchNoti } = props

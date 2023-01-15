@@ -1,7 +1,7 @@
 import Link from "next/link"
 import { useEffect, useState } from "react"
 import { GiHamburgerMenu } from "react-icons/gi"
-import { apiInstance } from "../../apis/setting"
+import { apiInstance } from "../../../apis/setting"
 import HeaderCategory from "./HeaderCategory"
 import { HeaderFirstNavList, HeaderFirstNavTitle, HearderFirstNavBox } from "./HeaderFirstNav.style"
 import HeaderMenuModal from "./HeaderMenuModal"

@@ -1,10 +1,11 @@
 import { useRouter } from "next/router"
 import { useDispatch } from "react-redux"
 import { toast } from "react-toastify"
-import { apiInstance } from "../../apis/setting"
-import { setEmail, setIdx, setNickname, setToken } from "../../store/reducers/logintokenSlice"
-import { setSocialEmail } from "../../store/reducers/socialSlice"
-import { HeaderMenuModalContainer } from "./HeaderMenuModal.style"
+import { apiInstance } from "../../../apis/setting"
+import { setEmail, setIdx, setNickname, setToken } from "../../../store/reducers/logintokenSlice"
+import { setSocialEmail } from "../../../store/reducers/socialSlice"
+import { HeaderMenuModalContainer } from "../HeaderFirstNav/HeaderMenuModal.style"
+
 import { HeaderSettingBox } from "./HeaderSecondNav.style"
 
 const HeaderSettingModal = (props) => {

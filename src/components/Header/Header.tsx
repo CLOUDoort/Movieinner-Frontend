@@ -1,8 +1,9 @@
 import { useSelector } from 'react-redux'
 import { RootState } from '../../store/store'
 import { HeaderContainer } from './Header.style'
-import HearderSecondNav from './HearderSecondNav'
-import HeaderFirstNav from './HeaderFirstNav'
+import HeaderFirstNav from './HeaderFirstNav/HeaderFirstNav'
+import HearderSecondNav from './HeaderSecondNav/HearderSecondNav'
+
 
 const Header = () => {
     const loginToken = useSelector((state: RootState) => state.token.token)

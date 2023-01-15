@@ -1,15 +1,15 @@
-import { setToken, setNickname, setEmail, setIdx } from '../../store/reducers/logintokenSlice'
-import { setSocialEmail } from '../../store/reducers/socialSlice'
 import { toast } from 'react-toastify'
 import Image from 'next/image'
-import { apiInstance } from '../../apis/setting'
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useRouter } from 'next/router'
 import { HeaderUserBox } from './HeaderSecondNav.style'
-import { RootState } from '../../store/store'
 import { RiArrowDownSLine } from 'react-icons/ri'
 import HeaderSettingModal from './HeaderSettingModal'
+import { RootState } from '../../../store/store'
+import { apiInstance } from '../../../apis/setting'
+import { setEmail, setIdx, setNickname, setToken } from '../../../store/reducers/logintokenSlice'
+import { setSocialEmail } from '../../../store/reducers/socialSlice'
 
 const HeaderUser = (props) => {
     const { loginToken, userImage } = props
