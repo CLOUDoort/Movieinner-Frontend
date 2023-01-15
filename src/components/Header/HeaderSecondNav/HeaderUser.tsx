@@ -64,8 +64,8 @@ const HeaderUser = (props) => {
                 </>
                 :
                 <>
-                    <Image onClick={clickSetting} src={userImage?.image_URL ? userImage?.image_URL : '/blank.png'} width={45} height={45} alt='프로필 이미지' />
                     <div onClick={clickSetting}>
+                        <Image src={userImage?.image_URL ? userImage?.image_URL : '/blank.png'} width={45} height={45} alt='프로필 이미지' />
                         <div>{nickname}</div>
                         <RiArrowDownSLine size={20} />
                     </div>

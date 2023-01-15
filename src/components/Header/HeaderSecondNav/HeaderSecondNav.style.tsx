@@ -67,16 +67,16 @@ export const HeaderUserBox = styled.div`
     align-items: center;
     justify-content: center;
     > div {
-        margin-left : 0.4rem;
         font-size: 0.95rem;
         display: flex;
         align-items: center;
+        > div {margin-left : 0.7rem;}
+        > span {
+            border-radius: 50%;
+        }
     }
     >:first-of-type {
         cursor: pointer;
-    }
-    > span {
-        border-radius: 50%;
     }
     > button {
         font-size: 1rem;
