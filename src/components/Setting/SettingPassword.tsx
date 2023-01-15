@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { toast } from "react-toastify"
 import { apiInstance } from "../../apis/setting"
 import { SettingPwInput, SettingPwModalBox, SettingPwModalContainer } from "./SettingPassword.style"
@@ -11,9 +11,19 @@ const SettingPassword = (props) => {
         new: '',
         check: ''
     })
-    const clickModal = () => {
-        if (!socialEmail) setModal(!modal)
-        else toast.error('소셜 로그인은 비밀번호 변경이 없습니다!')
+    useEffect(() => {
+        const response = async () => {
+
+        }
+    }, [])
+    const clickModal = async () => {
+        try {
+            const considerSocialLogin = await apiInstance.get(`/users/check/social/${userIdx}`)
+            if (considerSocialLogin.data.IsSocial) toast.error('소셜 로그인은 비밀번호 변경이 없습니다!')
+            else setModal(!modal)
+        } catch (e) {
+            console.error(e.response)
+        }
     }
     const handleChange = (e) => {
         const { value, name } = e.target
