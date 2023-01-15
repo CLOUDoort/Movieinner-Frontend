@@ -2,7 +2,7 @@ import styled from '@emotion/styled'
 
 
 export const HearderSecondNavBox = styled.nav`
-    margin-right: 20px;
+    margin-right: 1.25rem;
     display: flex;
     align-items: center;
     > * {
