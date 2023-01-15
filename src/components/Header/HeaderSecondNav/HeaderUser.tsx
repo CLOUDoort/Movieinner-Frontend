@@ -17,7 +17,6 @@ const HeaderUser = (props) => {
     const router = useRouter()
 
     const clickSetting = () => setShowSetting(!showSetting)
-    // 브라우저에 refreshToken이 있으면 무조건 액세스 토큰이 재발급되니 UI는 로그아웃으로 변경
     // 브라우저에 refreshToken이 있으면 액세스 토큰 재발급
     useEffect(() => {
         const refreshTokenCheck = async () => {
@@ -25,22 +24,30 @@ const HeaderUser = (props) => {
             const { isRefreshToken } = refreshTokenResponse.data
             if (isRefreshToken) {
                 try {
-                    setLoginToggle(true)
                     const response = await apiInstance.post('/auth/refresh')
                     dispatch(setToken(response.data.accessToken))
-                    const tokenPayload = await apiInstance.post('/auth/verify', { token: loginToken })
-                    dispatch(setNickname(tokenPayload.data.payload.nickname))
-                    dispatch(setEmail(tokenPayload.data.payload.email))
-                    dispatch(setIdx(tokenPayload.data.payload.idx))
                 } catch (e) {
                     console.log(e.response)
                 }
             } else {
                 console.log('none-refreshToken')
-                setLoginToggle(false)
             }
         }
         refreshTokenCheck()
+    }, [])
+
+    // 토큰 바뀔 때마다 필요한 redux 값 재설정
+    useEffect(() => {
+        const getResponse = async () => {
+            if (loginToken) {
+                setLoginToggle(true)
+                const tokenPayload = await apiInstance.post('/auth/verify', { token: loginToken })
+                dispatch(setNickname(tokenPayload.data.payload.nickname))
+                dispatch(setEmail(tokenPayload.data.payload.email))
+                dispatch(setIdx(tokenPayload.data.payload.idx))
+            } else setLoginToggle(false)
+        }
+        getResponse()
     }, [loginToken])
 
     const clickLoginLogout = async () => {
