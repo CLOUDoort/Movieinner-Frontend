@@ -12,7 +12,6 @@ const User = () => {
     const router = useRouter()
     const { nickname } = router.query
     const userIdx = useSelector((state: RootState) => state.idx.idx)
-    const email = useSelector((state: RootState) => state.email.email)
 
     const userPosts = useGetUserPosts(userIdx).data
     const userLikedMovie = useGetUserLiked('movie', userIdx).data

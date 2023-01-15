@@ -1,13 +1,13 @@
 import { useRouter } from "next/router"
 import { HeaderMenuModalContainer } from "../HeaderFirstNav/HeaderMenuModal.style"
-import { logout } from "../../Common/CommonLogout"
+import { CommonLogout } from "../../Common/CommonLogout"
 
 import { HeaderSettingBox } from "./HeaderSecondNav.style"
 
 const HeaderSettingModal = (props) => {
     const { clickSetting } = props
     const router = useRouter()
-    const clickLogout = () => logout()
+    const clickLogout = () => CommonLogout()
     return (
         <HeaderMenuModalContainer onClick={clickSetting}>
             <HeaderSettingBox>

@@ -2,18 +2,18 @@ import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import { PostBox, PostContainer } from './Post.style'
 import PostModifyModal from './PostModifyModal'
-import UseGetPostData from '../../../apis/react-query/CommunityData/PostData'
 import PostComment from './Comment/PostComment'
 import PostContent from './PostContent'
 import { apiInstance } from '../../../apis/setting'
 import LoadingLogo from '../../Common/Loading/LoadingLogo'
-import useGetPostCommentData from '../../../apis/react-query/CommunityData/PostCommentData'
+import useGetPostCommentData from '../../../apis/CommunityData/PostCommentData'
+import useGetPostData from '../../../apis/CommunityData/PostData'
 
 const Post = () => {
     const router = useRouter()
     const { idx } = router.query
     const [showModal, setShowModal] = useState(false)
-    const { data, isLoading } = UseGetPostData(idx ? idx : null)
+    const { data, isLoading } = useGetPostData(idx ? idx : null)
     const commentList = useGetPostCommentData(idx ? idx : null).data
     const commentRefetch = useGetPostCommentData(idx ? idx : null).refetch
 

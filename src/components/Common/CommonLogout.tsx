@@ -3,9 +3,8 @@ import { useDispatch } from "react-redux"
 import { toast } from "react-toastify"
 import { apiInstance } from "../../apis/setting"
 import { setEmail, setIdx, setNickname, setToken } from "../../store/reducers/logintokenSlice"
-import { setSocialEmail } from "../../store/reducers/socialSlice"
 
-export const logout = async () => {
+export const CommonLogout = async () => {
     const dispatch = useDispatch()
     const router = useRouter()
     try {

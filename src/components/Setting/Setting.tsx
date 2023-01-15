@@ -1,10 +1,10 @@
 import { useSelector } from "react-redux"
 import { RootState } from "../../store/store"
-import useGetUserImage from "../../apis/react-query/UserImage"
 import { SettingBox, SettingContainer } from "./Setting.style"
 import SettingDelete from "./SettingDelete"
 import SettingProfile from "./SettingProfile"
 import SettingPassword from "./SettingPassword"
+import useGetUserImage from "../../apis/UserData/UserImage"
 
 const Setting = () => {
     const email = useSelector((state: RootState) => state.email.email)

@@ -1,10 +1,11 @@
 import { useRouter } from "next/router"
 import { useEffect, useState } from "react"
+import useGetActorSearch from "../../apis/MovieData/ActorSearch"
+import useGetGenreData from "../../apis/MovieData/GenreData"
+import useGetMovieSearch from "../../apis/MovieData/MovieSearch"
 import { SearchContainer } from "./Search.style"
 import SearchResult from "./SearchResult"
-import useGetMovieSearch from "../../apis/react-query/MovieData/MovieSearch"
-import useGetActorSearch from "../../apis/react-query/MovieData/ActorSearch"
-import useGetGenreData from "../../apis/react-query/MovieData/GenreData"
+
 
 const Search = () => {
     const router = useRouter()

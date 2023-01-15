@@ -7,7 +7,7 @@ import { RiArrowDownSLine } from 'react-icons/ri'
 import HeaderSettingModal from './HeaderSettingModal'
 import { apiInstance } from '../../../apis/setting'
 import { setEmail, setIdx, setNickname, setToken } from '../../../store/reducers/logintokenSlice'
-import { logout } from '../../Common/CommonLogout'
+import { CommonLogout } from '../../Common/CommonLogout'
 
 const HeaderUser = (props) => {
     const { loginToken, userImage, nickname } = props
@@ -51,7 +51,7 @@ const HeaderUser = (props) => {
     }, [loginToken])
 
     const clickLoginLogout = async () => {
-        if (loginToggle) logout()
+        if (loginToggle) CommonLogout()
         else router.push('/login')
     }
 
