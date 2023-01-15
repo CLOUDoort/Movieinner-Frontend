@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { toast } from 'react-toastify'
 import { apiInstance } from '../../../../apis/setting'
-import useGetNotiData from '../../../../apis/react-query/UserData/NotificationData'
+import useGetNotiData from '../../../../apis/UserData/NotificationData'
 import { CommentWrite } from './PostComment.style'
 
 const PostRootWrite = (props) => {

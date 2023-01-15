@@ -2,11 +2,11 @@ import { useRouter } from 'next/router'
 import { useSelector } from 'react-redux'
 import { RootState } from '../../store/store'
 import LoadingLogo from '../Common/Loading/LoadingLogo'
-import useGetUserPosts from '../../apis/react-query/UserData/UserPosts'
+import useGetUserPosts from '../../apis/UserData/UserPosts'
 import { UserBox } from './User.style'
 import UserData from './UserData/UserData'
 import UserProfile from './UserProfile/UserProfile'
-import useGetUserLiked from '../../apis/react-query/UserData/UserLiked'
+import useGetUserLiked from '../../apis/UserData/UserLiked'
 
 const User = () => {
     const router = useRouter()

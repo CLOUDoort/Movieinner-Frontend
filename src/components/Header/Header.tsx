@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux'
-import useGetUserImage from '../../apis/react-query/UserData/UserImage'
+import useGetUserImage from '../../apis/UserData/UserImage'
 import { RootState } from '../../store/store'
 import { HeaderContainer } from './Header.style'
 import HeaderFirstNav from './HeaderFirstNav/HeaderFirstNav'
