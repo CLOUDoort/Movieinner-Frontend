@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react'
-import useGetPopularMovie from '../../apis/react-query/PopularMovie'
-import useGetThemeMovie from '../../apis/react-query/ThemeMovie'
+import useGetPopularMovie from '../../apis/react-query/MovieData/PopularMovie'
 import { IndexBox } from './Index.style'
 import IndexSlider from './IndexSlider'
 import IndexPopularList from './IndexPopularList'
-import useGetHitFeed from '../../apis/react-query/HitFeedData'
 import FeedRanking from '../Community/Feed/FeedRanking'
 import IndexUpComingList from './IndexUpComingList'
-import useGetUpComing from '../../apis/react-query/UpComing'
+import useGetUpComing from '../../apis/react-query/MovieData/UpComing'
 import LoadingLogo from '../Common/Loading/LoadingLogo'
+import useGetHitFeed from '../../apis/react-query/CommunityData/HitFeedData'
+import useGetThemeMovie from '../../apis/react-query/MovieData/ThemeMovie'
 
 const Index = () => {
     const popularMovie = useGetPopularMovie().data
