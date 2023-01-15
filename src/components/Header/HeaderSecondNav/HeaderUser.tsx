@@ -32,10 +32,8 @@ const HeaderUser = (props) => {
                     dispatch(setToken(response.data.accessToken))
                     const tokenPayload = await apiInstance.post('/auth/verify', { token: loginToken })
                     dispatch(setNickname(tokenPayload.data.payload.nickname))
-                    // dispatch(setSocialEmail(tokenPayload.data.payload.email))
                     dispatch(setEmail(tokenPayload.data.payload.email))
                     dispatch(setIdx(tokenPayload.data.payload.idx))
-                    console.log('reload-silent-success')
                 } catch (e) {
                     console.log(e.response)
                 }

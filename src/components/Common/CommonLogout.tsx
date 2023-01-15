@@ -13,7 +13,6 @@ export const logout = async () => {
         if (response.data.logout) {
             dispatch(setToken(''))
             dispatch(setNickname(''))
-            dispatch(setSocialEmail(''))
             dispatch(setEmail(''))
             dispatch(setIdx(0))
             router.replace('/')
