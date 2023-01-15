@@ -5,12 +5,10 @@ import { MdDelete } from "react-icons/md"
 import { apiInstance } from "../../../apis/setting"
 
 const HeaderNotiModal = (props) => {
-    const { modal, controlModal, notiData, userIdx, refetchNoti } = props
+    const { controlModal, notiData, userIdx, refetchNoti } = props
     const [transition, setTransition] = useState(false)
     const [deleteIdx, setDeleteIdx] = useState(0);
-    useEffect(() => {
-        setTransition(!transition)
-    }, [modal])
+    useEffect(() => { setTransition(!transition) }, [])
 
     const deleteNoti = async () => {
         try {
