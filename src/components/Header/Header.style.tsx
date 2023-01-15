@@ -5,6 +5,6 @@ export const HeaderContainer = styled.header`
     display: flex;
     justify-content: space-between;
     border-bottom: 1px solid red;
-    padding-bottom: 15px;
-    padding: 15px;
+    padding-bottom: 1rem;
+    padding: 1rem;
 `

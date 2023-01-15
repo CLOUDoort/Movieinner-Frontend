@@ -1,11 +1,14 @@
 import Link from "next/link"
-import { HeaderMenuModalBox, HeaderMenuModalContainer } from "./HeaderFirstNav.style"
+import { useEffect, useState } from "react"
+import { HeaderMenuModalBox, HeaderMenuModalContainer } from "./HeaderMenuModal.style"
 
 const HeaderMenuModal = (props) => {
     const { nickname, clickMenu } = props
+    const [height, setHeight] = useState(false)
+    useEffect(() => { setHeight(true) }, [])
     return (
         <HeaderMenuModalContainer onClick={clickMenu}>
-            <HeaderMenuModalBox>
+            <HeaderMenuModalBox height={height}>
                 <div>
                     <Link href='/'>홈</Link>
                     <Link href='/community/feed/1'>커뮤니티</Link>

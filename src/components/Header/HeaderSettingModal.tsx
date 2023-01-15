@@ -4,7 +4,7 @@ import { toast } from "react-toastify"
 import { apiInstance } from "../../apis/setting"
 import { setEmail, setIdx, setNickname, setToken } from "../../store/reducers/logintokenSlice"
 import { setSocialEmail } from "../../store/reducers/socialSlice"
-import { HeaderMenuModalContainer } from "./HeaderFirstNav.style"
+import { HeaderMenuModalContainer } from "./HeaderMenuModal.style"
 import { HeaderSettingBox } from "./HeaderSecondNav.style"
 
 const HeaderSettingModal = (props) => {
