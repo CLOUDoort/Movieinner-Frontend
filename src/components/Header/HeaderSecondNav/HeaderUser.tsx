@@ -1,4 +1,3 @@
-import { toast } from 'react-toastify'
 import Image from 'next/image'
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
@@ -9,7 +8,7 @@ import HeaderSettingModal from './HeaderSettingModal'
 import { RootState } from '../../../store/store'
 import { apiInstance } from '../../../apis/setting'
 import { setEmail, setIdx, setNickname, setToken } from '../../../store/reducers/logintokenSlice'
-import { setSocialEmail } from '../../../store/reducers/socialSlice'
+import { logout } from '../../Common/CommonLogout'
 
 const HeaderUser = (props) => {
     const { loginToken, userImage } = props
@@ -31,6 +30,11 @@ const HeaderUser = (props) => {
                     setLoginToggle(true)
                     const response = await apiInstance.post('/auth/refresh')
                     dispatch(setToken(response.data.accessToken))
+                    const tokenPayload = await apiInstance.post('/auth/verify', { token: loginToken })
+                    dispatch(setNickname(tokenPayload.data.payload.nickname))
+                    // dispatch(setSocialEmail(tokenPayload.data.payload.email))
+                    dispatch(setEmail(tokenPayload.data.payload.email))
+                    dispatch(setIdx(tokenPayload.data.payload.idx))
                     console.log('reload-silent-success')
                 } catch (e) {
                     console.log(e.response)
@@ -41,52 +45,19 @@ const HeaderUser = (props) => {
             }
         }
         refreshTokenCheck()
-    }, [])
-
-    // 클릭시 로그아웃이면 accessToken 없앰, 로그인UI로 변경
-    // 클릭시 로그인이면 accessToken이 없다는 것이니
-    const clickLogin = async () => {
-        if (loginToggle) {
-            try {
-                const response = await apiInstance.post('/users/logout')
-                if (response.data.logout) {
-                    dispatch(setToken(''))
-                    dispatch(setNickname(''))
-                    dispatch(setSocialEmail(''))
-                    dispatch(setEmail(''))
-                    dispatch(setIdx(0))
-                    setLoginToggle(false)
-                    router.replace('/')
-                    toast.success('로그아웃되었습니다!')
-                }
-            } catch (e) {
-                console.log(e.response)
-            }
-        } else router.push('/login')
-    }
-
-    // login/logout UI 변경
-    useEffect(() => {
-        const getResponse = async () => {
-            if (loginToken) {
-                setLoginToggle(true)
-                const tokenPayload = await apiInstance.post('/auth/verify', { token: loginToken })
-                dispatch(setNickname(tokenPayload.data.payload.nickname))
-                // dispatch(setSocialEmail(tokenPayload.data.payload.email))
-                dispatch(setEmail(tokenPayload.data.payload.email))
-                dispatch(setIdx(tokenPayload.data.payload.idx))
-            }
-        }
-        getResponse()
     }, [loginToken])
 
+    const clickLoginLogout = async () => {
+        if (loginToggle) logout()
+        else router.push('/login')
+    }
 
     return (
         <HeaderUserBox>
             {!loginToken
                 ?
                 <>
-                    <button onClick={clickLogin}>{loginToken ? '로그아웃' : '로그인'}</button><button onClick={() => router.push('/signup')}>회원가입</button>
+                    <button onClick={clickLoginLogout}>{loginToken ? '로그아웃' : '로그인'}</button><button onClick={() => router.push('/signup')}>회원가입</button>
                 </>
                 :
                 <>
