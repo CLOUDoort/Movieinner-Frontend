@@ -90,9 +90,9 @@ const HeaderUser = (props) => {
                 </>
                 :
                 <>
-                    <Image src={userImage?.image_URL} width={45} height={45} />
+                    <Image onClick={clickSetting} src={userImage?.image_URL} width={45} height={45} />
                     <div onClick={clickSetting}>
-                        {nickname}
+                        <div>{nickname}</div>
                         <RiArrowDownSLine size={20} />
                     </div>
                     {showSetting ? <HeaderSettingModal clickSetting={clickSetting} /> : null}

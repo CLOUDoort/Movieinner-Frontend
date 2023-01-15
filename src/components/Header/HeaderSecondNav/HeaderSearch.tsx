@@ -25,9 +25,7 @@ const HeaderSearch = () => {
         }
     }, [search])
 
-    const clickSearchImg = () => {
-        setClick(!click)
-    }
+    const clickSearchImg = () => setClick(!click)
 
     const backPage = () => {
         router.replace('/')
@@ -35,9 +33,7 @@ const HeaderSearch = () => {
         setClick(false)
     }
 
-    const handleSearchValue = useCallback((e) => {
-        setSearch(e.target.value)
-    }, [search])
+    const handleSearchValue = useCallback((e) => { setSearch(e.target.value) }, [search])
 
     return (
         <SearchContainer click={click}>

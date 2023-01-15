@@ -6,23 +6,20 @@ export const HearderSecondNavBox = styled.nav`
     display: flex;
     align-items: center;
     > * {
-        margin-right: 10px;
+        margin-right: 0.625rem;
     }
 `
-
 type SearchProps = {
     click: boolean
 }
-
-
 export const SearchContainer = styled.div<SearchProps>`
     display: flex;
     align-items: center;
     justify-content: center;
     border-bottom: ${(props) => (props.click ? '1px solid red;' : 'none')};
     background-color: ${(props) => (props.click ? 'black' : 'none')};
-    padding: 5px;
-    margin-right: ${(props) => (props.click ? '20px' : 0)};
+    padding: 0.3rem;
+    margin-right: ${(props) => (props.click ? '1.25rem' : 0)};
     > :first-of-type {
         transition: color 0.2s;
         :hover {
@@ -31,23 +28,20 @@ export const SearchContainer = styled.div<SearchProps>`
     }
     > input {
         transition: 0.3s width linear !important;
-        width: ${(props) => (props.click ? '200px' : 0)};
-        @media screen and (max-width: 1100px) {
-            width: ${(props) => (props.click ? '150px' : 0)};
+        width: ${(props) => (props.click ? '12.5rem' : 0)};
+        @media screen and (max-width: 50rem) {
+            width: ${(props) => (props.click ? '8rem' : 0)};
         }
-        @media screen and (max-width: 630px) {
-            width: ${(props) => (props.click ? '100px' : 0)};
-        }
-        @media screen and (max-width: 570px) {
-            width: ${(props) => (props.click ? '50px' : 0)};
+        @media screen and (max-width: 45rem) {
+            width: ${(props) => (props.click ? '5rem' : 0)};
         }
         background-color: ${(props) => (props.click ? 'black' : 'none')};
         color: white;
         border: none;
         outline: none;
         opacity: ${(props) => (props.click ? '1' : 0)};
-        margin-left: 10px;
-        padding: 5px;
+        margin-left: 0.625rem;
+        padding: 0.3rem;
     }
 `
 
@@ -60,7 +54,7 @@ export const HeaderNotiBox = styled.div<modalProps>`
     > svg {
         justify-content: center;
         transition: color 0.2s;
-        margin-left: -10px;
+        margin-left: -0.625rem;
         color: ${(props) => props.modal ? 'red' : null};
         :hover {
             color: gray;
@@ -68,29 +62,30 @@ export const HeaderNotiBox = styled.div<modalProps>`
     }
 `
 export const HeaderUserBox = styled.div`
-    margin-left: 10px;
+    margin-left: 0.625rem;
     display: flex;
     align-items: center;
     justify-content: center;
     > div {
-        margin-left : 7px;
-        font-size: 14px;
+        margin-left : 0.4rem;
+        font-size: 0.95rem;
         display: flex;
         align-items: center;
-        /* cursor: pointer; */
+    }
+    >:first-of-type {
+        cursor: pointer;
     }
     > span {
         border-radius: 50%;
-        cursor: pointer;
     }
     > button {
-        font-size: 15px;
-        margin-right: 10px;
+        font-size: 1rem;
+        margin-right: 0.625rem;
         border: none;
         background-color: black;
         color: white;
     }
-    @media screen and (max-width: 520px) {
+    @media screen and (max-width: 37.5rem) {
         > div > div {
             display: none;
         }
@@ -100,11 +95,11 @@ export const HeaderUserBox = styled.div`
 export const HeaderSettingBox = styled.div`
     position: absolute;
     background-color: white;
-    min-width: 100px;
-    height: 80px;
-    top: 65px;
-    right: 50px;
-    border-radius: 5px;
+    min-width: 6.25rem;
+    height: 5rem;
+    top: 4rem;
+    right: 3.5rem;
+    border-radius: 0.3rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -112,8 +107,8 @@ export const HeaderSettingBox = styled.div`
         display: flex;
         flex-direction: column;
         > button {
-            padding: 5px 10px;
-            margin-bottom: 5px;
+            padding: 0.3rem 0.625rem;
+            margin-bottom: 0.3rem;
             border: none;
             background-color: white;
         }
