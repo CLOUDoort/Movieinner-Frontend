@@ -1,20 +1,18 @@
 import Image from 'next/image'
 import { useEffect, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { useRouter } from 'next/router'
 import { HeaderUserBox } from './HeaderSecondNav.style'
 import { RiArrowDownSLine } from 'react-icons/ri'
 import HeaderSettingModal from './HeaderSettingModal'
-import { RootState } from '../../../store/store'
 import { apiInstance } from '../../../apis/setting'
 import { setEmail, setIdx, setNickname, setToken } from '../../../store/reducers/logintokenSlice'
 import { logout } from '../../Common/CommonLogout'
 
 const HeaderUser = (props) => {
-    const { loginToken, userImage } = props
+    const { loginToken, userImage, nickname } = props
     const [loginToggle, setLoginToggle] = useState(false)
     const [showSetting, setShowSetting] = useState(false)
-    const nickname = useSelector((state: RootState) => state.nickname.nickname)
     const dispatch = useDispatch()
     const router = useRouter()
 
@@ -59,7 +57,7 @@ const HeaderUser = (props) => {
                 </>
                 :
                 <>
-                    <Image onClick={clickSetting} src={userImage?.image_URL} width={45} height={45} />
+                    <Image onClick={clickSetting} src={userImage?.image_URL ? userImage?.image_URL : '/blank.png'} width={45} height={45} alt='프로필 이미지' />
                     <div onClick={clickSetting}>
                         <div>{nickname}</div>
                         <RiArrowDownSLine size={20} />
