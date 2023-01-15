@@ -1,5 +1,4 @@
 import { useRouter } from "next/router"
-import { useDispatch } from "react-redux"
 import { HeaderMenuModalContainer } from "../HeaderFirstNav/HeaderMenuModal.style"
 import { logout } from "../../Common/CommonLogout"
 
