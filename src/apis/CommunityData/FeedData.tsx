@@ -1,7 +1,7 @@
 import { AxiosResponse, AxiosError } from 'axios'
 import { dehydrate, QueryClient, useQuery } from 'react-query'
 import { GetServerSideProps } from 'next'
-import { apiInstance } from '../../setting'
+import { apiInstance } from '../setting'
 
 export interface FeedPage {
     page: string | string[] | number

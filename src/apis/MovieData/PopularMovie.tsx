@@ -1,4 +1,4 @@
-import { apiInstance } from '../../setting'
+import { apiInstance } from '../setting'
 import { AxiosResponse, AxiosError } from 'axios'
 import { dehydrate, QueryClient, useQuery } from 'react-query'
 import { GetServerSideProps } from 'next'
