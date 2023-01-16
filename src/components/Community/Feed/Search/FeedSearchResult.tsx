@@ -7,7 +7,7 @@ import useGetHitFeed from '../../../../apis/CommunityData/HitFeedData'
 import { RootState } from '../../../../store/store'
 import LoadingLogo from '../../../Common/Loading/LoadingLogo'
 import { FeedContainer } from '../Feed.style'
-import FeedNavigation from '../FeedNavigation'
+import FeedPagination from '../FeedPagination'
 import FeedRanking from '../FeedRanking'
 import FeedRemote from '../FeedRemote'
 import FeedSearchList from './FeedSearchList'
@@ -18,7 +18,7 @@ const FeedSearchResult = () => {
     const { type, search, page } = router.query
     const hitData = useGetHitFeed().data
     const { data } = useGetFeedSearchData(type, search, page)
-    const [pageValue, setPageValue] = useState(1)
+    const [currentPage, setPageValue] = useState(1)
 
     const clickWrite = () => {
         if (accessToken) {
@@ -50,7 +50,7 @@ const FeedSearchResult = () => {
                         <FeedRanking hit={hitData?.data?.top5Contents} />
                         <FeedSearchList searchList={data?.data.searchResult.responseContents} />
                         <FeedRemote clickWrite={clickWrite} />
-                        <FeedNavigation totalPage={data?.data.searchResult.totalPage} page={pageValue} handleChange={handlePaginationChange} />
+                        <FeedPagination currentPage={currentPage} setCurrentPage={setPageValue} maxPage={data?.data?.contents?.totalPage} />
                     </>
                 </FeedContainer>
             ) : (

@@ -6,7 +6,7 @@ import { FeedContainer } from './Feed.style'
 import FeedList from './FeedList'
 import FeedRanking from './FeedRanking'
 import { useState } from 'react'
-import FeedNavigation from './FeedNavigation'
+import FeedPagination from './FeedPagination'
 import FeedRemote from './FeedRemote'
 import LoadingLogo from '../../Common/Loading/LoadingLogo'
 import useGetFeedData from '../../../apis/CommunityData/FeedData'
@@ -39,7 +39,7 @@ const Feed = () => {
                     <FeedRanking hit={hitDataList} />
                     <FeedList feedPost={data} />
                     <FeedRemote clickWrite={clickWrite} />
-                    <FeedNavigation currentPage={currentPage} setCurrentPage={setCurrentPage} maxPage={data?.data?.contents?.totalPage} />
+                    <FeedPagination currentPage={currentPage} setCurrentPage={setCurrentPage} maxPage={data?.data?.contents?.totalPage} />
                 </FeedContainer>
             ) : (
                 <LoadingLogo />

@@ -3,7 +3,7 @@ import { IoMdArrowBack } from 'react-icons/io'
 import { IoMdArrowForward } from 'react-icons/io'
 import { useEffect, useState } from 'react'
 
-const FeedNavigation = (props) => {
+const FeedPagination = (props) => {
     const { currentPage, setCurrentPage, maxPage } = props
     let pageNumbers = []
     const [visiblePage, setVisiblePage] = useState(1)
@@ -21,7 +21,6 @@ const FeedNavigation = (props) => {
             pageNumbers.push(i)
         }
     }, [visiblePage])
-    console.log('page', pageNumbers)
 
     return (
         <FeedPaginationContainer currentPage={currentPage}>
@@ -36,4 +35,4 @@ const FeedNavigation = (props) => {
     )
 }
 
-export default FeedNavigation
+export default FeedPagination
