@@ -32,8 +32,6 @@ const Feed = () => {
             toast.error('로그인이 필요합니다!')
         }
     }
-
-    console.log('feed', data)
     return (
         <>
             {!isLoading && !hitLoading && hitDataList ? (

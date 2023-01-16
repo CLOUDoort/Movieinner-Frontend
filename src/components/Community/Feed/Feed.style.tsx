@@ -73,7 +73,11 @@ export const FeedRemoteBox = styled.div`
         color: rgb(222, 109, 109);
     }
 `
-export const FeedPaginationContainer = styled.div`
+type PaginationProps = {
+    currentPage: number
+}
+
+export const FeedPaginationContainer = styled.div<PaginationProps>`
     display: flex;
     justify-content: center;
     align-items: center;
@@ -82,7 +86,7 @@ export const FeedPaginationContainer = styled.div`
         margin-left: 0.6rem;
         font-size: 1.2rem;
         border: 1px solid gray;
-        border-radius: 5px;
+        border-radius: 10px;
         padding: 0.3rem 0.6rem;
         color: #c9c9c9;
         width: 1rem;
@@ -91,20 +95,17 @@ export const FeedPaginationContainer = styled.div`
             background-color: red;
         }
     }
-    > div {
-        :first-of-type {
-            margin-left: 0;
-        }
-    }
     > button {
         all: unset;
         display: flex;
         align-items: center;
+        border-radius: 22px;
+        padding: 0.25rem;
         :hover {
             background-color: red;
         }
     }
-    >:last-of-type {
+    >:last-child {
         margin-left: 10px;
     }
 `
