@@ -89,7 +89,7 @@ export const FeedPaginationContainer = styled.div<PaginationProps>`
         border-radius: 10px;
         padding: 0.3rem 0.6rem;
         color: #c9c9c9;
-        width: 1rem;
+        width: 2.3rem;
         cursor: pointer;
         :hover {
             background-color: red;
