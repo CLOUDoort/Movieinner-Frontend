@@ -67,7 +67,7 @@ background-color: ${(props) => props.number ? "#ff3232" : null} ;
 border-radius: 50%;
 padding: 1px 0.6rem;
 top: 1rem;
-right: 14.9rem;
+right: 15.2rem;
 @media screen and (max-width: 37.5rem) {
     right: 8rem;
 }
