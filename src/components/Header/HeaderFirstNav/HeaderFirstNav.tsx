@@ -33,7 +33,7 @@ const HeaderFirstNav = (props) => {
                 <Link href='/'>홈</Link>
                 <button onClick={clickCategory}>카테고리</button>
                 {categoryModal && <HeaderCategory clickModal={clickCategory} list={list} modal={categoryModal} />}
-                <Link href='/community/feed/1'>커뮤니티</Link>
+                <Link href='/community/feed'>커뮤니티</Link>
                 <Link href='/theme'>테마</Link>
                 {nickname ? <Link href={`/user/${nickname}`}>마이페이지</Link> : <Link href='/login'>마이페이지</Link>}
             </HeaderFirstNavList>
