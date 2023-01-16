@@ -19,7 +19,7 @@ const HeaderNoti = () => {
 
     return (
         <HeaderNotiBox modal={modal}>
-            <HeaderNotiNum number={number}> {notiData?.data?.response?.length ? notiData?.data?.response?.length : null}</HeaderNotiNum>
+            <HeaderNotiNum number={number}>{notiData?.data?.response?.length ? notiData?.data?.response?.length : null}</HeaderNotiNum>
             <IoIosNotificationsOutline onClick={controlModal} size={40} />
             {modal ? <HeaderNotiModal refetchNoti={refetchNoti} userIdx={userIdx} notiData={notiData?.data?.response} modal={modal} controlModal={controlModal} /> : null}
         </HeaderNotiBox>

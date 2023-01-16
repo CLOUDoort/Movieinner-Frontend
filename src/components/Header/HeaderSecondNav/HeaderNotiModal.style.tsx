@@ -61,14 +61,21 @@ type HeaderNotiProps = {
 }
 
 export const HeaderNotiNum = styled.div<HeaderNotiProps>`
-display: ${(props) => props.number ? 'block' : 'none'};
-position: absolute;
-background-color: ${(props) => props.number ? "#ff3232" : null} ;
-border-radius: 50%;
-padding: 1px 0.6rem;
-top: 1rem;
-right: 15.2rem;
-@media screen and (max-width: 37.5rem) {
-    right: 8rem;
-}
+    display: ${(props) => props.number ? 'block' : 'none'};
+    position: absolute;
+    display: inline-block;
+    background-color: ${(props) => props.number ? "#c00" : null} ;
+    border-radius: 22px;
+    border: 2px solid rgba(0, 0, 0, 0.8) ;
+    height: 16px;
+    min-width: 8px;
+    max-width: 18px;
+    padding: 0 4px;
+    font-size: 10px;
+    line-height: 12px;
+    top: 1.2rem;
+    right: 15.7rem;
+    @media screen and (max-width: 37.5rem) {
+        right: 8rem;
+    }
 `
