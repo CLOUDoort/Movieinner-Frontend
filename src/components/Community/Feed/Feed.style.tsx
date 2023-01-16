@@ -74,14 +74,30 @@ export const FeedRemoteBox = styled.div`
     }
 `
 export const FeedPaginationContainer = styled.div`
-    > nav {
-        display: flex;
-        justify-content: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    > div > span {
+        margin-left: 10px;
+        font-size: 20px;
+        border: 1px solid gray;
+        border-radius: 5px;
+        padding: 5px 10px;
+        color: #c9c9c9;
+        width: 1rem;
     }
-    .MuiPagination-root {
-        button {
-            background-color: #d8d5d5;
-            color: black !important;
+    > div {
+        :first-of-type {
+            margin-left: 0;
         }
+    }
+    > button {
+        all: unset;
+        display: flex;
+        align-items: center;
+    }
+    >:last-of-type {
+        margin-left: 10px;
     }
 `

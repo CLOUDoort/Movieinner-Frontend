@@ -3,7 +3,6 @@ import Link from 'next/link'
 
 const FeedList = (props) => {
     const { feedPost } = props
-    console.log('feed', feedPost)
 
     return (
         <FeedListArea>

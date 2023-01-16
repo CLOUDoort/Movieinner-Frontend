@@ -14,10 +14,9 @@ import useGetHitFeed from '../../../apis/CommunityData/HitFeedData'
 
 const Feed = () => {
     const accessToken = useSelector((state: RootState) => state.token.token)
+    const [currentPage, setCurrentPage] = useState(1)
     const router = useRouter()
-    const { page } = router.query
-    const [pageValue, setPageValue] = useState(1)
-    const { data, isLoading } = useGetFeedData(page ? page : 1)
+    const { data, isLoading } = useGetFeedData(currentPage)
     const hitData = useGetHitFeed().data
     const hitLoading = useGetHitFeed().isLoading
 
@@ -34,24 +33,15 @@ const Feed = () => {
         }
     }
 
-    const handlePaginationChange = (e, value) => {
-        try {
-            setPageValue(value)
-            router.push(`/community/feed/${value}`, undefined, { shallow: true })
-            console.info('page', pageValue)
-        } catch (e) {
-            console.error(e.response)
-        }
-    }
-
+    console.log('feed', data)
     return (
         <>
-            {page && !isLoading && !hitLoading && hitDataList ? (
+            {!isLoading && !hitLoading && hitDataList ? (
                 <FeedContainer>
                     <FeedRanking hit={hitDataList} />
                     <FeedList feedPost={data} />
                     <FeedRemote clickWrite={clickWrite} />
-                    <FeedNavigation totalPage={data?.data?.contents?.totalPage} page={pageValue} handleChange={handlePaginationChange} />
+                    <FeedNavigation currentPage={currentPage} setCurrentPage={setCurrentPage} maxPage={data?.data?.contents?.totalPage} />
                 </FeedContainer>
             ) : (
                 <LoadingLogo />
