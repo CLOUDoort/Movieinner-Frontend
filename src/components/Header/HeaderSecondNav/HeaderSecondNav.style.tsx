@@ -30,10 +30,10 @@ export const SearchContainer = styled.div<SearchProps>`
         transition: 0.3s width linear !important;
         width: ${(props) => (props.click ? '12.5rem' : 0)};
         @media screen and (max-width: 50rem) {
-            width: ${(props) => (props.click ? '8rem' : 0)};
+            width: ${(props) => (props.click ? '8em' : 0)};
         }
         @media screen and (max-width: 45rem) {
-            width: ${(props) => (props.click ? '5rem' : 0)};
+            width: ${(props) => (props.click ? '5em' : 0)};
         }
         background-color: ${(props) => (props.click ? 'black' : 'none')};
         color: white;
@@ -85,7 +85,7 @@ export const HeaderUserBox = styled.div`
         background-color: black;
         color: white;
     }
-    @media screen and (max-width: 37.5rem) {
+    @media screen and (max-width: 37.5em) {
         > div > div {
             display: none;
         }

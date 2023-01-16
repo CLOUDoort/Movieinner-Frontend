@@ -75,7 +75,7 @@ export const HeaderNotiNum = styled.div<HeaderNotiProps>`
     line-height: 12px;
     top: 1.2rem;
     right: 15.7rem;
-    @media screen and (max-width: 37.5rem) {
+    @media screen and (max-width: 37.5em) {
         right: 8rem;
     }
 `
