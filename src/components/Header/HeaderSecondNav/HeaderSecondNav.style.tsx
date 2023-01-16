@@ -20,6 +20,9 @@ export const SearchContainer = styled.div<SearchProps>`
     background-color: ${(props) => (props.click ? 'black' : 'none')};
     padding: 0.3rem;
     margin-right: ${(props) => (props.click ? '1.25rem' : 0)};
+    @media screen and (max-width: 25.63em) {
+            display: none;
+    }
     > :first-of-type {
         transition: color 0.2s;
         :hover {
@@ -58,6 +61,9 @@ export const HeaderNotiBox = styled.div<modalProps>`
         color: ${(props) => props.modal ? 'red' : null};
         :hover {
             color: gray;
+        }
+        @media screen and (max-width: 25.63em) {
+            display: none;
         }
     }
 `
