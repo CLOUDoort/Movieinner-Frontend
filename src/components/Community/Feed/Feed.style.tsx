@@ -77,15 +77,19 @@ export const FeedPaginationContainer = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 5px;
+    padding: 0.5rem;
     > div > span {
-        margin-left: 10px;
-        font-size: 20px;
+        margin-left: 0.6rem;
+        font-size: 1.2rem;
         border: 1px solid gray;
         border-radius: 5px;
-        padding: 5px 10px;
+        padding: 0.3rem 0.6rem;
         color: #c9c9c9;
         width: 1rem;
+        cursor: pointer;
+        :hover {
+            background-color: red;
+        }
     }
     > div {
         :first-of-type {
@@ -96,6 +100,9 @@ export const FeedPaginationContainer = styled.div`
         all: unset;
         display: flex;
         align-items: center;
+        :hover {
+            background-color: red;
+        }
     }
     >:last-of-type {
         margin-left: 10px;
