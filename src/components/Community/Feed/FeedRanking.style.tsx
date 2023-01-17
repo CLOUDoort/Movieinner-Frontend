@@ -1,10 +1,16 @@
 import styled from '@emotion/styled'
 
 export const RankingArea = styled.div`
-    width: 750px;
+    width: 42rem;
+    @media screen and (max-width: 50em) {
+        width: 30rem;
+    }
+    @media screen and (max-width: 37.5em) {
+        width: 20rem;
+    }
     border: 1px solid gray;
-    height: 250px;
     border-radius: 5px;
+    padding-bottom: 1rem;
 `
 export const RankingSubtitle = styled.p`
     font-size: 20px;

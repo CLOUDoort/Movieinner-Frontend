@@ -94,12 +94,26 @@ export const MovieActorScroll = styled.div`
     vertical-align: top;
     font-size: 1.3rem;
     > :first-of-type {
-        margin-left: 10px;
+        font-weight: bold;
+        margin-left: 1.6rem;
+        margin-bottom: 0.5rem;
+    @media screen and (max-width: 50em) {
+        font-size: 1.1rem;
+    }
+    @media screen and (max-width: 37.5em) {
+        font-size: 1rem;
+    }
     }
 `
 
 export const MovieActorContainer = styled.div`
-    width: 730px;
+    width: 43.75rem;
+    @media screen and (max-width: 50em) {
+        width: 32rem;
+    }
+    @media screen and (max-width: 37.5em) {
+        width: 20rem;
+    }
     position: relative;
     overflow: hidden;
     padding: 0 0 1px;
@@ -123,7 +137,8 @@ export const MovieActorList = styled.ul`
     white-space: nowrap;
     font-size: 0;
     line-height: 0;
-    `
+    margin-bottom: 0.7rem;
+`
 export const ActorAreaCard = styled.li`
     width: 145px !important;
     display: table-cell;

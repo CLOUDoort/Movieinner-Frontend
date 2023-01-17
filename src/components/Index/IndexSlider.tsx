@@ -29,7 +29,7 @@ const IndexSlider = (props) => {
             className='mySwiper'
         >
             {sliderImage.map((obj) => (
-                <SwiperSlide key={obj.movie_id} onClick={() => router.push(`/movie/${obj.movie_id}`)}>
+                <SwiperSlide key={obj.movie_id} onClick={() => router.push(`/theme`)}>
                     <Image
                         src={`https://image.tmdb.org/t/p/w1280${obj.backdrop_path}`}
                         id={obj.movie_name}
