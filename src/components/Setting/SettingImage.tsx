@@ -3,7 +3,7 @@ import { useRef, useState } from "react"
 import { toast } from "react-toastify"
 import { apiInstance } from "../../apis/setting"
 import LoadingLogo from "../Common/Loading/LoadingLogo"
-import { SettingModifyImage } from "./Setting.style"
+import { SettingModifyImage } from "./SettingProfile.style"
 
 const SettingImage = (props) => {
     const { userImage, loading, userIdx } = props
