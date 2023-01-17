@@ -11,11 +11,6 @@ const SettingPassword = (props) => {
         new: '',
         check: ''
     })
-    useEffect(() => {
-        const response = async () => {
-
-        }
-    }, [])
     const clickModal = async () => {
         try {
             const considerSocialLogin = await apiInstance.get(`/users/check/social/${userIdx}`)
@@ -49,7 +44,6 @@ const SettingPassword = (props) => {
         <div>
             <span>비밀번호 변경</span>
             <span onClick={clickModal}>비밀번호 변경</span>
-
             {modal && <SettingPwModalContainer onClick={clickModal}>
                 <SettingPwModalBox onClick={(e) => e.stopPropagation()}>
                     <SettingPwInput>
