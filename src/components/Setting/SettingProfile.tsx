@@ -1,4 +1,4 @@
-import { UserModifyNickname, UserProfileInfo } from "../User/UserProfile/UserProfile.style"
+import { UserModifyNickname } from "../User/UserProfile/UserProfile.style"
 import { BsFillPencilFill } from "react-icons/bs"
 import { apiInstance } from "../../apis/setting"
 import { toast } from "react-toastify"
@@ -6,6 +6,7 @@ import { useEffect, useState } from "react"
 import router from "next/router"
 import { CheckText } from "../Auth/Signup/Signup.style"
 import SettingImage from "./SettingImage"
+import { SettingProfileBox, SettingProfileInfo } from "./SettingProfile.style"
 
 
 const SettingProfile = (props) => {
@@ -64,25 +65,29 @@ const SettingProfile = (props) => {
     }
 
     return (
-        <div>
-            <UserProfileInfo>
+        <SettingProfileBox>
+            <SettingProfileInfo>
                 <SettingImage userImage={userImage} loading={loading} userIdx={userIdx} />
-                {modify ?
-                    <UserModifyNickname>
-                        <input type='text' value={newNickname} onChange={handleChange} onFocus={() => setCheckNickname({ ...checkNickname, click: true })} autoComplete='off' />
-                        <button onClick={clickNicknameModify}>수정</button>
-                    </UserModifyNickname>
-                    : <span>{nickname}</span>}
-                {!modify ? <span onClick={clickNicknameModifyImg}><BsFillPencilFill size={20} /></span> : null}
-                {modify ? <span onClick={clickNicknameModifyImg}>취소</span> : null}
-            </UserProfileInfo>
-            <div>
-                {modify && newNickname ?
-                    <>
-                        {checkNickname.click && newNickname != nickname && (checkNickname.valid ? <CheckText check={true}>사용 가능한 닉네임입니다.</CheckText> : <CheckText check={false}>중복된 닉네임입니다.</CheckText>)}
-                    </> : null}
-            </div>
-        </div>
+                <div>
+                    <div>
+                        {modify ?
+                            <UserModifyNickname>
+                                <input type='text' value={newNickname} onChange={handleChange} onFocus={() => setCheckNickname({ ...checkNickname, click: true })} autoComplete='off' />
+                                <button onClick={clickNicknameModify}>수정</button>
+                            </UserModifyNickname>
+                            : <span>{nickname}</span>}
+                        {!modify ? <span onClick={clickNicknameModifyImg}><BsFillPencilFill size={20} /></span> : null}
+                        {modify ? <span onClick={clickNicknameModifyImg}>취소</span> : null}
+                    </div>
+                    <div>
+                        {modify && newNickname ?
+                            <>
+                                {checkNickname.click && newNickname != nickname && (checkNickname.valid ? <CheckText check={true}>사용 가능한 닉네임입니다.</CheckText> : <CheckText check={false}>중복된 닉네임입니다.</CheckText>)}
+                            </> : null}
+                    </div>
+                </div>
+            </SettingProfileInfo>
+        </SettingProfileBox>
     )
 }
 
