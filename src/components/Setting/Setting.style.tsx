@@ -26,6 +26,11 @@ export const SettingDeleteUser = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    @media screen and (max-width: 23.75em) {
+        > :first-of-type {
+            display: none;
+        }
+    }
     > span {
         margin-right: 0.625rem;
         width: 7.5rem;

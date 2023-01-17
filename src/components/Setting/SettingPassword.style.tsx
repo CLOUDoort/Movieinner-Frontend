@@ -5,6 +5,11 @@ export const SettingPasswordContainer = styled.div`
     justify-content: center;
     flex-shrink: 0;
     align-items: center;
+    @media screen and (max-width: 23.75em) {
+        > :first-of-type {
+            display: none;
+        }
+    }
     >span {
         margin-right: 10px;
         width: 120px;
