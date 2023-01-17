@@ -85,7 +85,7 @@ export const FeedPaginationContainer = styled.div<PaginationProps>`
     > div > span {
         margin-left: 0.6rem;
         font-size: 1.2rem;
-        border: 1px solid gray;
+        border: 1px solid #313131;
         border-radius: 0.625rem;
         padding: 0.3rem 0.6rem;
         color: #c9c9c9;
