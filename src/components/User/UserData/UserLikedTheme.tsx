@@ -16,7 +16,7 @@ const UserLikedTheme = (props) => {
                             <StorageMovieAreaCard key={obj.idx}>
                                 <div>
                                     <StorageMovieImgBox onClick={() => router.push(`/theme`)}>
-                                        <Image src={`https://image.tmdb.org/t/p/w780/${obj.poster_path}`} layout='fill' alt={obj.name} />
+                                        <Image src={obj.poster_path ? `https://image.tmdb.org/t/p/w780/${obj.poster_path}` : '/blank.png'} layout='fill' alt={obj.name} />
                                     </StorageMovieImgBox>
                                     <StorageMovieTitleBox>
                                         <strong onClick={() => router.push(`/theme`)}>{obj.name}</strong>
