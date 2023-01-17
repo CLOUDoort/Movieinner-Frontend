@@ -2,7 +2,7 @@ import { useRouter } from "next/router"
 import { HeaderMenuModalContainer } from "../HeaderFirstNav/HeaderMenuModal.style"
 import { CommonLogout } from "../../Common/CommonLogout"
 
-import { HeaderSettingBox } from "./HeaderSecondNav.style"
+import { HeaderSettingBox } from "./HeaderUser.style"
 
 const HeaderSettingModal = (props) => {
     const { clickSetting } = props

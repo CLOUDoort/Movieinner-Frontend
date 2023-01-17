@@ -5,7 +5,7 @@ import { RootState } from "../../../store/store"
 import useGetNotiData from "../../../apis/UserData/NotificationData"
 import HeaderNotiModal from "./HeaderNotiModal"
 import { HeaderNotiNum } from "./HeaderNotiModal.style"
-import { HeaderNotiBox } from "./HeaderSecondNav.style"
+import { HeaderNotiBox } from "./HeaderUser.style"
 
 const HeaderNoti = () => {
     const userIdx = useSelector((state: RootState) => state.idx.idx)
