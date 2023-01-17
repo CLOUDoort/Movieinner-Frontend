@@ -14,7 +14,6 @@ const Setting = () => {
     const userImage = useGetUserImage(userIdx).data
     const userImageRefetch = useGetUserImage(userIdx).refetch
     const imageLoading = useGetUserImage(userIdx).isLoading
-
     const refetchImage = () => userImageRefetch()
 
     return (
