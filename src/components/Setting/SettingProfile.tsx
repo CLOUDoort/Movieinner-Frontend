@@ -3,14 +3,16 @@ import { BsFillPencilFill } from "react-icons/bs"
 import { apiInstance } from "../../apis/setting"
 import { toast } from "react-toastify"
 import { useEffect, useState } from "react"
-import router from "next/router"
 import { CheckText } from "../Auth/Signup/Signup.style"
 import SettingImage from "./SettingImage"
 import { SettingProfileBox, SettingProfileInfo } from "./SettingProfile.style"
+import { useDispatch } from "react-redux"
+import { setNickname } from "../../store/reducers/logintokenSlice"
 
 
 const SettingProfile = (props) => {
     const { email, userIdx, nickname, userImage, loading, refetchImage } = props
+    const dispatch = useDispatch()
     const [modify, setModify] = useState(false)
     const [newNickname, setnewNickname] = useState(nickname)
     const [checkNickname, setCheckNickname] = useState({
@@ -57,8 +59,7 @@ const SettingProfile = (props) => {
             // 닉네임 변경 시 리프레시 토큰 재발급
             await apiInstance.post(`/auth`, { email: email })
             setModify(!modify)
-            router.reload()
-            refetchImage()
+            dispatch(setNickname(newNickname))
         } catch (e) {
             toast.error('영어 대소문, 한글, 숫자, 특수기호(-,_,.) 포함 2~12글자만 허용됩니다.')
         }
@@ -67,7 +68,7 @@ const SettingProfile = (props) => {
     return (
         <SettingProfileBox>
             <SettingProfileInfo>
-                <SettingImage userImage={userImage} loading={loading} userIdx={userIdx} />
+                <SettingImage refetchImage={refetchImage} userImage={userImage} loading={loading} userIdx={userIdx} />
                 <div>
                     <div>
                         {modify ?
@@ -75,7 +76,7 @@ const SettingProfile = (props) => {
                                 <input type='text' value={newNickname} onChange={handleChange} onFocus={() => setCheckNickname({ ...checkNickname, click: true })} autoComplete='off' />
                                 <button onClick={clickNicknameModify}>수정</button>
                             </UserModifyNickname>
-                            : <span>{nickname}</span>}
+                            : <span>{newNickname}</span>}
                         {!modify ? <span onClick={clickNicknameModifyImg}><BsFillPencilFill size={20} /></span> : null}
                         {modify ? <span onClick={clickNicknameModifyImg}>취소</span> : null}
                     </div>
