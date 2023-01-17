@@ -31,9 +31,7 @@ const Theme = () => {
         setModalInfo(data?.data[themeModalName])
     }
     const [showModal, setShowModal] = useState(false)
-    const closeModal = () => {
-        setShowModal(false)
-    }
+    const closeModal = () => setShowModal(!showModal)
 
     return (
         <>
