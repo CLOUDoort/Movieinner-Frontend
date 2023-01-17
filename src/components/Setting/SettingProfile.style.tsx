@@ -13,6 +13,12 @@ export const SettingProfileInfo = styled.div`
     align-items: center;
     justify-content: center;
     font-weight: bold;
+    @media screen and (max-width: 23.75em) {
+        flex-direction: column;
+        > div {
+            margin-bottom: 10px;
+        }
+    }
     > div {
         margin-left: 20px;
         >:first-of-type {
@@ -30,6 +36,9 @@ export const SettingModifyImage = styled.div`
     justify-content: center;
     align-items: center;
     border-right: 1px solid gray;
+    @media screen and (max-width: 23.75em) {
+        border: none;
+    }
     padding-right: 15px;
     > span {
         border-radius: 50%;
