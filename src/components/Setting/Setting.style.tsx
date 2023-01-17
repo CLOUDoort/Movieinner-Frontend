@@ -11,11 +11,14 @@ export const SettingContainer = styled.div`
 export const SettingBox = styled.div`
     display: flex;
     justify-content: center;
-    width: 800px;
+    width: 50rem;
     flex-direction: column;
-    margin-top: 10px;
+    margin-top: 0.625rem;
+    @media screen and (max-width: 23.75em) {
+        width: 20rem;
+    }
     > * {
-        margin-bottom: 30px;
+        margin-bottom: 1.875rem;
     }
 `
 
@@ -24,13 +27,13 @@ export const SettingDeleteUser = styled.div`
     justify-content: center;
     align-items: center;
     > span {
-        margin-right: 10px;
-        width: 120px;
+        margin-right: 0.625rem;
+        width: 7.5rem;
         text-align: center;
     }
     >:last-of-type {
         background-color: red;
-        font-size: 15px;
+        font-size: 1rem;
         padding: 3px 6px;
         border-radius: 5px;
         cursor: pointer;
