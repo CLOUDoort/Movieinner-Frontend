@@ -35,8 +35,8 @@ export const SearchListTitle = styled.div`
     justify-content: space-between;
     align-items: center;
     font-weight: bold;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin-top: 1.25rem;
+    margin-bottom: 1.25rem;
 `
 
 export const SearchListItem = styled.div`

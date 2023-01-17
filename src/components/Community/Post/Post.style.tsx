@@ -6,14 +6,14 @@ export const PostBox = styled.div`
     margin: auto;
     background-color: #313131;
     color: white;
-    margin-bottom: 20px;
-    margin-top: 20px;
+    margin-bottom: 1.25rem;
+    margin-top: 1.25rem;
     border-radius: 10px;
     overflow: auto;
     height: 100vh;
     &::-webkit-scrollbar {
       width: 0.313rem;
-      height: 20px;
+      height: 1.25rem;
     }
     &::-webkit-scrollbar-thumb {
      border-radius: 2px;
@@ -28,13 +28,13 @@ export const PostContainer = styled.div`
     row-gap: 50px;
     justify-content: center;
     margin-top: 0.313rem;
-    margin-bottom: 20px;
+    margin-bottom: 1.25rem;
     position: relative;
     height: 100%;
 `
 export const PostContentArea = styled.div`
     margin-top: 30px;
-    padding: 20px;
+    padding: 1.25rem;
     width: 750px;
     display: flex;
     flex-direction: column;

@@ -20,7 +20,7 @@ export const WelcomeBox = styled.div`
     > div > button {
         margin-right: 0.313rem;
         margin-left: 0.313rem;
-        margin-top: 20px;
+        margin-top: 1.25rem;
         padding: 8px 16px;
         font-size: 0.938rem;
         border: none;
@@ -32,7 +32,7 @@ export const WelcomeTitle = styled.div`
     margin-bottom: 30px;
 `
 export const WelcomeText = styled.div`
-    margin-top: 20px;
+    margin-top: 1.25rem;
     > div {
         margin-bottom: 10px;
     }

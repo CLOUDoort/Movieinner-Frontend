@@ -32,7 +32,7 @@ export const SearchModalBox = styled.div`
         > div {
             display: flex;
             justify-content: space-evenly;
-            margin-top: 20px;
+            margin-top: 1.25rem;
             > button {
                 border: none;
                 padding: 0.313rem 10px;

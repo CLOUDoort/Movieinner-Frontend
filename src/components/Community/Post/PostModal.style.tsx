@@ -23,8 +23,8 @@ export const PostModalContainer = styled.div`
 export const PostModalBox = styled.div`
     position: relative;
     padding-top: 12px;
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
+    border-top-left-radius: 1.25rem;
+    border-top-right-radius: 1.25rem;
     display: flex;
     background: rgb(0, 0, 0, 0.9);
     flex-direction: column;

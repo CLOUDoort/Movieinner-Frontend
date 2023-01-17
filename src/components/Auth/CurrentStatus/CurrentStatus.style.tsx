@@ -15,7 +15,7 @@ export const CurrentTextDiv = styled.div`
     font-size: 0.938rem;
     position: absolute;
     z-index: 100;
-    bottom: 120px;
+    bottom: 7.5rem;
     > :nth-of-type(1) {
         padding-left: 10px;
     }

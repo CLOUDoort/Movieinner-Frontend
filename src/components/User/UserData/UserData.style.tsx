@@ -1,36 +1,34 @@
 import styled from '@emotion/styled'
 
 export const UserDataBox = styled.div`
-    margin-top: 20px;
-    width: 800px;
+    margin-top: 1.25rem;
+    width: 50rem;
     display: flex;
     flex-direction: column;
-    @media screen and ( max-width: 850px) {
-        width: 600px;
+    @media screen and ( max-width: 53.13em) {
+        width: 37.5rem;
     }
-    @media screen and ( max-width: 660px) {
-        width: 450px;
+    @media screen and ( max-width: 41.25em) {
+        width: 28.125rem;
     }
-    @media screen and ( max-width: 470px) {
-        width: 320px;
+    @media screen and ( max-width: 29.38em) {
+        width: 20rem;
     }
 `
 
 export const UserDataContainer = styled.div`
-    /* min-width: 380px; */
     border: 1px solid gray;
     border-radius: 10px;
     > :first-of-type {
-        margin: 20px;
+        margin: 1.25rem;
         font-weight: bold;
     }
 `
 
 export const UserDataList = styled.div`
-    /* min-width: 250px; */
     border-radius: 10px;
     border: 1px solid gray;
-    margin: 20px;
+    margin: 1.25rem;
     > div {
         display: flex;
         flex-direction: column;

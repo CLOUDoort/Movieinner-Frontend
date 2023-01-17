@@ -25,7 +25,7 @@ export const HearderFirstNavBox = styled.nav`
 `
 
 export const HeaderFirstNavTitle = styled.div`
-    width: 120px;
+    width: 7.5rem;
     margin-left: 30px;
     flex-shrink: 0;
     @media screen and (max-width: 43.75em) {

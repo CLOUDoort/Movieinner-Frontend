@@ -1,7 +1,7 @@
 import styled from '@emotion/styled'
 
 export const LoginContainerDiv = styled.div`
-    margin: 20px;
+    margin: 1.25rem;
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -27,7 +27,7 @@ export const FormContainer = styled.form`
         margin-bottom: 10px;
     }
     > input {
-        font-size: 20px;
+        font-size: 1.25rem;
         padding: 8px 16px;
         background-color: black;
         border: 1px solid gray;
@@ -57,7 +57,7 @@ export const LoginFailText = styled.div`
 export const SubmitInput = styled.input`
     width: 200px;
     margin: auto;
-    margin-top: 20px;
+    margin-top: 1.25rem;
     cursor: pointer;
     transition: opacity, 0.3;
     :hover {

@@ -20,7 +20,7 @@ export const FeedListArea = styled.div`
 `
 
 export const FeedListContainer = styled.div`
-    padding: 12px 20px;
+    padding: 12px 1.25rem;
     display: flex;
     justify-content: space-between;
 `
@@ -63,7 +63,7 @@ export const FeedRemoteBox = styled.div`
     z-index: 1;
     > svg {
         cursor: pointer;
-        margin-top: 20px;
+        margin-top: 1.25rem;
         border: 1px solid gray;
         border-radius: 40%;
         padding: 10px;

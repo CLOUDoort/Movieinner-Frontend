@@ -7,6 +7,6 @@ export const FooterContainer = styled.footer`
     padding-bottom: 10px;
     > div {
         margin-right: 10px;
-        line-height: 20px;
+        line-height: 1.25rem;
     }
 `

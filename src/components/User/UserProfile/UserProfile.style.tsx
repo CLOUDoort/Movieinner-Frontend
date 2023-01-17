@@ -1,16 +1,16 @@
 import styled from '@emotion/styled'
 
 export const UserProfileBox = styled.div`
-    margin-top: 20px;
-    width: 800px;
-    @media screen and ( max-width: 850px) {
-        width: 600px;
+    margin-top: 1.25rem;
+    width: 50rem;
+    @media screen and ( max-width: 53.13em) {
+        width: 37.5rem;
     }
-    @media screen and ( max-width: 660px) {
-        width: 450px;
+    @media screen and ( max-width: 41.25em) {
+        width: 28.125rem;
     }
-    @media screen and ( max-width: 470px) {
-        width: 320px;
+    @media screen and ( max-width: 29.38em) {
+        width: 20rem;
     }
 `
 export const UserProfileContainer = styled.div`
@@ -29,14 +29,14 @@ export const UserProfileInfo = styled.div`
     > span {
         border-radius: 50%;
         cursor: pointer;
-        margin-left: 20px;
+        margin-left: 1.25rem;
         > svg {
             margin-top: 6px;
         }
     }
     > div {
-        margin-left: 20px;
-        font-size: 20px;
+        margin-left: 1.25rem;
+        font-size: 1.25rem;
     }
 `
 export const UserModifyNickname = styled.div`

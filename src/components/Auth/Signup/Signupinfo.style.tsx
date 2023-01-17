@@ -5,7 +5,7 @@ export const SignupInfoContainer = styled.div`
     flex-direction: column;
     align-items: center;
     text-align: center;
-    margin: 20px;
+    margin: 1.25rem;
 `
 
 export const TitleDiv = styled.div`
@@ -13,7 +13,7 @@ export const TitleDiv = styled.div`
     justify-content: center;
     align-items: center;
     font-size: 30px;
-    margin-top: 20px;
+    margin-top: 1.25rem;
 `
 
 export const UserProfileContainer = styled.div`
@@ -22,7 +22,7 @@ export const UserProfileContainer = styled.div`
     align-items: center;
     > a > span {
         border-radius: 50%;
-        margin: 20px;
+        margin: 1.25rem;
         object-fit: scale-down;
     }
 `
@@ -31,7 +31,7 @@ export const UserProfileBox = styled.div`
     display: flex;
     flex-direction: column;
     align-items: baseline;
-    margin-left: 20px;
+    margin-left: 1.25rem;
     > label {
         width: 200px;
         display: inline-block;
@@ -39,13 +39,13 @@ export const UserProfileBox = styled.div`
         border: 1px solid gray;
         color: white;
         cursor: pointer;
-        font-size: 20px;
+        font-size: 1.25rem;
         border-radius: 3px;
     }
     > input {
         width: 400px;
         border: none;
-        font-size: 20px;
+        font-size: 1.25rem;
         padding: 10px;
         border: 1px solid gray;
         background-color: black;
@@ -65,12 +65,12 @@ export const UserInfoContainer = styled.div`
     }
     > input {
         width: 600px;
-        font-size: 20px;
+        font-size: 1.25rem;
         padding: 8px 16px;
         background-color: black;
         border: 1px solid gray;
         color: white;
-        margin-bottom: 20px;
+        margin-bottom: 1.25rem;
     }
 `
 export const UserSex = styled.div`
@@ -82,9 +82,9 @@ export const UserSex = styled.div`
         background-color: black;
         padding: 8px 12px;
         border-radius: 0.313rem;
-        font-size: 20px;
-        margin-bottom: 20px;
-        margin-right: 20px;
+        font-size: 1.25rem;
+        margin-bottom: 1.25rem;
+        margin-right: 1.25rem;
     }
 `
 type BirthInfoType = {
@@ -104,7 +104,7 @@ export const BirthInfo = styled.div<BirthInfoType>`
     }
     > p {
         margin-left: 10px;
-        font-size: 20px;
+        font-size: 1.25rem;
     }
 `
 

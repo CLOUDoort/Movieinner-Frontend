@@ -99,7 +99,7 @@ export const LoadingText = styled.div`
     -webkit-animation: loading-text-opacity 2s linear 0s infinite normal;
     animation: loading-text-opacity 2s linear 0s infinite normal;
     color: #ffffff;
-    font-size: 20px;
+    font-size: 1.25rem;
     font-weight: bold;
     margin-top: 45px;
     opacity: 0;

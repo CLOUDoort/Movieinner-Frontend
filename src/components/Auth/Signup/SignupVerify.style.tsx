@@ -20,7 +20,7 @@ color: black;
     border-radius: 12px;
     > div > span {
         border-radius: 50%;
-        margin-bottom: 20px;
+        margin-bottom: 1.25rem;
     }
 `
 
@@ -30,7 +30,7 @@ export const ContainerTitle = styled.div`
 
 export const ContainerProfile = styled.div`
     > div {
-        margin-top: 0.938rem;
+        margin-top: 15px;
     }
 `
 export const FailText = styled.div`
@@ -60,13 +60,13 @@ export const ContainerBtn = styled.div`
         margin-left: 10px;
     }
     > div > p {
-        font-size: 20px;
-        margin-top: 20px;
+        font-size: 1.25rem;
+        margin-top: 1.25rem;
     }
 `
 export const VerifyFailText = styled.div`
     > p {
         color: red;
-        font-size: 20px;
+        font-size: 1.25rem;
     }
 `

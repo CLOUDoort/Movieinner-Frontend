@@ -8,10 +8,10 @@ export const MovieInfoContainer = styled.div`
 `
 
 export const MovieBackdropImgContainer = styled.div`
-    width: 800px;
+    width: 50rem;
     height: 300px;
     position: relative;
-    margin: 20px !important;
+    margin: 1.25rem !important;
     > span {
         border-radius: 10px !important;
         border: 1px solid black !important;
@@ -82,7 +82,7 @@ export const MovieLikeBtn = styled.div<MovieLikeBtnProps>`
 `
 
 export const HorizontalRule = styled.hr`
-    width: 800px;
+    width: 50rem;
     height: 1px;
 `
 

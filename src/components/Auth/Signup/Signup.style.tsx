@@ -1,14 +1,14 @@
 import styled from '@emotion/styled'
 
 export const SignupContainerDiv = styled.div`
-    margin: 20px;
+    margin: 1.25rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     > p {
         display: flex;
         font-size: 30px;
-        margin-bottom: 20px;
+        margin-bottom: 1.25rem;
     }
 `
 export const EmailDiv = styled.div`
@@ -19,7 +19,7 @@ export const EmailDiv = styled.div`
     }
     > input {
         width: 600px;
-        font-size: 20px;
+        font-size: 1.25rem;
         padding: 8px 16px;
         background-color: black;
         border: 1px solid gray;

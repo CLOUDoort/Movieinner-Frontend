@@ -47,17 +47,17 @@ body {
     object-fit: contain;
 }
 .swiper-slide div {
-    bottom: 20px;
+    bottom: 1.25rem;
     left: 50px;
     mix-blend-mode: difference;
-    font-size: 20px;
+    font-size: 1.25rem;
     position: absolute;
 }
 .swiper-slide p {
     top: 200px;
     left: 50px;
     mix-blend-mode: difference;
-    font-size: 20px;
+    font-size: 1.25rem;
     position: absolute;
 }
 

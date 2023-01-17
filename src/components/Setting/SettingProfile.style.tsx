@@ -20,11 +20,11 @@ export const SettingProfileInfo = styled.div`
         }
     }
     > div {
-        margin-left: 20px;
+        margin-left: 1.25rem;
         >:first-of-type {
             display: flex;
             > span {
-                margin-left: 10px;
+                margin-left: 0.625rem;
             }
         }
     }

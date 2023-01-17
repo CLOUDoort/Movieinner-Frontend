@@ -13,7 +13,7 @@ export const RankingArea = styled.div`
     padding-bottom: 1rem;
 `
 export const RankingSubtitle = styled.p`
-    font-size: 20px;
+    font-size: 1.25rem;
     padding: 16px 24px;
 `
 
@@ -27,6 +27,6 @@ export const RankingList = styled.ul`
         cursor: pointer;
     }
     > li > span {
-        padding-left: 20px;
+        padding-left: 1.25rem;
     }
 `

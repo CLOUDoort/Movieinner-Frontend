@@ -6,11 +6,11 @@ export const ForgotContainer = styled.div`
     align-items: center;
     margin-top: 50px;
     > p {
-        margin-bottom: 20px;
+        margin-bottom: 1.25rem;
         font-size: 30px;
     }
     > div {
-        margin-top: 20px;
+        margin-top: 1.25rem;
     }
 `
 
@@ -23,7 +23,7 @@ export const EmailForm = styled.form`
     }
     > input {
         width: 600px;
-        font-size: 20px;
+        font-size: 1.25rem;
         padding: 8px 16px;
         background-color: black;
         border: none;

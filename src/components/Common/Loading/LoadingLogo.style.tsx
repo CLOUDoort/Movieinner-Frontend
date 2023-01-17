@@ -19,5 +19,5 @@ export const LoadingLogoDiv = styled.div`
     color: white;
     font-weight: bold;
     transition: all 0.3s;
-    font-size: 20px;
+    font-size: 1.25rem;
 `

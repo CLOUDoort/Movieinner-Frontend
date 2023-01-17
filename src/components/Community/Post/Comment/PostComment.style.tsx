@@ -3,13 +3,13 @@ import styled from '@emotion/styled'
 export const CommentArea = styled.div`
     min-width: 750px;
     border-top: 1px solid rgba(210, 208, 208, 0.4);
-    margin-bottom: 20px;
+    margin-bottom: 1.25rem;
 `
 
 export const CommentWrite = styled.div`
-    margin-top: 20px;
-    padding-right: 20px;
-    padding-left: 20px;
+    margin-top: 1.25rem;
+    padding-right: 1.25rem;
+    padding-left: 1.25rem;
     > textarea {
         width: 100%;
         resize: none;
@@ -37,11 +37,11 @@ export const CommentWrite = styled.div`
 export const CommentList = styled.div`
     display: flex;
     flex-direction: column;
-    margin: 20px;
+    margin: 1.25rem;
     > div {
         border-bottom: 1px solid rgba(210, 208, 208, 0.4);
-        padding-top: 20px;
-        padding-bottom: 20px;
+        padding-top: 1.25rem;
+        padding-bottom: 1.25rem;
     }
 `
 
@@ -91,6 +91,6 @@ export const CommentReply = styled.div`
     > div {
         width: 80%;
         margin-left: 40px;
-        margin-top: 20px;
+        margin-top: 1.25rem;
     }
 `
