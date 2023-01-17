@@ -18,8 +18,9 @@ type HeaderMenuModalProps = {
 export const HeaderMenuModalBox = styled.div<HeaderMenuModalProps>`
     position: absolute;
     width: 100%;
-    top: 4.8rem;
-    background-color: #2e2e2e;
+    top: 5rem;
+    background-color: #000000;
+    border-bottom: 1px solid red;
     color: white;
     overflow: hidden;
     max-height: ${(props) => props.height ? '15rem' : 0};
