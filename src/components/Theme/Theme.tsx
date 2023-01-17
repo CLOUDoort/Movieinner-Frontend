@@ -40,7 +40,7 @@ const Theme = () => {
                 <ThemeSlider openModal={openModal} sliderImage={sliderImage} />
                 <p>테마 리스트</p>
                 <ThemeItem openModal={openModal} sliderImage={sliderImage} />
-                {showModal && modalInfo ? <ThemeModal showModal={true} closeModal={closeModal} modalInfo={modalInfo} /> : null}
+                {showModal ? <ThemeModal closeModal={closeModal} modalInfo={modalInfo} /> : null}
             </ThemeContainer> : <LoadingLogo />}
         </>
 
