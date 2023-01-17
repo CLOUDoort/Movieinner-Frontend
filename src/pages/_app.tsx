@@ -40,25 +40,23 @@ const MyApp: NextComponentType<AppContext, AppInitialProps, AppProps> = ({ Compo
     const [queryClient] = useState(() => new QueryClient())
     // const NoSSRToastContainer = dynamic(import('react-toastify').then((module) => module.ToastContainer), { ssr: false })
     return (
-        <>
-            <QueryClientProvider client={queryClient}>
-                <Provider store={store}>
-                    <Head>
-                        <title>Movie Inner</title>
-                        <meta charSet='utf-8' />
-                        <meta name='viewport' content='width=device-width, initial-scale=1.0' />
-                    </Head>
-                    <main>
-                        <Header />
-                        <Component {...pageProps} />
-                        <ToastContainer />
-                        <ReactQueryDevtools />
-                    </main>
-                    <Footer />
-                    <Global styles={GlobalCss} />
-                </Provider>
-            </QueryClientProvider>
-        </>
+        <QueryClientProvider client={queryClient}>
+            <Provider store={store}>
+                <Head>
+                    <title>Movie Inner</title>
+                    <meta charSet='utf-8' />
+                    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+                </Head>
+                <main>
+                    <Header />
+                    <Component {...pageProps} />
+                    <ToastContainer />
+                    <ReactQueryDevtools />
+                </main>
+                <Footer />
+                <Global styles={GlobalCss} />
+            </Provider>
+        </QueryClientProvider>
     )
 }
 
