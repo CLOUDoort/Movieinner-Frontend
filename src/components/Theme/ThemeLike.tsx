@@ -2,34 +2,21 @@ import { apiInstance } from '../../apis/setting'
 import { toast } from 'react-toastify'
 import { RootState } from '../../store/store'
 import { useSelector } from 'react-redux'
-import { useEffect, useState } from 'react'
-import { ThemeLikeBtn } from './Theme.style'
+import { ThemeLikeBtn } from './ThemeModal.style'
 import { BsFillHandThumbsUpFill } from 'react-icons/bs'
+import { useEffect, useState } from 'react'
+import useGetThemeLikeCheck from '../../apis/MovieData/ThemeLikeCheck'
 
 const ThemeLike = (props) => {
     const accessToken = useSelector((state: RootState) => state.token.token)
     const userIdx = useSelector((state: RootState) => state.idx.idx)
-    const [like, setLike] = useState(false)
     const { modalInfo } = props
-
+    const themeLikeState = useGetThemeLikeCheck('theme', userIdx, modalInfo[0].theme_name).data
+    const [like, setLike] = useState(false)
     useEffect(() => {
-        const getResponse = async () => {
-            try {
-                if (accessToken) {
-                    const checkLiked = await apiInstance.post('movies/liked/theme', {
-                        userIdx: userIdx,
-                        name: modalInfo[0].theme_name,
-                    })
-                    if (checkLiked.data.isExisted) {
-                        setLike(true)
-                    }
-                }
-            } catch (e) {
-                console.error(e.response)
-            }
-        }
-        getResponse()
-    }, [accessToken])
+        if (themeLikeState?.data?.isExisted) setLike(true)
+        else setLike(false)
+    }, [])
 
     const clickLikeBtn = async () => {
         if (accessToken) {
@@ -40,11 +27,11 @@ const ThemeLike = (props) => {
                         data: {
                             type: 'theme',
                             userIdx: userIdx,
-                            name: modalInfo[0].theme_name,
+                            movieId: modalInfo[0].movie_id,
                         },
                     })
                     setLike(false)
-                    toast.success('좋아요 삭제!')
+                    console.log('삭제', deleteResponse.data)
                 } catch (e) {
                     console.error(e.response)
                 }
@@ -58,7 +45,7 @@ const ThemeLike = (props) => {
                         backdrop_path: modalInfo[0].backdrop_path,
                     })
                     setLike(true)
-                    toast.success('좋아요! 마이페이지에 담김')
+                    console.log('추가', clickLikeResponse.data)
                 } catch (e) {
                     console.error(e.response)
                 }
