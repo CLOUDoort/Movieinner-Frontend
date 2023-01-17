@@ -1,10 +1,10 @@
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import { toast } from "react-toastify"
 import { apiInstance } from "../../apis/setting"
-import { SettingPwInput, SettingPwModalBox, SettingPwModalContainer } from "./SettingPassword.style"
+import { SettingPasswordContainer, SettingPwInput, SettingPwModalBox, SettingPwModalContainer } from "./SettingPassword.style"
 
 const SettingPassword = (props) => {
-    const { userIdx, socialEmail } = props
+    const { userIdx } = props
     const [modal, setModal] = useState(false)
     const [pw, setPw] = useState({
         current: '',
@@ -41,7 +41,7 @@ const SettingPassword = (props) => {
     }
 
     return (
-        <div>
+        <SettingPasswordContainer>
             <span>비밀번호 변경</span>
             <span onClick={clickModal}>비밀번호 변경</span>
             {modal && <SettingPwModalContainer onClick={clickModal}>
@@ -61,7 +61,7 @@ const SettingPassword = (props) => {
                     <button onClick={clickModifyPw}>비밀번호 변경</button>
                 </SettingPwModalBox>
             </SettingPwModalContainer>}
-        </div>
+        </SettingPasswordContainer>
     )
 }
 

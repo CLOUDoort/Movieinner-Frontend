@@ -1,5 +1,24 @@
 import styled from '@emotion/styled'
 
+export const SettingPasswordContainer = styled.div`
+    display: flex;
+    justify-content: center;
+    flex-shrink: 0;
+    align-items: center;
+    >span {
+        margin-right: 10px;
+        width: 120px;
+        text-align: center;
+    }
+    >:last-of-type {
+        background-color: red;
+        font-size: 15px;
+        padding: 3px 6px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+`
+
 export const SettingPwModalContainer = styled.div`
     position: fixed;
     top: 0;
