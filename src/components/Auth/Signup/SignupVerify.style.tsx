@@ -30,7 +30,7 @@ export const ContainerTitle = styled.div`
 
 export const ContainerProfile = styled.div`
     > div {
-        margin-top: 15px;
+        margin-top: 0.938rem;
     }
 `
 export const FailText = styled.div`

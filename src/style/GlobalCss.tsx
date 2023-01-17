@@ -167,10 +167,10 @@ const GlobalCss = css`
     }
     button {
         cursor: pointer;
-        border-radius: 5px;
+        border-radius: 0.313rem;
     }
     input {
-        border-radius: 5px;
+        border-radius: 0.313rem;
         outline: none;
     }
     svg {

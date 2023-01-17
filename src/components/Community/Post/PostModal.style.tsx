@@ -102,7 +102,7 @@ export const PostConfirmModalContainer = styled.div`
     > div {
         border: 1px solid gray;
         padding: 30px 50px;
-        border-radius: 5px;
+        border-radius: 0.313rem;
         > div {
             margin-top: 10px;
             display: flex;

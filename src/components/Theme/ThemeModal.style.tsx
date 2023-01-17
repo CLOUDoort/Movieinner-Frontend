@@ -48,7 +48,7 @@ export const ThemeModalItem = styled.div`
     > span {
         object-fit: contain;
         cursor: pointer;
-        border-radius: 5px;
+        border-radius: 0.313rem;
     }
 `
 export const ThemeModalContent = styled.div`
@@ -56,7 +56,7 @@ export const ThemeModalContent = styled.div`
     flex-direction: column;
     height: 2.5rem;
     > p {
-        margin-bottom: 5px;
+        margin-bottom: 0.313rem;
     }
 `
 
@@ -70,7 +70,7 @@ export const ThemeLikeBtn = styled.div<ThemeLikeBtnProps>`
     right: 3.75rem;
     cursor: pointer;
     > svg {
-        border-radius: 5px;
+        border-radius: 0.313rem;
         color: ${(props) => (props.like ? 'red' : 'white')};
     }
 `
@@ -81,6 +81,6 @@ export const ThemeCloseBtn = styled.div`
     cursor: pointer;
     > svg {
         color: #fefefe;
-        border-radius: 5px;
+        border-radius: 0.313rem;
     }
 `

@@ -43,10 +43,10 @@ export const UserModifyNickname = styled.div`
     margin-left: 10px;
     >input {
         border: 1px solid gray;
-        padding: 5px;
+        padding: 0.313rem;
     }
     >button {
-        margin-left: 5px;
+        margin-left: 0.313rem;
         border: none;
         background-color: black;
         color: white;
@@ -59,7 +59,7 @@ export const UserProfileData = styled.div`
     flex-direction: column;
     > div {
         cursor: pointer;
-        margin-top: 5px;
-        margin-bottom: 5px;
+        margin-top: 0.313rem;
+        margin-bottom: 0.313rem;
     }
 `

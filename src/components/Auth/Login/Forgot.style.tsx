@@ -34,7 +34,7 @@ export const EmailForm = styled.form`
         width: 300px;
         border: none;
         background-color: #f6f6f6;
-        font-size: 15px;
+        font-size: 0.938rem;
         padding: 10px;
         margin: auto;
     }

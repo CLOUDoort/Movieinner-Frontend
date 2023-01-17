@@ -191,7 +191,7 @@ export const ActorImageBox = styled.div`
     `
 
 export const ActorTitleBox = styled.div`
-    padding: 4px 6px 5px !important;
+    padding: 4px 6px 0.313rem !important;
     white-space: normal;
     display: block;
     > strong {

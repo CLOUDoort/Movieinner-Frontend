@@ -81,7 +81,7 @@ export const UserSex = styled.div`
         color: white;
         background-color: black;
         padding: 8px 12px;
-        border-radius: 5px;
+        border-radius: 0.313rem;
         font-size: 20px;
         margin-bottom: 20px;
         margin-right: 20px;
@@ -95,11 +95,11 @@ export const BirthInfo = styled.div<BirthInfoType>`
     flex-direction: row;
     align-items: center;
     > button {
-        font-size: 15px;
+        font-size: 0.938rem;
         padding: 8px 16px;
         background-color: ${(props) => props.select ? 'green' : 'white'};
         border: none;
-        border-radius: 5px;
+        border-radius: 0.313rem;
         margin-right: 10px;
     }
     > p {
@@ -112,7 +112,7 @@ export const ProgressBtn = styled.button`
     width: 300px;
     border: none;
     background-color: #f6f6f6;
-    font-size: 15px;
+    font-size: 0.938rem;
     padding: 10px;
     margin-top: 30px;
     margin-bottom: 30px;

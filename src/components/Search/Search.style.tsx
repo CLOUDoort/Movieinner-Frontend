@@ -44,7 +44,7 @@ export const SearchListItem = styled.div`
     > div {
         display: flex;
         align-items: center;
-        margin-top: 5px;
+        margin-top: 0.313rem;
         > span {
             cursor: pointer;
         }

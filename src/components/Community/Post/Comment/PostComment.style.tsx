@@ -17,8 +17,8 @@ export const CommentWrite = styled.div`
         outline: none;
         height: 6.25rem;
         border-radius: 2px;
-        padding: 5px 8px;
-        font-size: 15px;
+        padding: 0.313rem 8px;
+        font-size: 0.938rem;
     }
     > div {
         display: flex;
@@ -64,16 +64,16 @@ export const CommentUser = styled.div`
             > button {
                 border: none;
                 margin-left: 10px;
-                padding: 5px 10px;
-                margin-bottom: 5px;
+                padding: 0.313rem 10px;
+                margin-bottom: 0.313rem;
             }
         }   
     } 
     > div > button {
         border: none;
         margin-left: 10px;
-        padding: 5px 10px;
-        margin-bottom: 5px;
+        padding: 0.313rem 10px;
+        margin-bottom: 0.313rem;
         background-color: white
     }
     > :last-of-type {

@@ -32,7 +32,7 @@ export const FormContainer = styled.form`
         background-color: black;
         border: 1px solid gray;
         margin-bottom: 10px;
-        border-radius: 5px;
+        border-radius: 0.313rem;
         color: white;
     }
 `
@@ -75,7 +75,7 @@ export const LoginSecondDiv = styled.div`
         color: #b0aeae;
         border: 1px solid gray;
         margin-left: 10px;
-        border-radius: 5px;
+        border-radius: 0.313rem;
         padding: 8px 16px;
         width: 213px;
         cursor: pointer;
@@ -91,7 +91,7 @@ export const SocialLoginServiceDiv = styled.div`
     margin-bottom: 30px;
     > a > div {
         border: none;
-        border-radius: 5px;
+        border-radius: 0.313rem;
         margin-bottom: 30px;
         width: 350px;
         display: flex;

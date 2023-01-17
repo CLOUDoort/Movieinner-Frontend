@@ -11,15 +11,15 @@ export const SettingPasswordContainer = styled.div`
         }
     }
     >span {
-        margin-right: 10px;
-        width: 120px;
+        margin-right: 0.625rem;
+        width: 7.5rem;
         text-align: center;
     }
-    >:last-of-type {
+    >:nth-child(2) {
         background-color: red;
-        font-size: 15px;
+        font-size: 1rem;
         padding: 3px 6px;
-        border-radius: 5px;
+        border-radius: 0.313rem;
         cursor: pointer;
     }
 `
@@ -43,24 +43,28 @@ export const SettingPwModalBox = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    min-width: 600px;
-    min-height: 400px;
+    width: 37.5rem;
+    height: 25rem;
     border: 1px solid gray;
-    border-radius: 5px;
+    @media screen and (max-width: 40.63em) {
+        width: 23rem;
+        height: 16rem;
+    }
+    border-radius: 0.313rem;
     > button {
-        padding: 8px 16px;
-        font-size: 15px;
+        padding: 0.5rem 1rem;
+        font-size: 1rem;
         background-color: #03d103;
         border: none;
     }
 `
 export const SettingPwInput = styled.div`
-    margin-bottom: 30px;
+    margin-bottom: 1.875rem;
     > span {
-        margin-right: 10px;
+        margin-right: 0.625rem;
     }
     > input {
-        padding: 5px 10px;
+        padding: 0.313rem 0.625rem;
         border: none;
     }
 `

@@ -53,7 +53,7 @@ export const ThemeItemContainer = styled.div`
     }
     > span {
         cursor: pointer;
-        border-radius: 5px;
+        border-radius: 0.313rem;
     }
     > div {
         position: absolute;

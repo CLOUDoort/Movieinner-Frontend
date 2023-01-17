@@ -12,7 +12,7 @@ export const CurrentTextDiv = styled.div`
     width: 600px;
     display: flex;
     justify-content: space-between;
-    font-size: 15px;
+    font-size: 0.938rem;
     position: absolute;
     z-index: 100;
     bottom: 120px;
@@ -20,7 +20,7 @@ export const CurrentTextDiv = styled.div`
         padding-left: 10px;
     }
     > :nth-of-type(2) {
-        padding-left: 15px;
+        padding-left: 0.938rem;
     }
 `
 export const HorizontalRule = styled.div`

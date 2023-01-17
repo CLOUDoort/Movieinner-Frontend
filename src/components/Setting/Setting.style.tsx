@@ -40,7 +40,7 @@ export const SettingDeleteUser = styled.div`
         background-color: red;
         font-size: 1rem;
         padding: 3px 6px;
-        border-radius: 5px;
+        border-radius: 0.313rem;
         cursor: pointer;
     }
 `

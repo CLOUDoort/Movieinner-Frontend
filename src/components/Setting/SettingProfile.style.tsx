@@ -15,8 +15,8 @@ export const SettingProfileInfo = styled.div`
     font-weight: bold;
     @media screen and (max-width: 23.75em) {
         flex-direction: column;
-        > div {
-            margin-bottom: 10px;
+        > :first-of-type {
+            margin-bottom: 0.625rem;
         }
     }
     > div {
@@ -39,21 +39,21 @@ export const SettingModifyImage = styled.div`
     @media screen and (max-width: 23.75em) {
         border: none;
     }
-    padding-right: 15px;
+    padding-right: 0.98rem;
     > span {
         border-radius: 50%;
-        margin: 20px;
+        margin: 1.25rem;
         object-fit: scale-down;
     }
     > label {
         background-color: #05ce05;
         font-size: 13px;
         padding: 3px 6px;
-        width: 85px;
-        border-radius: 5px;
+        width: 5.313rem;
+        border-radius: 0.313rem;
         cursor: pointer;
-        margin-bottom: 5px;
-        margin-top: 5px;
+        margin-bottom: 0.313rem;
+        margin-top: 0.313rem;
         text-align: center;
     }
     >:last-of-type {

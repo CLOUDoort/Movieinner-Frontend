@@ -14,13 +14,13 @@ export const SearchModalBox = styled.div`
     > div {
         padding: 30px 50px;
         width: 500px;
-        border-radius: 5px;
+        border-radius: 0.313rem;
         display: flex;
         flex-direction: column;
         background-color: #ffffff;
         > div:nth-of-type(1) {
             background-color: #c8c7c7;
-            border-radius: 5px;
+            border-radius: 0.313rem;
         }
         > input {
             display: flex;
@@ -35,7 +35,7 @@ export const SearchModalBox = styled.div`
             margin-top: 20px;
             > button {
                 border: none;
-                padding: 5px 10px;
+                padding: 0.313rem 10px;
                 width: 70px;
                 height: 50px;
             }

@@ -12,13 +12,14 @@ const SettingPassword = (props) => {
         check: ''
     })
     const clickModal = async () => {
-        try {
-            const considerSocialLogin = await apiInstance.get(`/users/check/social/${userIdx}`)
-            if (considerSocialLogin.data.IsSocial) toast.error('소셜 로그인은 비밀번호 변경이 없습니다!')
-            else setModal(!modal)
-        } catch (e) {
-            console.error(e.response)
-        }
+        // try {
+        //     const considerSocialLogin = await apiInstance.get(`/users/check/social/${userIdx}`)
+        //     if (considerSocialLogin.data.IsSocial) toast.error('소셜 로그인은 비밀번호 변경이 없습니다!')
+        //     else setModal(!modal)
+        // } catch (e) {
+        //     console.error(e.response)
+        // }
+        setModal(!modal)
     }
     const handleChange = (e) => {
         const { value, name } = e.target

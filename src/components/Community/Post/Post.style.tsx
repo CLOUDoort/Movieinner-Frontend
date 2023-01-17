@@ -12,7 +12,7 @@ export const PostBox = styled.div`
     overflow: auto;
     height: 100vh;
     &::-webkit-scrollbar {
-      width: 5px;
+      width: 0.313rem;
       height: 20px;
     }
     &::-webkit-scrollbar-thumb {
@@ -27,7 +27,7 @@ export const PostContainer = styled.div`
     grid-template-rows: 700px 250px;
     row-gap: 50px;
     justify-content: center;
-    margin-top: 5px;
+    margin-top: 0.313rem;
     margin-bottom: 20px;
     position: relative;
     height: 100%;
@@ -39,7 +39,7 @@ export const PostContentArea = styled.div`
     display: flex;
     flex-direction: column;
     border: 3px solid black;
-    border-radius: 5px;
+    border-radius: 0.313rem;
     > hr {
         width: 700px;
         border: none;

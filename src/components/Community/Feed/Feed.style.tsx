@@ -13,7 +13,7 @@ export const FeedContainer = styled.div`
 export const FeedListArea = styled.div`
     width: 700px;
     border: 1px solid gray;
-    border-radius: 5px;
+    border-radius: 0.313rem;
     > hr {
         margin: 0;
     }
@@ -42,7 +42,7 @@ export const FeedListFirstType = styled.div`
 export const FeedListLastType = styled.div`
     display: flex;
     > div {
-        margin-left: 5px;
+        margin-left: 0.313rem;
         width: 50px;
         text-align: center;
     }

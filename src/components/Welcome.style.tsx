@@ -18,11 +18,11 @@ export const WelcomeBox = styled.div`
         width: 600px;
     }
     > div > button {
-        margin-right: 5px;
-        margin-left: 5px;
+        margin-right: 0.313rem;
+        margin-left: 0.313rem;
         margin-top: 20px;
         padding: 8px 16px;
-        font-size: 15px;
+        font-size: 0.938rem;
         border: none;
     }
 `

@@ -9,7 +9,7 @@ export const RankingArea = styled.div`
         width: 20rem;
     }
     border: 1px solid gray;
-    border-radius: 5px;
+    border-radius: 0.313rem;
     padding-bottom: 1rem;
 `
 export const RankingSubtitle = styled.p`
