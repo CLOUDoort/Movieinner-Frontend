@@ -1,4 +1,4 @@
-import { ThemeModalBox, ThemeModalContainer, ThemeModalItemContainer, ThemeModalItem, ThemeModalContent, ThemeCloseBtn } from './Theme.style'
+import { ThemeModalBox, ThemeModalContainer, ThemeModalItemContainer, ThemeModalItem, ThemeModalContent, ThemeCloseBtn } from './ThemeModal.style'
 import Image from 'next/image'
 import Link from 'next/link'
 import { AiFillCloseSquare } from 'react-icons/ai'
@@ -9,7 +9,6 @@ const ThemeModal = (props) => {
     return (
         <ThemeModalBox onClick={closeModal}>
             <ThemeModalContainer onClick={(e) => e.stopPropagation()}>
-                {/* 상위 이벤트로의 클릭 이벤트 전파 금지 */}
                 <p>{modalInfo[0].theme_name}</p>
                 <ThemeModalItemContainer>
                     {modalInfo.map((obj: any) => (
