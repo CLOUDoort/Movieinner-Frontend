@@ -6,7 +6,7 @@ import LoadingLogo from "../Common/Loading/LoadingLogo"
 import { SettingModifyImage } from "./SettingProfile.style"
 
 const SettingImage = (props) => {
-    const { userImage, loading, userIdx } = props
+    const { userImage, loading, userIdx, refetchImage } = props
     const fileInput = useRef(null)
     const [image, setImage] = useState(userImage)
 
@@ -36,6 +36,7 @@ const SettingImage = (props) => {
             await apiInstance.put(`/users/change/image`, { imageURL: image_URL, userIdx: userIdx })
             if (image != '/blank.png') await apiInstance.delete(`/image`, { data: { imageName: image } })
             toast.success('success')
+            refetchImage()
         } catch (e) {
             console.log(e)
             toast.error('error')
@@ -46,6 +47,7 @@ const SettingImage = (props) => {
             await apiInstance.delete(`/image`, { data: { imageName: image } })
             await apiInstance.put(`/users/change/image`, { imageURL: '', userIdx: userIdx })
             setImage('/blank.png')
+            refetchImage()
             toast.success('삭제 성공')
         } catch (e) {
             console.error(e.response)
