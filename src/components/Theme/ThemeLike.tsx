@@ -5,18 +5,31 @@ import { useSelector } from 'react-redux'
 import { ThemeLikeBtn } from './ThemeModal.style'
 import { BsFillHandThumbsUpFill } from 'react-icons/bs'
 import { useEffect, useState } from 'react'
-import useGetThemeLikeCheck from '../../apis/MovieData/ThemeLikeCheck'
 
 const ThemeLike = (props) => {
     const accessToken = useSelector((state: RootState) => state.token.token)
     const userIdx = useSelector((state: RootState) => state.idx.idx)
     const { modalInfo } = props
-    const themeLikeState = useGetThemeLikeCheck('theme', userIdx, modalInfo[0].theme_name).data
     const [like, setLike] = useState(false)
+
     useEffect(() => {
-        if (themeLikeState?.data?.isExisted) setLike(true)
-        else setLike(false)
-    }, [])
+        const getResponse = async () => {
+            try {
+                if (accessToken) {
+                    const checkLiked = await apiInstance.post('movies/liked/theme', {
+                        userIdx: userIdx,
+                        name: modalInfo[0].theme_name,
+                    })
+                    if (checkLiked.data.isExisted) {
+                        setLike(true)
+                    }
+                }
+            } catch (e) {
+                console.error(e.response)
+            }
+        }
+        getResponse()
+    }, [accessToken])
 
     const clickLikeBtn = async () => {
         if (accessToken) {
