@@ -21,7 +21,7 @@ export const WelcomeBox = styled.div`
         margin-right: 0.313rem;
         margin-left: 0.313rem;
         margin-top: 1.25rem;
-        padding: 8px 16px;
+        padding: 8px 1rem;
         font-size: 0.938rem;
         border: none;
     }

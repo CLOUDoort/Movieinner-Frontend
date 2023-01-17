@@ -20,7 +20,7 @@ export const EmailDiv = styled.div`
     > input {
         width: 600px;
         font-size: 1.25rem;
-        padding: 8px 16px;
+        padding: 8px 1rem;
         background-color: black;
         border: 1px solid gray;
         margin-bottom: 0.625rem;

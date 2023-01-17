@@ -66,7 +66,7 @@ export const UserInfoContainer = styled.div`
     > input {
         width: 600px;
         font-size: 1.25rem;
-        padding: 8px 16px;
+        padding: 8px 1rem;
         background-color: black;
         border: 1px solid gray;
         color: white;
@@ -96,7 +96,7 @@ export const BirthInfo = styled.div<BirthInfoType>`
     align-items: center;
     > button {
         font-size: 0.938rem;
-        padding: 8px 16px;
+        padding: 8px 1rem;
         background-color: ${(props) => props.select ? 'green' : 'white'};
         border: none;
         border-radius: 0.313rem;

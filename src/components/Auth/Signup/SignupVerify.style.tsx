@@ -55,7 +55,7 @@ export const ContainerBtn = styled.div`
     }
     > div > button {
         background-color: white;
-        padding: 8px 16px;
+        padding: 8px 1rem;
         border: none;
         margin-left: 0.625rem;
     }

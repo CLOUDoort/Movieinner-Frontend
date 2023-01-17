@@ -24,7 +24,7 @@ export const EmailForm = styled.form`
     > input {
         width: 600px;
         font-size: 1.25rem;
-        padding: 8px 16px;
+        padding: 8px 1rem;
         background-color: black;
         border: none;
         margin-bottom: 1.875rem;

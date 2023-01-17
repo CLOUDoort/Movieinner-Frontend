@@ -27,7 +27,7 @@ export const SearchModalBox = styled.div`
             align-items: center;
             margin-top: 0.625rem;
             border: 1px solid gray;
-            padding: 8px 16px;
+            padding: 8px 1rem;
         }
         > div {
             display: flex;

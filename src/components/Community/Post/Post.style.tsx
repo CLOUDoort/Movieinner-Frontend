@@ -49,7 +49,7 @@ export const PostContentArea = styled.div`
 export const PostInfo = styled.div`
     display: flex;
     justify-content: space-between;
-    padding: 16px 24px;
+    padding: 1rem 24px;
     font-size: 17px;
     > div {
         display: flex;
@@ -64,7 +64,7 @@ export const PostInfo = styled.div`
 `
 
 export const PostContents = styled.div`
-    padding: 16px 24px;
+    padding: 1rem 24px;
     width: 700px;
     > :first-of-type {
         padding-bottom: 0.625rem;

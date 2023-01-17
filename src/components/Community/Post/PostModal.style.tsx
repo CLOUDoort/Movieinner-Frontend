@@ -49,7 +49,7 @@ export const PostModalTitle = styled.div`
     align-items: center;
     justify-content: space-between;
     position: relative;
-    padding: 0.625rem 16px;
+    padding: 0.625rem 1rem;
     > button {
         background-size: 100% 100%;
         background: rgba(0, 0, 0, 0.4);
@@ -66,7 +66,7 @@ export const PostModalContents = styled.ul`
     overflow-x: hidden;
     -ms-overflow-style: none;
     scrollbar-width: none;
-    padding: 0 16px 40px;
+    padding: 0 1rem 40px;
     /* justify-content: center;
     align-items: center; */
     > li {
@@ -109,7 +109,7 @@ export const PostConfirmModalContainer = styled.div`
             justify-content: space-between;
             > button {
                 border: none;
-                padding: 8px 16px;
+                padding: 8px 1rem;
                 background-color: white;
             }
         }

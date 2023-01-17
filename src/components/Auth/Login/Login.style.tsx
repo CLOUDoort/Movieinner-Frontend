@@ -28,7 +28,7 @@ export const FormContainer = styled.form`
     }
     > input {
         font-size: 1.25rem;
-        padding: 8px 16px;
+        padding: 8px 1rem;
         background-color: black;
         border: 1px solid gray;
         margin-bottom: 0.625rem;
@@ -76,7 +76,7 @@ export const LoginSecondDiv = styled.div`
         border: 1px solid gray;
         margin-left: 0.625rem;
         border-radius: 0.313rem;
-        padding: 8px 16px;
+        padding: 8px 1rem;
         width: 213px;
         cursor: pointer;
     }
@@ -112,7 +112,7 @@ export const GoogleLogin = styled.div`
         font-weight: 500;
         margin-left: 70px;
         font-size: 18px;
-        padding: 8px 16px;
+        padding: 8px 1rem;
     }
 `
 export const NaverLogin = styled.div`

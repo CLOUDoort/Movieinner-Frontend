@@ -27,7 +27,7 @@ export const CommentWrite = styled.div`
         margin-top: 0.625rem;
         > button {
             border: none;
-            padding: 8px 16px;
+            padding: 8px 1rem;
             margin-left: 0.625rem;
             background-color: #adf8f8;
         }

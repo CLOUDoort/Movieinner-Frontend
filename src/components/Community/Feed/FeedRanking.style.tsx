@@ -14,7 +14,7 @@ export const RankingArea = styled.div`
 `
 export const RankingSubtitle = styled.p`
     font-size: 1.25rem;
-    padding: 16px 24px;
+    padding: 1rem 24px;
 `
 
 export const RankingList = styled.ul`
