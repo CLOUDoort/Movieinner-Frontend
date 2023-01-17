@@ -9,7 +9,7 @@ export const WelcomeContainer = styled.div`
 `
 
 export const WelcomeBox = styled.div`
-    margin: 30px;
+    margin: 1.875rem;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -27,13 +27,13 @@ export const WelcomeBox = styled.div`
     }
 `
 export const WelcomeTitle = styled.div`
-    font-size: 30px;
-    margin-top: 30px;
-    margin-bottom: 30px;
+    font-size: 1.875rem;
+    margin-top: 1.875rem;
+    margin-bottom: 1.875rem;
 `
 export const WelcomeText = styled.div`
     margin-top: 1.25rem;
     > div {
-        margin-bottom: 10px;
+        margin-bottom: 0.625rem;
     }
 `

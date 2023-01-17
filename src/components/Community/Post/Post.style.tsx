@@ -8,7 +8,7 @@ export const PostBox = styled.div`
     color: white;
     margin-bottom: 1.25rem;
     margin-top: 1.25rem;
-    border-radius: 10px;
+    border-radius: 0.625rem;
     overflow: auto;
     height: 100vh;
     &::-webkit-scrollbar {
@@ -33,7 +33,7 @@ export const PostContainer = styled.div`
     height: 100%;
 `
 export const PostContentArea = styled.div`
-    margin-top: 30px;
+    margin-top: 1.875rem;
     padding: 1.25rem;
     width: 750px;
     display: flex;
@@ -54,11 +54,11 @@ export const PostInfo = styled.div`
     > div {
         display: flex;
         > svg {
-            margin-right: 10px;
+            margin-right: 0.625rem;
             cursor: pointer;
         }
         > div {
-            margin-right: 10px;
+            margin-right: 0.625rem;
         }
     }
 `
@@ -67,6 +67,6 @@ export const PostContents = styled.div`
     padding: 16px 24px;
     width: 700px;
     > :first-of-type {
-        padding-bottom: 10px;
+        padding-bottom: 0.625rem;
     }
 `

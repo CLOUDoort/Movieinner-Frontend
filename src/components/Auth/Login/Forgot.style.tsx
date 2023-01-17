@@ -7,7 +7,7 @@ export const ForgotContainer = styled.div`
     margin-top: 50px;
     > p {
         margin-bottom: 1.25rem;
-        font-size: 30px;
+        font-size: 1.875rem;
     }
     > div {
         margin-top: 1.25rem;
@@ -19,7 +19,7 @@ export const EmailForm = styled.form`
     flex-direction: column;
     > div {
         text-align: start;
-        margin-bottom: 10px;
+        margin-bottom: 0.625rem;
     }
     > input {
         width: 600px;
@@ -27,7 +27,7 @@ export const EmailForm = styled.form`
         padding: 8px 16px;
         background-color: black;
         border: none;
-        margin-bottom: 30px;
+        margin-bottom: 1.875rem;
         color: white;
     }
     > button {
@@ -35,7 +35,7 @@ export const EmailForm = styled.form`
         border: none;
         background-color: #f6f6f6;
         font-size: 0.938rem;
-        padding: 10px;
+        padding: 0.625rem;
         margin: auto;
     }
 `

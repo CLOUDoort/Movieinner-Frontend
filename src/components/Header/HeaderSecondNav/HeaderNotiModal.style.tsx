@@ -71,7 +71,7 @@ export const HeaderNotiNum = styled.div<HeaderNotiProps>`
     min-width: 8px;
     max-width: 18px;
     padding: 0 4px;
-    font-size: 10px;
+    font-size: 0.625rem;
     line-height: 11px;
     top: 1.2rem;
     right: 8.5rem;

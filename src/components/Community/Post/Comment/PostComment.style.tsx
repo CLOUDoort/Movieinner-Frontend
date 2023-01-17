@@ -23,12 +23,12 @@ export const CommentWrite = styled.div`
     > div {
         display: flex;
         justify-content: end;
-        margin-right: 10px;
-        margin-top: 10px;
+        margin-right: 0.625rem;
+        margin-top: 0.625rem;
         > button {
             border: none;
             padding: 8px 16px;
-            margin-left: 10px;
+            margin-left: 0.625rem;
             background-color: #adf8f8;
         }
     }
@@ -52,27 +52,27 @@ export const CommentUser = styled.div`
     > div {
         display: flex;
         > :first-of-type {
-            margin-left: 10px;
+            margin-left: 0.625rem;
             /* font-weight: bold; */
         }
         > div {
-            margin-left: 10px;
-            margin-top: 10px;
+            margin-left: 0.625rem;
+            margin-top: 0.625rem;
             > :first-of-type {
                 font-weight: bold;
             }
             > button {
                 border: none;
-                margin-left: 10px;
-                padding: 0.313rem 10px;
+                margin-left: 0.625rem;
+                padding: 0.313rem 0.625rem;
                 margin-bottom: 0.313rem;
             }
         }   
     } 
     > div > button {
         border: none;
-        margin-left: 10px;
-        padding: 0.313rem 10px;
+        margin-left: 0.625rem;
+        padding: 0.313rem 0.625rem;
         margin-bottom: 0.313rem;
         background-color: white
     }

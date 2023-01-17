@@ -12,7 +12,7 @@ export const TitleDiv = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 30px;
+    font-size: 1.875rem;
     margin-top: 1.25rem;
 `
 
@@ -46,7 +46,7 @@ export const UserProfileBox = styled.div`
         width: 400px;
         border: none;
         font-size: 1.25rem;
-        padding: 10px;
+        padding: 0.625rem;
         border: 1px solid gray;
         background-color: black;
         color: white;
@@ -61,7 +61,7 @@ export const UserInfoContainer = styled.div`
     margin-top: 50px;
     > div {
         text-align: start;
-        margin-bottom: 10px;
+        margin-bottom: 0.625rem;
     }
     > input {
         width: 600px;
@@ -100,10 +100,10 @@ export const BirthInfo = styled.div<BirthInfoType>`
         background-color: ${(props) => props.select ? 'green' : 'white'};
         border: none;
         border-radius: 0.313rem;
-        margin-right: 10px;
+        margin-right: 0.625rem;
     }
     > p {
-        margin-left: 10px;
+        margin-left: 0.625rem;
         font-size: 1.25rem;
     }
 `
@@ -113,7 +113,7 @@ export const ProgressBtn = styled.button`
     border: none;
     background-color: #f6f6f6;
     font-size: 0.938rem;
-    padding: 10px;
-    margin-top: 30px;
-    margin-bottom: 30px;
+    padding: 0.625rem;
+    margin-top: 1.875rem;
+    margin-bottom: 1.875rem;
 `

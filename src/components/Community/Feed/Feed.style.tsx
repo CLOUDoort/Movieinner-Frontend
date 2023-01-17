@@ -28,7 +28,7 @@ export const FeedListContainer = styled.div`
 export const FeedListFirstType = styled.div`
     display: flex;
     > div {
-        margin-right: 10px;
+        margin-right: 0.625rem;
         text-align: center;
     }
     > :first-of-type {
@@ -66,7 +66,7 @@ export const FeedRemoteBox = styled.div`
         margin-top: 1.25rem;
         border: 1px solid gray;
         border-radius: 40%;
-        padding: 10px;
+        padding: 0.625rem;
         transition: color 0.4s;
     }
     > svg:hover {
@@ -86,7 +86,7 @@ export const FeedPaginationContainer = styled.div<PaginationProps>`
         margin-left: 0.6rem;
         font-size: 1.2rem;
         border: 1px solid gray;
-        border-radius: 10px;
+        border-radius: 0.625rem;
         padding: 0.3rem 0.6rem;
         color: #c9c9c9;
         width: 2.3rem;
@@ -106,6 +106,6 @@ export const FeedPaginationContainer = styled.div<PaginationProps>`
         }
     }
     >:last-child {
-        margin-left: 10px;
+        margin-left: 0.625rem;
     }
 `

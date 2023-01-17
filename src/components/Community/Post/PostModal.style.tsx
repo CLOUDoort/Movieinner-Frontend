@@ -49,7 +49,7 @@ export const PostModalTitle = styled.div`
     align-items: center;
     justify-content: space-between;
     position: relative;
-    padding: 10px 16px;
+    padding: 0.625rem 16px;
     > button {
         background-size: 100% 100%;
         background: rgba(0, 0, 0, 0.4);
@@ -101,10 +101,10 @@ export const PostConfirmModalContainer = styled.div`
     z-index: 2000;
     > div {
         border: 1px solid gray;
-        padding: 30px 50px;
+        padding: 1.875rem 50px;
         border-radius: 0.313rem;
         > div {
-            margin-top: 10px;
+            margin-top: 0.625rem;
             display: flex;
             justify-content: space-between;
             > button {

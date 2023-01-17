@@ -28,7 +28,7 @@ export const WriteBtn = styled.div`
     border-bottom-right-radius: 3px;
     :last-child {
         background-color: #b7cbc5;
-        padding: 10px 1.25rem;
+        padding: 0.625rem 1.25rem;
     }
     > button {
         font-size: 1.25rem;

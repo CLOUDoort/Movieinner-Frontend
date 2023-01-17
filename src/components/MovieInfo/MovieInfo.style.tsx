@@ -13,7 +13,7 @@ export const MovieBackdropImgContainer = styled.div`
     position: relative;
     margin: 1.25rem !important;
     > span {
-        border-radius: 10px !important;
+        border-radius: 0.625rem !important;
         border: 1px solid black !important;
         cursor: pointer;
     }
@@ -27,7 +27,7 @@ export const MovieTextContainer = styled.div`
     display: flex;
     flex-direction: column;
     > div {
-        margin-top: 10px;
+        margin-top: 0.625rem;
     }
 `
 
@@ -38,8 +38,8 @@ export const MovieTextTitle = styled.div`
         font-size: large;
     }
     > div {
-        margin-left: 10px;
-        margin-right: 10px;
+        margin-left: 0.625rem;
+        margin-right: 0.625rem;
     }
 `
 
@@ -51,8 +51,8 @@ export const MovieTextOverview = styled.div`
     }
     > div {
         width: 500px;
-        margin-left: 10px;
-        margin-right: 10px;
+        margin-left: 0.625rem;
+        margin-right: 0.625rem;
     }
 `
 
@@ -61,7 +61,7 @@ export const MovieFosterImgContainer = styled.div`
     height: 300px;
     position: relative;
     > span {
-        border-radius: 10px !important;
+        border-radius: 0.625rem !important;
         border: 1px solid black !important;
     }
 `
@@ -77,7 +77,7 @@ type MovieLikeBtnProps = {
 export const MovieLikeBtn = styled.div<MovieLikeBtnProps>`
     > svg {
         color: ${(props) => (props.like ? 'red' : 'white')};
-        margin-right: 10px;
+        margin-right: 0.625rem;
     }
 `
 
@@ -130,7 +130,7 @@ export const MovieActorContainer = styled.div`
 
 export const MovieActorList = styled.ul`
     display: table;
-    margin-top: 10px;
+    margin-top: 0.625rem;
     border-spacing: 9px 0;
     border-collapse: separate;
     table-layout: fixed;
@@ -148,7 +148,7 @@ export const ActorAreaCard = styled.li`
     z-index: 2;
     border-spacing: 9px 0;
     border-collapse: separate;
-    border-radius: 10px;
+    border-radius: 0.625rem;
     > div {
         height: 100%;
         width: inherit;

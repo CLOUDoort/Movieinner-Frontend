@@ -9,8 +9,8 @@ export const StorageContainer = styled.div`
 export const StorageThemeContainer = styled.div`
     > p {
         text-align: center;
-        margin-top: 10px;
-        margin-bottom: 10px;
+        margin-top: 0.625rem;
+        margin-bottom: 0.625rem;
         font-weight: bold;
         font-size: 18px;
     }
@@ -22,13 +22,13 @@ export const StorageMovieScroll = styled.div`
     margin: 0 -24px;
     font-size: 1.3rem;
     > p {
-        margin-top: 10px;
-        margin-bottom: 10px;
+        margin-top: 0.625rem;
+        margin-bottom: 0.625rem;
         font-weight: bold;
         font-size: 18px;
     }
     > :first-of-type {
-        margin-left: 10px;
+        margin-left: 0.625rem;
     }
 `
 
@@ -61,8 +61,8 @@ export const StorageMovieContainer = styled.div`
 
 export const StorageMovieList = styled.ul`
     display: table;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin-top: 0.625rem;
+    margin-bottom: 0.625rem;
     border-spacing: 9px 0;
     border-collapse: separate;
     table-layout: fixed;
@@ -83,7 +83,7 @@ export const StorageMovieAreaCard = styled.li`
     z-index: 2;
     border-spacing: 9px 0;
     border-collapse: separate;
-    border-radius: 10px;
+    border-radius: 0.625rem;
     > div {
         height: 100%;
         background-color: black;
@@ -130,8 +130,8 @@ export const StorageMovieTitleBox = styled.div`
     white-space: normal;
     display: block;
     text-align: start;
-    padding: 10px;
-    margin-top: 10px;
+    padding: 0.625rem;
+    margin-top: 0.625rem;
     > strong {
         max-height: 4.8rem;
         overflow: hidden;

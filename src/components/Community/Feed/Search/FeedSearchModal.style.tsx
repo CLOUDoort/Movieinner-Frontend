@@ -12,7 +12,7 @@ export const SearchModalBox = styled.div`
     align-items: center;
     z-index: 9999;
     > div {
-        padding: 30px 50px;
+        padding: 1.875rem 50px;
         width: 500px;
         border-radius: 0.313rem;
         display: flex;
@@ -25,7 +25,7 @@ export const SearchModalBox = styled.div`
         > input {
             display: flex;
             align-items: center;
-            margin-top: 10px;
+            margin-top: 0.625rem;
             border: 1px solid gray;
             padding: 8px 16px;
         }
@@ -35,7 +35,7 @@ export const SearchModalBox = styled.div`
             margin-top: 1.25rem;
             > button {
                 border: none;
-                padding: 0.313rem 10px;
+                padding: 0.313rem 0.625rem;
                 width: 70px;
                 height: 50px;
             }

@@ -7,7 +7,7 @@ export const SignupContainerDiv = styled.div`
     align-items: center;
     > p {
         display: flex;
-        font-size: 30px;
+        font-size: 1.875rem;
         margin-bottom: 1.25rem;
     }
 `
@@ -15,7 +15,7 @@ export const EmailDiv = styled.div`
     display: flex;
     flex-direction: column;
     > label {
-        margin-bottom: 10px;
+        margin-bottom: 0.625rem;
     }
     > input {
         width: 600px;
@@ -23,7 +23,7 @@ export const EmailDiv = styled.div`
         padding: 8px 16px;
         background-color: black;
         border: 1px solid gray;
-        margin-bottom: 10px;
+        margin-bottom: 0.625rem;
         color: white;
         :hover {
             background-color: #161616;
@@ -36,9 +36,9 @@ export const ProgressBtn = styled.button`
     border: none;
     background-color: #f6f6f6;
     font-size: 0.938rem;
-    padding: 10px;
-    margin-top: 30px;
-    margin-bottom: 30px;
+    padding: 0.625rem;
+    margin-top: 1.875rem;
+    margin-bottom: 1.875rem;
 `
 
 export const SubmitInput = styled.input`
@@ -46,9 +46,9 @@ export const SubmitInput = styled.input`
     border: none;
     background-color: gray;
     font-size: 0.938rem;
-    padding: 10px;
-    margin-top: 30px;
-    margin-bottom: 30px;
+    padding: 0.625rem;
+    margin-top: 1.875rem;
+    margin-bottom: 1.875rem;
     cursor: pointer;
     :hover {
         background-color: white;
@@ -59,6 +59,6 @@ type CheckTextType = {
 }
 
 export const CheckText = styled.p<CheckTextType>`
-    margin: 10px 0;
+    margin: 0.625rem 0;
     color: ${(props) => props.check ? '#08cf08' : 'red'};
 `

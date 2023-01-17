@@ -17,7 +17,7 @@ export const CurrentTextDiv = styled.div`
     z-index: 100;
     bottom: 7.5rem;
     > :nth-of-type(1) {
-        padding-left: 10px;
+        padding-left: 0.625rem;
     }
     > :nth-of-type(2) {
         padding-left: 0.938rem;
@@ -42,14 +42,14 @@ export const CircleBox = styled.div`
 export const StatusCircleDiv = styled.div`
     background-color: #3434f2;
     border: none;
-    width: 30px;
-    height: 30px;
+    width: 1.875rem;
+    height: 1.875rem;
     border-radius: 25px;
 `
 export const CircleDiv = styled.div`
     background-color: white;
     border: 1px solid black;
-    width: 30px;
-    height: 30px;
+    width: 1.875rem;
+    height: 1.875rem;
     border-radius: 25px;
 `

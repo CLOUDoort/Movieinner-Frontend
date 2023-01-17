@@ -25,7 +25,7 @@ color: black;
 `
 
 export const ContainerTitle = styled.div`
-    font-size: 30px;
+    font-size: 1.875rem;
 `
 
 export const ContainerProfile = styled.div`
@@ -41,7 +41,7 @@ export const FailText = styled.div`
 
 export const ContainerText = styled.div`
     > div {
-        margin-bottom: 10px;
+        margin-bottom: 0.625rem;
     }
 `
 
@@ -57,7 +57,7 @@ export const ContainerBtn = styled.div`
         background-color: white;
         padding: 8px 16px;
         border: none;
-        margin-left: 10px;
+        margin-left: 0.625rem;
     }
     > div > p {
         font-size: 1.25rem;

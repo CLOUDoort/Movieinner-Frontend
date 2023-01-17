@@ -10,7 +10,7 @@ export const LoginDiv = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 30px;
+    font-size: 1.875rem;
     height: 100px;
 `
 export const FormDiv = styled.div`
@@ -24,14 +24,14 @@ export const FormContainer = styled.form`
     width: 600px;
     > div {
         text-align: start;
-        margin-bottom: 10px;
+        margin-bottom: 0.625rem;
     }
     > input {
         font-size: 1.25rem;
         padding: 8px 16px;
         background-color: black;
         border: 1px solid gray;
-        margin-bottom: 10px;
+        margin-bottom: 0.625rem;
         border-radius: 0.313rem;
         color: white;
     }
@@ -49,7 +49,7 @@ export const LoginSustainDiv = styled.div`
 export const LoginFailText = styled.div`
     display: flex;
     flex-direction: column;
-    margin-top: 10px;
+    margin-top: 0.625rem;
     line-height: 7px;
     text-align: center;
 `
@@ -74,7 +74,7 @@ export const LoginSecondDiv = styled.div`
         background-color: #2e2e2e;
         color: #b0aeae;
         border: 1px solid gray;
-        margin-left: 10px;
+        margin-left: 0.625rem;
         border-radius: 0.313rem;
         padding: 8px 16px;
         width: 213px;
@@ -88,11 +88,11 @@ export const SocialLoginServiceDiv = styled.div`
     justify-content: center;
     align-items: center;
     margin-top: 50px;
-    margin-bottom: 30px;
+    margin-bottom: 1.875rem;
     > a > div {
         border: none;
         border-radius: 0.313rem;
-        margin-bottom: 30px;
+        margin-bottom: 1.875rem;
         width: 350px;
         display: flex;
     }

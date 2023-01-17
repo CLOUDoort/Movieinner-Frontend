@@ -15,8 +15,8 @@ export const SearchContainer = styled.div<SearchContainerType>`
     opacity: ${(props) => props.darktransition ? 1 : 0};
     transition: opacity 1s;
     > div {
-      margin-top: 10px;
-        margin-bottom: 10px;
+      margin-top: 0.625rem;
+        margin-bottom: 0.625rem;
         height: auto;
         overflow-y: auto;
     &::-webkit-scrollbar {
