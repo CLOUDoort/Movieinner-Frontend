@@ -20,9 +20,7 @@ const ThemeLike = (props) => {
                         userIdx: userIdx,
                         name: modalInfo[0].theme_name,
                     })
-                    if (checkLiked.data.isExisted) {
-                        setLike(true)
-                    }
+                    if (checkLiked.data.isExisted) setLike(true)
                 }
             } catch (e) {
                 console.error(e.response)
@@ -36,11 +34,11 @@ const ThemeLike = (props) => {
             // 좋아요 삭제
             if (like) {
                 try {
-                    const deleteResponse = await apiInstance.delete('movies/liked', {
+                    const deleteResponse = await apiInstance.delete('/movies/liked', {
                         data: {
                             type: 'theme',
                             userIdx: userIdx,
-                            movieId: modalInfo[0].movie_id,
+                            name: modalInfo[0].theme_name,
                         },
                     })
                     setLike(false)
@@ -51,7 +49,7 @@ const ThemeLike = (props) => {
             } else {
                 // 좋아요 추가
                 try {
-                    const clickLikeResponse = await apiInstance.post('movies/liked', {
+                    const clickLikeResponse = await apiInstance.post('/movies/liked', {
                         type: 'theme',
                         userIdx: userIdx,
                         name: modalInfo[0].theme_name,
