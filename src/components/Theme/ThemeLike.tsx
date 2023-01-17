@@ -42,7 +42,7 @@ const ThemeLike = (props) => {
                         type: 'theme',
                         userIdx: userIdx,
                         name: modalInfo[0].theme_name,
-                        backdrop_path: modalInfo[0].backdrop_path,
+                        poster_path: modalInfo[0].poster_path,
                     })
                     setLike(true)
                     console.log('추가', clickLikeResponse.data)
