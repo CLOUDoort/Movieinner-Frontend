@@ -16,7 +16,7 @@ const Feed = () => {
     const accessToken = useSelector((state: RootState) => state.token.token)
     const [currentPage, setCurrentPage] = useState(1)
     const router = useRouter()
-    const { data, isLoading } = useGetFeedData(currentPage)
+    const { data } = useGetFeedData(currentPage)
     const hitData = useGetHitFeed().data
     const hitLoading = useGetHitFeed().isLoading
 
@@ -34,7 +34,7 @@ const Feed = () => {
     }
     return (
         <>
-            {!isLoading && !hitLoading && hitDataList ? (
+            {!hitLoading && hitDataList ? (
                 <FeedContainer>
                     <FeedRanking hit={hitDataList} />
                     <FeedList feedPost={data} />
