@@ -15,10 +15,10 @@ export const ThemeModalBox = styled.div`
 
 export const ThemeModalContainer = styled.div`
     position: absolute;
-    padding: 0.625rem;
+    padding: 1rem;
     text-align: center;
     background-color: #1b1b1b;
-    border-radius: 1.375rem;
+    border-radius: 0.3rem;
     border: 1px solid rgba(0, 0, 0, 0.4);
     > p {
         margin-top: 0.5rem;
