@@ -66,7 +66,7 @@ export const HeaderNotiNum = styled.div<HeaderNotiProps>`
     display: inline-block;
     background-color: ${(props) => props.number ? "#c00" : null} ;
     border-radius: 22px;
-    border: 2px solid rgba(0, 0, 0, 0.8) ;
+    border: ${(props) => props.number ? "2px solid rgba(0, 0, 0, 0.8) " : null};
     height: 1rem;
     min-width: 8px;
     max-width: 18px;
