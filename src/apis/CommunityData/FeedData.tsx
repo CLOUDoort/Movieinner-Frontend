@@ -3,10 +3,6 @@ import { dehydrate, QueryClient, useQuery } from 'react-query'
 import { GetServerSideProps } from 'next'
 import { apiInstance } from '../setting'
 
-export interface FeedPage {
-    page: string | string[] | number
-}
-
 export const getServerSidePropsfeedData: GetServerSideProps = async (context) => {
     const { page } = context.query as any
     const queryClient = new QueryClient()
