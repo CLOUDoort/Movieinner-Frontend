@@ -50,7 +50,7 @@ export const UserModifyNickname = styled.div`
         border: none;
         background-color: black;
         color: white;
-        font-size: 16px;
+        font-size: 1rem;
         font-weight: bold;
     }
 `
