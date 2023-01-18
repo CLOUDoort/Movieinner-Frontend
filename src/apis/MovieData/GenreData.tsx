@@ -1,19 +1,5 @@
-import { AxiosError, AxiosResponse } from "axios";
-import { GetServerSideProps } from "next";
-import { dehydrate, QueryClient, useQuery } from "react-query";
+import { useInfiniteQuery } from "react-query";
 import { apiInstance } from "../setting";
-
-
-export const getServerSidePropsGenreData: GetServerSideProps = async (context) => {
-    const { search, searchPage } = context.query as any
-    const queryClient = new QueryClient()
-    await queryClient.prefetchQuery(['genreData', search, searchPage], () => useGetGenreData(search, searchPage))
-    return {
-        props: {
-            dyhydrateState: dehydrate(queryClient)
-        }
-    }
-}
 
 export const getGenreData = (search: any, searchPage: any) => apiInstance.get(`/movies/category`, {
     params: {
@@ -22,9 +8,15 @@ export const getGenreData = (search: any, searchPage: any) => apiInstance.get(`/
     }
 })
 
-const useGetGenreData = (search: any, searchPage: any) => {
-    const queryFn = () => getGenreData(search, searchPage)
-    return useQuery<AxiosResponse<any>, AxiosError>(['genreData', search, searchPage], queryFn)
+const useGetGenreData = (search: any) => {
+    const queryFn = async (search: any, searchPage: any) => {
+        const response = await getGenreData(search, searchPage)
+        const { data } = response
+        return { data, searchPage: searchPage }
+    }
+    return useInfiniteQuery(['genreData', (search)], ({ pageParam = 1 }) => queryFn(search, pageParam), {
+        getNextPageParam: (lastPage) => lastPage.searchPage + 1 || undefined
+    })
 }
 
 export default useGetGenreData

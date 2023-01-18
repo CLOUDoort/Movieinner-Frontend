@@ -1,31 +1,24 @@
-import { AxiosError, AxiosResponse } from "axios";
-import { GetServerSideProps } from "next";
-import { dehydrate, QueryClient, useQuery } from "react-query";
+import { useInfiniteQuery } from "react-query";
 import { apiInstance } from "../setting";
 
 
-export const getServerSidePropsActorSearch: GetServerSideProps = async (context) => {
-    const { search, page } = context.query as any
-    const queryClient = new QueryClient()
-    await queryClient.prefetchQuery(['actorSearch', search, page], () => useGetActorSearch(search, page))
-    return {
-        props: {
-            dehydratedState: dehydrate(queryClient)
-        }
-    }
-}
-
-export const getActorSearch = (search: any, page: any) => apiInstance.get(`/search/actor`, {
+export const getActorSearch = (search: any, searchPage: any) => apiInstance.get(`/search/actor`, {
     params: {
         search: search,
-        page: page
+        searchPage: searchPage
     },
     withCredentials: true
 })
 
-const useGetActorSearch = (search: any, page: any) => {
-    const queryFn = () => getActorSearch(search, page)
-    return useQuery<AxiosResponse<any>, AxiosError>(['actorSearch', search, page], queryFn)
+const useGetActorSearch = (search: any) => {
+    const queryFn = async (search: any, searchPage: any) => {
+        const response = await getActorSearch(search, searchPage)
+        const { data } = response
+        return { data, searchPage: searchPage }
+    }
+    return useInfiniteQuery(['actorSearch', (search)], ({ pageParam = 1 }) => queryFn(search, pageParam), {
+        getNextPageParam: (lastPage) => lastPage.searchPage + 1 || undefined
+    })
 }
 
 export default useGetActorSearch
