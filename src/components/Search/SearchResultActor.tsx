@@ -2,12 +2,13 @@ import Link from "next/link"
 import { SearchBox, SearchListItem, SearchListTitle } from "./Search.style"
 import Image from "next/image"
 import { IoIosArrowForward } from "react-icons/io"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 
 const SearchResultActor = (props) => {
     const { actorSearch } = props
     const [clickSearch, setClickSearch] = useState(false)
+    useEffect(() => { setClickSearch(false) }, [actorSearch])
 
     return (
         <>

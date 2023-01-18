@@ -2,12 +2,14 @@ import { SearchBox, SearchListItem, SearchListTitle } from "./Search.style"
 import Image from "next/image"
 import { IoIosArrowForward } from "react-icons/io"
 import router from "next/router"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 
 const SearchResultMovie = (props) => {
     const { movieSearch } = props
     const [clickSearch, setClickSearch] = useState(false)
+    useEffect(() => { setClickSearch(false) }, [movieSearch])
+
     return <>
         <SearchListTitle clickSearch={clickSearch} onClick={() => setClickSearch(!clickSearch)}>
             Movie {movieSearch?.total_results}<IoIosArrowForward size={35} /></SearchListTitle>
