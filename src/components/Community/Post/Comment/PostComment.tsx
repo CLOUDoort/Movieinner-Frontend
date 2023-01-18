@@ -9,7 +9,6 @@ const PostComment = (props) => {
     const accessToken = useSelector((state: RootState) => state.token.token)
     const userIdx = useSelector((state: RootState) => state.idx.idx)
     const nickname = useSelector((state: RootState) => state.nickname.nickname)
-    console.log('userIDx', userIdx)
 
     return (
         <CommentArea>
