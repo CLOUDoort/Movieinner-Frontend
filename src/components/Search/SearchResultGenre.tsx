@@ -1,16 +1,15 @@
 import { IoIosArrowForward } from "react-icons/io"
-import { SearchBox, SearchListItem, SearchListTitle } from "./Search.style"
+import { SearchBox, SearchGenreTitle, SearchListItem, SearchListTitle } from "./Search.style"
 import Image from "next/image"
 import Link from "next/link"
-import { useState } from "react"
 
 const SearchResultGenre = (props) => {
     const { genreSearch, genreName } = props
-    const [clickSearch, setClickSearch] = useState(false)
     return (
-        <>
-            <SearchListTitle clickSearch={clickSearch}>
-                {genreName} {genreSearch?.total_results}<IoIosArrowForward size={35} /></SearchListTitle>
+        <div>
+            <SearchGenreTitle>
+                <div>{genreName}{genreSearch?.total_results}</div>
+                <IoIosArrowForward size={35} /></SearchGenreTitle>
             <SearchBox>
                 {genreSearch?.search?.map((list) => (
                     <SearchListItem key={list.id}>
@@ -32,7 +31,7 @@ const SearchResultGenre = (props) => {
                     </SearchListItem>
                 ))}
             </SearchBox>
-        </>
+        </div>
     )
 }
 

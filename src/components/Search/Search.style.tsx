@@ -23,6 +23,15 @@ export const SearchContainer = styled.div<SearchContainerType>`
       height: 10%
     }
 `
+
+export const SearchResultBox = styled.div`
+    display: flex;
+    flex-direction: column;
+    >:first-of-type > div > div {
+      display: flex;
+      align-items: center;
+    }
+`
 export const SearchBox = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
@@ -39,18 +48,28 @@ export const SearchBox = styled.div`
 `
 
 type SearchClick = {
-  clickSearch: boolean
+  movie: boolean
+  actor: boolean
 }
 
 export const SearchListTitle = styled.div<SearchClick>`
     display: flex;
     align-items: center;
     justify-content: center;
-    font-weight: bold;
-    margin-top: 1.25rem;
     margin-bottom: 1.25rem;
-    > svg {
-      color: ${(props) => props.clickSearch ? 'red' : null};
+    > div {
+      margin-left: 1rem;
+      font-weight: bold;
+      font-size: 1rem;
+    }
+    > div > svg {
+      margin-left: 0.188rem;
+    }
+    >:first-of-type > svg {
+      color: ${(props) => props.movie ? 'red' : null};
+    }
+    >:last-of-type > svg {
+      color: ${(props) => props.actor ? 'red' : null};
     }
 `
 
@@ -74,5 +93,19 @@ export const SearchListItem = styled.div`
             cursor: pointer;
           }
         }
+    }
+`
+
+export const SearchGenreTitle = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.25rem;
+    > div {
+      font-size: 1rem;
+      font-weight: bold;
+    }
+    > svg {
+      margin-left: 0.7rem;
     }
 `
