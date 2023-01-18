@@ -14,9 +14,7 @@ const Search = () => {
     const actorSearch = useGetActorSearch(search, page ? page : 1).data
     const genreSearch = useGetGenreData(genre, 1).data
     const [darktransition, setDarktransition] = useState(false)
-    useEffect(() => {
-        setDarktransition(true)
-    })
+    useEffect(() => { setDarktransition(true) })
     return (
         <SearchContainer darktransition={darktransition} onClick={(e) => e.stopPropagation()}>
             <SearchResult movieSearch={movieSearch?.data} actorSearch={actorSearch?.data} genreSearch={genreSearch?.data} genreName={name} />
