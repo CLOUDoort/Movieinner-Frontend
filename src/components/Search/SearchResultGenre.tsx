@@ -1,5 +1,5 @@
 import { IoIosArrowForward } from "react-icons/io"
-import { SearchBox, SearchGenreTitle, SearchListItem, SearchListTitle } from "./Search.style"
+import { SearchBox, SearchGenreTitle, SearchListItem } from "./Search.style"
 import Image from "next/image"
 import Link from "next/link"
 
