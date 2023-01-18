@@ -17,7 +17,7 @@ export const HeaderNotiModalBox = styled.div<transitionProps>`
     height: 31.2rem;
     background-color: white;
     top: 4.3rem;
-    right: 15.1rem;
+    right: 8.5rem;
     border-radius: 0.3rem;
     opacity: ${(props) => props.transition ? 1 : 0};
     transition: opacity 0.3s;
@@ -25,6 +25,10 @@ export const HeaderNotiModalBox = styled.div<transitionProps>`
     padding: 0.3rem;
     > :first-of-type {
         margin: 0.7rem;
+    }
+    @media screen and (max-width: 40em) {
+        width: 20rem;
+        height: 30rem;
     }
 `
 
