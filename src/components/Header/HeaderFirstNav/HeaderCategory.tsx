@@ -5,9 +5,7 @@ import { CategoryBox, CategoryContainer, CategoryList } from "./HeaderCategory.s
 const HeaderCategory = (props) => {
     const { modal, clickModal, list } = props
     const [transition, setTransition] = useState(false)
-    useEffect(() => {
-        setTransition(!transition)
-    }, [transition])
+    useEffect(() => setTransition(!transition), [modal])
     return (
         <CategoryContainer onClick={clickModal}>
             <CategoryBox onClick={(e) => e.stopPropagation()} transition={transition}>
