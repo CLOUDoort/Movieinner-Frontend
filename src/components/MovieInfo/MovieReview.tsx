@@ -39,8 +39,6 @@ const MovieReview = (props) => {
                             name: movieInfo.title,
                         },
                     })
-                    console.log('delete', deleteResponse.data)
-                    toast.success('좋아요 취소!')
                     setLike(false)
                 } catch (e) {
                     console.error(e.response)
@@ -57,8 +55,6 @@ const MovieReview = (props) => {
                         poster_path: movieInfo.poster_path,
                         backdrop_path: movieInfo.backdrop_path,
                     })
-                    console.log('like', likeResponse.data)
-                    toast.success('좋아요! 마이페이지에 담김')
                     setLike(true)
                 } catch (e) {
                     console.error(e.response)
