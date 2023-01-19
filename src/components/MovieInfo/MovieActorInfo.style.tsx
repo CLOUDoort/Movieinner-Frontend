@@ -98,7 +98,6 @@ export const ActorImageBox = styled.div`
         z-index: 2;
         content: '';
         border: 1px solid rgba(0, 0, 0, 0.4);
-        cursor: pointer;
     }
     > span {
         border-radius: 6px 6px 0 0;
@@ -122,7 +121,6 @@ export const ActorTitleBox = styled.div`
         font-weight: normal;
         line-height: 1.8rem;
         white-space: normal;
-        cursor: pointer;
     }
     > p {
         overflow: hidden;
