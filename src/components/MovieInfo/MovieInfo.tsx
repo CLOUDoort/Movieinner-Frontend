@@ -20,7 +20,6 @@ interface MovieInfoDataList {
 
 const MovieInfo = () => {
     const accessToken = useSelector((state: RootState) => state.token.token)
-    const nickname = useSelector((state: RootState) => state.nickname.nickname)
     const router = useRouter()
     const [movieInfo, setMovieInfo] = useState<MovieInfoDataList | null>({})
     const [actorInfo, setActorInfo] = useState([])
