@@ -5,7 +5,7 @@ import { MovieInfoContainer } from './MovieInfo.style'
 import MovieActorInfo from './MovieActorInfo'
 import { RootState } from '../../store/store'
 import { useSelector } from 'react-redux'
-import MovieReview from './MovieReview'
+import MovieLike from './MovieLike'
 import MovieInfoText from './MovieInfoText'
 import MovieBackdropImg from './MovieBackdropImg'
 import LoadingLogo from '../Common/Loading/LoadingLogo'
@@ -131,7 +131,7 @@ const MovieInfo = () => {
                 <MovieInfoContainer>
                     <MovieBackdropImg movieInfo={movieInfo} />
                     <MovieInfoText movieInfo={movieInfo} />
-                    <MovieReview accessToken={accessToken} movieId={movieId} movieInfo={movieInfo} />
+                    <MovieLike accessToken={accessToken} movieId={movieId} movieInfo={movieInfo} />
                     <MovieActorInfo actorInfo={actorInfo} />
                 </MovieInfoContainer>
             ) : <LoadingLogo />}

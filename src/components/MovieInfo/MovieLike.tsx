@@ -4,9 +4,9 @@ import { apiInstance } from '../../apis/setting'
 import { toast } from 'react-toastify'
 import { useSelector } from 'react-redux'
 import { RootState } from '../../store/store'
-import { HorizontalRule, MovieBtnContainer, MovieLikeBtn } from './MovieInfoText.style'
+import { HorizontalRule, MovieBtnContainer, MovieLikeBtn } from './MovieLike.style'
 
-const MovieReview = (props) => {
+const MovieLike = (props) => {
     const [like, setLike] = useState(false)
     const { accessToken, movieId, movieInfo } = props
     const userIdx = useSelector((state: RootState) => state.idx.idx)
@@ -77,4 +77,4 @@ const MovieReview = (props) => {
     )
 }
 
-export default MovieReview
+export default MovieLike
