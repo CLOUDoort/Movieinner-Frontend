@@ -1,14 +1,14 @@
 import styled from '@emotion/styled'
 
 export const RankingArea = styled.div`
-    width: 42rem;
-    @media screen and (max-width: 50em) {
-        width: 30rem;
+    width: 50rem;
+    @media screen and (max-width: 53.13em) {
+        width: 35rem;
     }
     @media screen and (max-width: 37.5em) {
-        width: 20rem;
+        width: 23rem;
     }
-    border: 1px solid gray;
+    border: 1px solid rgba(100, 100, 100, 0.6);
     border-radius: 0.313rem;
     padding-bottom: 1rem;
 `
