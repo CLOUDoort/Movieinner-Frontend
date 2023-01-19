@@ -6,6 +6,10 @@ export const FeedContainer = styled.div`
     align-items: center;
     justify-content: center;
     margin-top: 2rem;
+    > p {
+        font-size: 2rem;
+        text-align: start;
+    }
     > * {
         margin-top: 2rem;
     }
