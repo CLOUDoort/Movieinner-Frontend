@@ -10,6 +10,12 @@ const UserWatched = () => {
         try {
             const previousWatchedReq = window.indexedDB.open('movieinfo', 1)
             let previousWatched
+            // 버전이 바뀔 때마다 실행되는 이벤트에서 object store 생성
+            previousWatchedReq.onupgradeneeded = (e: any) => {
+                console.info('database upgrade success!')
+                previousWatched = e.target.result
+                previousWatched.createObjectStore('watched', { keyPath: 'id', autoIncrement: true })
+            }
             previousWatchedReq.onsuccess = (e: any) => {
                 previousWatched = e.target.result
                 let store = previousWatched.transaction('watched', 'readonly').objectStore('watched')
