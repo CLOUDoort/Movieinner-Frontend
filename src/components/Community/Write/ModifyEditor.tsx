@@ -1,22 +1,18 @@
 import { Editor } from '@toast-ui/react-editor'
 import colorSyntax from '@toast-ui/editor-plugin-color-syntax'
 import { useRef, useState } from 'react'
-import { WriteContainer, WriteTitle, WriteBtn } from './Write.style'
+import { WriteContainer, WriteTitle, WriteBtn, WriteEditor } from './Write.style'
 import { useRouter } from 'next/router'
 import { apiInstance } from '../../../apis/setting'
 import { toast } from 'react-toastify'
-import { RootState } from '../../../store/store'
-import { useSelector } from 'react-redux'
 
 const ModifyEditor = (props) => {
     const { modifyPost, idx } = props
     const [image, setImage] = useState('')
     const [title, setTitle] = useState(modifyPost.title)
-    const { nickname } = props
     const router = useRouter()
     const editorRef = useRef(null)
     const toolbarItems = [['heading', 'bold', 'italic', 'strike'], ['hr'], ['ul', 'ol', 'task'], ['table', 'link'], ['image'], ['code'], ['scrollSync']]
-    const userIdx = useSelector((state: RootState) => state.idx.idx)
 
     const handleChange = (e) => {
         const { value } = e.target
@@ -51,7 +47,7 @@ const ModifyEditor = (props) => {
         console.log('title', title)
         console.log('content', content)
         console.log('image', image)
-        const imageSize = 'style="width:400px;height:600px"'
+        const imageSize = 'style="width:15rem;height:30rem"'
         const position = content.indexOf('src')
 
         const output = [content.slice(0, position), imageSize, content.slice(position)].join('')
@@ -59,7 +55,7 @@ const ModifyEditor = (props) => {
         // 작성글 서버로 보내기
         try {
             const putContent = await apiInstance.put(`/community/content/${idx}`, { title: title, content: output, file: image })
-            router.replace('/community/feed/1')
+            router.replace('/community/feed')
             toast.success(`${idx} 번 글 수정 완료!`)
         } catch (e) {
             console.error(e.response)
@@ -68,21 +64,22 @@ const ModifyEditor = (props) => {
     return (
         <WriteContainer>
             <WriteTitle type='text' placeholder='제목을 입력해주세요!' onChange={handleChange} value={title} />
-            <Editor
-                ref={editorRef}
-                initialValue={modifyPost.content}
-                placeholder='글을 작성해주세요!'
-                initialEditType='wysiwyg'
-                hideModeSwitch={true}
-                height='1000px'
-                theme={'dark'}
-                usageStatistics={false} // GA 비활성화
-                toolbarItems={toolbarItems}
-                plugins={[colorSyntax]}
-                hooks={{ addImageBlobHook: onUploadImage }}
-            />
+            <WriteEditor>
+                <Editor
+                    ref={editorRef}
+                    placeholder='글을 작성해주세요!'
+                    theme={'dark'}
+                    toolbarItems={toolbarItems}
+                    plugins={[colorSyntax]}
+                    hooks={{ addImageBlobHook: onUploadImage }}
+                    initialValue={modifyPost.content}
+                    initialEditType='markdown'
+                    previewStyle="tab"
+                    height='60rem'
+                />
+            </WriteEditor>
             <WriteBtn>
-                <button onClick={() => router.push('/community/feed/1')}>나가기</button>
+                <button onClick={() => router.push('/community/feed')}>나가기</button>
                 <button onClick={showContent}>저장</button>
             </WriteBtn>
         </WriteContainer>
