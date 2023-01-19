@@ -6,11 +6,8 @@ export const UserProfileBox = styled.div`
     @media screen and ( max-width: 53.13em) {
         width: 35rem;
     }
-    @media screen and ( max-width: 41.25em) {
-        width: 28.125rem;
-    }
-    @media screen and ( max-width: 29.38em) {
-        width: 20rem;
+    @media screen and ( max-width: 37.5em) {
+        width: 23rem;
     }
 `
 export const UserProfileContainer = styled.div`
