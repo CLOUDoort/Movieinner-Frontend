@@ -8,6 +8,7 @@ import { useSelector } from 'react-redux'
 import MovieReview from './MovieReview'
 import MovieInfoText from './MovieInfoText'
 import MovieBackdropImg from './MovieBackdropImg'
+import LoadingLogo from '../Common/Loading/LoadingLogo'
 
 interface MovieInfoDataList {
     title?: string
@@ -27,6 +28,7 @@ const MovieInfo = () => {
 
     // localstorage는 브라우저내에서만 사용할 수 있다.
     // useEffect는 CSR 전용 hook이기 때문에 이 동작은 브라우저 내에서 이루어지는 것이라 확신을 줄 수 있으므로 useEffect 내에서 localstorage를 사용해도 에러가 나지 않는다.
+    // 최근 본 작품 => indexDB 추가
     useEffect(() => {
         const getMovieInfo = async () => {
             try {
@@ -125,14 +127,14 @@ const MovieInfo = () => {
 
     return (
         <>
-            {movieInfo && actorInfo && (
+            {movieInfo && actorInfo ? (
                 <MovieInfoContainer>
                     <MovieBackdropImg movieInfo={movieInfo} />
                     <MovieInfoText movieInfo={movieInfo} />
                     <MovieReview accessToken={accessToken} movieId={movieId} movieInfo={movieInfo} />
                     <MovieActorInfo actorInfo={actorInfo} />
                 </MovieInfoContainer>
-            )}
+            ) : <LoadingLogo />}
         </>
     )
 }
