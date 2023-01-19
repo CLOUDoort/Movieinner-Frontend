@@ -4,7 +4,7 @@ import { apiInstance } from '../../apis/setting'
 import { toast } from 'react-toastify'
 import { useSelector } from 'react-redux'
 import { RootState } from '../../store/store'
-import { HorizontalRule, MovieBtnContainer, MovieLikeBtn } from './MovieLike.style'
+import { MovieBtnContainer, MovieLikeBtn } from './MovieLike.style'
 
 const MovieLike = (props) => {
     const [like, setLike] = useState(false)
@@ -66,14 +66,11 @@ const MovieLike = (props) => {
     }
 
     return (
-        <>
-            <MovieBtnContainer>
-                <MovieLikeBtn like={like} onClick={clickLikeBtn}>
-                    <BsFillHandThumbsUpFill size={45} />
-                </MovieLikeBtn>
-            </MovieBtnContainer>
-            <HorizontalRule />
-        </>
+        <MovieBtnContainer>
+            <MovieLikeBtn like={like} onClick={clickLikeBtn}>
+                <BsFillHandThumbsUpFill size={45} />
+            </MovieLikeBtn>
+        </MovieBtnContainer>
     )
 }
 
