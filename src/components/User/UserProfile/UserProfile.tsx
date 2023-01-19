@@ -1,7 +1,7 @@
 import { UserProfileBox, UserProfileContainer, UserProfileData, UserProfileInfo } from '../UserProfile/UserProfile.style'
 import Image from "next/image"
 import { useRouter } from 'next/router'
-import { useDispatch, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 import { RootState } from '../../../store/store'
 import LoadingLogo from '../../Common/Loading/LoadingLogo'
 import useGetUserImage from '../../../apis/UserData/UserImage'
@@ -19,7 +19,7 @@ const UserProfile = (props) => {
             {!isLoading ? <UserProfileBox>
                 <UserProfileContainer>
                     <UserProfileInfo>
-                        <Image src={userImage?.data.image_URL ? userImage?.data.image_URL : `/blank.png`} width={60} height={60} />
+                        <Image src={userImage?.data.image_URL ? userImage?.data.image_URL : `/blank.png`} width={60} height={60} alt='유저 이미지' />
                         <div>{nickname}</div>
                     </UserProfileInfo>
                     <UserProfileData>
