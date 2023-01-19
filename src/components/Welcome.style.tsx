@@ -15,7 +15,7 @@ export const WelcomeBox = styled.div`
     justify-content: space-evenly;
     align-items: center;
     > hr {
-        width: 600px;
+        width: 37.5rem;
     }
     > div > button {
         margin-right: 0.313rem;
