@@ -10,10 +10,9 @@ export const SearchModalBox = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 9999;
     > div {
-        padding: 1.875rem 50px;
-        width: 500px;
+        padding: 1.5rem 3rem;
+        width: 28.125rem;
         border-radius: 0.313rem;
         display: flex;
         flex-direction: column;
@@ -26,8 +25,9 @@ export const SearchModalBox = styled.div`
             display: flex;
             align-items: center;
             margin-top: 0.625rem;
-            border: 1px solid gray;
-            padding: 8px 1rem;
+            border: 0.063rem solid gray;
+            padding: 0.8rem 1rem;
+            font-size: 1rem;
         }
         > div {
             display: flex;
@@ -35,9 +35,8 @@ export const SearchModalBox = styled.div`
             margin-top: 1.25rem;
             > button {
                 border: none;
-                padding: 0.313rem 0.625rem;
-                width: 70px;
-                height: 50px;
+                padding: 0.8rem 1.8rem;
+                font-size: 0.9rem;
             }
             > :nth-of-type(2) {
                 background-color: #e15050;
