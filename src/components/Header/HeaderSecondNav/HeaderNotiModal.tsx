@@ -3,6 +3,7 @@ import { HeaderNotiModalBox, HeaderNotiModalContainer, HeaderNotiModalList } fro
 import Image from "next/image"
 import { MdDelete } from "react-icons/md"
 import { apiInstance } from "../../../apis/setting"
+import router from "next/router"
 
 const HeaderNotiModal = (props) => {
     const { controlModal, notiData, userIdx, refetchNoti } = props
@@ -28,7 +29,10 @@ const HeaderNotiModal = (props) => {
             <HeaderNotiModalBox transition={transition} onClick={(e) => e.stopPropagation()}>
                 <div>알림</div>
                 {notiData?.map((obj) => (
-                    <HeaderNotiModalList key={obj.idx} onMouseEnter={() => setDeleteIdx(obj.idx)} onMouseLeave={() => setDeleteIdx(0)} >
+                    <HeaderNotiModalList onClick={() => {
+                        router.push(`/community/post/${obj.content_idx}`)
+                        controlModal()
+                    }} key={obj.idx} onMouseEnter={() => setDeleteIdx(obj.idx)} onMouseLeave={() => setDeleteIdx(0)} >
                         <div>
                             <Image src={obj.image_URL ? obj.image_URL : '/blank.png'} width={30} height={30} alt={obj.nickname} />
                             <div>
