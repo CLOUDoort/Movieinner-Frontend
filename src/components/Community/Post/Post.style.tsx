@@ -1,31 +1,37 @@
 import styled from '@emotion/styled'
 
 export const PostBox = styled.div`
-    width: 850px;
-    min-width: 750px;
-    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50rem;
+    @media screen and (max-width: 53.13em) {
+        width: 35rem;
+    }
+    @media screen and (max-width: 37.5em) {
+        width: 23rem;
+    }
     background-color: #313131;
     color: white;
     margin-bottom: 1.25rem;
     margin-top: 1.25rem;
     border-radius: 0.625rem;
     overflow: auto;
-    height: 100vh;
     &::-webkit-scrollbar {
       width: 0.313rem;
       height: 1.25rem;
     }
     &::-webkit-scrollbar-thumb {
      border-radius: 2px;
-      background: gray;
+      background: red;
       max-height: 95%;
     }
 `
 
 export const PostContainer = styled.div`
-    display: grid;
-    grid-template-rows: 700px 250px;
-    row-gap: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
     margin-top: 0.313rem;
     margin-bottom: 1.25rem;
