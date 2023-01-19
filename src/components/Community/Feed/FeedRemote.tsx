@@ -8,15 +8,13 @@ const FeedRemote = (props) => {
     const { clickWrite } = props
     const [showModal, setShowModal] = useState(false)
 
-    const clickModal = () => {
-        setShowModal(!showModal)
-    }
+    const clickModal = () => setShowModal(!showModal)
 
     return (
         <>
             <FeedRemoteBox>
                 <BsPencilFill onClick={clickWrite} size={50}></BsPencilFill>
-                <AiOutlineSearch onClick={clickModal} size={50}></AiOutlineSearch>
+                <AiOutlineSearch onClick={clickModal} size={60}></AiOutlineSearch>
             </FeedRemoteBox>
             {showModal && <FeedSearchModal clickModal={clickModal} />}
         </>

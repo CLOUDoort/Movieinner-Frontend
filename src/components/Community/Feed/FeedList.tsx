@@ -17,7 +17,6 @@ const FeedList = (props) => {
                     <div>조회수</div>
                 </FeedListLastType>
             </FeedListContainer>
-            <hr />
             {feedPost?.data?.contents.responseContents.map((obj: any) => (
                 <FeedListContainer key={obj.idx}>
                     <FeedListFirstType>

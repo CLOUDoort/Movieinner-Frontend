@@ -1,76 +1,87 @@
 import styled from '@emotion/styled'
 
 export const FeedContainer = styled.div`
-    display: grid;
-    grid-template-rows: 250px 1fr;
-    row-gap: 50px;
+    display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-top: 40px;
-    margin-bottom: 40px;
+    margin-top: 2rem;
+    > * {
+        margin-top: 2rem;
+    }
 `
 
 export const FeedListArea = styled.div`
-    width: 700px;
-    border: 1px solid gray;
+    width: 50rem;
+    @media screen and (max-width: 53.13em) {
+        width: 35rem;
+    }
+    @media screen and (max-width: 37.5em) {
+        width: 23rem;
+    }
     border-radius: 0.313rem;
-    > hr {
-        margin: 0;
+    border: 1px solid white;
+    > :first-of-type {
+        border-bottom: 1px solid white;
     }
 `
 
 export const FeedListContainer = styled.div`
-    padding: 12px 1.25rem;
+    padding: 0.6rem 0.1rem;
     display: flex;
     justify-content: space-between;
+    
 `
 
 export const FeedListFirstType = styled.div`
     display: flex;
     > div {
-        margin-right: 0.625rem;
         text-align: center;
     }
     > :first-of-type {
-        width: 60px;
+        width: 3.75rem;
     }
     > :last-of-type {
-        max-width: 400px;
+        flex: 1;
     }
 `
 
 export const FeedListLastType = styled.div`
     display: flex;
     > div {
-        margin-left: 0.313rem;
-        width: 50px;
+        width: 6rem;
         text-align: center;
     }
-    > :first-of-type {
-        width: 100px;
-    }
-    > :nth-of-type(2) {
-        width: 200px;
+    @media screen and (max-width: 37.5em) {
+        >:nth-of-type(2) {
+            display: none;
+        }
+        >:last-of-type {
+            display: none;
+        }
     }
 `
 
 export const FeedRemoteBox = styled.div`
+    width: 50rem;
+    @media screen and (max-width: 53.13em) {
+        width: 35rem;
+    }
+    @media screen and (max-width: 37.5em) {
+        width: 23rem;
+    }
     display: flex;
-    flex-direction: column;
-    position: absolute;
-    right: 21%;
-    bottom: 25%;
-    z-index: 1;
+    justify-content: end;
+    align-items: center;
     > svg {
         cursor: pointer;
-        margin-top: 1.25rem;
-        border: 1px solid gray;
-        border-radius: 40%;
+        border-radius: 1.375rem;
         padding: 0.625rem;
         transition: color 0.4s;
+        margin-left: 1rem;
     }
     > svg:hover {
-        color: rgb(222, 109, 109);
+        background-color: rgb(194, 0, 0);
     }
 `
 type PaginationProps = {

@@ -8,7 +8,6 @@ import FeedRanking from './FeedRanking'
 import { useState } from 'react'
 import FeedPagination from './FeedPagination'
 import FeedRemote from './FeedRemote'
-import LoadingLogo from '../../Common/Loading/LoadingLogo'
 import useGetFeedData from '../../../apis/CommunityData/FeedData'
 import useGetHitFeed from '../../../apis/CommunityData/HitFeedData'
 
@@ -18,7 +17,6 @@ const Feed = () => {
     const router = useRouter()
     const { data } = useGetFeedData(currentPage)
     const hitData = useGetHitFeed().data
-    const hitLoading = useGetHitFeed().isLoading
 
     let rankingNum = 1;
     const hitDataList = hitData?.data?.top5Contents?.map((obj) => ({
@@ -26,25 +24,17 @@ const Feed = () => {
     }))
 
     const clickWrite = () => {
-        if (accessToken) {
-            router.push('/community/write')
-        } else {
-            toast.error('로그인이 필요합니다!')
-        }
+        if (accessToken) router.push('/community/write')
+        else toast.error('로그인이 필요합니다!')
     }
+
     return (
-        <>
-            {!hitLoading && hitDataList ? (
-                <FeedContainer>
-                    <FeedRanking hit={hitDataList} />
-                    <FeedList feedPost={data} />
-                    <FeedRemote clickWrite={clickWrite} />
-                    <FeedPagination currentPage={currentPage} setCurrentPage={setCurrentPage} maxPage={data?.data?.contents?.totalPage} />
-                </FeedContainer>
-            ) : (
-                <LoadingLogo />
-            )}
-        </>
+        <FeedContainer>
+            <FeedRanking hit={hitDataList} />
+            <FeedList feedPost={data} />
+            <FeedRemote clickWrite={clickWrite} />
+            <FeedPagination currentPage={currentPage} setCurrentPage={setCurrentPage} maxPage={data?.data?.contents?.totalPage} />
+        </FeedContainer>
     )
 }
 

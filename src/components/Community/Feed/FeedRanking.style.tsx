@@ -8,7 +8,7 @@ export const RankingArea = styled.div`
     @media screen and (max-width: 37.5em) {
         width: 23rem;
     }
-    border: 1px solid rgba(100, 100, 100, 0.6);
+    border: 1px solid white;
     border-radius: 0.313rem;
     padding-bottom: 1rem;
 `
