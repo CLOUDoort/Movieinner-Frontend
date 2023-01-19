@@ -12,7 +12,7 @@ const PostConfirmModal = (props) => {
             const deleteResponse = await apiInstance.delete(`/community/content/${idx}`)
             console.log('delete', deleteResponse.data)
             toast.success('삭제 성공')
-            router.replace('/community/feed/1')
+            router.replace('/community/feed')
         } catch (e) {
             toast.error('삭제 실패')
         }
