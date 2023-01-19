@@ -14,6 +14,7 @@ const ThemeItem = (props) => {
                         onClick={openModal}
                         layout='fill'
                         objectFit='contain'
+                        alt={obj.theme_name}
                     />
                     <div>{obj.theme_name}</div>
                 </ThemeItemContainer>

@@ -21,6 +21,7 @@ const ThemeModal = (props) => {
                                         width={180}
                                         height={200}
                                         objectFit='contain'
+                                        alt={obj.movie_name}
                                     />
                                 </a>
                             </Link>
