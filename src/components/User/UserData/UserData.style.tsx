@@ -5,6 +5,7 @@ export const UserDataBox = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
 `
 
 export const UserDataContainer = styled.div`
@@ -14,11 +15,8 @@ export const UserDataContainer = styled.div`
     @media screen and ( max-width: 53.13em) {
         width: 35rem;
     }
-    @media screen and ( max-width: 41.25em) {
-        width: 28.125rem;
-    }
-    @media screen and ( max-width: 29.38em) {
-        width: 20rem;
+    @media screen and ( max-width: 37.5em) {
+        width: 23rem;
     }
     > :first-of-type {
         margin: 1.25rem;
@@ -28,12 +26,11 @@ export const UserDataContainer = styled.div`
 
 export const UserDataList = styled.div`
     border-radius: 0.625rem;
-    border: 1px solid gray;
     margin: 1.25rem;
     > div {
         display: flex;
         flex-direction: column;
-        padding: 8px;
+        padding: 0.5rem;
         margin-left: 0.625rem;
         > div{
             display: flex;
@@ -43,6 +40,7 @@ export const UserDataList = styled.div`
             }
             > :nth-of-type(2) {
                 flex: 1;
+                display: inline-block;
                 cursor: pointer;
             }
             > :last-of-type {
