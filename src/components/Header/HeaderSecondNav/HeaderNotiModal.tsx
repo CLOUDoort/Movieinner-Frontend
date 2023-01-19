@@ -30,7 +30,7 @@ const HeaderNotiModal = (props) => {
                 {notiData?.map((obj) => (
                     <HeaderNotiModalList key={obj.idx} onMouseEnter={() => setDeleteIdx(obj.idx)} onMouseLeave={() => setDeleteIdx(0)} >
                         <div>
-                            <Image src={obj.image_URL ? obj.image_URL : '/blank.png'} width={30} height={30} />
+                            <Image src={obj.image_URL ? obj.image_URL : '/blank.png'} width={30} height={30} alt={obj.nickname} />
                             <div>
                                 <div>{obj.nickname}님의 {obj.comment_idx ? "답글" : "댓글"} :</div>
                                 <div>{obj.comment}</div>
