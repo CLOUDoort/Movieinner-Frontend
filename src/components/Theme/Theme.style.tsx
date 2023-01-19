@@ -40,16 +40,20 @@ export const ThemeGridContainer = styled.div`
     }
 `
 export const ThemeItemContainer = styled.div`
-    width: 21rem;
-    height: 12rem;
+    width: 24rem;
+    height: 13rem;
     position: relative;
     margin-bottom: 1.875rem;
-    @media screen and (max-width: 50em) {
-        width: 18rem;
-        height: 10rem;
+    @media screen and (max-width: 53.13em) {
+        width: 16.5rem;
+        height: 10.5rem;
         > div {
-            font-size: 1rem;
+            font-size: 0.8rem;
         }
+    }
+    @media screen and (max-width: 37.5em) {
+        width: 23rem;
+        height: 13rem;
     }
     > span {
         cursor: pointer;
