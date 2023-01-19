@@ -7,7 +7,7 @@ const HeaderCategory = (props) => {
     const [transition, setTransition] = useState(false)
     useEffect(() => {
         setTransition(!transition)
-    }, [modal])
+    }, [transition])
     return (
         <CategoryContainer onClick={clickModal}>
             <CategoryBox onClick={(e) => e.stopPropagation()} transition={transition}>
