@@ -1,16 +1,15 @@
 import { Editor } from '@toast-ui/react-editor'
 import colorSyntax from '@toast-ui/editor-plugin-color-syntax'
 import { useRef, useState } from 'react'
-import { WriteContainer, WriteTitle, WriteBtn } from './Write.style'
+import { WriteContainer, WriteTitle, WriteBtn, WriteEditor } from './Write.style'
 import { useRouter } from 'next/router'
 import { apiInstance } from '../../../apis/setting'
 import { toast } from 'react-toastify'
 import { useSelector } from 'react-redux'
 import { RootState } from '../../../store/store'
 
-const WysiwygEditor = (props) => {
+const WysiwygEditor = () => {
     const [image, setImage] = useState('')
-    const { nickname } = props
     const router = useRouter()
     const [title, setTitle] = useState('')
     const editorRef = useRef(null)
@@ -58,7 +57,7 @@ const WysiwygEditor = (props) => {
         // 작성글 서버로 보내기
         try {
             const postContent = await apiInstance.post('/community/content', { userIdx: userIdx, title: title, content: output, file: image })
-            router.replace('/community/feed/1')
+            router.replace('/community/feed')
             toast.success(`${postContent.data.idx} 번 글 작성 완료!`)
         } catch (e) {
             console.error(e.response)
@@ -67,19 +66,20 @@ const WysiwygEditor = (props) => {
     return (
         <WriteContainer>
             <WriteTitle type='text' placeholder='제목을 입력해주세요!' onChange={handleChange} />
-            <Editor
-                ref={editorRef}
-                initialValue=''
-                placeholder='글을 작성해주세요!'
-                initialEditType='wysiwyg'
-                hideModeSwitch={true}
-                height='1000px'
-                theme={'dark'}
-                usageStatistics={false} // GA 비활성화
-                toolbarItems={toolbarItems}
-                plugins={[colorSyntax]}
-                hooks={{ addImageBlobHook: onUploadImage }}
-            />
+            <WriteEditor>
+                <Editor
+                    ref={editorRef}
+                    initialValue=''
+                    placeholder='글을 작성해주세요!'
+                    initialEditType='markdown'
+                    previewStyle="tab"
+                    height='60rem'
+                    theme={'dark'}
+                    toolbarItems={toolbarItems}
+                    plugins={[colorSyntax]}
+                    hooks={{ addImageBlobHook: onUploadImage }}
+                />
+            </WriteEditor>
             <WriteBtn>
                 <button onClick={() => router.push('/community/feed')}>나가기</button>
                 <button onClick={showContent}>저장</button>
