@@ -12,9 +12,9 @@ import FeedSearchList from './FeedSearchList'
 const FeedSearchResult = () => {
     const accessToken = useSelector((state: RootState) => state.token.token)
     const router = useRouter()
-    const { type, search, page } = router.query
-    const { data } = useGetFeedSearchData(type, search, page)
+    const { type, search } = router.query
     const [currentPage, setPageValue] = useState(1)
+    const { data } = useGetFeedSearchData(type, search, currentPage)
     const clickWrite = () => {
         if (accessToken) router.push('/community/write')
         else toast.error('로그인이 필요합니다!')
