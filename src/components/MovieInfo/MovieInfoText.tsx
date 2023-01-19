@@ -1,4 +1,4 @@
-import { MovieInfoMiddleContainer, MovieFosterImgContainer, MovieTextContainer, MovieTextTitle, MovieTextOverview } from './MovieInfo.style'
+import { MovieInfoMiddleContainer, MovieFosterImgContainer, MovieTextContainer, MovieTextTitle, MovieTextOverview } from './MovieInfoText.style'
 import Image from 'next/image'
 
 const MovieInfoText = (props) => {
@@ -18,8 +18,8 @@ const MovieInfoText = (props) => {
                     <p>상영시간</p>
                     <div>{movieInfo.runtime}분</div>
                 </MovieTextTitle>
+                <p>영화 설명</p>
                 <MovieTextOverview>
-                    <p>영화 설명</p>
                     <div>{movieInfo.overview}</div>
                 </MovieTextOverview>
             </MovieTextContainer>
