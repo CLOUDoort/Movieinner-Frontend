@@ -35,6 +35,7 @@ const IndexSlider = (props) => {
                         id={obj.movie_name}
                         layout='fill'
                         priority={true}
+                        alt={obj.movie_name}
                     />
                     <div>{obj.theme_name}</div>
                 </SwiperSlide>
