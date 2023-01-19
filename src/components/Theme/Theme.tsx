@@ -16,10 +16,10 @@ const Theme = () => {
         if (!isLoading) {
             const sliderImageBox = Object.entries(data?.data).map(([key, value]) => (
                 {
-                    movie_id: value[0].movie_id,
-                    movie_name: value[0].movie_name,
-                    backdrop_path: value[0].backdrop_path,
-                    theme_name: value[0].theme_name
+                    movie_id: value[2].movie_id,
+                    movie_name: value[2].movie_name,
+                    backdrop_path: value[2].backdrop_path,
+                    theme_name: value[2].theme_name
                 }
             ))
             setSliderImage(sliderImageBox)
