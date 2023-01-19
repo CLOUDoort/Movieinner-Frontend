@@ -176,6 +176,20 @@ const GlobalCss = css`
     svg {
         cursor: pointer;
     }
+    .ProseMirror {
+        font-size: 1.5rem !important;
+        &::-webkit-scrollbar {
+            width: 0.2rem;
+            height: 0.5rem;
+        }
+        &::-webkit-scrollbar-thumb {
+            border-radius: 2px;
+            background: red;
+        }
+    }
+    .toastui-editor-main .toastui-editor-md-mode {
+        font-size: 1.5rem !important;
+    }
 `
 
 export default GlobalCss
