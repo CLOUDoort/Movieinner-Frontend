@@ -15,7 +15,6 @@ const Index = () => {
     const themeMovie = useGetThemeMovie().data
     const isLoading = useGetThemeMovie().isLoading
     const hitFeed = useGetHitFeed().data
-    const hitLoading = useGetHitFeed().isLoading
     const [sliderImage, setSliderImage] = useState([])
     const upComing = useGetUpComing(1).data
 
@@ -40,7 +39,7 @@ const Index = () => {
 
     return (
         <>
-            {!isLoading && !hitLoading ? <IndexBox>
+            {!isLoading ? <IndexBox>
                 <IndexSlider sliderImage={sliderImage} />
                 <IndexPopularList popularMovie={popularMovie?.data} />
                 <IndexUpComingList upComingList={upComing?.data?.resultArray} />

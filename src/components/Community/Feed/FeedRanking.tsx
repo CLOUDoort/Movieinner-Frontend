@@ -7,7 +7,7 @@ const FeedRanking = (props) => {
     return (
         <RankingArea>
             <RankingSubtitle>인기 게시글</RankingSubtitle>
-            {hit.map((obj: any) => (
+            {hit?.map((obj: any) => (
                 <RankingList key={obj.idx}>
                     <li>
                         <span>{obj.rankingNum}: </span>
