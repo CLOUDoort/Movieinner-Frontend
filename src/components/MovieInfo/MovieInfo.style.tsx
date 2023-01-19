@@ -17,7 +17,7 @@ export const MovieBackdropImgContainer = styled.div`
         height: 20rem;
     }
     @media screen and (max-width: 37.5em) {
-        width: 20rem;
+        width: 23rem;
         height: 13rem;
     }
     > span {

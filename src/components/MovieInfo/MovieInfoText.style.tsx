@@ -6,11 +6,11 @@ export const MovieInfoMiddleContainer = styled.div`
     height: 21rem;
     @media screen and (max-width: 53.13em) {
         width: 35rem;
-        height: 20rem;
+        height: 18rem;
     }
     @media screen and (max-width: 37.5em) {
-        width: 20rem;
-        height: 10rem;
+        width: 23rem;
+        height: 13rem;
     }
 `
 

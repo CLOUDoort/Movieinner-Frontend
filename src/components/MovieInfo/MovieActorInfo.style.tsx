@@ -7,7 +7,7 @@ export const MovieActorScroll = styled.div`
     margin: 0 -1.5rem;
     vertical-align: top;
     font-size: 1.3rem;
-    margin-bottom: 1rem;
+    margin-bottom: 4rem;
     width: 50rem;
     @media screen and (max-width: 53.13em) {
         font-size: 1.1rem;
@@ -16,10 +16,11 @@ export const MovieActorScroll = styled.div`
     @media screen and (max-width: 37.5em) {
         font-size: 1rem;
         width: 23rem;
+        margin-bottom: 1rem;
     }
     > :first-of-type {
         font-weight: bold;
-        margin-left: 1.6rem;
+        margin-left: 0.9rem;
         margin-bottom: 0.5rem;
     
     }
