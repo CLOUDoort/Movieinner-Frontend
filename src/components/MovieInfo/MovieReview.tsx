@@ -1,10 +1,10 @@
-import { MovieLikeBtn, MovieBtnContainer, HorizontalRule } from './MovieInfo.style'
 import { useState, useEffect } from 'react'
 import { BsFillHandThumbsUpFill } from 'react-icons/bs'
 import { apiInstance } from '../../apis/setting'
 import { toast } from 'react-toastify'
 import { useSelector } from 'react-redux'
 import { RootState } from '../../store/store'
+import { HorizontalRule, MovieBtnContainer, MovieLikeBtn } from './MovieInfoText.style'
 
 const MovieReview = (props) => {
     const [like, setLike] = useState(false)
@@ -73,7 +73,7 @@ const MovieReview = (props) => {
         <>
             <MovieBtnContainer>
                 <MovieLikeBtn like={like} onClick={clickLikeBtn}>
-                    <BsFillHandThumbsUpFill size={30} />
+                    <BsFillHandThumbsUpFill size={45} />
                 </MovieLikeBtn>
             </MovieBtnContainer>
             <HorizontalRule />
