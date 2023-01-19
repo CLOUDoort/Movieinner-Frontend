@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import { ActorAreaCard, ActorImageBox, ActorTitleBox, MovieActorContainer, MovieActorList, MovieActorScroll } from './MovieInfo.style'
+import { ActorAreaCard, ActorImageBox, ActorTitleBox, MovieActorContainer, MovieActorList, MovieActorScroll } from './MovieActorInfo.style'
 
 const MovieActorInfo = (props) => {
     const { actorInfo } = props
