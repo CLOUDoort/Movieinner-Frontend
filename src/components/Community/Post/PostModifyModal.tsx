@@ -8,8 +8,6 @@ const PostModifyModal = (props) => {
     const { clickModify, idx, post } = props
     const [confirmModal, setConfirmModal] = useState(false)
     const router = useRouter()
-
-    console.log('modify post: ', post)
     const clickCheck = () => {
         setConfirmModal(!confirmModal)
     }
