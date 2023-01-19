@@ -73,9 +73,9 @@ export const LoadingContainer = styled.div`
 `
 
 export const LoadingView = styled.div`
-    height: 200px;
+    height: 10rem;
     position: relative;
-    width: 200px;
+    width: 10rem;
     border-radius: 100%;
     -webkit-transition: all 0.5s ease-in-out;
     -moz-transition: all 0.5s ease-in-out;
