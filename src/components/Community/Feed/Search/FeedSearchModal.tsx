@@ -11,16 +11,13 @@ const FeedSearchModal = (props) => {
     const { clickModal } = props
     const [search, setSearch] = useState('')
     const [type, setType] = useState('')
-    const handleChange = (e) => {
-        setSearch(e.target.value)
-    }
-    const typeChange = (e: SelectChangeEvent) => {
-        setType(e.target.value)
-    }
+    const handleChange = (e) => setSearch(e.target.value)
+    const typeChange = (e: SelectChangeEvent) => setType(e.target.value)
 
     const clickSearch = async () => {
         if (type && search) {
             try {
+                clickModal()
                 router.push({
                     pathname: `/community/feed/search/${type}`,
                     query: {
