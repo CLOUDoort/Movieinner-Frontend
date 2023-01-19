@@ -3,11 +3,10 @@ import Image from "next/image"
 import useGetActorSearch from "../../apis/MovieData/ActorSearch"
 import { useRef } from "react"
 import { useObserver } from "../Common/UseObserver"
-import LoadingLogo from "../Common/Loading/LoadingLogo"
 
 const SearchResultActor = (props) => {
     const { search, click } = props
-    const { data, fetchNextPage, isFetchingNextPage } = useGetActorSearch(search)
+    const { data, fetchNextPage } = useGetActorSearch(search)
     console.log('actor', data)
     const bottom = useRef(null)
     const onIntersect = ([entry]) => entry.isIntersecting && fetchNextPage()
@@ -37,7 +36,6 @@ const SearchResultActor = (props) => {
                         </SearchListItem>
                     ))
                 ))}
-                {isFetchingNextPage && <LoadingLogo />}
                 <div ref={bottom} />
             </SearchBox>}
         </>

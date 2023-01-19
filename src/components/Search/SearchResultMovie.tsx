@@ -4,11 +4,11 @@ import router from "next/router"
 import useGetMovieSearch from "../../apis/MovieData/MovieSearch"
 import { useRef } from "react"
 import { useObserver } from "../Common/UseObserver"
-import LoadingLogo from "../Common/Loading/LoadingLogo"
+import LoadingCircle from "../Common/Loading/LoadingCircle"
 
 const SearchResultMovie = (props) => {
     const { search, click } = props
-    const { data, fetchNextPage, isFetchingNextPage } = useGetMovieSearch(search)
+    const { data, fetchNextPage } = useGetMovieSearch(search)
     const bottom = useRef(null)
     const onIntersect = ([entry]) => entry.isIntersecting && fetchNextPage()
     // useObserver로 bottom ref와 onIntersect를 넘겨 주자.
@@ -36,7 +36,6 @@ const SearchResultMovie = (props) => {
                         </SearchListItem>
                     ))
                 ))}
-                {isFetchingNextPage && <LoadingLogo />}
                 <div ref={bottom} />
             </SearchBox>}
         </>

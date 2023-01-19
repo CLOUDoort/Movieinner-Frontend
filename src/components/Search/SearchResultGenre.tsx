@@ -4,12 +4,11 @@ import Image from "next/image"
 import Link from "next/link"
 import { useObserver } from "../Common/UseObserver"
 import { useRef } from "react"
-import LoadingLogo from "../Common/Loading/LoadingLogo"
 import useGetGenreData from "../../apis/MovieData/GenreData"
 
 const SearchResultGenre = (props) => {
     const { genreName, genre } = props
-    const { data, fetchNextPage, isFetchingNextPage } = useGetGenreData(genre)
+    const { data, fetchNextPage } = useGetGenreData(genre)
     const bottom = useRef(null)
 
     console.log('genreData', data)
@@ -48,7 +47,6 @@ const SearchResultGenre = (props) => {
                         </SearchListItem>
                     ))
                 ))}
-                {isFetchingNextPage && <LoadingLogo />}
                 <div ref={bottom} />
             </SearchBox>
         </div>
