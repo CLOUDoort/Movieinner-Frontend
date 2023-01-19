@@ -8,6 +8,7 @@ export const MovieActorScroll = styled.div`
     vertical-align: top;
     font-size: 1.3rem;
     margin-bottom: 1rem;
+    width: 50rem;
     > :first-of-type {
         font-weight: bold;
         margin-left: 1.6rem;
