@@ -10,12 +10,13 @@ import FeedPagination from './FeedPagination'
 import FeedRemote from './FeedRemote'
 import useGetFeedData from '../../../apis/CommunityData/FeedData'
 import useGetHitFeed from '../../../apis/CommunityData/HitFeedData'
+import LoadingLogo from '../../Common/Loading/LoadingLogo'
 
 const Feed = () => {
     const accessToken = useSelector((state: RootState) => state.token.token)
     const [currentPage, setCurrentPage] = useState(1)
     const router = useRouter()
-    const { data } = useGetFeedData(currentPage)
+    const { data, isLoading } = useGetFeedData(currentPage)
     const hitData = useGetHitFeed().data
 
     let rankingNum = 1;
@@ -29,12 +30,15 @@ const Feed = () => {
     }
 
     return (
-        <FeedContainer>
-            <FeedRanking hit={hitDataList} />
-            <FeedList feedPost={data} />
-            <FeedRemote clickWrite={clickWrite} />
-            <FeedPagination currentPage={currentPage} setCurrentPage={setCurrentPage} maxPage={data?.data?.contents?.totalPage} />
-        </FeedContainer>
+        <>
+            {!isLoading ? <FeedContainer>
+                <FeedRanking hit={hitDataList} />
+                <FeedList feedPost={data} />
+                <FeedRemote clickWrite={clickWrite} />
+                <FeedPagination currentPage={currentPage} setCurrentPage={setCurrentPage} maxPage={data?.data?.contents?.totalPage} />
+            </FeedContainer> : <LoadingLogo />}
+        </>
+
     )
 }
 
