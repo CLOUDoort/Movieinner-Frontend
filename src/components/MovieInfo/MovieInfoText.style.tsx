@@ -25,6 +25,9 @@ export const MovieTextContainer = styled.div`
         font-weight: bold;
         font-size: large;
         margin-top: 0.625rem;
+        @media screen and (max-width: 37.5em) {
+        display: none;
+        }
     }
 `
 
