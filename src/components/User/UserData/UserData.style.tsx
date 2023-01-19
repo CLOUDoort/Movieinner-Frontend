@@ -2,11 +2,17 @@ import styled from '@emotion/styled'
 
 export const UserDataBox = styled.div`
     margin-top: 1.25rem;
-    width: 50rem;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+`
+
+export const UserDataContainer = styled.div`
+    border: 1px solid gray;
+    border-radius: 0.625rem;
+    width: 50rem;
     @media screen and ( max-width: 53.13em) {
-        width: 37.5rem;
+        width: 35rem;
     }
     @media screen and ( max-width: 41.25em) {
         width: 28.125rem;
@@ -14,11 +20,6 @@ export const UserDataBox = styled.div`
     @media screen and ( max-width: 29.38em) {
         width: 20rem;
     }
-`
-
-export const UserDataContainer = styled.div`
-    border: 1px solid gray;
-    border-radius: 0.625rem;
     > :first-of-type {
         margin: 1.25rem;
         font-weight: bold;

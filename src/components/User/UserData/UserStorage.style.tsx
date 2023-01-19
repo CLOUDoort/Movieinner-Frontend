@@ -4,6 +4,7 @@ export const StorageContainer = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
 `
 
 export const StorageThemeContainer = styled.div`
@@ -21,23 +22,9 @@ export const StorageMovieScroll = styled.div`
     position: relative;
     margin: 0 -24px;
     font-size: 1.3rem;
-    > p {
-        margin-top: 0.625rem;
-        margin-bottom: 0.625rem;
-        font-weight: bold;
-        font-size: 18px;
-    }
-    > :first-of-type {
-        margin-left: 0.625rem;
-    }
-`
-
-export const StorageMovieContainer = styled.div`
     width: 50rem;
-    display: flex;
-    flex-direction: column;
     @media screen and ( max-width: 53.13em) {
-        width: 37.5rem;
+        width: 35rem;
     }
     @media screen and ( max-width: 41.25em) {
         width: 28.125rem;
@@ -45,6 +32,17 @@ export const StorageMovieContainer = styled.div`
     @media screen and ( max-width: 29.38em) {
         width: 20rem;
     }
+    > p {
+        margin-top: 0.625rem;
+        margin-bottom: 0.625rem;
+        font-weight: bold;
+        font-size: 18px;
+    }
+`
+
+export const StorageMovieContainer = styled.div`
+    display: flex;
+    flex-direction: column;
     position: relative;
     overflow: hidden;
     padding: 0 0 1px;

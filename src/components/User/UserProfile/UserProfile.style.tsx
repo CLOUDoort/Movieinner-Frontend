@@ -4,7 +4,7 @@ export const UserProfileBox = styled.div`
     margin-top: 1.25rem;
     width: 50rem;
     @media screen and ( max-width: 53.13em) {
-        width: 37.5rem;
+        width: 35rem;
     }
     @media screen and ( max-width: 41.25em) {
         width: 28.125rem;
