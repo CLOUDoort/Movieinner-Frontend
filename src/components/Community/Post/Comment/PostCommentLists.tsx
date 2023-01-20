@@ -3,7 +3,7 @@ import PostReplyComment from './PostReplyComment'
 import PostSingleComment from './PostSingleComment'
 
 const PostCommentLists = (props) => {
-    const { accessToken, commentList, refreshFunction, userIdx } = props
+    const { accessToken, commentList, refreshFunction, userIdx, contentIdx } = props
     return (
         <CommentList>
             {commentList &&
@@ -17,7 +17,6 @@ const PostCommentLists = (props) => {
                                     idx={comment?.content_idx}
                                     nickname={comment.nickname}
                                     refreshFunction={refreshFunction}
-                                    userIdx={userIdx}
                                     image={comment?.image_URL}
                                 />
                                 <PostReplyComment
