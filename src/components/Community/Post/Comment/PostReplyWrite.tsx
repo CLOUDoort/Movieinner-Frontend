@@ -1,12 +1,16 @@
 import { useState } from 'react'
+import { useSelector } from 'react-redux'
 import { toast } from 'react-toastify'
 import { apiInstance } from '../../../../apis/setting'
 import useGetNotiData from '../../../../apis/UserData/NotificationData'
+import { RootState } from '../../../../store/store'
 import { CommentWrite } from './PostComment.style'
 
 const PostReplyWrite = (props) => {
-    const { accessToken, contentIdx, reply, refreshFunction, clickReply, userIdx } = props
+    const { accessToken, contentIdx, reply, refreshFunction, clickReply } = props
     const [comment, setComment] = useState('')
+    const userIdx = useSelector((state: RootState) => state.idx.idx)
+
     const refetchNotiData = useGetNotiData(userIdx).refetch
     const refetchNoti = () => refetchNotiData()
 
@@ -19,8 +23,8 @@ const PostReplyWrite = (props) => {
             try {
                 const postComment = await apiInstance.post('/community/comment', {
                     contentIdx: contentIdx,
-                    comment: comment,
                     userIdx: userIdx,
+                    comment: comment,
                     responseTo: reply,
                 })
                 const { content_writer_idx, comment_writer_idx, content_idx, idx } = postComment.data.comments
