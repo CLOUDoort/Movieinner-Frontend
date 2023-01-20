@@ -7,7 +7,6 @@ const PostModify = () => {
     const router = useRouter()
     const { idx } = router.query
     const { data, isLoading } = useGetPostData(idx ? idx : null)
-    console.log('postData', data)
     return <>{idx && data && !isLoading ? <NoSsrModifyEditor idx={idx} modifyPost={data?.data?.content} /> : null}</>
 }
 
