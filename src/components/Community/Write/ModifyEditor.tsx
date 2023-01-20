@@ -47,7 +47,7 @@ const ModifyEditor = (props) => {
         console.log('title', title)
         console.log('content', content)
         console.log('image', image)
-        const imageSize = 'style="width:10rem;height:13rem"'
+        const imageSize = 'style="max-width:20%"'
         const position = content.indexOf('src')
 
         const output = [content.slice(0, position), imageSize, content.slice(position)].join('')
