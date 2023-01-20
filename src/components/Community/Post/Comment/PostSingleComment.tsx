@@ -1,5 +1,5 @@
 import Avatar from '@mui/material/Avatar'
-import { CommentUser, } from './PostCommentList.style'
+import { CommentContent, CommentUser, } from './PostCommentList.style'
 import { useState } from 'react'
 import PostReplyWrite from './PostReplyWrite'
 import { apiInstance } from '../../../../apis/setting'
@@ -10,12 +10,11 @@ const PostSingleComment = (props) => {
     const [openReply, setOpenReply] = useState(false)
     const { comment, accessToken, idx, nickname, refreshFunction, clickView, userIdx } = props
     const [modify, setModify] = useState(false)
-    const [setting, clickSetting] = useState(false)
     const [modifyComment, setModifyComment] = useState(comment.comment)
     const deleteComment = '삭제된 댓글입니다.'
     const [deleteState, setDeleteState] = useState(false)
 
-    const handleSetting = () => clickSetting(!setting)
+    console.log('comment', comment)
     const clickReply = () => {
         setOpenReply(!openReply)
     }
@@ -29,12 +28,8 @@ const PostSingleComment = (props) => {
             console.error(e.response)
         }
     }
-    const handleChange = (e) => {
-        setModifyComment(e.target.value)
-    }
-    const handleModify = () => {
-        setModify(!modify)
-    }
+    const handleChange = (e) => setModifyComment(e.target.value)
+    const handleModify = () => setModify(!modify)
     const clickDelete = async (e) => {
         try {
             if (confirm('정말로 삭제하시겠습니까?') === true) {
@@ -52,19 +47,21 @@ const PostSingleComment = (props) => {
                 !deleteState ? (
                     <>
                         <CommentUser>
-                            <div>
-                                <Avatar alt='User Image' src='/topgun.jpeg' />
+                            <CommentContent>
                                 <div>
-                                    <div>{nickname}</div>
-                                    <div>{modifyComment}</div>
-                                    <button onClick={clickReply}>Reply to</button>
+                                    <Avatar alt='User Image' src='/topgun.jpeg' />
+                                    <div>
+                                        <div>{nickname}</div>
+                                        <div>{modifyComment}</div>
+                                    </div>
                                 </div>
-                            </div>
-                            <div>
-                                <button onClick={handleModify}>수정하기</button>
-                                <button onClick={clickDelete}>삭제하기</button>
-                            </div>
+                                <div>
+                                    <button onClick={handleModify}>수정하기</button>
+                                    <button onClick={clickDelete}>삭제하기</button>
+                                </div>
+                            </CommentContent>
                         </CommentUser>
+                        <button onClick={clickReply}>답글 달기</button>
                     </>
                 ) : (
                     <div>{deleteComment}</div>
