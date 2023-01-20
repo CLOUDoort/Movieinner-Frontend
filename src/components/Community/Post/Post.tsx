@@ -15,7 +15,6 @@ const Post = () => {
     const { data, isLoading } = useGetPostData(idx ? idx : null)
     const commentList = useGetPostCommentData(idx ? idx : null).data
     const commentRefetch = useGetPostCommentData(idx ? idx : null).refetch
-
     useEffect(() => {
         const getResponse = async () => {
             try {
@@ -37,7 +36,7 @@ const Post = () => {
                 <PostContainer>
                     <PostBox>
                         <PostContent data={data?.data?.content} clickModify={clickModify} idx={idx} />
-                        <PostComment refreshFunction={refreshFunction} commentList={commentList?.data?.contents} idx={idx} />
+                        <PostComment refreshFunction={refreshFunction} commentList={commentList?.data?.comments} idx={idx} />
                     </PostBox>
                 </PostContainer>
             ) : (
