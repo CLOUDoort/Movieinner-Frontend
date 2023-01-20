@@ -18,6 +18,7 @@ const PostCommentLists = (props) => {
                                     nickname={comment.nickname}
                                     refreshFunction={refreshFunction}
                                     userIdx={userIdx}
+                                    image={comment?.image_URL}
                                 />
                                 <PostReplyComment
                                     commentList={commentList}
@@ -25,6 +26,7 @@ const PostCommentLists = (props) => {
                                     refreshFunction={refreshFunction}
                                     parentComment={comment.idx}
                                     nickname={comment.nickname}
+                                    image={comment?.image_URL}
                                 />
                             </div>
                         )

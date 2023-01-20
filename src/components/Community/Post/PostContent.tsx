@@ -1,3 +1,4 @@
+import { Avatar } from '@mui/material'
 import router from 'next/router'
 import { useState } from 'react'
 import { PostContentArea, PostInfo } from './Post.style'
@@ -11,11 +12,12 @@ const PostContent = (props) => {
     return (
         <PostContentArea>
             <PostInfo>
-                <div>{data.title}</div>
+                <div>{data?.title}</div>
                 <div>
                     <div>
-                        <div>{data.nickname}</div>
-                        <div>{data.created_at}</div>
+                        <Avatar alt='User Image' src={data?.image_URL ? data?.image_URL : '/blank.png'} />
+                        <div>{data?.nickname}</div>
+                        <div>{data?.created_at}</div>
                     </div>
                     <div>
                         <div onClick={() => {

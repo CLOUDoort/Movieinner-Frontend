@@ -20,7 +20,7 @@ const PostReplyComment = (props) => {
     }
     return (
         <CommentReply>
-            {childCommentNumber > 0 && <span onClick={clickView}>댓글 {childCommentNumber}개</span>}
+            {childCommentNumber > 0 && <span onClick={clickView}>{childCommentNumber}개의 답글</span>}
             {viewComments &&
                 commentList.map(
                     (comment: any) =>

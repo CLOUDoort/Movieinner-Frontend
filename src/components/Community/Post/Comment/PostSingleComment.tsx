@@ -8,7 +8,7 @@ import { CommentWrite } from './PostComment.style'
 
 const PostSingleComment = (props) => {
     const [openReply, setOpenReply] = useState(false)
-    const { comment, accessToken, idx, nickname, refreshFunction, clickView, userIdx } = props
+    const { comment, accessToken, idx, nickname, refreshFunction, clickView, userIdx, image } = props
     const [modify, setModify] = useState(false)
     const [modifyComment, setModifyComment] = useState(comment.comment)
     const deleteComment = '삭제된 댓글입니다.'
@@ -49,7 +49,7 @@ const PostSingleComment = (props) => {
                         <CommentUser>
                             <CommentContent>
                                 <div>
-                                    <Avatar alt='User Image' src='/topgun.jpeg' />
+                                    <Avatar alt='User Image' src={image ? image : '/blank.png'} />
                                     <div>
                                         <div>{nickname}</div>
                                         <div>{modifyComment}</div>
