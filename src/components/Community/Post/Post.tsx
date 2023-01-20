@@ -29,23 +29,19 @@ const Post = () => {
         getResponse()
     }, [idx])
 
-    const clickModify = () => {
-        setShowModal(!showModal)
-    }
+    const clickModify = () => setShowModal(!showModal)
 
-    const refreshFunction = () => {
-        commentRefetch()
-    }
+    const refreshFunction = () => commentRefetch()
     return (
         <>
             {idx && !isLoading ? (
-                <PostBox>
-                    <PostContainer>
+                <PostContainer>
+                    <PostBox>
                         <PostContent data={data?.data?.content} clickModify={clickModify} />
                         <PostComment refreshFunction={refreshFunction} commentList={commentList?.data?.contents} idx={idx} />
                         {showModal ? <PostModifyModal idx={idx} clickModify={clickModify} /> : null}
-                    </PostContainer>
-                </PostBox>
+                    </PostBox>
+                </PostContainer>
             ) : (
                 <LoadingLogo />
             )}
