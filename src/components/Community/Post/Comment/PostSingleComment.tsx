@@ -1,9 +1,10 @@
 import Avatar from '@mui/material/Avatar'
-import { CommentUser, CommentWrite } from './PostComment.style'
+import { CommentUser, } from './PostCommentList.style'
 import { useState } from 'react'
 import PostReplyWrite from './PostReplyWrite'
 import { apiInstance } from '../../../../apis/setting'
 import { toast } from 'react-toastify'
+import { CommentWrite } from './PostComment.style'
 
 const PostSingleComment = (props) => {
     const [openReply, setOpenReply] = useState(false)

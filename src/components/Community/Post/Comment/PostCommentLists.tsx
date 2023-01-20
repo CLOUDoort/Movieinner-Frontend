@@ -1,4 +1,4 @@
-import { CommentList } from './PostComment.style'
+import { CommentList } from './PostCommentList.style'
 import PostReplyComment from './PostReplyComment'
 import PostSingleComment from './PostSingleComment'
 
