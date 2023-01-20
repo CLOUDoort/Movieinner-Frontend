@@ -57,6 +57,7 @@ export const PostInfo = styled.div`
         font-size: 1rem;
         >:first-of-type {
             display: flex;
+            align-items: center;
             > div {
                 margin-right: 0.5rem;
             }

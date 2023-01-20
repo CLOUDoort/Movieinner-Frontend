@@ -55,14 +55,26 @@ export const CommentContent = styled.div`
 `
 
 export const CommentReply = styled.div`
+    display: flex;
+    flex-direction: column;
+    margin: 1rem;
+    margin-left: 3.4rem;
+    margin-bottom: 0.5rem;
     > span {
         cursor: pointer;
-        width: 80%;
-        margin-left: 60px;
     }
     > div {
-        width: 80%;
-        margin-left: 40px;
-        margin-top: 1.25rem;
+        border-bottom: 1px solid white;
+        padding-top: 1.25rem;
+        padding-bottom: 1.25rem;
+        > button {
+            border: none;
+            margin: 1rem;
+            margin-left: 3.4rem;
+            margin-bottom: 0.5rem;
+            font-size: 0.8rem;
+            color: #06de06;
+            background-color: black;
+        }
     }
 `
