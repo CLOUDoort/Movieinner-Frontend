@@ -5,13 +5,12 @@ export const FeedContainer = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-top: 2rem;
     > p {
         font-size: 2rem;
         text-align: start;
     }
     > * {
-        margin-top: 2rem;
+        margin-top: 1.25rem;
     }
 `
 

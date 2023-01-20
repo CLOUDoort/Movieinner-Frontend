@@ -6,7 +6,7 @@ export const PostModal = styled.div`
     left: 0;
     right: 0;
     bottom: 0;
-    z-index: 9999;
+    z-index: 1001;
     background: rgba(0, 0, 0, 0.4);
 `
 
@@ -98,18 +98,19 @@ export const PostConfirmModalContainer = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 2000;
+    z-index: 1002;
     > div {
-        border: 1px solid gray;
-        padding: 1.875rem 50px;
+        border: 1px solid rgba(0, 0, 0, 1);
+        padding: 1.875rem 3.125rem;
         border-radius: 0.313rem;
+        background-color: black;
         > div {
             margin-top: 0.625rem;
             display: flex;
             justify-content: space-between;
             > button {
                 border: none;
-                padding: 8px 1rem;
+                padding: 0.5rem 1rem;
                 background-color: white;
             }
         }

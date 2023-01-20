@@ -13,7 +13,7 @@ export const UserProfileBox = styled.div`
 export const UserProfileContainer = styled.div`
     border-radius: 0.625rem;
     padding: 1.875rem 1.5rem;
-    border: 1px solid gray;
+    border: 1px solid white;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -39,7 +39,7 @@ export const UserProfileInfo = styled.div`
 export const UserModifyNickname = styled.div`
     margin-left: 0.625rem;
     >input {
-        border: 1px solid gray;
+        border: 1px solid white;
         padding: 0.313rem;
     }
     >button {

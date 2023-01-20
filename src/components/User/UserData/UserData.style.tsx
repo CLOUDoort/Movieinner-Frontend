@@ -9,7 +9,7 @@ export const UserDataBox = styled.div`
 `
 
 export const UserDataContainer = styled.div`
-    border: 1px solid gray;
+    border: 1px solid white;
     border-radius: 0.625rem;
     width: 50rem;
     @media screen and ( max-width: 53.13em) {
