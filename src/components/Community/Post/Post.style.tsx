@@ -1,9 +1,13 @@
 import styled from '@emotion/styled'
 
-export const PostBox = styled.div`
+export const PostContainer = styled.div`
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
+`
+
+export const PostBox = styled.div`
     width: 50rem;
     @media screen and (max-width: 53.13em) {
         width: 35rem;
@@ -11,68 +15,59 @@ export const PostBox = styled.div`
     @media screen and (max-width: 37.5em) {
         width: 23rem;
     }
-    background-color: #313131;
     color: white;
     margin-bottom: 1.25rem;
     margin-top: 1.25rem;
     border-radius: 0.625rem;
     overflow: auto;
     &::-webkit-scrollbar {
-      width: 0.313rem;
-      height: 1.25rem;
+        width: 0.313rem;
+        height: 1.25rem;
     }
     &::-webkit-scrollbar-thumb {
-     border-radius: 2px;
-      background: red;
-      max-height: 95%;
+        border-radius: 2px;
+        background: red;
     }
 `
 
-export const PostContainer = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin-top: 0.313rem;
-    margin-bottom: 1.25rem;
-    position: relative;
-    height: 100%;
-`
 export const PostContentArea = styled.div`
     margin-top: 1.875rem;
-    padding: 1.25rem;
-    width: 750px;
+    padding: 2rem;
     display: flex;
     flex-direction: column;
-    border: 3px solid black;
+    border: 1px solid white;
     border-radius: 0.313rem;
-    > hr {
-        width: 700px;
-        border: none;
-        border-top: 3px solid black;
+    > :last-of-type {
+        padding-top: 1.5rem;
     }
 `
 export const PostInfo = styled.div`
     display: flex;
-    justify-content: space-between;
-    padding: 1rem 24px;
-    font-size: 17px;
-    > div {
-        display: flex;
-        > svg {
-            margin-right: 0.625rem;
-            cursor: pointer;
-        }
-        > div {
-            margin-right: 0.625rem;
-        }
+    flex-direction: column;
+    border-bottom: 1px solid white;
+    padding-bottom: 1.5rem;
+    >:first-of-type {
+        font-size: 3rem;
+        margin-bottom: 2rem;
     }
-`
-
-export const PostContents = styled.div`
-    padding: 1rem 24px;
-    width: 700px;
-    > :first-of-type {
-        padding-bottom: 0.625rem;
+    >:last-of-type {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 1rem;
+        >:first-of-type {
+            display: flex;
+            > div {
+                margin-right: 0.5rem;
+            }
+        }
+        >:last-of-type {
+            display: flex;
+            align-items: center;
+            > * { 
+                margin-left: 0.5rem;
+                cursor: pointer;
+            }
+        }
     }
 `
