@@ -49,7 +49,7 @@ const WysiwygEditor = () => {
         console.log('title', title)
         console.log('content', content)
         console.log('image', image)
-        const imageSize = 'style="width:15rem;height:30rem"'
+        const imageSize = 'style="width:10rem;height:13rem"'
         const position = content.indexOf('src')
 
         const output = [content.slice(0, position), imageSize, content.slice(position)].join('')
