@@ -64,7 +64,7 @@ export const CommentReply = styled.div`
         cursor: pointer;
     }
     > div {
-        border-bottom: 1px solid white;
+        /* border-bottom: 1px solid white; */
         padding-top: 1.25rem;
         padding-bottom: 1.25rem;
         > button {
