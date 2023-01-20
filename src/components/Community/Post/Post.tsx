@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import { PostBox, PostContainer } from './Post.style'
-import PostModifyModal from './PostModifyModal'
 import PostComment from './Comment/PostComment'
 import PostContent from './PostContent'
 import { apiInstance } from '../../../apis/setting'
@@ -37,9 +36,8 @@ const Post = () => {
             {idx && !isLoading ? (
                 <PostContainer>
                     <PostBox>
-                        <PostContent data={data?.data?.content} clickModify={clickModify} />
+                        <PostContent data={data?.data?.content} clickModify={clickModify} idx={idx} />
                         <PostComment refreshFunction={refreshFunction} commentList={commentList?.data?.contents} idx={idx} />
-                        {showModal ? <PostModifyModal idx={idx} clickModify={clickModify} /> : null}
                     </PostBox>
                 </PostContainer>
             ) : (
