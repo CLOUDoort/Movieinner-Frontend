@@ -20,14 +20,6 @@ export const PostBox = styled.div`
     margin-top: 1.25rem;
     border-radius: 0.625rem;
     overflow: auto;
-    &::-webkit-scrollbar {
-        width: 0.313rem;
-        height: 1.25rem;
-    }
-    &::-webkit-scrollbar-thumb {
-        border-radius: 2px;
-        background: red;
-    }
 `
 
 export const PostContentArea = styled.div`
