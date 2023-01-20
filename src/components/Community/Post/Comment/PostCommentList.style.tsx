@@ -8,43 +8,49 @@ export const CommentList = styled.div`
         border-bottom: 1px solid white;
         padding-top: 1.25rem;
         padding-bottom: 1.25rem;
+        > button {
+            border: none;
+            margin: 1rem;
+            margin-left: 3.4rem;
+            margin-bottom: 0.5rem;
+            font-size: 0.8rem;
+            color: #06de06;
+            background-color: black
+        }
     }
 `
 
 export const CommentUser = styled.div`
     display: flex;
+    flex-direction: column;
+    justify-content: center;
+`
+export const CommentContent = styled.div`
+    display: flex;
     justify-content: space-between;
-    align-items: center;
-    > div {
+    flex-direction: row;
+    > :first-of-type {
         display: flex;
-        > :first-of-type {
-            margin-left: 0.625rem;
-            /* font-weight: bold; */
-        }
+        align-items: center;
         > div {
             margin-left: 0.625rem;
-            margin-top: 0.625rem;
             > :first-of-type {
                 font-weight: bold;
             }
-            > button {
-                border: none;
-                margin-left: 0.625rem;
-                padding: 0.313rem 0.625rem;
-                margin-bottom: 0.313rem;
-            }
-        }   
-    } 
-    > div > button {
-        border: none;
-        margin-left: 0.625rem;
-        padding: 0.313rem 0.625rem;
-        margin-bottom: 0.313rem;
-        background-color: white
+        }
     }
     > :last-of-type {
         display: flex;
         flex-direction: column;
+        align-items: center;
+        > button {
+            border: none;
+            margin-left: 0.625rem;
+            padding: 0.313rem 0.625rem;
+            font-size: 0.75rem;
+            color: white;
+            background-color: black
+        }
     }
 `
 
