@@ -43,8 +43,8 @@ const PostRootWrite = (props) => {
         <CommentWrite>
             <textarea value={comment} onChange={handleChange} placeholder='댓글 작성해주세요!'></textarea>
             <div>
-                <button type='reset' onClick={handleClick}>
-                    작성하기
+                <button onClick={handleClick}>
+                    댓글 작성
                 </button>
             </div>
         </CommentWrite>

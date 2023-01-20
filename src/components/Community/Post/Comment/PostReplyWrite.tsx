@@ -35,7 +35,6 @@ const PostReplyWrite = (props) => {
                 refreshFunction() // 작성 댓글 업데이트
                 refetchNoti()
                 clickReply()
-                // clickView()
             } catch (e) {
                 console.error(e.response)
                 toast.error('댓글 작성 실패!')

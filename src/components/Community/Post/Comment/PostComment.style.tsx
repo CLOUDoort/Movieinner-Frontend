@@ -1,8 +1,6 @@
 import styled from '@emotion/styled'
 
 export const CommentArea = styled.div`
-    min-width: 750px;
-    border-top: 1px solid rgba(210, 208, 208, 0.4);
     margin-bottom: 1.25rem;
 `
 
@@ -13,11 +11,16 @@ export const CommentWrite = styled.div`
     > textarea {
         width: 100%;
         resize: none;
-        border: none;
         outline: none;
         height: 6.25rem;
-        border-radius: 2px;
-        padding: 0.313rem 8px;
+        @media screen and (max-width: 53.13em) {
+            height: 5rem;
+        }
+        @media screen and (max-width: 37.5em) {
+            height: 4rem;
+        }
+        border-radius: 0.1rem;
+        padding: 0.313rem 0.5rem;
         font-size: 0.938rem;
     }
     > div {
@@ -29,7 +32,7 @@ export const CommentWrite = styled.div`
             border: none;
             padding: 8px 1rem;
             margin-left: 0.625rem;
-            background-color: #adf8f8;
+            background-color: #fbfbfb;
         }
     }
 `
@@ -39,7 +42,7 @@ export const CommentList = styled.div`
     flex-direction: column;
     margin: 1.25rem;
     > div {
-        border-bottom: 1px solid rgba(210, 208, 208, 0.4);
+        border-bottom: 1px solid white;
         padding-top: 1.25rem;
         padding-bottom: 1.25rem;
     }
