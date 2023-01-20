@@ -30,9 +30,10 @@ const PostReplyComment = (props) => {
                                     comment={comment}
                                     accessToken={accessToken}
                                     idx={comment?.content_idx}
-                                    nickname={nickname}
+                                    nickname={comment.nickname}
                                     refreshFunction={refreshFunction}
                                     clickView={clickView}
+                                    image={comment?.image_URL}
                                 />
                                 <PostReplyComment
                                     commentList={commentList}
@@ -40,6 +41,7 @@ const PostReplyComment = (props) => {
                                     refreshFunction={refreshFunction}
                                     parentComment={comment.idx}
                                     nickname={nickname}
+                                    image={comment?.image_URL}
                                 />
                             </div>
                         )
