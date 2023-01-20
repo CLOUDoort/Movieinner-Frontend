@@ -7,7 +7,7 @@ const PostCommentLists = (props) => {
     return (
         <CommentList>
             {commentList &&
-                commentList.map(
+                commentList?.map(
                     (comment: any) =>
                         !comment?.response_to && (
                             <div key={comment.idx}>

@@ -7,6 +7,7 @@ const PostContent = (props) => {
     const { data, idx } = props
     const [confirmModal, setConfirmModal] = useState(false)
     const clickCheck = () => setConfirmModal(!confirmModal)
+    console.log('postData', data)
     return (
         <PostContentArea>
             <PostInfo>

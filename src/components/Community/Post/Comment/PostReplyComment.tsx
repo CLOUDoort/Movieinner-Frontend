@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { CommentReply } from './PostComment.style'
+import { CommentReply } from './PostCommentList.style'
 import PostSingleComment from './PostSingleComment'
 
 const PostReplyComment = (props) => {
