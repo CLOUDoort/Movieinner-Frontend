@@ -6,6 +6,7 @@ export const WriteContainer = styled.div`
     justify-content: center;
     align-items: center;
     padding: 1.25rem;
+    height: 100%;
 `
 
 export const WriteTitle = styled.input`
