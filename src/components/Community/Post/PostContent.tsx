@@ -11,7 +11,6 @@ const PostContent = (props) => {
     const nickname = useSelector((state: RootState) => state.nickname.nickname)
     const [confirmModal, setConfirmModal] = useState(false)
     const clickCheck = () => setConfirmModal(!confirmModal)
-    console.log('postData', data)
     return (
         <PostContentArea>
             <PostInfo>
