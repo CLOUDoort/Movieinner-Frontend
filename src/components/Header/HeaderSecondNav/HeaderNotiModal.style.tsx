@@ -13,6 +13,8 @@ export const HeaderNotiModalContainer = styled.div`
 `
 export const HeaderNotiModalBox = styled.div<transitionProps>`
     position: absolute;
+    overflow: hidden;
+    overflow-y: scroll;
     width: 25rem;
     height: 31.2rem;
     background-color: white;
