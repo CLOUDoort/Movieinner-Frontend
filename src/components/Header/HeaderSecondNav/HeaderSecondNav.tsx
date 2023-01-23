@@ -3,7 +3,7 @@ import HeaderSearch from './HeaderSearch'
 import HeaderUser from './HeaderUser'
 import { HearderSecondNavBox } from './HeaderSecondNav.style'
 
-const HearderSecondNav = (props) => {
+const HeaderSecondNav = (props) => {
     const { loginToken, nickname, userImage } = props
 
     return (
@@ -15,4 +15,4 @@ const HearderSecondNav = (props) => {
     )
 }
 
-export default HearderSecondNav
+export default HeaderSecondNav
