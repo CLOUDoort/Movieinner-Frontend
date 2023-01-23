@@ -1,10 +1,9 @@
-import { useSelector } from 'react-redux'
-import useGetUserImage from '../../apis/UserData/UserImage'
-import { RootState } from '../../store/store'
 import { HeaderContainer } from './Header.style'
 import HeaderFirstNav from './HeaderFirstNav/HeaderFirstNav'
-import HearderSecondNav from './HeaderSecondNav/HearderSecondNav'
-
+import HeaderSecondNav from './HeaderSecondNav/HeaderSecondNav'
+import { RootState } from '../../store/store'
+import useGetUserImage from '../../apis/UserData/UserImage'
+import { useSelector } from 'react-redux'
 
 const Header = () => {
     const loginToken = useSelector((state: RootState) => state.token.token)
@@ -16,7 +15,7 @@ const Header = () => {
     return (
         <HeaderContainer>
             <HeaderFirstNav nickname={nickname} />
-            <HearderSecondNav loginToken={loginToken} nickname={nickname} userImage={userImage} />
+            <HeaderSecondNav loginToken={loginToken} nickname={nickname} userImage={userImage} />
         </HeaderContainer>
     )
 }
