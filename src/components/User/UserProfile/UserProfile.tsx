@@ -1,11 +1,14 @@
 import { UserProfileBox, UserProfileContainer, UserProfileData, UserProfileInfo } from '../UserProfile/UserProfile.style'
+import { setEmail, setIdx, setNickname, setToken } from '../../../store/reducers/logintokenSlice'
+
+import { CommonLogout } from '../../Common/CommonLogout'
 import Image from "next/image"
+import LoadingLogo from '../../Common/Loading/LoadingLogo'
+import { RootState } from '../../../store/store'
+import { toast } from 'react-toastify'
+import useGetUserImage from '../../../apis/UserData/UserImage'
 import { useRouter } from 'next/router'
 import { useSelector } from 'react-redux'
-import { RootState } from '../../../store/store'
-import LoadingLogo from '../../Common/Loading/LoadingLogo'
-import useGetUserImage from '../../../apis/UserData/UserImage'
-import { CommonLogout } from '../../Common/CommonLogout'
 
 const UserProfile = (props) => {
     const { nickname } = props
@@ -13,7 +16,16 @@ const UserProfile = (props) => {
     const router = useRouter()
     const userImage = useGetUserImage(userIdx).data
     const isLoading = useGetUserImage(userIdx).isLoading
-    const clickLogout = async () => CommonLogout()
+    const clickLogout = () => {
+        if (CommonLogout()) {
+            dispatch(setToken(''))
+            dispatch(setNickname(''))
+            dispatch(setEmail(''))
+            dispatch(setIdx(0))
+            router.replace('/')
+            toast.success('로그아웃되었습니다!')
+        }
+    }
     return (
         <>
             {!isLoading ? <UserProfileBox>

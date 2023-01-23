@@ -1,16 +1,18 @@
-import Image from 'next/image'
+import { setEmail, setIdx, setNickname, setToken } from '../../../store/reducers/logintokenSlice'
 import { useEffect, useState } from 'react'
+
+import { CommonLogout } from '../../Common/CommonLogout'
+import HeaderSettingModal from './HeaderSettingModal'
+import { HeaderUserBox } from './HeaderUser.style'
+import Image from 'next/image'
+import { RiArrowDownSLine } from 'react-icons/ri'
+import { apiInstance } from '../../../apis/setting'
+import { toast } from 'react-toastify'
 import { useDispatch } from 'react-redux'
 import { useRouter } from 'next/router'
-import { HeaderUserBox } from './HeaderUser.style'
-import { RiArrowDownSLine } from 'react-icons/ri'
-import HeaderSettingModal from './HeaderSettingModal'
-import { apiInstance } from '../../../apis/setting'
-import { setEmail, setIdx, setNickname, setToken } from '../../../store/reducers/logintokenSlice'
-import { CommonLogout } from '../../Common/CommonLogout'
 
 const HeaderUser = (props) => {
-    const { loginToken, userImage, nickname } = props
+    const { loginToken, userImage } = props
     const [loginToggle, setLoginToggle] = useState(false)
     const [showSetting, setShowSetting] = useState(false)
     const dispatch = useDispatch()
@@ -51,7 +53,16 @@ const HeaderUser = (props) => {
     }, [loginToken])
 
     const clickLoginLogout = async () => {
-        if (loginToggle) CommonLogout()
+        if (loginToggle) {
+            if (CommonLogout()) {
+                dispatch(setToken(''))
+                dispatch(setNickname(''))
+                dispatch(setEmail(''))
+                dispatch(setIdx(0))
+                router.replace('/')
+                toast.success('로그아웃되었습니다!')
+            }
+        }
         else router.push('/login')
     }
 
