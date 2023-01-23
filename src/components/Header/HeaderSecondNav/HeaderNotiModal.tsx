@@ -1,12 +1,13 @@
-import { useEffect, useState } from "react"
 import { HeaderNotiModalBox, HeaderNotiModalContainer, HeaderNotiModalList } from "./HeaderNotiModal.style"
+import { useEffect, useState } from "react"
+
 import Image from "next/image"
 import { MdDelete } from "react-icons/md"
 import { apiInstance } from "../../../apis/setting"
 import router from "next/router"
 
 const HeaderNotiModal = (props) => {
-    const { controlModal, notiData, userIdx, refetchNoti } = props
+    const { controlModal, notiData, userIdx, refetchNoti, loginToken } = props
     const [transition, setTransition] = useState(false)
     const [deleteIdx, setDeleteIdx] = useState(0);
     useEffect(() => { setTransition(!transition) }, [])
@@ -26,7 +27,7 @@ const HeaderNotiModal = (props) => {
     }
     return (
         <HeaderNotiModalContainer onClick={controlModal}>
-            <HeaderNotiModalBox transition={transition} onClick={(e) => e.stopPropagation()}>
+            {loginToken && <HeaderNotiModalBox transition={transition} onClick={(e) => e.stopPropagation()}>
                 <div>알림</div>
                 {notiData?.map((obj) => (
                     <HeaderNotiModalList onClick={() => {
@@ -43,7 +44,7 @@ const HeaderNotiModal = (props) => {
                         <MdDelete onClick={deleteNoti} size={20} />
                     </HeaderNotiModalList>
                 ))}
-            </HeaderNotiModalBox>
+            </HeaderNotiModalBox>}
         </HeaderNotiModalContainer>
     )
 }

@@ -1,14 +1,15 @@
-import { useState } from "react"
-import { IoIosNotificationsOutline } from "react-icons/io"
-import { useSelector } from "react-redux"
-import { RootState } from "../../../store/store"
-import useGetNotiData from "../../../apis/UserData/NotificationData"
+import { HeaderNotiBox } from "./HeaderUser.style"
 import HeaderNotiModal from "./HeaderNotiModal"
 import { HeaderNotiNum } from "./HeaderNotiModal.style"
-import { HeaderNotiBox } from "./HeaderUser.style"
+import { IoIosNotificationsOutline } from "react-icons/io"
+import { RootState } from "../../../store/store"
+import useGetNotiData from "../../../apis/UserData/NotificationData"
+import { useSelector } from "react-redux"
+import { useState } from "react"
 
-const HeaderNoti = () => {
+const HeaderNoti = (props) => {
     const userIdx = useSelector((state: RootState) => state.idx.idx)
+    const { loginToken } = props
     const notiData = useGetNotiData(userIdx).data
     const refetchNotiData = useGetNotiData(userIdx).refetch
     const [modal, setModal] = useState(false)
@@ -21,7 +22,7 @@ const HeaderNoti = () => {
         <HeaderNotiBox modal={modal}>
             <HeaderNotiNum number={number}>{notiData?.data?.response?.length ? notiData?.data?.response?.length : null}</HeaderNotiNum>
             <IoIosNotificationsOutline onClick={controlModal} size={40} />
-            {modal ? <HeaderNotiModal refetchNoti={refetchNoti} userIdx={userIdx} notiData={notiData?.data?.response} modal={modal} controlModal={controlModal} /> : null}
+            {modal ? <HeaderNotiModal loginToken={loginToken} refetchNoti={refetchNoti} userIdx={userIdx} notiData={notiData?.data?.response} modal={modal} controlModal={controlModal} /> : null}
         </HeaderNotiBox>
     )
 

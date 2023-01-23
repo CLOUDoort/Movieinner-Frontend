@@ -9,7 +9,7 @@ const HearderSecondNav = (props) => {
     return (
         <HearderSecondNavBox>
             <HeaderSearch />
-            <HeaderNoti />
+            <HeaderNoti loginToken={loginToken} />
             <HeaderUser loginToken={loginToken} userImage={userImage} nickname={nickname} />
         </HearderSecondNavBox>
     )
