@@ -1,4 +1,5 @@
 import { WelcomeBox, WelcomeContainer, WelcomeTitle } from './Welcome.style'
+
 import Link from 'next/link'
 
 const Welcome = () => {
@@ -7,7 +8,7 @@ const Welcome = () => {
         <WelcomeContainer>
             <WelcomeBox>
                 <WelcomeTitle>
-                    <div>cloudoort님, Movie-inner 가입을 축하합니다&#33;</div>
+                    <div>Movie-inner 가입을 축하합니다&#33;</div>
                 </WelcomeTitle>
                 <div>
                     <Link href='/'>
