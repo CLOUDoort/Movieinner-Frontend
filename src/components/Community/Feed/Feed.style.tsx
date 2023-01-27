@@ -96,6 +96,7 @@ export const FeedPaginationContainer = styled.div<PaginationProps>`
     justify-content: center;
     align-items: center;
     padding: 0.5rem;
+    margin-bottom: 1rem;
     > div > span {
         margin-left: 0.6rem;
         font-size: 1.2rem;
