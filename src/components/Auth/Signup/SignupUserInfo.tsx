@@ -1,8 +1,9 @@
 import { UserInfoContainer, UserSex } from "./Signupinfo.style"
+
 import SignupUserBirth from "./SignupUserBirth"
 
 const SignupUserInfo = (props) => {
-    const { handleChange, select, setSelect, info, dispatch } = props
+    const { handleChange, select, setSelect, info } = props
 
     return (
         <UserInfoContainer>

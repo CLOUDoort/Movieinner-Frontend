@@ -1,8 +1,8 @@
-import { useState } from 'react'
-import { useDispatch } from 'react-redux'
-import { setSignup, setUser } from '../../../store/reducers/signupSlice'
 import { CheckText, EmailDiv, ProgressBtn, SignupContainerDiv } from './Signup.style'
+import { setSignup, setUser } from '../../../store/reducers/signupSlice'
+
 import CurrentStatusSecond from '../CurrentStatus/CurrentStatusSecond'
+import { useState } from 'react'
 
 const Signuppw = (props) => {
     const { dispatch } = props
