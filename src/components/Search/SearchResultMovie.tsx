@@ -1,10 +1,10 @@
 import { SearchBox, SearchListItem } from "./Search.style"
+
 import Image from "next/image"
 import router from "next/router"
 import useGetMovieSearch from "../../apis/MovieData/MovieSearch"
-import { useRef } from "react"
 import { useObserver } from "../Common/UseObserver"
-import LoadingCircle from "../Common/Loading/LoadingCircle"
+import { useRef } from "react"
 
 const SearchResultMovie = (props) => {
     const { search, click } = props
