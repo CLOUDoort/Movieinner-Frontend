@@ -1,10 +1,11 @@
-import { useState, useEffect } from 'react'
+import { MovieBtnContainer, MovieLikeBtn } from './MovieLike.style'
+import { useEffect, useState } from 'react'
+
 import { BsFillHandThumbsUpFill } from 'react-icons/bs'
+import { RootState } from '../../store/store'
 import { apiInstance } from '../../apis/setting'
 import { toast } from 'react-toastify'
 import { useSelector } from 'react-redux'
-import { RootState } from '../../store/store'
-import { MovieBtnContainer, MovieLikeBtn } from './MovieLike.style'
 
 const MovieLike = (props) => {
     const [like, setLike] = useState(false)
@@ -17,10 +18,7 @@ const MovieLike = (props) => {
             if (accessToken) {
                 // 좋아요 목록 확인
                 const checkLiked = await apiInstance.post('movies/liked/movie', { userIdx: userIdx, movieId: movieId })
-                console.log(checkLiked.data.isExisted)
-                if (checkLiked.data.isExisted) {
-                    setLike(true)
-                }
+                if (checkLiked.data.isExisted) setLike(true)
             }
         }
         getResponse()
@@ -36,7 +34,7 @@ const MovieLike = (props) => {
                         data: {
                             type: 'movie',
                             userIdx: userIdx,
-                            name: movieInfo.title,
+                            movieId: movieId
                         },
                     })
                     setLike(false)
