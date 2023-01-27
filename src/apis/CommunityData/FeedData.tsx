@@ -1,5 +1,6 @@
-import { AxiosResponse, AxiosError } from 'axios'
-import { dehydrate, QueryClient, useQuery } from 'react-query'
+import { AxiosError, AxiosResponse } from 'axios'
+import { QueryClient, dehydrate, useQuery } from 'react-query'
+
 import { GetServerSideProps } from 'next'
 import { apiInstance } from '../setting'
 
@@ -9,7 +10,7 @@ export const getServerSidePropsfeedData: GetServerSideProps = async (context) =>
     await queryClient.prefetchQuery(['feedData', page], () => useGetFeedData(page))
     return {
         props: {
-            dehydratedState: dehydrate(queryClient),
+            dehydratedState: dehydrate(queryClient)
         },
     }
 }
