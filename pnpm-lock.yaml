@@ -26,7 +26,6 @@ specifiers:
   react-date-range: ^1.4.0
   react-dom: 18.2.0
   react-icons: ^4.4.0
-  react-infinite-scroller: ^1.2.6
   react-query: ^3.39.2
   react-redux: ^8.0.2
   react-toastify: ^9.0.7
@@ -54,7 +53,6 @@ dependencies:
   react-date-range: 1.4.0_23viex6gunyvr4e3rp6orywugu
   react-dom: 18.2.0_react@18.2.0
   react-icons: 4.4.0_react@18.2.0
-  react-infinite-scroller: 1.2.6_react@18.2.0
   react-query: 3.39.2_biqbaboplfbrettd7655fr4n2y
   react-redux: 8.0.2_rxpulxqxsibgdk5rs4llgxl6gy
   react-toastify: 9.0.7_biqbaboplfbrettd7655fr4n2y
@@ -1865,7 +1863,7 @@ packages:
       eslint: 8.20.0
       eslint-import-resolver-node: 0.3.6
       eslint-import-resolver-typescript: 2.7.1_afl3vkhn63baibzal45igheroq
-      eslint-plugin-import: 2.26.0_xghit6br4uxxcb3wedzz63s5dy
+      eslint-plugin-import: 2.26.0_eslint@8.20.0
       eslint-plugin-jsx-a11y: 6.6.1_eslint@8.20.0
       eslint-plugin-react: 7.30.1_eslint@8.20.0
       eslint-plugin-react-hooks: 4.6.0_eslint@8.20.0
@@ -1893,7 +1891,7 @@ packages:
     dependencies:
       debug: 4.3.4
       eslint: 8.20.0
-      eslint-plugin-import: 2.26.0_xghit6br4uxxcb3wedzz63s5dy
+      eslint-plugin-import: 2.26.0_eslint@8.20.0
       glob: 7.2.3
       is-glob: 4.0.3
       resolve: 1.22.1
@@ -1902,7 +1900,7 @@ packages:
       - supports-color
     dev: true
 
-  /eslint-module-utils/2.7.3_tl7yzo5qhybg5tc7vdth5gpmla:
+  /eslint-module-utils/2.7.3_ulu2225r2ychl26a37c6o2rfje:
     resolution: {integrity: sha512-088JEC7O3lDZM9xGe0RerkOMd0EjFl+Yvd1jPWIkMT5u3H9+HC34mWWPnqPrN13gieT9pBOO+Qt07Nb/6TresQ==}
     engines: {node: '>=4'}
     peerDependencies:
@@ -1920,16 +1918,14 @@ packages:
       eslint-import-resolver-webpack:
         optional: true
     dependencies:
-      '@typescript-eslint/parser': 5.31.0_he2ccbldppg44uulnyq4rwocfa
       debug: 3.2.7
       eslint-import-resolver-node: 0.3.6
-      eslint-import-resolver-typescript: 2.7.1_afl3vkhn63baibzal45igheroq
       find-up: 2.1.0
     transitivePeerDependencies:
       - supports-color
     dev: true
 
-  /eslint-plugin-import/2.26.0_xghit6br4uxxcb3wedzz63s5dy:
+  /eslint-plugin-import/2.26.0_eslint@8.20.0:
     resolution: {integrity: sha512-hYfi3FXaM8WPLf4S1cikh/r4IxnO6zrhZbEGz2b660EJRbuxgpDS5gkCuYgGWg2xxh2rBuIr4Pvhve/7c31koA==}
     engines: {node: '>=4'}
     peerDependencies:
@@ -1939,14 +1935,13 @@ packages:
       '@typescript-eslint/parser':
         optional: true
     dependencies:
-      '@typescript-eslint/parser': 5.31.0_he2ccbldppg44uulnyq4rwocfa
       array-includes: 3.1.5
       array.prototype.flat: 1.3.0
       debug: 2.6.9
       doctrine: 2.1.0
       eslint: 8.20.0
       eslint-import-resolver-node: 0.3.6
-      eslint-module-utils: 2.7.3_tl7yzo5qhybg5tc7vdth5gpmla
+      eslint-module-utils: 2.7.3_ulu2225r2ychl26a37c6o2rfje
       has: 1.0.3
       is-core-module: 2.9.0
       is-glob: 4.0.3
@@ -3180,15 +3175,6 @@ packages:
     peerDependencies:
       react: '*'
     dependencies:
-      react: 18.2.0
-    dev: false
-
-  /react-infinite-scroller/1.2.6_react@18.2.0:
-    resolution: {integrity: sha512-mGdMyOD00YArJ1S1F3TVU9y4fGSfVVl6p5gh/Vt4u99CJOptfVu/q5V/Wlle72TMgYlBwIhbxK5wF0C/R33PXQ==}
-    peerDependencies:
-      react: ^0.14.9 || ^15.3.0 || ^16.0.0 || ^17.0.0 || ^18.0.0
-    dependencies:
-      prop-types: 15.8.1
       react: 18.2.0
     dev: false
 
