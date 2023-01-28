@@ -1,24 +1,23 @@
-import Avatar from '@mui/material/Avatar'
 import { CommentContent, CommentUser, } from './PostCommentList.style'
-import { useState } from 'react'
+
+import Avatar from '@mui/material/Avatar'
+import { CommentWrite } from './PostComment.style'
 import PostReplyWrite from './PostReplyWrite'
+import { RootState } from '../../../../store/store'
 import { apiInstance } from '../../../../apis/setting'
 import { toast } from 'react-toastify'
-import { CommentWrite } from './PostComment.style'
 import { useSelector } from 'react-redux'
-import { RootState } from '../../../../store/store'
+import { useState } from 'react'
 
 const PostSingleComment = (props) => {
     const [openReply, setOpenReply] = useState(false)
-    const { comment, accessToken, idx, refreshFunction, clickView, userIdx, image } = props
+    const { comment, accessToken, idx, refreshFunction, clickView, image } = props
     const [modify, setModify] = useState(false)
     const nickname = useSelector((state: RootState) => state.nickname.nickname)
     const [modifyComment, setModifyComment] = useState(comment.comment)
     const deleteComment = '삭제된 댓글입니다.'
     const [deleteState, setDeleteState] = useState(false)
 
-
-    console.log('comment', comment)
     const clickReply = () => {
         setOpenReply(!openReply)
     }
