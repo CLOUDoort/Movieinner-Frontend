@@ -1,5 +1,5 @@
+import { apiInstance } from '../../apis/setting'
 import { useInfiniteQuery } from "react-query";
-import { apiInstance } from "../setting";
 
 export const getGenreData = (search: any, searchPage: any) => apiInstance.get(`/movies/category`, {
     params: {

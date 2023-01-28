@@ -1,10 +1,10 @@
-import { useState } from 'react'
-import { useSelector } from 'react-redux'
-import { toast } from 'react-toastify'
-import { apiInstance } from '../../../../apis/setting'
-import useGetNotiData from '../../../../apis/UserData/NotificationData'
-import { RootState } from '../../../../store/store'
 import { CommentWrite } from './PostComment.style'
+import { RootState } from '../../../../store/store'
+import { apiInstance } from '../../../../apis/setting'
+import { toast } from 'react-toastify'
+import useGetNotiData from '../../../../react-query/UserData/NotificationData'
+import { useSelector } from 'react-redux'
+import { useState } from 'react'
 
 const PostReplyWrite = (props) => {
     const { accessToken, contentIdx, reply, refreshFunction, clickReply } = props

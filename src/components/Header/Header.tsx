@@ -2,7 +2,7 @@ import { HeaderContainer } from './Header.style'
 import HeaderFirstNav from './HeaderFirstNav/HeaderFirstNav'
 import HeaderSecondNav from './HeaderSecondNav/HeaderSecondNav'
 import { RootState } from '../../store/store'
-import useGetUserImage from '../../apis/UserData/UserImage'
+import useGetUserImage from '../../react-query/UserData/UserImage'
 import { useSelector } from 'react-redux'
 
 const Header = () => {

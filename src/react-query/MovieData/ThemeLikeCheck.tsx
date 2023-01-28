@@ -1,8 +1,8 @@
 import { AxiosError, AxiosResponse } from "axios";
-import { GetServerSideProps } from "next";
-import { dehydrate, QueryClient, useQuery } from "react-query";
-import { apiInstance } from "../setting";
+import { QueryClient, dehydrate, useQuery } from "react-query";
 
+import { GetServerSideProps } from "next";
+import { apiInstance } from '../../apis/setting'
 
 export const getServerSidePropsThemeLikeCheck: GetServerSideProps = async (context) => {
     const { type, userIdx, name } = context.query as any

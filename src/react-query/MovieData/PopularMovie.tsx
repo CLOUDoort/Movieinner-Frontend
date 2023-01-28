@@ -1,7 +1,8 @@
-import { apiInstance } from '../setting'
-import { AxiosResponse, AxiosError } from 'axios'
-import { dehydrate, QueryClient, useQuery } from 'react-query'
+import { AxiosError, AxiosResponse } from 'axios'
+import { QueryClient, dehydrate, useQuery } from 'react-query'
+
 import { GetServerSideProps } from 'next'
+import { apiInstance } from '../../apis/setting'
 
 export const getServerSidePropsPopularMovie: GetServerSideProps = async (context) => {
     const queryClient = new QueryClient()

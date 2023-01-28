@@ -6,7 +6,7 @@ import Image from "next/image"
 import LoadingLogo from '../../Common/Loading/LoadingLogo'
 import { RootState } from '../../../store/store'
 import { toast } from 'react-toastify'
-import useGetUserImage from '../../../apis/UserData/UserImage'
+import useGetUserImage from '../../../react-query/UserData/UserImage'
 import { useRouter } from 'next/router'
 import { useSelector } from 'react-redux'
 

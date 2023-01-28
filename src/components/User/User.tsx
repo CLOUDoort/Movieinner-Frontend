@@ -1,12 +1,12 @@
-import { useRouter } from 'next/router'
-import { useSelector } from 'react-redux'
-import { RootState } from '../../store/store'
 import LoadingLogo from '../Common/Loading/LoadingLogo'
-import useGetUserPosts from '../../apis/UserData/UserPosts'
+import { RootState } from '../../store/store'
 import { UserBox } from './User.style'
 import UserData from './UserData/UserData'
 import UserProfile from './UserProfile/UserProfile'
-import useGetUserLiked from '../../apis/UserData/UserLiked'
+import useGetUserLiked from '../../react-query/UserData/UserLiked'
+import useGetUserPosts from '../../react-query/UserData/UserPosts'
+import { useRouter } from 'next/router'
+import { useSelector } from 'react-redux'
 
 const User = () => {
     const router = useRouter()

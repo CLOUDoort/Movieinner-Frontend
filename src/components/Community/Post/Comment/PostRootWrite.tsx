@@ -1,8 +1,8 @@
-import { useState } from 'react'
-import { toast } from 'react-toastify'
-import { apiInstance } from '../../../../apis/setting'
-import useGetNotiData from '../../../../apis/UserData/NotificationData'
 import { CommentWrite } from './PostComment.style'
+import { apiInstance } from '../../../../apis/setting'
+import { toast } from 'react-toastify'
+import useGetNotiData from '../../../../react-query/UserData/NotificationData'
+import { useState } from 'react'
 
 const PostRootWrite = (props) => {
     const { accessToken, contentIdx, refreshFunction, userIdx } = props

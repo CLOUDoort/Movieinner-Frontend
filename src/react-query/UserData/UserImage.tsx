@@ -1,7 +1,8 @@
 import { AxiosError, AxiosResponse } from 'axios'
+import { QueryClient, dehydrate, useQuery } from 'react-query'
+
 import { GetServerSideProps } from 'next'
-import { dehydrate, QueryClient, useQuery } from 'react-query'
-import { apiInstance } from '../setting'
+import { apiInstance } from '../../apis/setting'
 export interface PostData {
     userIdx: string | string[]
 }

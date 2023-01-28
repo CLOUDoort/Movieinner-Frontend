@@ -3,7 +3,7 @@ import HeaderNotiModal from "./HeaderNotiModal"
 import { HeaderNotiNum } from "./HeaderNotiModal.style"
 import { IoIosNotificationsOutline } from "react-icons/io"
 import { RootState } from "../../../store/store"
-import useGetNotiData from "../../../apis/UserData/NotificationData"
+import useGetNotiData from "../../../react-query/UserData/NotificationData"
 import { useSelector } from "react-redux"
 import { useState } from "react"
 

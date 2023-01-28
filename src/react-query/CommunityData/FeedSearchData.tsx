@@ -1,7 +1,8 @@
-import { AxiosResponse, AxiosError } from 'axios'
-import { dehydrate, QueryClient, useQuery } from 'react-query'
+import { AxiosError, AxiosResponse } from 'axios'
+import { QueryClient, dehydrate, useQuery } from 'react-query'
+
 import { GetServerSideProps } from 'next'
-import { apiInstance } from '../setting'
+import { apiInstance } from '../../apis/setting'
 
 export const getServerSidePropsFeedSearchData: GetServerSideProps = async (context) => {
     const { type, search, page } = context.query as any
