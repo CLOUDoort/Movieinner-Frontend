@@ -40,7 +40,6 @@ declare global {
     }
 }
 const MyApp: NextComponentType<AppContext, AppInitialProps, AppProps> = ({ Component, pageProps }: AppProps) => {
-    // const NoSSRToastContainer = dynamic(import('react-toastify').then((module) => module.ToastContainer), { ssr: false })
     return (
         <QueryClientProvider client={queryClient}>
             <Provider store={store}>
