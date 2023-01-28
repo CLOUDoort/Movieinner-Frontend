@@ -1,12 +1,13 @@
-import Router from 'next/router'
 import { useEffect, useState } from 'react'
-import { useDispatch } from 'react-redux'
-import { apiInstance } from '../../../apis/setting'
-import { setToken } from '../../../store/reducers/logintokenSlice'
-import { setSocialEmail } from '../../../store/reducers/socialSlice'
-import Signupinfo from '../Signup/Signupinfo'
-import { toast } from 'react-toastify'
+
 import LoadingLogo from '../../Common/Loading/LoadingLogo'
+import Router from 'next/router'
+import Signupinfo from '../Signup/Signupinfo'
+import { apiInstance } from '../../../apis/setting'
+import { setSocialEmail } from '../../../store/reducers/socialSlice'
+import { setToken } from '../../../store/reducers/logintokenSlice'
+import { toast } from 'react-toastify'
+import { useDispatch } from 'react-redux'
 
 const KakaoLogin = () => {
     const [valid, setValid] = useState(false)
@@ -32,6 +33,9 @@ const KakaoLogin = () => {
                     } catch (e) {
                         console.log(e.response)
                     }
+                } else {
+                    console.error("error")
+                    toast.error("error")
                 }
                 setValid(true)
             } catch (e) {
