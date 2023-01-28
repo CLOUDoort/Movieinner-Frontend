@@ -1,18 +1,19 @@
-import Link from 'next/link'
 import { FormContainer, FormDiv, LoginContainerDiv, LoginDiv, LoginFailText, LoginSecondDiv, LoginSustainDiv, SubmitInput } from './Login.style'
-import { useState } from 'react'
-import { apiInstance } from '../../../apis/setting'
-import axios from 'axios'
-import { useDispatch } from 'react-redux'
-import { setToken } from '../../../store/reducers/logintokenSlice'
+
+import { CheckText } from '../Signup/Signup.style'
+import Link from 'next/link'
 import Router from 'next/router'
 import SocialLogin from './SocialLogin'
+import { apiInstance } from '../../../apis/setting'
+import axios from 'axios'
+import { setToken } from '../../../store/reducers/logintokenSlice'
 import { toast } from 'react-toastify'
-import { CheckText } from '../Signup/Signup.style'
+import { useDispatch } from 'react-redux'
+import { useState } from 'react'
 
 const JWT_EXPIRY_TIME = 3600 * 1000
 const Login = () => {
-    axios.defaults.baseURL = 'http://localhost:3000'
+    axios.defaults.baseURL = 'https://www.movie-inner.click'
 
     const [check, setCheck] = useState({
         user: true,
