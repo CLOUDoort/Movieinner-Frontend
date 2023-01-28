@@ -1,8 +1,5 @@
 import { apiInstance } from '../../apis/setting'
-<<<<<<< HEAD
 import { queryKeys } from '../constants';
-=======
->>>>>>> e375213 (Updated : react-query)
 import { useInfiniteQuery } from "react-query";
 
 export const getActorSearch = (search: any, searchPage: any) => apiInstance.get(`/search/actor`, {
