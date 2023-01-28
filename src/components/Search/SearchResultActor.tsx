@@ -1,7 +1,7 @@
 import { SearchBox, SearchListItem } from "./Search.style"
 
 import Image from "next/image"
-import useGetActorSearch from "../../apis/MovieData/ActorSearch"
+import useGetActorSearch from "../../react-query/MovieData/ActorSearch"
 import { useObserver } from "../Common/UseObserver"
 import { useRef } from "react"
 

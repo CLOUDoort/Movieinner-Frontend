@@ -2,7 +2,7 @@ import { SearchBox, SearchListItem } from "./Search.style"
 
 import Image from "next/image"
 import router from "next/router"
-import useGetMovieSearch from "../../apis/MovieData/MovieSearch"
+import useGetMovieSearch from "../../react-query/MovieData/MovieSearch"
 import { useObserver } from "../Common/UseObserver"
 import { useRef } from "react"
 

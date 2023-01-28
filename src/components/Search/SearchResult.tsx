@@ -1,11 +1,12 @@
-import { useEffect, useState } from "react"
-import { IoIosArrowForward } from "react-icons/io"
-import useGetActorSearch from "../../apis/MovieData/ActorSearch"
-import useGetMovieSearch from "../../apis/MovieData/MovieSearch"
 import { SearchListTitle, SearchResultBox } from "./Search.style"
+import { useEffect, useState } from "react"
+
+import { IoIosArrowForward } from "react-icons/io"
 import SearchResultActor from "./SearchResultActor"
 import SearchResultGenre from "./SearchResultGenre"
 import SearchResultMovie from "./SearchResultMovie"
+import useGetActorSearch from "../../react-query/MovieData/ActorSearch"
+import useGetMovieSearch from "../../react-query/MovieData/MovieSearch"
 
 const SearchResult = (props) => {
     const { search, genreName, genre } = props

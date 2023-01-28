@@ -1,14 +1,14 @@
-import { useRouter } from 'next/router'
-import { useState } from 'react'
-import { useSelector } from 'react-redux'
-import { toast } from 'react-toastify'
-import useGetFeedSearchData from '../../../../apis/CommunityData/FeedSearchData'
-import { RootState } from '../../../../store/store'
-import LoadingLogo from '../../../Common/Loading/LoadingLogo'
 import { FeedContainer } from '../Feed.style'
 import FeedPagination from '../FeedPagination'
 import FeedRemote from '../FeedRemote'
 import FeedSearchList from './FeedSearchList'
+import LoadingLogo from '../../../Common/Loading/LoadingLogo'
+import { RootState } from '../../../../store/store'
+import { toast } from 'react-toastify'
+import useGetFeedSearchData from '../../../../react-query/CommunityData/FeedSearchData'
+import { useRouter } from 'next/router'
+import { useSelector } from 'react-redux'
+import { useState } from 'react'
 
 const FeedSearchResult = () => {
     const accessToken = useSelector((state: RootState) => state.token.token)

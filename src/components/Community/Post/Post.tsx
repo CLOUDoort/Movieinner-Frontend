@@ -1,12 +1,13 @@
-import { useEffect, useState } from 'react'
-import { useRouter } from 'next/router'
 import { PostBox, PostContainer } from './Post.style'
+import { useEffect, useState } from 'react'
+
+import LoadingLogo from '../../Common/Loading/LoadingLogo'
 import PostComment from './Comment/PostComment'
 import PostContent from './PostContent'
 import { apiInstance } from '../../../apis/setting'
-import LoadingLogo from '../../Common/Loading/LoadingLogo'
-import useGetPostCommentData from '../../../apis/CommunityData/PostCommentData'
-import useGetPostData from '../../../apis/CommunityData/PostData'
+import useGetPostCommentData from '../../../react-query/CommunityData/PostCommentData'
+import useGetPostData from '../../../react-query/CommunityData/PostData'
+import { useRouter } from 'next/router'
 
 const Post = () => {
     const router = useRouter()

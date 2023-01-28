@@ -1,10 +1,11 @@
-import { IoIosArrowForward } from "react-icons/io"
 import { SearchBox, SearchGenreTitle, SearchListItem } from "./Search.style"
+
 import Image from "next/image"
+import { IoIosArrowForward } from "react-icons/io"
 import Link from "next/link"
+import useGetGenreData from "../../react-query/MovieData/GenreData"
 import { useObserver } from "../Common/UseObserver"
 import { useRef } from "react"
-import useGetGenreData from "../../apis/MovieData/GenreData"
 
 const SearchResultGenre = (props) => {
     const { genreName, genre } = props
