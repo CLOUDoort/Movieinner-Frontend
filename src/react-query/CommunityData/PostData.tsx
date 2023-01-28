@@ -3,6 +3,8 @@ import { QueryClient, dehydrate, useQuery } from 'react-query'
 
 import { GetServerSideProps } from 'next'
 import { apiInstance } from '../../apis/setting'
+import { queryKeys } from '../constants'
+
 export interface PostData {
     idx: string | string[]
 }
@@ -10,7 +12,7 @@ export interface PostData {
 export const getServerSidePropsPostData: GetServerSideProps = async (context) => {
     const { idx } = context.query as any
     const queryClient = new QueryClient()
-    await queryClient.prefetchQuery(['postData', idx], () => useGetPostData(idx))
+    await queryClient.prefetchQuery([queryKeys.postData, idx], () => useGetPostData(idx))
     return {
         props: {
             dehydratedState: dehydrate(queryClient),
@@ -22,7 +24,7 @@ export const getPostData = (idx: PostData) => apiInstance.get(`/community/conten
 
 const useGetPostData = (idx: any) => {
     const queryFn = () => getPostData(idx)
-    return useQuery<AxiosResponse<any>, AxiosError>(['postData', idx], queryFn)
+    return useQuery<AxiosResponse<any>, AxiosError>([queryKeys.postData, idx], queryFn)
 }
 
 export default useGetPostData

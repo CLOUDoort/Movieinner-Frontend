@@ -1,4 +1,5 @@
 import { apiInstance } from '../../apis/setting'
+import { queryKeys } from '../constants';
 import { useInfiniteQuery } from "react-query";
 
 export const getGenreData = (search: any, searchPage: any) => apiInstance.get(`/movies/category`, {
@@ -14,7 +15,7 @@ const useGetGenreData = (search: any) => {
         const { data } = response
         return { data, searchPage: searchPage }
     }
-    return useInfiniteQuery(['genreData', (search)], ({ pageParam = 1 }) => queryFn(search, pageParam), {
+    return useInfiniteQuery([queryKeys.genreData, (search)], ({ pageParam = 1 }) => queryFn(search, pageParam), {
         getNextPageParam: (lastPage) => lastPage.searchPage + 1 || undefined
     })
 }

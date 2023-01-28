@@ -1,0 +1,18 @@
+export const queryKeys = {
+    feedData: "feedData",
+    feedSearchData: "feedSearchData",
+    hitFeed: "hitFeed",
+    postCommentData: "postCommentData",
+    postData: "postData",
+    actorSearch: "actorSearch",
+    genreData: "genreData",
+    movieSearch:"movieSearch",
+    popularMovie:"popularMovie",
+    ThemeLikeCheck: "themeLikeCheck",
+    themeMovie: "themeMovie",
+    upComing: "upComing",
+    NotiData: "notiData",
+    userImage: "userImage",
+    userLiked: "userLiked",
+    userPosts: "userPosts",
+}

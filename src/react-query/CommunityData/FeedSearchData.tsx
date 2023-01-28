@@ -3,11 +3,12 @@ import { QueryClient, dehydrate, useQuery } from 'react-query'
 
 import { GetServerSideProps } from 'next'
 import { apiInstance } from '../../apis/setting'
+import { queryKeys } from '../constants'
 
 export const getServerSidePropsFeedSearchData: GetServerSideProps = async (context) => {
     const { type, search, page } = context.query as any
     const queryClient = new QueryClient()
-    await queryClient.prefetchQuery(['feedSearchData', type, search, page], () => useGetFeedSearchData(type, search, page))
+    await queryClient.prefetchQuery([queryKeys.feedSearchData, type, search, page], () => useGetFeedSearchData(type, search, page))
     return {
         props: {
             dehydratedState: dehydrate(queryClient),
@@ -26,7 +27,7 @@ export const getFeedSearchData = (type: string, search: string, page: any) =>
 
 const useGetFeedSearchData = (type: any, search: any, page: any) => {
     const queryFn = () => getFeedSearchData(type, search, page)
-    return useQuery<AxiosResponse<any>, AxiosError>(['feedSearchData', type, search, page], queryFn)
+    return useQuery<AxiosResponse<any>, AxiosError>([queryKeys.feedSearchData, type, search, page], queryFn)
 }
 
 export default useGetFeedSearchData

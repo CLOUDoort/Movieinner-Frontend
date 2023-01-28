@@ -1,4 +1,5 @@
 import { apiInstance } from '../../apis/setting'
+import { queryKeys } from '../constants';
 import { useInfiniteQuery } from "react-query";
 
 export const getActorSearch = (search: any, searchPage: any) => apiInstance.get(`/search/actor`, {
@@ -15,7 +16,7 @@ const useGetActorSearch = (search: any) => {
         const { data } = response
         return { data, searchPage: searchPage }
     }
-    return useInfiniteQuery(['actorSearch', (search)], ({ pageParam = 1 }) => queryFn(search, pageParam), {
+    return useInfiniteQuery([queryKeys.actorSearch, (search)], ({ pageParam = 1 }) => queryFn(search, pageParam), {
         getNextPageParam: (lastPage) => lastPage.searchPage + 1 || undefined
     })
 }
