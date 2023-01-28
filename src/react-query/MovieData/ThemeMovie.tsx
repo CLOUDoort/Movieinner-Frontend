@@ -3,7 +3,10 @@ import { QueryClient, dehydrate, useQuery } from 'react-query'
 
 import { GetServerSideProps } from 'next'
 import { apiInstance } from '../../apis/setting'
+<<<<<<< HEAD
 import { queryKeys } from '../constants'
+=======
+>>>>>>> e375213 (Updated : react-query)
 
 export const getServerSidePropsThemeMovie: GetServerSideProps = async (context) => {
     const queryClient = new QueryClient()
