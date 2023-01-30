@@ -2,7 +2,6 @@ import { AxiosError, AxiosResponse } from 'axios'
 import { QueryClient, dehydrate, useQuery } from 'react-query'
 
 import { GetServerSideProps } from 'next'
-import { QueryKey } from 'react-query';
 import { apiInstance } from '../../apis/setting'
 import { queryKeys } from '../constants';
 
