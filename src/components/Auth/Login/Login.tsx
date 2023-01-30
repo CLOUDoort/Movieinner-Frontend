@@ -13,7 +13,7 @@ import { useState } from 'react'
 
 const JWT_EXPIRY_TIME = 3600 * 1000
 const Login = () => {
-    axios.defaults.baseURL = 'https://www.movie-inner.click'
+    axios.defaults.baseURL = 'http://localhost:3714'
 
     const [check, setCheck] = useState({
         user: true,
