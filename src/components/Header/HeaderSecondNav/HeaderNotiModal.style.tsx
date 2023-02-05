@@ -55,6 +55,7 @@ export const HeaderNotiModalList = styled.div`
         font-size: 0.8rem;
         display: flex;
         align-items: center;
+        cursor: pointer;
         > div {
             margin-left: 0.3rem;
         }
