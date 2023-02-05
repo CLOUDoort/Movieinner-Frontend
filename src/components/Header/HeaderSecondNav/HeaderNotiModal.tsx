@@ -30,13 +30,10 @@ const HeaderNotiModal = (props) => {
             {loginToken && <HeaderNotiModalBox transition={transition} onClick={(e) => e.stopPropagation()}>
                 <div>알림</div>
                 {notiData?.map((obj) => (
-                    <HeaderNotiModalList onClick={() => {
-                        router.push(`/community/post/${obj.content_idx}`)
-                        controlModal()
-                    }} key={obj.idx} onMouseEnter={() => setDeleteIdx(obj.idx)} onMouseLeave={() => setDeleteIdx(0)} >
+                    <HeaderNotiModalList onClick={() => { controlModal() }} key={obj.idx} onMouseEnter={() => setDeleteIdx(obj.idx)} onMouseLeave={() => setDeleteIdx(0)} >
                         <div>
                             <Image src={obj.image_URL ? obj.image_URL : '/blank.png'} width={30} height={30} alt={obj.nickname} />
-                            <div>
+                            <div onClick={() => router.push(`/community/post/${obj.content_idx}`)}>
                                 <div>{obj.nickname}님의 {obj.comment_idx ? "답글" : "댓글"} :</div>
                                 <div>{obj.comment}</div>
                             </div>
