@@ -1,6 +1,14 @@
 # Movie-Inner 프로젝트 - 프론트엔드
 TBDB API를 이용한 영화 정보, 커뮤니티 웹입니다.
 
+## 목차
+
+- [기간](#기간)
+- [기술 스택](#기술-스택)
+- [기능](#기능)
+- [설치](#설치)
+- [협업](#협업)
+
 ## 기간
 220730 ~ 230128
 
@@ -31,6 +39,17 @@ TBDB API를 이용한 영화 정보, 커뮤니티 웹입니다.
 - 최근 본 영화 
   - IndexedDB 이용 | [구현 과정](https://velog.io/@cloud_oort/Next.js%EC%97%90%EC%84%9C-indexedDB-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0)
 - 영화 & 테마 좋아요
+
+## 설치
+```
+git init
+git clone https://github.com/CLOUDoort/movieinner-project-frontend.git
+npm i
+
+// local 
+git switch local
+
+```
 
 ## 협업
 [백엔드 코드 개발자 Github 주소](https://github.com/HoonDongKang/movieinner-project-backend)
