@@ -1,5 +1,8 @@
 # Movie-Inner 프로젝트 - 프론트엔드
 TBDB API를 이용한 영화 정보, 커뮤니티 웹입니다.
+<br />
+
+![스크린샷 2023-02-11 오후 1 01 40](https://user-images.githubusercontent.com/93777385/218238177-18f2fb3f-7e8d-44f3-abc3-fd2c7ddfa814.png)
 
 ## 목차
 
@@ -35,7 +38,9 @@ TBDB API를 이용한 영화 정보, 커뮤니티 웹입니다.
 ![](https://velog.velcdn.com/images/cloud_oort/post/69fbf22b-a4b5-492a-980f-bdad964fece3/image.gif)
 
 - 커뮤니티
-  - 에디터 | [구현 과정](https://velog.io/@cloud_oort/Next.js-toast-ui-editor-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0) 
+  - 에디터 | [구현 과정](https://velog.io/@cloud_oort/Next.js-toast-ui-editor-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0) <br/> <br/>
+    <img src="https://user-images.githubusercontent.com/93777385/218240237-fcd97d7e-ef15-405b-a085-8fa2ae8a02cc.png" width="70%" height="50%"/>
+  
   - 댓글, 대댓글 Layout [구현 과정](https://velog.io/@cloud_oort/Next.js-%EB%8C%93%EA%B8%80-%EB%8C%80%EB%8C%93%EA%B8%80-%EC%A0%84%EC%B2%B4%EC%A0%81%EC%9D%B8-Layout)
   - 검색기능
 - 최근 본 영화 
