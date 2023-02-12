@@ -63,6 +63,7 @@ npm i
 
 // local 
 git switch local
+// local 주소는 localhost:3000
 
 ```
 
