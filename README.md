@@ -31,7 +31,7 @@ TBDB API를 이용한 영화 정보 및 커뮤니티 웹입니다.
     <img src="https://user-images.githubusercontent.com/93777385/218317446-b631ed2e-c959-4c33-b791-60a5de78dee7.gif" width="80%" height="70%"/>
   - 소셜로그인 | [카카오 로그인 구현과정](https://velog.io/@cloud_oort/Next.js-%EC%86%8C%EC%85%9C%EB%A1%9C%EA%B7%B8%EC%9D%B8-%EC%B9%B4%EC%B9%B4%EC%98%A4-%EB%A1%9C%EA%B7%B8%EC%9D%B8%EC%9D%84-%EC%A0%95%EB%A7%90-%EC%89%BD%EA%B2%8C-%EA%B5%AC%ED%98%84%EC%9D%B4%EB%9D%BC%EB%8F%84-%ED%95%B4%EB%B3%B4%EA%B3%A0%EC%8B%B6%EB%8B%A4%EB%A9%B4-%ED%95%84%EB%8F%85)
 - 검색기능
-  - 검색기능 | 구현과정
+  - 검색기능 | [구현 과정](https://velog.io/@cloud_oort/Next.js-%EC%98%81%ED%99%94-%EA%B2%80%EC%83%89-%EA%B8%B0%EB%8A%A5-%EA%B5%AC%ED%98%84)
   - 무한 스크롤 구현  |  [구현 과정](https://velog.io/@cloud_oort/React-Query-%EA%B3%B5%EB%B6%80-5-%EB%AC%B4%ED%95%9C%EC%8A%A4%ED%81%AC%EB%A1%A4-%EA%B5%AC%ED%98%84%ED%95%98%EA%B8%B0Next.js)
   - 카테고리 검색 무한스크롤 <br/> <br/>
     <img src="https://velog.velcdn.com/images/cloud_oort/post/7681360d-4c56-4832-8680-2f2e5ff4a8a5/image.gif" width="80%" height="70%"/>
@@ -40,11 +40,6 @@ TBDB API를 이용한 영화 정보 및 커뮤니티 웹입니다.
     <img src="https://velog.velcdn.com/images/cloud_oort/post/69fbf22b-a4b5-492a-980f-bdad964fece3/image.gif" width="80%" height="70%"/>
 
 - 커뮤니티
-  - 글 목록 <br/> <br/>
-    <img src="https://user-images.githubusercontent.com/93777385/218319852-856c1ecc-a8b7-4c4d-9127-1d7a0601d867.png" width="80%" height="70%"/>
-  - 본문 <br/> <br/>
-    <img src="https://user-images.githubusercontent.com/93777385/218320085-fda43ffe-5a05-4ee4-b77f-947f6d37695d.png" width="80%" height="70%"/>
-
   - 에디터 | [구현 과정](https://velog.io/@cloud_oort/Next.js-toast-ui-editor-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0) <br/> <br/>
     <img src="https://user-images.githubusercontent.com/93777385/218240237-fcd97d7e-ef15-405b-a085-8fa2ae8a02cc.png" width="80%" height="70%"/>
   
