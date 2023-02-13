@@ -56,10 +56,8 @@ git init
 git clone https://github.com/CLOUDoort/movieinner-project-frontend.git
 npm i
 
-// local 
-git switch local
 // local 주소는 localhost:3000
-
+git switch local
 ```
 
 ## 협업
