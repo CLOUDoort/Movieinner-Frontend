@@ -39,8 +39,8 @@ TMDB API를 이용한 영화 정보 및 커뮤니티 웹입니다.
   - 영화 제목, 영화 배우 검색 무한스크롤 <br/> <br/>
     <img src="https://velog.velcdn.com/images/cloud_oort/post/69fbf22b-a4b5-492a-980f-bdad964fece3/image.gif" width="80%" height="70%"/>
 - 커뮤니티
-  - 에디터 | [구현 과정](https://velog.io/@cloud_oort/Next.js-toast-ui-editor-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0) <br/> <br/>
-  - 댓글, 대댓글 Layout | [구현 과정](https://velog.io/@cloud_oort/Next.js-%EB%8C%93%EA%B8%80-%EB%8C%80%EB%8C%93%EA%B8%80-%EC%A0%84%EC%B2%B4%EC%A0%81%EC%9D%B8-Layout) <br/> <br/>
+  - 에디터 | [구현 과정](https://velog.io/@cloud_oort/Next.js-toast-ui-editor-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0)
+  - 댓글, 대댓글 Layout | [구현 과정](https://velog.io/@cloud_oort/Next.js-%EB%8C%93%EA%B8%80-%EB%8C%80%EB%8C%93%EA%B8%80-%EC%A0%84%EC%B2%B4%EC%A0%81%EC%9D%B8-Layout)
   - 검색기능
 - 최근 본 영화 
   - IndexedDB 이용 | [구현 과정](https://velog.io/@cloud_oort/Next.js%EC%97%90%EC%84%9C-indexedDB-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0)
