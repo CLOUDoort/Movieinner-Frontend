@@ -40,10 +40,7 @@ TMDB API를 이용한 영화 정보 및 커뮤니티 웹입니다.
     <img src="https://velog.velcdn.com/images/cloud_oort/post/69fbf22b-a4b5-492a-980f-bdad964fece3/image.gif" width="80%" height="70%"/>
 - 커뮤니티
   - 에디터 | [구현 과정](https://velog.io/@cloud_oort/Next.js-toast-ui-editor-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0) <br/> <br/>
-    <img src="https://user-images.githubusercontent.com/93777385/218240237-fcd97d7e-ef15-405b-a085-8fa2ae8a02cc.png" width="80%" height="70%"/>
-  
   - 댓글, 대댓글 Layout | [구현 과정](https://velog.io/@cloud_oort/Next.js-%EB%8C%93%EA%B8%80-%EB%8C%80%EB%8C%93%EA%B8%80-%EC%A0%84%EC%B2%B4%EC%A0%81%EC%9D%B8-Layout) <br/> <br/>
-    <img src="https://velog.velcdn.com/images/cloud_oort/post/73e018e7-ff6f-4f8b-9e48-efc150bf07ce/image.png" width="80%" height="70%"/>
   - 검색기능
 - 최근 본 영화 
   - IndexedDB 이용 | [구현 과정](https://velog.io/@cloud_oort/Next.js%EC%97%90%EC%84%9C-indexedDB-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0)
