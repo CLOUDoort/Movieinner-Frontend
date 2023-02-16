@@ -19,11 +19,6 @@ const Feed = () => {
     const { data, isLoading } = useGetFeedData(currentPage)
     const hitData = useGetHitFeed().data
 
-    let rankingNum = 1;
-    const hitDataList = hitData?.data?.top5Contents?.map((obj) => ({
-        ...obj, rankingNum: rankingNum++
-    }))
-
     const clickWrite = () => {
         if (accessToken) router.push('/community/write')
         else toast.error('로그인이 필요합니다!')
@@ -32,7 +27,7 @@ const Feed = () => {
     return (
         <>
             {!isLoading ? <FeedContainer>
-                <FeedRanking hit={hitDataList} />
+                <FeedRanking hit={hitData} />
                 <FeedList feedPost={data} />
                 <FeedRemote clickWrite={clickWrite} />
                 <FeedPagination currentPage={currentPage} setCurrentPage={setCurrentPage} maxPage={data?.data?.contents?.totalPage} />

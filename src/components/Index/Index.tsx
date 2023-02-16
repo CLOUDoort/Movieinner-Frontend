@@ -19,10 +19,6 @@ const Index = () => {
     const [sliderImage, setSliderImage] = useState([])
     const upComing = useGetUpComing(1).data
 
-    let rankingNum = 1;
-    const hitDataList = hitFeed?.data?.top5Contents.map((obj) => ({
-        ...obj, rankingNum: rankingNum++
-    }))
     useEffect(() => {
         const getResponse = () => {
             if (!isLoading) {
@@ -44,7 +40,7 @@ const Index = () => {
                 <IndexSlider sliderImage={sliderImage} />
                 <IndexPopularList popularMovie={popularMovie?.data} />
                 <IndexUpComingList upComingList={upComing?.data?.resultArray} />
-                <FeedRanking hit={hitDataList} />
+                <FeedRanking hit={hitFeed} />
             </IndexBox> : <LoadingLogo />}
         </>
     )
