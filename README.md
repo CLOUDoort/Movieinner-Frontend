@@ -33,15 +33,9 @@ TMDB API를 이용한 영화 정보 및 커뮤니티 웹입니다.
 - 검색기능
   - 검색기능 | [구현 과정](https://velog.io/@cloud_oort/Next.js-%EC%98%81%ED%99%94-%EA%B2%80%EC%83%89-%EA%B8%B0%EB%8A%A5-%EA%B5%AC%ED%98%84)
   - 무한 스크롤 구현  |  [구현 과정](https://velog.io/@cloud_oort/React-Query-%EA%B3%B5%EB%B6%80-5-%EB%AC%B4%ED%95%9C%EC%8A%A4%ED%81%AC%EB%A1%A4-%EA%B5%AC%ED%98%84%ED%95%98%EA%B8%B0Next.js)
-  - 카테고리 검색 무한스크롤 <br/> <br/>
-    <img src="https://velog.velcdn.com/images/cloud_oort/post/7681360d-4c56-4832-8680-2f2e5ff4a8a5/image.gif" width="80%" height="70%"/>
-
-  - 영화 제목, 영화 배우 검색 무한스크롤 <br/> <br/>
-    <img src="https://velog.velcdn.com/images/cloud_oort/post/69fbf22b-a4b5-492a-980f-bdad964fece3/image.gif" width="80%" height="70%"/>
-- 커뮤니티
   - 에디터 | [구현 과정](https://velog.io/@cloud_oort/Next.js-toast-ui-editor-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0)
   - 댓글, 대댓글 Layout | [구현 과정](https://velog.io/@cloud_oort/Next.js-%EB%8C%93%EA%B8%80-%EB%8C%80%EB%8C%93%EA%B8%80-%EC%A0%84%EC%B2%B4%EC%A0%81%EC%9D%B8-Layout)
-  - 검색기능
+  - 검색기능 | [구현 과정](https://velog.io/@cloud_oort/Next.js-%EC%BB%A4%EB%AE%A4%EB%8B%88%ED%8B%B0-%EA%B2%80%EC%83%89-%EA%B8%B0%EB%8A%A5Material-UI)
 - 최근 본 영화 
   - IndexedDB 이용 | [구현 과정](https://velog.io/@cloud_oort/Next.js%EC%97%90%EC%84%9C-indexedDB-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0)
 - 영화 & 테마 좋아요
