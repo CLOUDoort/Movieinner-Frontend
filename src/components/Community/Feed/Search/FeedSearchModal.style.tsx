@@ -35,6 +35,7 @@ export const SearchModalBox = styled.div`
             margin-top: 1.25rem;
             > button {
                 border: none;
+                width: 6.875rem;
                 padding: 0.8rem 1.8rem;
                 font-size: 0.9rem;
             }
