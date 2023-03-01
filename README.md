@@ -1,5 +1,8 @@
 # Movie-Inner 프로젝트 - 프론트엔드
 TMDB API를 이용한 영화 정보 및 커뮤니티 웹입니다.
+
+[프로젝트 소개 글](https://velog.io/@cloud_oort/Next.jsMovie-inner-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EC%86%8C%EA%B0%9C)
+
 <br />
 
 ![스크린샷 2023-02-11 오후 1 01 40](https://user-images.githubusercontent.com/93777385/218238177-18f2fb3f-7e8d-44f3-abc3-fd2c7ddfa814.png)
@@ -39,7 +42,6 @@ TMDB API를 이용한 영화 정보 및 커뮤니티 웹입니다.
   - 검색기능 | [구현 과정](https://velog.io/@cloud_oort/Next.js-%EC%BB%A4%EB%AE%A4%EB%8B%88%ED%8B%B0-%EA%B2%80%EC%83%89-%EA%B8%B0%EB%8A%A5Material-UI)
 - 최근 본 영화 
   - IndexedDB 이용 | [구현 과정](https://velog.io/@cloud_oort/Next.js%EC%97%90%EC%84%9C-indexedDB-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0)
-- 테마 | [구현 과정](https://velog.io/@cloud_oort/Next.js%EC%97%90%EC%84%9C-indexedDB-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0)
 ## 설치
 ```
 git init
