@@ -39,8 +39,7 @@ TMDB API를 이용한 영화 정보 및 커뮤니티 웹입니다.
   - 검색기능 | [구현 과정](https://velog.io/@cloud_oort/Next.js-%EC%BB%A4%EB%AE%A4%EB%8B%88%ED%8B%B0-%EA%B2%80%EC%83%89-%EA%B8%B0%EB%8A%A5Material-UI)
 - 최근 본 영화 
   - IndexedDB 이용 | [구현 과정](https://velog.io/@cloud_oort/Next.js%EC%97%90%EC%84%9C-indexedDB-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0)
-- 영화 & 테마 좋아요
-
+- 테마 | [구현 과정](https://velog.io/@cloud_oort/Next.js%EC%97%90%EC%84%9C-indexedDB-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0)
 ## 설치
 ```
 git init
