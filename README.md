@@ -5,7 +5,7 @@ TMDB API를 이용한 영화 정보 및 커뮤니티 웹입니다.
 
 <br />
 
-![스크린샷 2023-02-11 오후 1 01 40](https://user-images.githubusercontent.com/93777385/218238177-18f2fb3f-7e8d-44f3-abc3-fd2c7ddfa814.png)
+![스크린샷 2023-02-11 오후 1 01 40](https://velog.velcdn.com/images/cloud_oort/post/f9fab281-ac62-4853-a10a-f411aacb079f/image.png)
 
 ## 목차
 
